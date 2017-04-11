@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html id="top">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <!-- style sheets -->
+    <link rel="stylesheet" type="text/css" href="<%- build_url() %>/static/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="<%- build_url() %>/static/css/style.css">
+
+    <!-- page title -->
+    <title><%= page_title %></title>
+  </head>
+  <body>
+    <nav class="top-nav col-100">
+      <% for k, v in pairs( nav_data ) do %>
+        <% if page_type == "catalog" then %>
+          <a href="<%- build_url() %>/catalog/<%- v['feedName'] %>"><%= string.upper(v['feedName']) %></a>
+        <% else %>
+          <a href="<%- build_url() %>/feed/<%- v['feedName'] %>"><%= string.upper(v['feedName']) %></a>
+        <% end %>
+      <% end %>
+    </nav>
+
+    <% if errors then %>
+      <% render("views.error") %>
+    <% end %>
+
+    <% content_for("inner") %>
+
+  </body>
+</html>

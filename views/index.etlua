@@ -1,0 +1,20 @@
+<div class="catalog-wrapper">
+
+  <h1>boards</h1>
+
+  <% for k, v in pairs( nav_data ) do %>
+
+    <div class="col-15 col-m-33 col-s-100 catalog-section">
+      <img class="col-100 padding-bottom" src="<%- build_url() %>/static/img/<%= v['feedName'] %>.jpg" alt="<%= v['feedName'] %>"/>
+      <h2 class="padding-bottom"><%= v['feedName'] %></h2>
+      <a href="/feed/<%- v['feedName'] %>" class="col-50 version-buttons" style="border-right: 1px solid #2b3b4a;">
+        <h4>feed</h4>
+      </a>
+      <a href="/catalog/<%- v['feedName'] %>" class="col-50 version-buttons">
+        <h4>catalog</h4>
+      </a>
+    </div>
+
+  <% end %>
+
+</div>

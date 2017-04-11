@@ -1,0 +1,87 @@
+<% local Posts = require "models.posts" %>
+
+<div class="col-30 col-m-25">
+  &nbsp;
+</div>
+
+<div class="col-40 col-m-50 col-s-100 padding-bottom">
+
+  <div class="col-100">
+    <h1><%= feed_desc %></h1>
+
+    <div class="col-100">
+      <div class="col-50 col-s-100">
+
+        <form action="<%- submit_url .. params.feedName .. "/" .. params.threadID %>" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
+          <input type="text" name="email" class="form-email">
+          <input type="hidden" name="threadTitle" value="<%- thread_data[1]['threadTitle'] %>">
+
+          <div class="col-100">
+            <textarea name="postBody" placeholder="type your thread content" required></textarea>
+          </div>
+          <div class="col-100 margin-bottom">
+          <div class="col-70">
+            <input type="file" name="postImage" accept="image/*,video/*" style="background:#1b2838;">
+          </div>
+          <div class="col-30">
+            <input type="submit" value="Submit" style="padding:15px 7px;height:48px;">
+          </div>
+        </form>
+
+      </div>
+    </div>
+    <div class="col-50 col-s-100">
+      <ul class="">
+        <li>Don't post illegal content</li>
+        <li>Stay vaguely on topic</li>
+        <li>Max filesize is 4MB</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="post-wrapper col-100">
+    <% for k, v in pairs( thread_data ) do %>
+
+      <div id="<%- v['postID'] %>" class="post">
+
+        <a name="<%- v['postID'] %>"></a>
+
+        <div class="col-100">
+          <% if v['threadID'] == v['postID'] then %>
+            <h2 class="f-left"><%- v['threadTitle'] %></h2>
+          <% end %>
+          <a class="f-right" href="<%- submit_url .. params.feedName .. "/" .. v['threadID'] .. "#" .. v['postID'] %>">
+            <h4>@<%- v['postID'] %></h4>
+          </a>
+        </div>
+
+        <input type="checkbox" id="image-<%- v['postID'] %>"/>
+        <label class="col-20 media-container" for="image-<%- v['postID'] %>">
+          <% if type(v['postImage']) == "string" then %>
+            <% local x = v['postImage']:match("^.+(%..+)$") %>
+            <% if x == ".webm" or x == ".mp4" then %>
+              <div class="height:6px;width:100%;">
+                &nbsp;
+              </div>
+              <video class="col-100" loop autoplay muted controls>
+                <source src="/<%= v['postImage'] %>">
+              </video>
+            <% else %>
+              <img src="/<%= v['postImage'] %>" />
+            <% end %>
+          <% end %>
+        </label>
+
+        <div class="col-80">
+          <p><%- v['postBody'] %></p>
+        </div>
+
+        <span class="post-date"><%= Posts:elapsed(current_time, v['postTime']) .. " ago" %></span>
+
+      </div>
+    <% end %>
+  </div>
+
+
+</div>

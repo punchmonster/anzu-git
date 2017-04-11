@@ -1,0 +1,91 @@
+<% local Posts = require "models.posts" %>
+
+<div class="col-30 col-m-25">
+  &nbsp;
+</div>
+
+<div class="col-40 col-m-50 col-s-100">
+
+  <div class="col-100">
+    <h1><%= feed_desc %></h1>
+
+    <div class="col-100">
+      <div class="col-50 col-s-100">
+
+        <form action="<%- submit_url .. params.feedName %>" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
+          <input type="text" name="email" class="form-email">
+
+          <div class="col-100">
+            <input type="text" name="threadTitle" placeholder="thread title" pattern=".{1,40}" required>
+          </div>
+          <div class="col-100">
+            <textarea name="postBody" placeholder="type your reply" required></textarea>
+          </div>
+          <div class="col-100 margin-bottom">
+            <div class="col-70">
+              <input type="file" name="postImage" accept="image/*,video/*" style="background:#1b2838;">
+            </div>
+            <div class="col-30">
+              <input type="submit" value="Submit" style="padding:15px 7px;height:48px;">
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="col-50 col-s-100">
+        <ul class="">
+          <li>Don't post illegal content</li>
+          <li>Stay vaguely on topic</li>
+          <li>Max filesize is 4MB</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-wrapper col-100">
+    <% for k, v in pairs( post_data ) do %>
+
+      <a href="<%- submit_url .. params.feedName .. "/" .. v['threadID'] .. "#" .. v['postID'] %>" class="post-link">
+        <div id="<%- v['postID'] %>" class="post feed-post">
+
+          <% if v['threadID'] == v['postID'] then %>
+            <div class="col-100">
+              <h3 class="f-left"><%- v['threadTitle'] %></h3>
+              <h4 class="blue f-right"><%= "@" .. v['threadID'] %></h4>
+          </div>
+          <% else %>
+            <div class="feed-post-header">
+              <h4 class="f-left">reply to thread: <%- v['threadTitle'] %></h4>
+              <h4 class="f-right">@<%- v['threadID'] %></h4>
+            </div>
+          <% end %>
+
+          <input type="checkbox" id="image-<%- v['postID'] %>"/>
+          <label class="col-20 media-container" for="image-<%- v['postID'] %>">
+            <% if type(v['postImage']) == "string" then %>
+              <% local x = v['postImage']:match("^.+(%..+)$") %>
+              <% if x == ".webm" or x == ".mp4" then %>
+                <div class="width:100%;">
+                  <span class="orange" style="padding:3px 0;display:block;">expand</span>
+                </div>
+                <video class="col-100" loop autoplay muted controls>
+                  <source src="/<%= v['postImage'] %>">
+                </video>
+              <% else %>
+                <img src="/<%= v['postImage'] %>" />
+              <% end %>
+            <% end %>
+          </label>
+
+          <div class="col-75">
+            <p><%- v['postBody'] %></p>
+          </div>
+
+          <span class="post-date"><%= Posts:elapsed(current_time, v['postTime']) .. " ago" %></span>
+
+        </div>
+      </a>
+    <% end %>
+  </div>
+</div>
