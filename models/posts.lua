@@ -44,8 +44,8 @@ function Posts:submit(arg1)
       thread_time = ngx.time()
     end
 
-    -- make sure post title and body length are within spec
-    if #arg1.postBody < 350 and #arg1.threadTitle < 40 then
+    -- make sure post body length is within spec
+    if #arg1.postBody < 350 then
 
       -- write out a postImage to disk if it exists
       local imageLocation
