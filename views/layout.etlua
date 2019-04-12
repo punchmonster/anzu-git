@@ -13,7 +13,7 @@
   </head>
   <body>
     <nav class="top-nav col-100">
-      <% if header_vis ~= false %>
+      <% if header_vis ~= false then %>
         <% for k, v in pairs( nav_data ) do %>
           <% if page_type == "catalog" then %>
             <a href="<%- build_url() %>/catalog/<%- v['feedName'] %>"><%= string.upper(v['feedName']) %></a>
