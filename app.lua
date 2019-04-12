@@ -22,11 +22,11 @@ app.handle_404 = error_404
 
 -- controller routes
 app:match("index", "/",                                         index)
-app:match("login", "/login",                                    login)
 app:match("error", "/error/:errorCode",                         error)
 app:match("404", "/404",                                        error_404)
+app:match("login", "/login",                                    respond_to(login))
 app:match("feed", "/feed/:feedName[%a](/page/:pageNumber[%d])", respond_to(feed))
 app:match("thread", "/feed/:feedName[%a]/:threadID[%d]",        respond_to(thread))
-app:match("catalog", "/catalog/:feedName[%a]",                      respond_to(catalog))
+app:match("catalog", "/catalog/:feedName[%a]",                  respond_to(catalog))
 
 return app

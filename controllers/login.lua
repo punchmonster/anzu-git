@@ -1,13 +1,21 @@
 local Feeds       = require "models.feeds"
 
-return function(self)
+return {
+  before = function(self)
+    -- get feeds for navigation
+    self.nav_data = Feeds:get_all()
+    self.header_vis = false
+  end,
 
-  -- Page title
-  self.page_title = "login"
+  GET = function(self)
 
-  -- get all feed info
-  self.header_vis = false
-  self.nav_data = Feeds:get_all()
+    -- Page title
+    self.page_title = "login"
 
-  return { render = "login" }
-end
+    return { render = "login" }
+  end,
+
+  POST = function(self)
+
+  end
+}
