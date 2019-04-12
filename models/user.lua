@@ -25,7 +25,7 @@ function User:create(userHandle, userPassword)
       userHandle = userHandle,
       userName = userHandle,
       userPassword = userPassword,
-      userGroups = "1"
+      userGroup = 1
     })
 
     return true, "account created"
