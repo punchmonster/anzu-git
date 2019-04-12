@@ -36,29 +36,30 @@ return {
       local status, msg = Users:login(self.params.userHandle, self.params.userPassword)
 
       return msg
+    else
+
+      -- user sign up
+
+      -- spam detection
+      if #self.params.email > 1 then
+        return { redirect_to = self:url_for("error", { errorCode = "err_not_allowed" }) }
+      end
+
+      -- check username and password length + formatting
+      if #self.params.userHandle > 15 then
+        return { redirect_to = self:url_for("error", { errorCode = "err_not_allowed" }) }
+      end
+
+      if #self.params.userPassword < 7 then
+        return { redirect_to = self:url_for("error", { errorCode = "err_not_allowed" }) }
+      end
+
+      -- check csrf protection
+      print(csrf.assert_token(self))
+
+      -- verification
+      local status, msg = User:create(self.params.userHandle, self.params.userPassword)
+      return msg
     end
-
-    -- user sign up
-
-    -- spam detection
-    if #self.params.email > 1 then
-      return { redirect_to = self:url_for("error", { errorCode = "err_not_allowed" }) }
-    end
-
-    -- check username and password length + formatting
-    if #self.params.userHandle > 15 then
-      return { redirect_to = self:url_for("error", { errorCode = "err_not_allowed" }) }
-    end
-
-    if #self.params.userPassword < 7 then
-      return { redirect_to = self:url_for("error", { errorCode = "err_not_allowed" }) }
-    end
-
-    -- check csrf protection
-    print(csrf.assert_token(self))
-
-    -- verification
-    local status, msg = User:create(self.params.userHandle, self.params.userPassword)
-    return msg
   end
 }
