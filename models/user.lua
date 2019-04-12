@@ -37,7 +37,7 @@ end
 -- FUNCTION: logs a user in
 -- ARGUMENTS: username, email and password for the new user
 -- RETURNS: boolean and information message
-function Users:login(userHandle, userPassword)
+function User:login(userHandle, userPassword)
 
   -- retrieve userdata
   local user_data = db.select("* from `users` where userHandle = ?", userHandle)
