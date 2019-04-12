@@ -25,7 +25,6 @@ function User:create(userHandle, userPassword)
       userHandle = userHandle,
       userName = userHandle,
       userPassword = userPassword,
-      userCreationDate = nginx.time(),
       userGroup = 1
     })
 
