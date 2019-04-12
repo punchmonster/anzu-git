@@ -176,7 +176,7 @@ end
 -- RETURN: string
 function Posts:elapsed(current_time, post_time)
 
-  local time = --[[current_time -]] post_time
+  local time = current_time - post_time
 
   local function round(n)
     return math.floor((math.floor(n*2) + 1)/2)
