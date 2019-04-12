@@ -58,6 +58,7 @@ return {
     print(csrf.assert_token(self))
 
     -- verification
-    return User:create(self.params.userHandle, self.params.userPassword)
+    local status, msg = User:create(self.params.userHandle, self.params.userPassword)
+    return msg
   end
 }
