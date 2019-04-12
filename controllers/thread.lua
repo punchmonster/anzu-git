@@ -46,7 +46,7 @@ return {
       end
 
       -- page title and description
-      self.page_title = tostring(feed_info.feedName .. " - " .. self.thread_data[1]['threadTitle'] .. " - " .. self.thread_data[1]['threadID'])
+      self.page_title = tostring(feed_info.feedName .. " - " .. self.thread_data[1]['threadID'])
       self.feed_desc  = feed_info.feedDesc
 
       -- pass current UNIX timestamp to view
@@ -76,7 +76,6 @@ return {
     -- posting configuration
     local x = {
       feedName    = self.params.feedName,
-      threadTitle = self.req.params_post['threadTitle'],
       postBody    = self.req.params_post['postBody'],
       IP          = ngx.var.remote_addr,
       thread      = self.params.threadID,

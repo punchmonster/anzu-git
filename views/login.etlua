@@ -1,20 +1,28 @@
-<h1>sign up!</h1>
+<div class="col-30 col-m-25">
+  &nbsp;
+</div>
 
-<form action="<%- submit_url %>" method="POST" enctype="multipart/form-data">
-  <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
-  <input type="text" name="email" class="form-email">
+<div class="col-40 col-m-50 col-s-100">
 
-  <div class="col-100">
-    <input type="text" name="userHandle" required>
-    <input type="password" name="userPassword" required>
-  </div>
-  <div class="col-100 margin-bottom">
-    <div class="col-70">
-      &nbsp;
+  <h1>sign up!</h1>
+
+  <form action="<%- submit_url %>" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
+    <input type="text" name="email" class="form-email">
+
+    <div class="col-100">
+      <input type="text" name="userHandle" required>
+      <input type="password" name="userPassword" required>
     </div>
-    <div class="col-30">
-      <input type="submit" value="Submit" style="padding:15px 7px;height:48px;">
+    <div class="col-100 margin-bottom">
+      <div class="col-70">
+        &nbsp;
+      </div>
+      <div class="col-30">
+        <input type="submit" value="Submit" style="padding:15px 7px;height:48px;">
+      </div>
     </div>
-  </div>
 
-</form>
+  </form>
+
+</div>

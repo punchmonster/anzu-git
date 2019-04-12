@@ -8,6 +8,9 @@ local app         = lapis.Application()
 app:enable("etlua")
 app.layout = require "views.layout"
 
+-- before
+local check_auth = require "controllers.check_auth"
+
 -- controllers
 local index       = require "controllers.index"
 local login       = require "controllers.login"

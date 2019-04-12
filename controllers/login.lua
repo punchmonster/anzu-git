@@ -36,7 +36,7 @@ return {
     end
 
     -- check csrf protection
-    csrf.assert_token(self)
+    print(csrf.assert_token(self))
 
     User:create(self.params.userHandle, self.params.userPassword)
   end

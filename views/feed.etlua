@@ -51,7 +51,7 @@
           </div>
           <% else %>
             <div class="feed-post-header">
-              <h4 class="f-left">reply to thread: <%- v['threadTitle'] %></h4>
+              <h4 class="f-left">&nbsp;</h4>
               <h4 class="f-right">@<%- v['threadID'] %></h4>
             </div>
           <% end %>

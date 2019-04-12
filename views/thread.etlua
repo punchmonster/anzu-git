@@ -15,7 +15,6 @@
         <form action="<%- submit_url .. params.feedName .. "/" .. params.threadID %>" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
           <input type="text" name="email" class="form-email">
-          <input type="hidden" name="threadTitle" value="<%- thread_data[1]['threadTitle'] %>">
 
           <div class="col-100">
             <textarea name="postBody" placeholder="type your thread content" required></textarea>
@@ -49,7 +48,6 @@
 
         <div class="col-100">
           <% if v['threadID'] == v['postID'] then %>
-            <h2 class="f-left"><%- v['threadTitle'] %></h2>
           <% end %>
           <a class="f-right" href="<%- submit_url .. params.feedName .. "/" .. v['threadID'] .. "#" .. v['postID'] %>">
             <h4>@<%- v['postID'] %></h4>
