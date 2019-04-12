@@ -34,7 +34,7 @@ return {
       -- check csrf protection
       csrf.assert_token(self)
 
-      local status, msg = Users:login(self.params.userHandle, self.params.userPassword)
+      local status, msg = User:login(self.params.userHandle, self.params.userPassword)
 
       return msg
     else
