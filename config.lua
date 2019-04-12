@@ -6,9 +6,9 @@ config("development", {
   secret       = "change_me",
   mysql        = {
     host         = "127.0.0.1",
-    user         = "root",
-    password     = "change_me",
-    database     = "anzu_test"
+    user         = "yukku",
+    password     = "poopdick",
+    database     = "yukku"
   }
 })
 
