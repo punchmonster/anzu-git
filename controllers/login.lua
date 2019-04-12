@@ -21,13 +21,32 @@ return {
   end,
 
   POST = function(self)
+
+    -- login
+    if self.params.login == true then
+
+      -- spam detection
+      if #self.params.email > 1 then
+        return { redirect_to = self:url_for("error", { errorCode = "err_not_allowed" }) }
+      end
+
+      -- check csrf protection
+      csrf.assert_token(self)
+
+      local status, msg = Users:login(self.params.userHandle, self.params.userPassword)
+
+      return msg
+    end
+
+    -- user sign up
+
     -- spam detection
     if #self.params.email > 1 then
       return { redirect_to = self:url_for("error", { errorCode = "err_not_allowed" }) }
     end
 
     -- check username and password length + formatting
-    if #self.params.userHandle > 12 then
+    if #self.params.userHandle > 15 then
       return { redirect_to = self:url_for("error", { errorCode = "err_not_allowed" }) }
     end
 
@@ -38,6 +57,7 @@ return {
     -- check csrf protection
     print(csrf.assert_token(self))
 
-    User:create(self.params.userHandle, self.params.userPassword)
+    -- verification
+    return User:create(self.params.userHandle, self.params.userPassword)
   end
 }
