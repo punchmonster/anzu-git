@@ -25,12 +25,45 @@ function User:create(userHandle, userPassword)
       userHandle = userHandle,
       userName = userHandle,
       userPassword = userPassword,
+      userCreationDate = nginx.time(),
       userGroup = 1
     })
 
     return true, "account created"
   end
   return false,  "account with that email already exists"
+end
+
+-- FUNCTION: logs a user in
+-- ARGUMENTS: username, email and password for the new user
+-- RETURNS: boolean and information message
+function Users:login(userHandle, userPassword)
+
+  -- retrieve userdata
+  local user_data = db.select("* from `users` where userHandle = ?", userHandle)
+
+  -- check if user exists
+  if #user_data < 1 then
+    return false, "user doesn't exist"
+  end
+
+  -- check if password matches
+  local userPasswordStored = user_data[1]['userPassword']
+  local userPasswordEncoded = encoding.hmac_sha1(config.secret, userPassword)
+
+  if userPasswordStored == userPasswordEncoded then
+
+    --[[ update last client IP
+    db.update("users", {
+      userLastIP = clientIP
+    },{
+      userID = user_data[1]['userID']
+    })]]
+
+    return true, "login success"
+  end
+
+  return false, "password failure"
 end
 
 return User
