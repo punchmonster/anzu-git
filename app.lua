@@ -17,6 +17,9 @@ local feed        = require "controllers.feed"
 local catalog     = require "controllers.catalog"
 local thread      = require "controllers.thread"
 
+-- before routes
+app:before_filter(check_auth)
+
 -- error handling
 app.handle_404 = error_404
 
