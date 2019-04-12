@@ -22,8 +22,9 @@ return {
 
   POST = function(self)
 
+    print(self.params.login)
     -- login
-    if self.params.login == true then
+    if self.params.login == "true" then
 
       -- spam detection
       if #self.params.email > 1 then
