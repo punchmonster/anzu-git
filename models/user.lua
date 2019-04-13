@@ -27,7 +27,7 @@ function User:create(userHandle, userPassword)
       userHandle = userHandle,
       userName = userHandle,
       userPassword = userPassword,
-      userSalt = "testSalt"
+      userSalt = "testSalt",
       userGroup = 1
     })
 
