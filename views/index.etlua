@@ -1,20 +1,21 @@
-<div class="catalog-wrapper">
+<div class="home-content">
 
-  <h1>boards</h1>
+  <form action="<%- submit_url .. params.feedName %>" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
+    <input type="text" name="email" class="form-email">
 
-  <% for k, v in pairs( nav_data ) do %>
-
-    <div class="col-15 col-m-33 col-s-100 catalog-section">
-      <img class="col-100 padding-bottom" src="<%- build_url() %>/static/img/<%= v['feedName'] %>.jpg" alt="<%= v['feedName'] %>"/>
-      <h2 class="padding-bottom"><%= v['feedName'] %></h2>
-      <a href="/feed/<%- v['feedName'] %>" class="col-50 version-buttons" style="border-right: 1px solid #2b3b4a;">
-        <h4>feed</h4>
-      </a>
-      <a href="/catalog/<%- v['feedName'] %>" class="col-50 version-buttons">
-        <h4>catalog</h4>
-      </a>
+    <div class="col-100">
+      <textarea name="postBody" placeholder="type your reply" required></textarea>
+    </div>
+    <div class="col-100 margin-bottom">
+      <div class="col-70">
+        <input type="file" name="postImage" accept="image/*,video/*" style="background:#1b2838;">
+      </div>
+      <div class="col-30">
+        <input type="submit" value="Submit" style="padding:15px 7px;height:48px;">
+      </div>
     </div>
 
-  <% end %>
+  </form>
 
 </div>
