@@ -19,14 +19,15 @@ function User:create(userHandle, userPassword)
     local userID = user_data[1]['userID'] + 1
 
     -- encrypt userPassword
-    userPassword = encoding.hmac_sha1(config.secret, userPassword)
+    userSalt = "testSalt"
+    userPassword = hasher.blake2b( userSalt .. userPassword)
 
     db.insert("users", {
       userID = userID,
       userHandle = userHandle,
       userName = userHandle,
       userPassword = userPassword,
-      userSalt = hasher.blake2b('hello world'),
+      userSalt = "testSalt"
       userGroup = 1
     })
 
@@ -50,7 +51,7 @@ function User:login(userHandle, userPassword)
 
   -- check if password matches
   local userPasswordStored = user_data[1]['userPassword']
-  local userPasswordEncoded = userPassword --encoding.hmac_sha1(config.secret, userPassword)
+  local userPasswordEncoded = hasher.blake2b( user_data[1]['testSalt'] .. userPassword) --encoding.hmac_sha1(config.secret, userPassword)
 
   if userPasswordStored == userPasswordEncoded then
 
