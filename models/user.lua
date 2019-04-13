@@ -70,9 +70,9 @@ function User:login(userHandle, userPassword)
 end
 
 -- FUNCTION: gets user data
--- ARGUMENTS: users email
+-- ARGUMENTS: users ID
 -- RETURNS: table with all user data
-function Users:get_user(userID)
+function User:get_user(userID)
   local user_data = db.select("* from `users` where userID = ?", userID)
   return user_data
 end
