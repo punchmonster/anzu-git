@@ -51,7 +51,8 @@ function User:login(userHandle, userPassword)
 
   -- check if password matches
   local userPasswordStored = user_data[1]['userPassword']
-  local userPasswordEncoded = hasher.blake2b( user_data[1]['userSalt'] .. userPassword) --encoding.hmac_sha1(config.secret, userPassword)
+  print(userPasswordStored)
+  local userPasswordEncoded = hasher.blake2b( user_data[1]['userSalt'] .. userPassword)
 
   if userPasswordStored == userPasswordEncoded then
 
