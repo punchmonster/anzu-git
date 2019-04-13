@@ -40,6 +40,7 @@ return {
       if status == true then
         self.session.current_user = userID
         --self.session.current_IP = ngx.var.remote_addr
+      end
 
       return msg
     else
