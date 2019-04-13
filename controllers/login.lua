@@ -40,7 +40,7 @@ return {
       -- create cookie
       if status == true then
         self.session.current_user = userID
-        self.session.sessionID =
+        self.session.sessionID = sessionID
       end
 
       return msg
