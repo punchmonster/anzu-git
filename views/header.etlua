@@ -1,0 +1,18 @@
+<nav class="">
+  <div class="header-content flex">
+
+    <div class="nav-content-left flex">
+      <a href="<%- build_url() %>"><img src="<%- build_url() %>/static/img/logo.png" alt="logo" class="logo-header" /></a>
+    </div>
+    <div class="nav-content-right flex">
+      <div class="inline-flex nav-links">
+        <a href="#" class="flex">start campaign</a>
+        <a href="#" class="flex border-left">
+          <img src="<%- build_url() %>/static/img/default-person.jpg" alt="user avatar" />
+          <%= loggedUser[1]['userName'] %>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</nav>

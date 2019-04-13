@@ -13,18 +13,8 @@
   </head>
   <body>
     <% if header_vis ~= false then %>
-      <nav class="top-nav col-100">
-        <% for k, v in pairs( nav_data ) do %>
-          <% if page_type == "catalog" then %>
-            <a href="<%- build_url() %>/catalog/<%- v['feedName'] %>"><%= string.upper(v['feedName']) %></a>
-          <% else %>
-            <a href="<%- build_url() %>/feed/<%- v['feedName'] %>"><%= string.upper(v['feedName']) %></a>
-          <% end %>
-        <% end %>
-        <% if loggedIn then %>
-          <p><%= loggedUser[1]['userName'] %></p>
-        <% end %>
-      </nav>
+      <% render("views.header") %>
+      <p><%= loggedUser[1]['userName'] %></p>
     <% end %>
 
     <% if errors then %>
