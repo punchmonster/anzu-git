@@ -48,7 +48,7 @@ function User:login(userHandle, userPassword)
 
   -- check if password matches
   local userPasswordStored = user_data[1]['userPassword']
-  local userPasswordEncoded = encoding.hmac_sha1(config.secret, userPassword)
+  local userPasswordEncoded = userPassword --encoding.hmac_sha1(config.secret, userPassword)
 
   if userPasswordStored == userPasswordEncoded then
 
