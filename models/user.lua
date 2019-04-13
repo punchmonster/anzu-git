@@ -56,14 +56,16 @@ function User:login(userHandle, userPassword)
 
   if userPasswordStored == userPasswordEncoded then
 
-    --[[ update last client IP
+    local sessionIDTime = ngx.time()
+
+    -- update last client IP
     db.update("users", {
-      userLastIP = clientIP
+      sessionID = sessionIDTime
     },{
       userID = user_data[1]['userID']
-    })]]
+    })
 
-    return true, "login success", user_data[1]['userID']
+    return true, "login success", user_data[1]['userID'], sessionIDTime
   end
 
   return false, "password failure"
