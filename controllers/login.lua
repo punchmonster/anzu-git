@@ -34,7 +34,12 @@ return {
       -- check csrf protection
       csrf.assert_token(self)
 
-      local status, msg = User:login(self.params.userHandle, self.params.userPassword)
+      local status, msg, userID = User:login(self.params.userHandle, self.params.userPassword)
+
+      -- create cookie
+      if status == true then
+        self.session.current_user = userID
+        --self.session.current_IP = ngx.var.remote_addr
 
       return msg
     else

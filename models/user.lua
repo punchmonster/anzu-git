@@ -63,10 +63,18 @@ function User:login(userHandle, userPassword)
       userID = user_data[1]['userID']
     })]]
 
-    return true, "login success"
+    return true, "login success", user_data[1]['userID']
   end
 
   return false, "password failure"
+end
+
+-- FUNCTION: gets user data
+-- ARGUMENTS: users email
+-- RETURNS: table with all user data
+function Users:get_user(userID)
+  local user_data = db.select("* from `users` where userID = ?", userID)
+  return user_data
 end
 
 return User
