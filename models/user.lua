@@ -1,4 +1,5 @@
 local db       = require "lapis.db"
+local hasher   = require 'hasher'
 local Model    = require ("lapis.db.model").Model
 local config   = require("lapis.config").get()
 local util     = require("lapis.util")
@@ -25,6 +26,7 @@ function User:create(userHandle, userPassword)
       userHandle = userHandle,
       userName = userHandle,
       userPassword = userPassword,
+      userSalt = hasher.blake2b('hello world'),
       userGroup = 1
     })
 
