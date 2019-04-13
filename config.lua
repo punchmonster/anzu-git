@@ -16,6 +16,7 @@ config("production", {
 	code_cache = "on",
 	site_name  = "anzu production",
 	port       = 80,
+  session_name = "yukku_session",
   secret       = "change_me",
   mysql        = {
     host         = "127.0.0.1",

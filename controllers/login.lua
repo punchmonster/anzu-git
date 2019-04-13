@@ -2,6 +2,7 @@ local csrf        = require "lapis.csrf"
 local Feeds       = require "models.feeds"
 local User        = require "models.user"
 
+
 return {
   before = function(self)
     -- get feeds for navigation
