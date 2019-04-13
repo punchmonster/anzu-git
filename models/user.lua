@@ -19,7 +19,7 @@ function User:create(userHandle, userPassword)
     local userID = user_data[1]['userID'] + 1
 
     -- encrypt userPassword
-    userSalt = "testSalt"
+    userSalt = math.random()
     userPassword = encoding.hmac_sha1(userSalt, userPassword)
 
     db.insert("users", {
@@ -33,7 +33,7 @@ function User:create(userHandle, userPassword)
 
     return true, "account created"
   end
-  return false,  "account with that email already exists"
+  return false,  "account with that username already exists"
 end
 
 -- FUNCTION: logs a user in
