@@ -124,8 +124,8 @@
 
 body {
   font-family: Helvetica, Arial, Sans-serif;
-  background: #fff;
-  color: #2a2a2a;
+  background: #1B2D35;
+  color: #fff;
 }
 
 div {
@@ -172,10 +172,11 @@ input {
 }
 
 nav {
-  height: 60px;
+  height: 55px;
   font-family: America, sans-serif;
   font-weight: 400;
   border-bottom: 1px solid #dddddd;
+  background: #1E333C;
 }
 
 .header-content {
