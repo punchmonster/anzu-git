@@ -21,6 +21,9 @@
             <a href="<%- build_url() %>/feed/<%- v['feedName'] %>"><%= string.upper(v['feedName']) %></a>
           <% end %>
         <% end %>
+        <% if loggedIn then %>
+          <p><%= loggedUser[1]['userName'] %></p>
+        <% end %>
       </nav>
     <% end %>
 
