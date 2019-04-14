@@ -1,12 +1,10 @@
 local csrf        = require "lapis.csrf"
-local Feeds       = require "models.feeds"
 local User        = require "models.user"
 
 
 return {
   before = function(self)
-    -- get feeds for navigation
-    self.nav_data = Feeds:get_all()
+    -- set header visibility
     self.header_vis = false
     -- Page title
     self.page_title = "login"
