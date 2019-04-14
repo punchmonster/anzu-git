@@ -52,7 +52,7 @@ return {
     -- pass thread to model
     if completed == true then
       -- go back to feed view
-      return { redirect_to = self:url_for("feed", { feedName = self.params.feedName }) }
+      return { redirect_to = self:url_for("index") }
     else
       return { redirect_to = self:url_for("error", { errorCode = error }) }
     end
