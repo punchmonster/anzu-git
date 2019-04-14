@@ -14,10 +14,12 @@ return function(self)
       self.loggedIn = true
     else
       self.loggedIn = false
-      self.session = nil
+      self.session.current_user = nil
+      self.session.sessionID = nil
     end
   end
   self.loggedIn = false
-  self.session = nil
+  self.session.current_user = nil
+  self.session.sessionID = nil
 
 end
