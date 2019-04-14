@@ -17,6 +17,8 @@ return function(self)
       self.session.current_user = nil
       self.session.sessionID = nil
     end
+  else
+    self.loggedIn = false
   end
 
 end
