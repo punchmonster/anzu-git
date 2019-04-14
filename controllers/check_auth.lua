@@ -17,5 +17,7 @@ return function(self)
       self.session = nil
     end
   end
+  self.loggedIn = false
+  self.session = nil
 
 end
