@@ -14,6 +14,7 @@ return function(self)
       self.loggedIn = true
     else
       self.loggedIn = false
+      self.session = nil
     end
   end
 
