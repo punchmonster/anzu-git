@@ -14,7 +14,7 @@
   <body>
     <% if header_vis ~= false then %>
       <% render("views.header") %>
-      <p><%= loggedUser[1]['userName'] %></p>
+      <p><%= loggedUser[1]['sessionID'] %></p>
     <% end %>
 
     <% if errors then %>

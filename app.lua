@@ -16,7 +16,6 @@ local index       = require "controllers.index"
 local login       = require "controllers.login"
 local error       = require "controllers.error"
 local error_404   = require "controllers.error_404"
-local feed        = require "controllers.feed"
 local catalog     = require "controllers.catalog"
 local thread      = require "controllers.thread"
 
@@ -31,7 +30,6 @@ app:match("index", "/",                                         respond_to(index
 app:match("error", "/error/:errorCode",                         error)
 app:match("404", "/404",                                        error_404)
 app:match("login", "/login",                                    respond_to(login))
-app:match("feed", "/feed/:feedName[%a](/page/:pageNumber[%d])", respond_to(feed))
 app:match("thread", "/feed/:feedName[%a]/:threadID[%d]",        respond_to(thread))
 app:match("catalog", "/catalog/:feedName[%a]",                  respond_to(catalog))
 
