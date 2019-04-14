@@ -27,7 +27,7 @@ app:before_filter(check_auth)
 app.handle_404 = error_404
 
 -- controller routes
-app:match("index", "/",                                         index)
+app:match("index", "/",                                         respond_to(index))
 app:match("error", "/error/:errorCode",                         error)
 app:match("404", "/404",                                        error_404)
 app:match("login", "/login",                                    respond_to(login))

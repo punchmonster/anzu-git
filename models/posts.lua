@@ -15,90 +15,71 @@ local Feeds       = Model:extend("feeds", {
 -- RETURN: always returns true because I'm shit
 function Posts:submit(arg1)
 
-  -- retrieve feed data from database
-  local feed_data = Feeds:select("where feedName = ?", arg1.feedName)
-
   -- check if posting cooldown is complete
-  if self:post_timer(arg1.feedName, arg1.IP) == false then
+  --[[if self:post_timer(arg1.feedName, arg1.IP) == false then
     return false, "err_time_limit"
-  else
+  else]]
     -- retrieve last post data from database
-    local post_data = db.select("* from `" .. feed_data[1]['feedName'] .. "` order by postID DESC limit 1")
-    local postID = post_data[1]['postID'] + 1
+  local post_data = db.select("* from `posts` order by postID DESC limit 1")
+  local postID = post_data[1]['postID'] + 1
 
-    -- check if submitting a thread or post
-    local threadNumber
-    local thread_length
-    local thread_time
+  -- make sure post body length is within spec
+  if #arg1.postBody < 350 then
 
-    if arg1.thread ~= nil then
-      threadNumber = arg1.thread
-      thread_length = tonumber(self:thread_length(threadNumber, arg1.feedName))
-      thread_time = db.NULL
-      -- check thread length limit
-      if thread_length > 256 then
-        return false, "err_thread_max_length"
-      end
-    else
-      threadNumber = postID
-      thread_time = ngx.time()
-    end
+    -- write out a postImage to disk if it exists
+    local imageLocation
+    if arg1.postImage and arg1.postImage.filename ~= "" then
 
-    -- make sure post body length is within spec
-    if #arg1.postBody < 350 then
+      --split file extension off
+      local fileExt = arg1.postImage.filename:match("^.+(%..+)$")
 
-      -- write out a postImage to disk if it exists
-      local imageLocation
-      if arg1.postImage and arg1.postImage.filename ~= "" then
+      -- checks if the file is valid
+      local image = magick.load_image_from_blob(arg1.postImage.content)
 
-        --split file extension off
-        local fileExt = arg1.postImage.filename:match("^.+(%..+)$")
-
-        -- checks if the file is valid
-        local image = magick.load_image_from_blob(arg1.postImage.content)
-
-        if not image and (fileExt ~= ".mp4" and fileExt ~= ".webm") then
-          return false, "err_invalid_file"
-        end
-
-        -- set file path and write postImage to disk
-        imageLocation = 'static/media/' .. arg1.feedName .. '/' .. postID .. fileExt
-        imageFile = io.open(imageLocation, 'w')
-        if imageFile then
-          imageFile:write(arg1.postImage.content)
-          imageFile:close()
-        else
-          imageLocation = nil
-        end
+      if not image and (fileExt ~= ".mp4" and fileExt ~= ".webm") then
+        return false, "err_invalid_file"
       end
 
-      -- insert new thread data into database
-      db.insert( feed_data[1]['feedName'] , {
-        postID      = postID,
-        threadID    = threadNumber,
-        postTime    = ngx.time(),
-        threadTime  = thread_time,
-        threadTitle = arg1.threadTitle,
-        postBody    = arg1.postBody, --LESSEN CPU LOAD: Text:post_sanitize(arg1.postBody, "http://anzu.bmrf.me:8080/feed/" .. feed_data[1]['feedName']),
-        postImage   = imageLocation,
-        postIP      = arg1.IP
-      })
-
-      -- update thread time or cull old threads
-      if postID == threadNumber then
-        self:cull_threads(feed_data[1]['feedName'])
+      -- set file path and write postImage to disk
+      imageLocation = 'static/media/' .. arg1.feedName .. '/' .. postID .. fileExt
+      imageFile = io.open(imageLocation, 'w')
+      if imageFile then
+        imageFile:write(arg1.postImage.content)
+        imageFile:close()
       else
-        db.update( feed_data[1]['feedName'], {
-          threadTime = ngx.time()
-        }, {
-          postID = threadNumber
-        })
+        imageLocation = nil
       end
-
-      return true
-    else
-      return false, "err_character_limit"
     end
+    --[[
+    userID = self.session.current_user,
+    postBody = self.req.params_post['postBody'],
+    postImage = self.params.postImage,
+    sessionID = self.session.userID,
+    ]]
+    -- insert new thread data into database
+    db.insert( feed_data[1]['feedName'] , {
+      postID      = postID,
+      postTime    = ngx.time(),
+      userID  = arg1.userID,
+      sessionID  = arg1.sessionID,
+      postBody    = arg1.postBody, --LESSEN CPU LOAD: Text:post_sanitize(arg1.postBody, "http://anzu.bmrf.me:8080/feed/" .. feed_data[1]['feedName']),
+      postImage   = imageLocation
+    })
+
+    --[[ update thread time or cull old threads
+    if postID == threadNumber then
+      self:cull_threads(feed_data[1]['feedName'])
+    else
+      db.update( feed_data[1]['feedName'], {
+        threadTime = ngx.time()
+      }, {
+        postID = threadNumber
+      })
+    end]]
+
+    return true
+  else
+    return false, "err_character_limit"
   end
 end
 
