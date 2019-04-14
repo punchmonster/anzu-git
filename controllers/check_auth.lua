@@ -9,7 +9,12 @@ return function(self)
   if self.session.current_user then
 
     self.loggedUser = User:get_user(self.session.current_user)
-    self.loggedIn = true
+    -- compare session ID to what's in the database
+    if self.loggedUser[1]['sessionID'] == self.session.sessionID then
+      self.loggedIn = true
+    else
+      self.loggedIn = false
+    end
   end
 
 end
