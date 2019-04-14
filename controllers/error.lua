@@ -1,12 +1,7 @@
-local Feeds       = require "models.feeds"
-
 return function(self)
 
   -- Page title
   self.page_title = "error"
-
-  -- get all feed info
-  self.nav_data = Feeds:get_all()
 
   -- storing error types and pushing them to view
   local t = {

@@ -30,7 +30,6 @@ app:match("index", "/",                                         respond_to(index
 app:match("error", "/error/:errorCode",                         error)
 app:match("404", "/404",                                        error_404)
 app:match("login", "/login",                                    respond_to(login))
-app:match("thread", "/feed/:feedName[%a]/:threadID[%d]",        respond_to(thread))
-app:match("catalog", "/catalog/:feedName[%a]",                  respond_to(catalog))
+--app:match("thread", "/feed/:feedName[%a]/:threadID[%d]",        respond_to(thread))
 
 return app

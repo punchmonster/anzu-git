@@ -4,11 +4,6 @@ local magick   = require "magick"
 local Text     = require "models.text"
 local Posts    = Model:extend("posts")
 
--- mapping database table to model
-local Feeds       = Model:extend("feeds", {
-  primary_key = { "feedName" }
-})
-
 -- FUNCTION: submits new posts to database
 -- arg1: table which holds key/value pairs with the following structure:
 -- { feedName = <string>, threadTitle = <string>, postBody = <string>, IP = <string>, thread = <int>, postImage = { filename = <string>, contents = <binary> } }
@@ -88,7 +83,7 @@ end
 -- RETURN: boolean
 function Posts:post_timer(feedName, postIP)
 
-  local post_data = db.select("* from `" .. feedName .. "` where postIP = \"" .. postIP .. "\" order by postTime DESC limit 1")
+  local post_data = db.select("* from `posts` where postIP = \"" .. postIP .. "\" order by postTime DESC limit 1")
 
   -- check if IP exists in the database
   if #post_data < 1 then
@@ -108,7 +103,7 @@ end
 -- feedName: name of feed
 -- RETURN: boolean
 function Posts:cull_threads(feedName)
-  local thread_data = db.select("* from `" .. feedName .. "` where postID = threadID order by postTime DESC LIMIT 100 OFFSET 60")
+  local thread_data = db.select("* from `posts` where postID = threadID order by postTime DESC LIMIT 100 OFFSET 60")
 
   -- check if  threads to cull exist
   if #thread_data < 1 then
@@ -116,13 +111,13 @@ function Posts:cull_threads(feedName)
   else
     -- go through threads that should be deleted
     for k, v in pairs(thread_data) do
-      db.delete(feedName, { threadID = v.threadID })
+      db.delete("posts", { threadID = v.threadID })
 
       -- delete images in the threads
-      local thread_images = db.select("* from `" .. feedName .. "` where threadID = ?", v.threadID)
+      local thread_images = db.select("* from `posts` where threadID = ?", v.threadID)
       for x, y in pairs(thread_images) do
 
-        local imageLocation = 'static/media/' .. feedName .. '/' .. y.postImage
+        local imageLocation = 'static/media/posts/' .. y.postImage
         os.remove(imageLocation)
       end
     end
