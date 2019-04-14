@@ -8,8 +8,10 @@
       <div class="inline-flex nav-links">
         <a href="#" class="flex">settings</a>
         <a href="#" class="flex border-left">
-          <img src="<%- build_url() %>/static/img/default-person.jpg" alt="user avatar" />
-          <%= loggedUser[1]['userName'] %>
+          <% if loggedIn == true then %>
+            <img src="<%- build_url() %>/static/img/default-person.jpg" alt="user avatar" />
+            <%= loggedUser[1]['userName'] %>
+          <% end %>
         </a>
       </div>
     </div>
