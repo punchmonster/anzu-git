@@ -57,7 +57,7 @@ function Posts:submit(arg1)
     sessionID = self.session.userID,
     ]]
     -- insert new thread data into database
-    db.insert( feed_data[1]['feedName'] , {
+    db.insert( 'posts' , {
       postID      = postID,
       postTime    = ngx.time(),
       userID  = arg1.userID,
