@@ -16,8 +16,6 @@ local index       = require "controllers.index"
 local login       = require "controllers.login"
 local error       = require "controllers.error"
 local error_404   = require "controllers.error_404"
-local catalog     = require "controllers.catalog"
-local thread      = require "controllers.thread"
 
 -- before routes
 app:before_filter(check_auth)
