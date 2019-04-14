@@ -2,7 +2,7 @@
 
   <form action="<%- submit_url %>" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
-    <input type="hidden" name="sessionID" value="<%- session.sessionID %>" %>>
+    <input type="hidden" name="sessionID" value="<%- session.sessionID %>">
     <input type="text" name="email" class="form-email" style="display:hidden;">
 
     <div class="col-100">
