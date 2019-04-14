@@ -18,8 +18,5 @@ return function(self)
       self.session.sessionID = nil
     end
   end
-  self.loggedIn = false
-  self.session.current_user = nil
-  self.session.sessionID = nil
 
 end
