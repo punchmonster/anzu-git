@@ -44,7 +44,7 @@ return {
       userID = self.session.current_user,
       postBody = self.req.params_post['postBody'],
       postImage = self.params.postImage,
-      sessionID = self.session.userID
+      sessionID = self.loggedUser[1]['sessionID']
     }
 
     -- return post status
