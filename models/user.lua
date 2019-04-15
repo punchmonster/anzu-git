@@ -31,7 +31,7 @@ function User:create(userHandle, userPassword)
       userPassword = userPassword,
       userSalt = userSalt,
       userGroup = 1,
-      userFollowing = to_json(userFollowing)
+      userFollowing = util.to_json(userFollowing)
     })
 
     return true, "account created"
