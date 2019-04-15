@@ -68,13 +68,18 @@ function User:login(userHandle, userPassword)
     return true, "login success", user_data[1]['userID'], sessionIDTime
   end
 
-  return false, "password failure"
+  return false, "wrong password"
 end
 
 -- FUNCTION: gets user data
 -- ARGUMENTS: users ID
 -- RETURNS: table with all user data
 function User:get_user(userID)
+  local user_data = db.select("* from `users` where userID = ?", userID)
+  return user_data
+end
+
+function User:get_following(userID)
   local user_data = db.select("* from `users` where userID = ?", userID)
   return user_data
 end

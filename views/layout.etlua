@@ -15,9 +15,7 @@
     <% if header_vis ~= false then %>
       <% render("views.header") %>
       <p><%= loggedIn %></p>
-      <% if session ~= nil then %>
-        <p><%= session.sessionID %></p>
-      <% end %>
+      <p><%= session.sessionID %></p>
     <% end %>
 
     <% if errors then %>

@@ -12,6 +12,7 @@ return function(self)
     -- compare session ID to what's in the database
     if self.loggedUser[1]['sessionID'] == self.session.sessionID then
       self.loggedIn = true
+      write("user logged in \n")
     else
       self.loggedIn = false
       self.session.current_user = nil

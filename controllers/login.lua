@@ -52,11 +52,11 @@ return {
       end
 
       -- check username and password length + formatting
-      if #self.params.userHandle > 15 then
+      if #self.params.userHandle < 3 or #self.params.userHandle > 15 then
         return { redirect_to = self:url_for("error", { errorCode = "err_not_allowed" }) }
       end
 
-      if #self.params.userPassword < 7 then
+      if #self.params.userPassword < 7 or #self.params.userPassword > 64 then
         return { redirect_to = self:url_for("error", { errorCode = "err_not_allowed" }) }
       end
 

@@ -133,16 +133,24 @@ function Posts:thread_length(threadID, feedName)
   return thread_length[1]['COUNT(*)']
 end
 
+-- FUNCTION: compose timeline
+-- userID: who does the timeline belong to
+-- RETURN: table with posts
+function Posts:get_timeline(userID)
+
+  -- retrieve thread headers from database
+  local timeline_data = db.select("* from `posts` where postID = threadID order by threadTime DESC")
+
+  return timeline
+end
+
 -- FUNCTION: retrieves threads
 -- arg1: name of the feed
 -- RETURN: table with threads
 function Posts:get_threads(arg1)
 
-  -- retrieve feed data from database
-  local feed_data = Feeds:select("where feedName = ?", arg1)
-
   -- retrieve thread headers from database
-  local thread_data = db.select("* from `" .. feed_data[1]['feedName'] .. "` where postID = threadID order by threadTime DESC")
+  local thread_data = db.select("* from `posts` where postID = threadID order by threadTime DESC")
 
   return thread_data
 end
