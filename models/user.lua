@@ -1,5 +1,4 @@
 local db       = require "lapis.db"
-local hasher   = require 'hasher'
 local Model    = require ("lapis.db.model").Model
 local config   = require("lapis.config").get()
 local util     = require("lapis.util")
@@ -22,13 +21,17 @@ function User:create(userHandle, userPassword)
     userSalt = math.random()
     userPassword = encoding.hmac_sha1(userSalt, userPassword)
 
+    -- set default get_following
+    local userFollowing = { userID }
+
     db.insert("users", {
       userID = userID,
       userHandle = userHandle,
       userName = userHandle,
       userPassword = userPassword,
       userSalt = userSalt,
-      userGroup = 1
+      userGroup = 1,
+      userFollowing = to_json(userFollowing)
     })
 
     return true, "account created"
