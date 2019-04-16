@@ -5,6 +5,7 @@ local Posts       = require "models.posts"
 local Text        = require "models.text"
 local Bans        = require "models.bans"
 local User        = require "models.user"
+local util        = require ("lapis.util")
 
 return {
 
@@ -22,7 +23,8 @@ return {
       -- generate token for page verification
       self.csrf_token = csrf.generate_token(self)
 
-      Posts:get_timeline(self.loggedUser[1]['userFollowing'])
+      -- retrieve timeline table
+      Posts:get_timeline(util.from_json(self.loggedUser[1]['sessionID']))
 
       return { render = "index" }
     else

@@ -1,6 +1,6 @@
 local db       = require "lapis.db"
 local Model    = require ("lapis.db.model").Model
-local util     = require ("lapis.util")
+local util     = require "lapis.util"
 local magick   = require "magick"
 local Text     = require "models.text"
 local Posts    = Model:extend("posts")
@@ -139,12 +139,10 @@ end
 -- RETURN: table with posts
 function Posts:get_timeline(following)
 
-  --[[following = util.from_json(following)
-
   local processedFollowing = following
   for k, v in pairs(following) do
     processedFollowing = ProcessedFollowing .. "," .. v
-  end]]
+  end
 
   -- retrieve thread headers from database
   local timeline_data = db.select("* from `posts` WHERE userID IN ? order by postTime DESC", processedFollowers)
