@@ -1,5 +1,6 @@
 local db       = require "lapis.db"
 local Model    = require ("lapis.db.model").Model
+local util     = require ("lapis.util")
 local magick   = require "magick"
 local Text     = require "models.text"
 local Posts    = Model:extend("posts")
@@ -133,21 +134,12 @@ function Posts:thread_length(threadID, feedName)
   return thread_length[1]['COUNT(*)']
 end
 
--- FUNCTION: compose timeline
--- userID: who does the timeline belong to
--- RETURN: table with posts
-function Posts:get_timeline(userID)
-
-  -- retrieve thread headers from database
-  local timeline_data = db.select("* from `posts` where postID = threadID order by threadTime DESC")
-
-  return timeline
-end
-
 -- FUNCTION: retrieves timeline
--- following: table with userID's
+-- following: JSON with userID's
 -- RETURN: table with posts
 function Posts:get_timeline(following)
+
+  following = util.from_json(following)
 
   local processedFollowing = following[1]
   for k, v in pairs(following) do
