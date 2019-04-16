@@ -140,7 +140,7 @@ end
 function Posts:get_timeline(following)
 
   -- turn follower ID's into a string for query
-  local processedFollowing, local processedUsers = "0"
+  local processedFollowing = "0"
   for k, v in pairs(following) do
     processedFollowing = processedFollowing .. "," .. v
   end
@@ -149,6 +149,7 @@ function Posts:get_timeline(following)
   local timeline_data = db.select("* from `posts` WHERE userID IN ( " .. processedFollowing .. " ) order by postTime DESC")
 
   -- sort through user data
+  local processedUsers = "0"
   for k, v in pairs(timeline_data) do
      processedUsers = processedUsers .. "," .. v['userID']
   end
