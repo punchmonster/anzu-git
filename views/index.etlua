@@ -19,7 +19,7 @@
       </div>
 
       <% for k, v in pairs( timeline_data ) do %>
-        <p><%- v['postBody'] %></p>
+        <p><%- v['userHandle'] %><br /><%- v['postBody'] %></p>
       <% end %>
 
     </form>
