@@ -139,12 +139,12 @@ end
 -- RETURN: table with posts
 function Posts:get_timeline(following)
 
-  following = util.from_json(following)
+  --[[following = util.from_json(following)
 
-  local processedFollowing = following[1]
+  local processedFollowing = following
   for k, v in pairs(following) do
     processedFollowing = ProcessedFollowing .. "," .. v
-  end
+  end]]
 
   -- retrieve thread headers from database
   local timeline_data = db.select("* from `posts` WHERE userID IN ? order by postTime DESC", processedFollowers)
