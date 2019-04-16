@@ -141,7 +141,7 @@ function Posts:get_timeline(following)
 
   local processedFollowing = ""
   for k, v in pairs(following) do
-    processedFollowing = ProcessedFollowing .. "," .. v
+    processedFollowing = processedFollowing .. "," .. v
   end
 
   -- retrieve thread headers from database
