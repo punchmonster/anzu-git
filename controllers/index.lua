@@ -22,7 +22,7 @@ return {
       -- generate token for page verification
       self.csrf_token = csrf.generate_token(self)
 
-      Posts:get_timeline(self.loggedUser[1].userFollowing)
+      Posts:get_timeline(self.loggedUser[1]['userFollowing'])
 
       return { render = "index" }
     else
