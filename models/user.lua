@@ -22,7 +22,7 @@ function User:create(userHandle, userPassword)
     userPassword = encoding.hmac_sha1(userSalt, userPassword)
 
     -- set default get_following
-    local userFollowing = { userID }
+    local userFollowing = { userHandle = userID }
 
     db.insert("users", {
       userID = userID,
