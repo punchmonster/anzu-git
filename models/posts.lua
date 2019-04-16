@@ -145,7 +145,7 @@ function Posts:get_timeline(following)
   end
 
   -- retrieve thread headers from database
-  local timeline_data = db.select("* from `posts` WHERE userID IN ( ? ) order by postTime DESC", processedFollowers)
+  local timeline_data = db.select("* from `posts` WHERE userID IN ( ? ) order by postTime DESC", processedFollowing)
 
   return timeline_data
 end
