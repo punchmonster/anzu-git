@@ -5,7 +5,7 @@ local Posts       = require "models.posts"
 local Text        = require "models.text"
 local Bans        = require "models.bans"
 local User        = require "models.user"
-local util        = require ("lapis.util")
+local util        = require "lapis.util"
 
 return {
 

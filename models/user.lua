@@ -21,7 +21,7 @@ function User:create(userHandle, userPassword)
     userSalt = math.random()
     userPassword = encoding.hmac_sha1(userSalt, userPassword)
 
-    -- set default get_following
+    -- set default following
     local userFollowing = { 0 }
     table.insert(userFollowing, userID)
 
