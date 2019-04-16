@@ -37,6 +37,7 @@ return {
 
       -- create cookie
       if status == true then
+        self.session.userHandle = self.params.userHandle
         self.session.current_user = userID
         self.session.sessionID = sessionID
       end
