@@ -140,7 +140,7 @@ end
 function Posts:get_timeline(following)
 
   -- turn follower ID's into a string for query
-  local processedFollowing, processedUsers = "0"
+  local processedFollowing, local processedUsers = "0"
   for k, v in pairs(following) do
     processedFollowing = processedFollowing .. "," .. v
   end
