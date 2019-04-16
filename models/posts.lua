@@ -139,7 +139,7 @@ end
 -- RETURN: table with posts
 function Posts:get_timeline(following)
 
-  local processedFollowing = following
+  local processedFollowing = following[1]
   for k, v in pairs(following) do
     processedFollowing = ProcessedFollowing .. "," .. v
   end
