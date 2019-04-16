@@ -6,7 +6,7 @@
       <input type="hidden" name="sessionID" value="<%- session.sessionID %>">
       <input type="text" name="email" class="form-email" style="display:hidden;">
 
-      <div class="col-100">
+      <div>
         <textarea name="postBody" placeholder="type your reply" required></textarea>
       </div>
       <div class="col-100 margin-bottom">

@@ -139,13 +139,29 @@ end
 -- RETURN: table with posts
 function Posts:get_timeline(following)
 
-  local processedFollowing = "0"
+  -- turn follower ID's into a string for query
+  local processedFollowing, processedUsers = "0"
   for k, v in pairs(following) do
     processedFollowing = processedFollowing .. "," .. v
   end
 
   -- retrieve thread headers from database
   local timeline_data = db.select("* from `posts` WHERE userID IN ( " .. processedFollowing .. " ) order by postTime DESC")
+
+  -- sort through user data
+  for k, v in pairs(timeline_data) do
+     processedUsers = processedUsers .. "," .. v['userID']
+  end
+
+  local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
+
+  for k, v in pairs(timeline_data) do
+    for a, b in pairs(users_data) do
+      if v['userID'] == b['userID'] then
+       v['userHandle'] = b['userHandle']
+      end
+    end
+  end
 
   return timeline_data
 end
