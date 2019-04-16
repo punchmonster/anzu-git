@@ -4,6 +4,7 @@ local Model       = require ("lapis.db.model").Model
 local Posts       = require "models.posts"
 local Text        = require "models.text"
 local Bans        = require "models.bans"
+local User        = require "models.user"
 
 return {
 
@@ -16,12 +17,17 @@ return {
   end,
 
   GET = function(self)
+    if self.loggedIn then
 
-    -- generate token for page verification
-    self.csrf_token = csrf.generate_token(self)
+      -- generate token for page verification
+      self.csrf_token = csrf.generate_token(self)
 
-    return { render = "index" }
-    --return { redirect_to = self:url_for("404") }
+      Posts:get_timeline(self.loggedUser[1].userFollowing)
+
+      return { render = "index" }
+    else
+      return { redirect_to = self:url_for("login") }
+    end
   end,
 
   POST = function(self)

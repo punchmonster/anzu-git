@@ -144,15 +144,20 @@ function Posts:get_timeline(userID)
   return timeline
 end
 
--- FUNCTION: retrieves threads
--- arg1: name of the feed
--- RETURN: table with threads
-function Posts:get_threads(arg1)
+-- FUNCTION: retrieves timeline
+-- following: table with userID's
+-- RETURN: table with posts
+function Posts:get_timeline(following)
+
+  local processedFollowing = following[1]
+  for k, v in pairs(following) do
+    processedFollowing = ProcessedFollowing .. "," .. v
+  end
 
   -- retrieve thread headers from database
-  local thread_data = db.select("* from `posts` where postID = threadID order by threadTime DESC")
+  local timeline_data = db.select("* from `posts` WHERE userID IN ? order by postTime DESC", processedFollowers)
 
-  return thread_data
+  return timeline_data
 end
 
 -- FUNCTION: calculates and formats time elapsed for visible posts
