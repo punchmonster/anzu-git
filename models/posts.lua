@@ -46,12 +46,7 @@ function Posts:submit(arg1)
         imageLocation = nil
       end
     end
-    --[[
-    userID = self.session.current_user,
-    postBody = self.req.params_post['postBody'],
-    postImage = self.params.postImage,
-    sessionID = self.session.userID,
-    ]]
+
     -- insert new thread data into database
     db.insert( 'posts' , {
       postID      = postID,
@@ -165,6 +160,17 @@ function Posts:get_timeline(following)
   end
 
   return timeline_data
+end
+
+function Posts:get_profile(userHandle)
+
+  -- check if posts exist
+  local profile_data = db.select("* from `posts` WHERE userHandle ? order by postTime DESC", userHandle)
+  if #profile_data < 1 then
+    return false, "user doesn't exist"
+  else
+    return true, profile_data
+  end
 end
 
 -- FUNCTION: calculates and formats time elapsed for visible posts
