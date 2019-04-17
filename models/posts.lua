@@ -151,15 +151,9 @@ function Posts:get_timeline(following)
 
   local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
 
-  for k, v in pairs(timeline_data) do
-    for a, b in pairs(users_data) do
-      if v['userID'] == b['userID'] then
-       v['userHandle'] = b['userHandle']
-      end
-    end
-  end
+  local processed_data = self:merge_user_data(users_data, timeline_data)
 
-  return timeline_data
+  return processed_data
 end
 
 function Posts:get_profile(userHandle)
