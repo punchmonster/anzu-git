@@ -164,10 +164,16 @@ end
 
 function Posts:get_profile(userHandle)
 
-  -- check if posts exist
-  local profile_data = db.select("* from `posts` WHERE userHandle = ? order by postTime DESC", userHandle)
-  if #profile_data < 1 then
+  -- check if user exists and retrieve userID
+  local user_data = db.select("* from `users` WHERE userHandle = ?", userHandle)
+  if #user_data < 1 then
     return false, "user doesn't exist"
+  end
+
+  -- check if posts exist and if so return them
+  local profile_data = db.select("* from `posts` WHERE userID = ? order by postTime DESC", user_data[1].userID)
+  if #profile_data < 1 then
+    return true, 0
   else
     return true, profile_data
   end
