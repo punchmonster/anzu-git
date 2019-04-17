@@ -169,11 +169,16 @@ function Posts:get_profile(userHandle)
   if #profile_data < 1 then
     return true, 0
   else
+
+    --merge user data into post data
     profile_data = self:merge_user_data(user_data, profile_data)
     return true, profile_data
   end
 end
 
+-- FUNCTION: merges user data like handles with post data
+-- userData: Array with the users you want to merge data from
+-- postData: Array with posts you want to add user data to
 function Posts:merge_user_data(userData, postData)
 
   for k, v in pairs(postData) do
