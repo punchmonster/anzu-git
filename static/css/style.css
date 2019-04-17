@@ -225,6 +225,9 @@ nav {
   margin: 0 15px;
 }
 
+.form-email {
+  display: none;
+}
 /* ########### home page ########## */
 
 .home-content {
