@@ -175,8 +175,22 @@ function Posts:get_profile(userHandle)
   if #profile_data < 1 then
     return true, 0
   else
+    profile_data = self:merge_user_data(user_data, profile_data)
     return true, profile_data
   end
+end
+
+function Posts:merge_user_data(userData, postData)
+
+  for k, v in pairs(postData) do
+    for a, b in pairs(userData) do
+      if v['userID'] == b['userID'] then
+       v['userHandle'] = b['userHandle']
+      end
+    end
+  end
+
+  return postData
 end
 
 -- FUNCTION: calculates and formats time elapsed for visible posts
