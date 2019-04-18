@@ -132,7 +132,8 @@
 
 body {
   font-family: Helvetica, Arial, Sans-serif;
-  background: #1B2D35;
+  background: rgb(172,57,158);
+  background: linear-gradient(122deg, rgba(172,57,158,1) 0%, rgba(249,104,84,1) 50%, rgba(254,59,0,1) 100%);
   color: #fff;
 }
 
@@ -245,15 +246,16 @@ nav {
   margin: 0 auto;
 }
 
-.profile-sidebar {
-  max-width: 350px;
-}
-
 .profile-wrapper {
   justify-content: space-between;
   overflow: hidden;
   align-items: stretch;
   height: 100%;
+}
+
+.profile-sidebar {
+  max-width: 350px;
+  background: #1B2D35;
 }
 
 .profile-main {
@@ -262,8 +264,6 @@ nav {
 }
 
 .profile-tools {
-  background: rgb(172,57,158);
-  background: linear-gradient(122deg, rgba(172,57,158,1) 0%, rgba(249,104,84,1) 50%, rgba(254,59,0,1) 100%);
   justify-content: center;
 }
 
