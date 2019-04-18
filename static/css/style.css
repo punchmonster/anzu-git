@@ -286,6 +286,8 @@ nav {
 
 .profile-sidebar-image img {
   border-radius: 50px;
+  width: 250px;
+  height: 250px;
 }
 
 .profile-sidebar-content {
@@ -293,8 +295,8 @@ nav {
   width: 100%;
   border-radius: 10px;
   margin: 0 10px;
-  background: #e7e7e7;
-  color: #e6ecf0;
+  background: #e6ecf0;
+  color: #333;
 }
 
 .profile-item {
@@ -312,7 +314,7 @@ nav {
 .profile-tools form {
   box-sizing: border-box;
   width: 100%;
-  flex-grow: 1;
+  max-width: 450px;
 }
 
 .profile-tools form input,
