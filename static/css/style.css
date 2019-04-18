@@ -251,6 +251,7 @@ nav {
 
 .profile-wrapper {
   justify-content: space-between;
+  overflow: hidden;
 }
 
 .profile-main {
