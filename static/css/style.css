@@ -246,17 +246,20 @@ nav {
 }
 
 .profile-sidebar {
-  flex-grow: 1;
+  max-width: 350px;
 }
 
 .profile-main {
-  flex-grow: 1;
   flex-direction: column;
-  max-width: 650px;
+  max-width: 800px;
 }
 
 .profile-tools {
-  flex-grow: 1;
+
+}
+
+.profile-tools form {
+  width: 100%;
 }
 
 .profile-item {
