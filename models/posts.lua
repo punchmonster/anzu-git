@@ -172,7 +172,7 @@ function Posts:get_profile(userHandle)
 
     --merge user data into post data
     profile_data = self:merge_user_data(user_data, profile_data)
-    return true, profile_data
+    return true, profile_data, user_data
   end
 end
 

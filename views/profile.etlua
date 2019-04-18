@@ -1,4 +1,6 @@
 <div class="home-content">
+  <h3><%= user_data[1].userHandle %></h3>
+  <p><%= user_data[1].userBio %></p>
 
   <% for k, v in pairs( profile_data ) do %>
     <p><%- v['userHandle'] %><br /><%- v['postBody'] %></p>

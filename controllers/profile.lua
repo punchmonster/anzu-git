@@ -28,7 +28,7 @@ return {
 
     -- retrieve timeline table
     local status
-    status, self.profile_data = Posts:get_profile(self.params.userHandle)
+    status, self.profile_data, self.user_data = Posts:get_profile(self.params.userHandle)
     return { render = "profile" }
   end,
 
