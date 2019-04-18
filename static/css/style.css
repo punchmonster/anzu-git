@@ -253,6 +253,7 @@ nav {
   justify-content: space-between;
   overflow: hidden;
   align-items: stretch;
+  height: 100%;
 }
 
 .profile-main {
