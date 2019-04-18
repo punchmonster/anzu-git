@@ -249,6 +249,10 @@ nav {
   max-width: 350px;
 }
 
+.profile-wrapper {
+  justify-content: space-between;
+}
+
 .profile-main {
   flex-direction: column;
   max-width: 800px;
@@ -273,5 +277,9 @@ nav {
 
 .profile-item a {
   color: #F96854;
+}
 
+.profile-wrapper h4 {
+  font-weight: bold;
+  font-size: 14px;
 }

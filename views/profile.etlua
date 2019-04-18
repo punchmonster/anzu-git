@@ -1,6 +1,6 @@
 <div class="flex wrap profile-wrapper">
-  <div class="wrap profile-sidebar">
-    <h3><%= user_data[1].userName %></h3>
+  <div class="profile-sidebar">
+    <h4><%= user_data[1].userName %></h4>
     <a href="<%- submit_url .. user_data[1].userHandle %>">@<%= user_data[1].userHandle %></a>
     <p><%= user_data[1].userBio %></p>
   </div>
