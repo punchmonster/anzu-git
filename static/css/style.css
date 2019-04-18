@@ -136,6 +136,7 @@ body {
   background: linear-gradient(122deg, rgba(50,15,46,1) 9%, rgba(162,51,152,1) 38%, rgba(249,104,84,1) 68%, rgba(254,59,0,1) 100%);
   background-repeat: no-repeat;
   color: #fff;
+  height: 100vh;
 }
 
 div {
