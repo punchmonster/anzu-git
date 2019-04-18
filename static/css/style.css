@@ -260,11 +260,13 @@ nav {
 }
 
 .profile-tools {
-
+ justify-content: center;
 }
 
 .profile-tools form {
+  box-sizing: border-box;
   width: 100%;
+  flex-grow: 1;
 }
 
 .profile-item {
@@ -273,7 +275,7 @@ nav {
   width: 100%;
   margin-top: 5px;
   border-radius: 5px;
-  border: 1px solid #2F4D5A;
+  border-bottom: 1px solid #2F4D5A;
 }
 
 .profile-item a {
