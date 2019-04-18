@@ -1,18 +1,20 @@
 <div class="flex wrap profile-wrapper">
-  <div class="profile-sidebar">
-    <h4><%= user_data[1].userName %></h4>
-    <a href="<%- submit_url .. user_data[1].userHandle %>">@<%= user_data[1].userHandle %></a>
-    <p><%= user_data[1].userBio %></p>
-  </div>
+  div class="flex wrap profile-view">
+    <div class="profile-sidebar">
+      <h4><%= user_data[1].userName %></h4>
+      <a href="<%- submit_url .. user_data[1].userHandle %>">@<%= user_data[1].userHandle %></a>
+      <p><%= user_data[1].userBio %></p>
+    </div>
 
-  <div class="profile-main">
-    <% for k, v in pairs( profile_data ) do %>
-      <div class="profile-item">
-        <h4><%= v['userName'] %></h4>
-        <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
-        <p><%- v['postBody'] %></p>
-      </div>
-    <% end %>
+    <div class="profile-main">
+      <% for k, v in pairs( profile_data ) do %>
+        <div class="profile-item">
+          <h4><%= v['userName'] %></h4>
+          <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
+          <p><%- v['postBody'] %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <div class="flex nowrap profile-tools">
