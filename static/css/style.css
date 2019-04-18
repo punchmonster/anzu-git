@@ -185,7 +185,7 @@ input {
 /* ######### header styles ########## */
 
 nav {
-  height: 55px;
+  height: 40px;
   font-family: America, sans-serif;
   font-weight: 400;
   border-bottom: 1px solid #dddddd;
@@ -202,7 +202,7 @@ nav {
 }
 
 .nav-content-left .logo-header {
-  height: 50px;
+  height: 35px;
   margin: 4px;
 }
 
@@ -232,8 +232,8 @@ nav {
 }
 
 .nav-content-right .nav-links a img {
-  height: 45px;
-  width: 45px;
+  height: 35px;
+  width: 35px;
   border-radius: 50px;
   margin: 0 15px;
 }
@@ -288,8 +288,8 @@ nav {
 }
 .profile-sidebar-image img {
   border-radius: 50px;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   border: 6px solid #e6ecf0;
 }
 
