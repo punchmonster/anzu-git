@@ -185,6 +185,7 @@ function Posts:merge_user_data(userData, postData)
     for a, b in pairs(userData) do
       if v['userID'] == b['userID'] then
        v['userHandle'] = b['userHandle']
+       v['userName'] = b['userName']
       end
     end
   end
