@@ -1,6 +1,7 @@
 <div class="flex wrap profile-wrapper">
   <div class="wrap profile-sidebar">
-    <h3><%= user_data[1].userHandle %></h3>
+    <h3><%= user_data[1].userName %></h3>
+    <a href="<%- submit_url .. user_data[1].userHandle %>">@<%= user_data[1].userHandle %></a>
     <p><%= user_data[1].userBio %></p>
   </div>
 
@@ -16,13 +17,13 @@
 
   <div class="flex nowrap profile-tools">
     <% if loggedIn == true then %>
-      <!--<form action="<%- submit_url %>" method="POST" enctype="multipart/form-data">
+      <form action="<%- submit_url %>" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
         <input type="hidden" name="sessionID" value="<%- session.sessionID %>">
         <input type="text" name="email" class="form-email" style="display:hidden;">
 
         <div>
-          <textarea name="postBody" placeholder="type your reply" required></textarea>
+          <textarea name="postBody" placeholder="type your reply" value="<%- params.userHandle %>" required></textarea>
         </div>
         <div class="col-100 margin-bottom">
           <div class="col-70">
@@ -32,7 +33,7 @@
             <input type="submit" value="Submit" style="padding:15px 7px;height:48px;">
           </div>
         </div>
-      </form>-->
+      </form>
     <% end %>
   </div>
 
