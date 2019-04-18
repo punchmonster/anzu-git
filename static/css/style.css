@@ -282,10 +282,15 @@ nav {
   justify-content: center;
 }
 
+.profile-sidebar-image {
+  box-sizing: border-box;
+  margin-right: 20px;
+}
 .profile-sidebar-image img {
-  border-radius: 20px;
-  width: 150px;
-  height: 150px;
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+  border: 3px solid #1B2D35;
 }
 
 .profile-sidebar-content {
