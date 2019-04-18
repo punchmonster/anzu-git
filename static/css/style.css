@@ -255,13 +255,19 @@ nav {
   height: 100%;
 }
 
+.profile-wrapper h4 {
+  font-weight: bold;
+  font-size: 17px;
+}
+
 .profile-view {
 
 }
 
 .profile-sidebar {
   max-width: 350px;
-  background: #1B2D35;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .profile-main {
@@ -269,10 +275,19 @@ nav {
   max-width: 800px;
   background: #1B2D35;
 }
+
+.profile-tools {
+  flex-grow: 1;
+}
+
 .profile-sidebar,
 .profile-main,
 .profile-tools {
   justify-content: center;
+}
+
+.profile-sidebar-image img {
+  border-radius: 50px;
 }
 
 .profile-sidebar-content {
@@ -280,6 +295,7 @@ nav {
   width: 100%;
   border-radius: 10 px;
   background: #e7e7e7;
+  color: #222;
 }
 
 .profile-item {
@@ -292,11 +308,6 @@ nav {
 
 .profile-item a {
   color: #F96854;
-}
-
-.profile-wrapper h4 {
-  font-weight: bold;
-  font-size: 17px;
 }
 
 .profile-tools form {

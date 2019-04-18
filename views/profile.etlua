@@ -1,6 +1,9 @@
 <div class="flex wrap profile-wrapper">
   <div class="flex wrap profile-view">
-    <div class="profile-sidebar">
+    <div class="flex wrap profile-sidebar">
+      <div class="profile-sidebar-image">
+        <img src="http://yukku.org:8080/static/img/default-person.jpg" alt="user avatar">
+      </div>
       <div class="profile-sidebar-content">
         <h4><%= user_data[1].userName %></h4>
         <a href="<%- submit_url .. user_data[1].userHandle %>">@<%= user_data[1].userHandle %></a>
