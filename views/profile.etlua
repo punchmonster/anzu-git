@@ -1,14 +1,14 @@
-<div class="flex profile-wrapper">
+<div class="flex wrap profile-wrapper">
   <div class="wrap profile-sidebar">
     <h3><%= user_data[1].userHandle %></h3>
     <p><%= user_data[1].userBio %></p>
   </div>
 
-  <div class="flex nowrap profile-main">
+  <div class="profile-main">
     <% for k, v in pairs( profile_data ) do %>
       <div class="profile-item">
         <h4><%= v['userName'] %></h4>
-        <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></p>
+        <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
         <p><%- v['postBody'] %></p>
       </div>
     <% end %>
