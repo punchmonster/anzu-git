@@ -252,6 +252,7 @@ nav {
 .profile-wrapper {
   justify-content: space-between;
   overflow: hidden;
+  align-items: stretch;
 }
 
 .profile-main {
@@ -260,13 +261,21 @@ nav {
 }
 
 .profile-tools {
- justify-content: center;
+  background: rgb(172,57,158);
+  background: linear-gradient(122deg, rgba(172,57,158,1) 0%, rgba(249,104,84,1) 50%, rgba(254,59,0,1) 100%);
+  justify-content: center;
 }
 
 .profile-tools form {
   box-sizing: border-box;
   width: 100%;
   flex-grow: 1;
+}
+
+.profile-tools form input,
+.profile-tools form textarea {
+  width: 100%;
+
 }
 
 .profile-item {
