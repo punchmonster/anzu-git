@@ -91,19 +91,19 @@
 }
 
 .border-left {
-  border-left: 1px solid #dddddd;
+  border-left: 1px solid #132026;
 }
 
 .border-right {
-  border-right: 1px solid #dddddd;
+  border-right: 1px solid #132026;
 }
 
 .border-top {
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #132026;
 }
 
 .border-bottom {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #132026;
 }
 
 /* ################ FLEX GUIDE ################ */
@@ -114,6 +114,14 @@
 
 .inline-flex {
   display: inline-flex;
+}
+
+.nowrap  {
+  flex-wrap: nowrap;
+}
+
+.wrap    {
+  flex-wrap: wrap;
 }
 
 /* ------------- end responsive ------------- */
@@ -170,6 +178,8 @@ input {
   padding: 10px 0px;
   margin-bottom: -7px;
 }
+
+/* ######### header styles ########## */
 
 nav {
   height: 55px;
@@ -233,4 +243,28 @@ nav {
 .home-content {
   max-width: 1340px;
   margin: 0 auto;
+}
+
+.profile-sidebar {
+  flex-grow: 1;
+}
+
+.profile-main {
+  flex-grow: 2;
+}
+
+.profile-tools {
+  flex-grow: 2;
+}
+
+.profile-item {
+  width: 100%;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #2F4D5A;
+}
+
+.profile-item a {
+  color: #F96854;
+
 }
