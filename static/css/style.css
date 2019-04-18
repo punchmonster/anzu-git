@@ -265,7 +265,7 @@ nav {
 }
 
 .profile-sidebar {
-  max-width: 350px;
+  min-width: 350px;
   justify-content: center;
 }
 
