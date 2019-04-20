@@ -97,19 +97,19 @@ function User:follow(userHandle, followHandle)
   local user_data = db.select("* from `users` where userHandle = ?", userHandle)
   local follow_data = db.select("* from `users` where userHandle = ?", followHandle)
 
-  local following = util.from_json(user_data.userFollowing)
+  local following = util.from_json(user_data[1].userFollowing)
   for k, v in pairs(following) do
-    if v == follow_data.userID then
+    if v == follow_data[1].userID then
       return false, "already following"
     end
   end
 
-  table.insert(following, follow_data.userID)
+  table.insert(following, follow_data[1].userID)
   following = util.to_json(following)
   db.update("users", {
     userFollowing = following
   },{
-    userID = user_data.userID
+    userID = user_data[1].userID
   })
   return true, "FLW: " .. userHandle .. " has followed " .. followHandle .. "."
 end
