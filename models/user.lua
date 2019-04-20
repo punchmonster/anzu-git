@@ -88,4 +88,28 @@ function User:get_following(userID)
   return user_data
 end
 
+
+-- FUNCTION: makes user follow an account
+-- userHandle: handle of the user who is executing follow request
+-- followHandle: handle of the user who is being followed
+-- RETURNS: boolean, status message
+function User:follow(userHandle, followHandle)
+  local user_data = db.select("* from `users` where userHandle = ? OR userHandle = ?", userHandle, followHandle)
+  local following = util.from_json(user_data[1].userFollowing)
+  for k, v in pairs(following) do
+    if v == user_data[2].userID then
+      return false, "already following"
+    end
+  end
+
+  table.insert(following, user_data[2].userID)
+  following = util.to_json(following)
+  db.update("users", {
+    userFollowing = following
+  },{
+    userID = user_data[1].userID
+  })
+  return true, "FLW: " .. UserHandle .. " has followed " .. followHandle .. "."
+end
+
 return User

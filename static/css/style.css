@@ -132,9 +132,7 @@
 
 body {
   font-family: Helvetica, Arial, Sans-serif;
-  background: rgb(50,15,46);
-  background: rgb(162,51,152);
-  background: linear-gradient(122deg, rgba(162,51,152,1) 0%, rgba(237,47,74,1) 57%, rgba(249,104,84,1) 77%, rgba(254,59,0,1) 100%);
+  background: #f1f1f1;
   color: #fff;
   height: 100vh;
 }
@@ -269,7 +267,7 @@ nav {
 .profile-main {
   flex-direction: column;
   max-width: 800px;
-  background: #1B2D35;
+  background: #fff;
 }
 
 .profile-tools {
@@ -290,7 +288,7 @@ nav {
   border-radius: 50px;
   width: 75px;
   height: 75px;
-  border: 6px solid #e6ecf0;
+  border: 6px solid #fff;
 }
 
 .profile-sidebar-content {
