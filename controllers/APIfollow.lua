@@ -4,5 +4,9 @@ return function(self)
 
   local status, msg = User:follow(self.params.userHandle, self.params.followHandle)
 
-  return tostring(status) .. ": " .. msg
+  return { json = {
+    sucess = status,
+    message = msg
+  } }
+  --tostring(status) .. ": " .. msg
 end
