@@ -36,6 +36,6 @@ app:match("profile", "/:userHandle(/:postID)",                  respond_to(profi
 --app:match("thread", "/feed/:feedName[%a]/:threadID[%d]",        respond_to(thread))
 
 -- API routes
-app:match("APIfollow", "/API/follow/:userHandle/:followHandle", APIfollow)
+app:match("APIfollow", "/API/follow/:followHandle",             APIfollow)
 
 return app
