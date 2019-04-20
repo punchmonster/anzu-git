@@ -109,7 +109,7 @@ function User:follow(userHandle, followHandle)
   },{
     userID = user_data[1].userID
   })
-  return true, "FLW: " .. UserHandle .. " has followed " .. followHandle .. "."
+  return true, "FLW: " .. userHandle .. " has followed " .. followHandle .. "."
 end
 
 return User
