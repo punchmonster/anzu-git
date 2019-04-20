@@ -4,5 +4,5 @@ return function(self)
 
   local status, msg = User:follow(self.params.userHandle, self.params.followHandle)
 
-  return "" .. status .. ": " .. msg
+  return tostring(status) .. ": " .. msg
 end
