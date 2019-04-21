@@ -1,6 +1,6 @@
 function followButton(userHandle) {
 
-  const Url='http://yukku.org:8080/API/follow/pepipopa';
+  const Url='http://yukku.org:8080/API/follow/' + userHandle;
 
   fetch(Url)
   .then(data=>{return data.json()})
