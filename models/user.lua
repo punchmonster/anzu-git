@@ -92,6 +92,7 @@ end
 -- FUNCTION: makes user follow an account
 -- userHandle: handle of the user who is executing follow request
 -- followHandle: handle of the user who is being followed
+-- boolean: tells us if we should follow or unfollow
 -- RETURNS: boolean, status message
 function User:follow(userHandle, followHandle, boolean)
 
@@ -102,18 +103,23 @@ function User:follow(userHandle, followHandle, boolean)
   local following = util.from_json(user_data[1].userFollowing)
   for k, v in pairs(following) do
     if v == follow_data[1].userID then
-      -- check if following or unfollowing
+      -- checks if we should follow or unfollow
       if boolean then
         return false, "already following"
       else
+        -- removes user ID from the following list
         table.remove(following, k)
       end
     end
   end
-  
+
+  -- inserts user ID into the following list
+  local msg
   if boolean then
     table.insert(following, follow_data[1].userID)
+    msg = " has unfollowed "
   end
+  msg = " has followed "
 
   -- encode and send following data back to database
   following = util.to_json(following)
@@ -122,7 +128,7 @@ function User:follow(userHandle, followHandle, boolean)
   },{
     userID = user_data[1].userID
   })
-  return true, "FLW: " .. userHandle .. " has followed " .. followHandle .. "."
+  return true, "FLW: " .. userHandle .. msg .. followHandle .. "."
 end
 
 return User
