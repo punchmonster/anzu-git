@@ -6,7 +6,7 @@ return function(self)
   if self.loggedIn == true then
 
     local follow = true
-    if self.params.boolean == "remove" then
+    if self.params.toggle == "remove" then
       follow = false
     end
 
