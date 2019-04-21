@@ -93,18 +93,29 @@ end
 -- userHandle: handle of the user who is executing follow request
 -- followHandle: handle of the user who is being followed
 -- RETURNS: boolean, status message
-function User:follow(userHandle, followHandle)
+function User:follow(userHandle, followHandle, boolean)
+
+  -- retrieve user data
   local user_data = db.select("* from `users` where userHandle = ?", userHandle)
   local follow_data = db.select("* from `users` where userHandle = ?", followHandle)
 
   local following = util.from_json(user_data[1].userFollowing)
   for k, v in pairs(following) do
     if v == follow_data[1].userID then
-      return false, "already following"
+      -- check if following or unfollowing
+      if boolean then
+        return false, "already following"
+      else
+        table.remove(following, k)
+      end
     end
   end
+  
+  if boolean then
+    table.insert(following, follow_data[1].userID)
+  end
 
-  table.insert(following, follow_data[1].userID)
+  -- encode and send following data back to database
   following = util.to_json(following)
   db.update("users", {
     userFollowing = following
