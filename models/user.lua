@@ -117,9 +117,10 @@ function User:follow(userHandle, followHandle, boolean)
   local msg
   if boolean then
     table.insert(following, follow_data[1].userID)
+    msg = " has followed "
+  else
     msg = " has unfollowed "
   end
-  msg = " has followed "
 
   -- encode and send following data back to database
   following = util.to_json(following)
