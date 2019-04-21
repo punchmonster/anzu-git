@@ -24,5 +24,9 @@
 
     <% content_for("inner") %>
 
+    <script>
+      <% render("views.scripts") %>
+    </script>
+
   </body>
 </html>
