@@ -12,12 +12,14 @@
     </div>
 
     <div class="profile-main">
-      <% for k, v in pairs( profile_data ) do %>
-        <div class="profile-item">
-          <h4><%= v['userName'] %></h4>
-          <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
-          <p><%- v['postBody'] %></p>
-        </div>
+      <% if profile_data ~=nil then %>
+        <% for k, v in pairs( profile_data ) do %>
+          <div class="profile-item">
+            <h4><%= v['userName'] %></h4>
+            <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
+            <p><%- v['postBody'] %></p>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
