@@ -9,7 +9,7 @@
         <a href="<%- submit_url .. user_data[1].userHandle %>">@<%= user_data[1].userHandle %></a>
         <p><%= user_data[1].userBio %></p>
 
-         <button type="button" onclick='followButton(<%= user_data[1].userHandle %>)'>Follow</button> 
+         <button type="button" onclick="followButton('<%= user_data[1].userHandle %>')">Follow</button> 
       </div>
     </div>
 
