@@ -1,4 +1,4 @@
-function followButton(userHandle, toggle) {
+function followButton(userHandle) {
 
   var button = document.querySelector(".follow-btn");
 
