@@ -1,5 +1,6 @@
 <div class="flex wrap profile-wrapper">
-  <div class="flex wrap profile-view">
+
+  <div class="flex wrap profile-view col-30">
     <div class="flex wrap profile-sidebar">
       <div class="profile-sidebar-image">
         <img src="http://yukku.org:8080/static/img/default-person.jpg" alt="user avatar">
