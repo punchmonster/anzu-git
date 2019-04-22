@@ -498,12 +498,12 @@ nav {
   background-repeat: no-repeat;
 }
 
-.profile-image {
+.profile-blurb {
   box-sizing: border-box;
   margin-right: 20px;
 }
 
-.profile-image img {
+.profile-blurb img {
   border-radius: 50px;
   width: 100px;
   height: 100px;

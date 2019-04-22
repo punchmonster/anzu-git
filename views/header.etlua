@@ -23,7 +23,7 @@
   <div class="header-stats flex">
     poop
   </div>
-  <div class="profile-image">
+  <div class="profile-blurb">
     <img src="http://yukku.org:8080/static/img/default-person.jpg" alt="user avatar">
   </div>
 </div>
