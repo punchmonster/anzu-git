@@ -19,10 +19,15 @@
   <div class="profile-main">
     <% if profile_data ~= 0 then %>
       <% for k, v in pairs( profile_data ) do %>
-        <div class="profile-item">
+        <div class="profile-item flex">
+          <div class="post-side">
+            <img src="http://yukku.org:8080/static/img/default-person.jpg" alt="user avatar">
+          </div>
+          <div class="post-body">
           <h4><%= v['userName'] %></h4>
           <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
           <p><%- v['postBody'] %></p>
+          </div>
         </div>
       <% end %>
     <% end %>
