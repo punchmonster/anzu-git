@@ -530,7 +530,6 @@ nav {
   display: block;
   padding: 4px;
   text-align: center;
-  flex-grow: 1;
 }
 
 .header-stats-content button {
