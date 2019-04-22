@@ -167,7 +167,7 @@ function Posts:get_profile(userHandle)
   -- check if posts exist and if so return them
   local profile_data = db.select("* from `posts` WHERE userID = ? order by postTime DESC LIMIT 20", user_data[1].userID)
   if #profile_data < 1 then
-    return true, 0
+    return true, 0, user_data
   else
 
     --merge user data into post data
