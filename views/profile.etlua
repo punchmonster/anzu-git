@@ -9,12 +9,12 @@
         <a href="<%- submit_url .. user_data[1].userHandle %>">@<%= user_data[1].userHandle %></a>
         <p><%= user_data[1].userBio %></p>
 
-         <button type="button" onclick="followButton('<%= user_data[1].userHandle %>')">Follow</button> 
+         <button type="button" onclick="followButton('<%= user_data[1].userHandle %>')">Follow</button>
       </div>
     </div>
 
     <div class="profile-main">
-      <% if profile_data ~=nil then %>
+      <% if profile_data ~= 0 then %>
         <% for k, v in pairs( profile_data ) do %>
           <div class="profile-item">
             <h4><%= v['userName'] %></h4>
