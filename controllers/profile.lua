@@ -17,10 +17,6 @@ return {
 
   GET = function(self)
 
-    if self.loggedIn then
-
-    end
-
     if self.params.postID ~= nil then
       -- generate token for page verification
       self.csrf_token = csrf.generate_token(self)
@@ -29,6 +25,17 @@ return {
     -- retrieve timeline table
     local status
     status, self.profile_data, self.user_data = Posts:get_profile(self.params.userHandle)
+
+    -- check if you're following the profile
+    if self.loggedIn then
+      local following = util.from_json(self.loggedUser[1].userFollowing)
+      for k, v in pairs(following) do
+        if v == self.user_data[1].userID then
+          self.following = true
+        end
+      end
+    end
+
     return { render = "profile" }
   end,
 

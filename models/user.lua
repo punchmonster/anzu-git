@@ -113,6 +113,10 @@ function User:follow(userHandle, followHandle, boolean)
     end
   end
 
+  function User:check_follow(userList, followList)
+
+  end
+
   -- inserts user ID into the following list
   local msg
   if boolean then
