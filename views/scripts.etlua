@@ -2,9 +2,9 @@ function followButton(userHandle, toggle) {
 
   var button = document.querySelector(".follow-btn");
 
-  var toggleURL = """;
+  var toggleURL = "";
 
-  if toggle == false {
+  if (toggle == false) {
     toggleURL = "/remove"
   }
 
