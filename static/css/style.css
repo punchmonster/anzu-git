@@ -489,6 +489,21 @@ nav {
   margin: 0 15px;
 }
 
+.header-display {
+  height: 300px;
+  width: 100%;
+  flex-direction: column-reverse;
+  background: rgb(162,51,152);
+  background: linear-gradient(122deg, rgba(162,51,152,1) 0%, rgba(237,47,74,1) 57%, rgba(249,104,84,1) 77%, rgba(254,59,0,1) 100%);
+  background-repeat: no-repeat;
+}
+
+.header-stats {
+  width: 100%;
+  background: #fff;
+  height: 30px;
+}
+
 .form-email {
   display: none;
 }
@@ -500,7 +515,6 @@ nav {
 }
 
 .profile-wrapper {
-  overflow: hidden;
 }
 
 .profile-wrapper h4 {
@@ -519,7 +533,7 @@ nav {
 
 .profile-main {
   flex-direction: column;
-  max-width: 800px;
+  width: 800px;
   background: #1B2D35;
 }
 

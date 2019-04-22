@@ -17,18 +17,18 @@
         <% end %>
       </div>
     </div>
+  </div>
 
-    <div class="profile-main">
-      <% if profile_data ~= 0 then %>
-        <% for k, v in pairs( profile_data ) do %>
-          <div class="profile-item">
-            <h4><%= v['userName'] %></h4>
-            <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
-            <p><%- v['postBody'] %></p>
-          </div>
-        <% end %>
+  <div class="profile-main">
+    <% if profile_data ~= 0 then %>
+      <% for k, v in pairs( profile_data ) do %>
+        <div class="profile-item">
+          <h4><%= v['userName'] %></h4>
+          <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
+          <p><%- v['postBody'] %></p>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
 
   <div class="flex nowrap profile-tools">

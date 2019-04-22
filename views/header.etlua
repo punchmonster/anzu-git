@@ -17,4 +17,9 @@
     </div>
 
   </div>
+  <div class="header-display flex">
+    <div class="header-stats flex">
+      poop
+    </div>
+  </div>
 </nav>
