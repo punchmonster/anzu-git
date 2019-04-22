@@ -504,9 +504,9 @@ nav {
 }
 
 .profile-blurb img {
-  border-radius: 50px;
-  width: 100px;
-  height: 100px;
+  border-radius: 150px;
+  width: 150px;
+  height: 150px;
   border: 6px solid #fff;
 }
 
