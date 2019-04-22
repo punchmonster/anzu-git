@@ -513,13 +513,13 @@ nav {
 .header-stats {
   width: 100%;
   background: #fff;
-  height: 70px;
+  height: 55px;
   box-shadow: 0px 0px 6px -1px rgba(0,0,0,1);
   justify-content: center;
 }
 
 .header-stats-content {
-  max-width: 1340px;
+  max-width: 1200px;
   justify-content: space-between;
 }
 
@@ -530,13 +530,15 @@ nav {
   display: block;
   padding: 4px;
   text-align: center;
+  flex-grow: 1;
 }
 
 .header-stats-content button {
     display: inline-block;
+    height: 50px;
     border: none;
     padding: 0px 25px;
-    margin: 0;
+    margin: 2;
     text-decoration: none;
     background: rgb(162,51,152);
     background: linear-gradient(122deg, rgba(162,51,152,1) 0%, rgba(236,64,38,1) 0%, rgba(249,104,84,1) 100%, rgba(254,0,120,1) 100%);
@@ -554,15 +556,9 @@ nav {
     -moz-appearance: none;
 }
 
-.header-stats-content button:hover,
-.header-stats-content button:focus {
+.header-stats-content button:hover {
     background: #fff;
     color: #F96854;
-}
-
-.header-stats-content button:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
 }
 
 .header-stats-content button:active {
