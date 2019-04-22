@@ -584,12 +584,13 @@ nav {
 }
 
 .post-side {
-  width: 70px;
+
 }
 
 .post-side img {
   width: 50px;
   height: 50px;
+  padding: 0 10px;
   border-radius: 50px;
 }
 
