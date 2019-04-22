@@ -519,7 +519,7 @@ nav {
 }
 
 .header-stats-content {
-  max-width: 1200px;
+  width: 1200px;
   justify-content: space-between;
 }
 
@@ -538,7 +538,7 @@ nav {
     height: 50px;
     border: none;
     padding: 0px 25px;
-    margin: 2;
+    margin: 2px;
     text-decoration: none;
     background: rgb(162,51,152);
     background: linear-gradient(122deg, rgba(162,51,152,1) 0%, rgba(236,64,38,1) 0%, rgba(249,104,84,1) 100%, rgba(254,0,120,1) 100%);
