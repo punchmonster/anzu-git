@@ -21,7 +21,11 @@
 
 <div class="header-display flex">
   <div class="header-stats flex">
-    poop
+    <% if following == true then %>
+      <button type="button" class="follow-btn" onclick="followButton('<%= user_data[1].userHandle %>')">Unfollow</button>
+    <% else %>
+      <button type="button" class="follow-btn" onclick="followButton('<%= user_data[1].userHandle %>')">Follow</button>
+    <% end %>
   </div>
   <div class="profile-blurb">
     <img src="http://placekitten.com/g/300/300" alt="user avatar">

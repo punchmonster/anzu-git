@@ -6,12 +6,6 @@
         <h4><%= user_data[1].userName %></h4>
         <a href="<%- submit_url .. user_data[1].userHandle %>">@<%= user_data[1].userHandle %></a>
         <p><%= user_data[1].userBio %></p>
-
-        <% if following == true then %>
-          <button type="button" class="follow-btn" onclick="followButton('<%= user_data[1].userHandle %>')">Unfollow</button>
-        <% else %>
-          <button type="button" class="follow-btn" onclick="followButton('<%= user_data[1].userHandle %>')">Follow</button>
-        <% end %>
       </div>
     </div>
   </div>
