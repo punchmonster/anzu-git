@@ -526,11 +526,11 @@ nav {
 .header-stats-content button {
     display: inline-block;
     border: none;
-    padding: -5px 25px;
+    padding: 0px 25px;
     margin: 0;
     text-decoration: none;
     background: rgb(162,51,152);
-    background: linear-gradient(122deg, rgba(162,51,152,1) 0%, rgba(237,47,74,1) 0%, rgba(249,104,84,1) 56%, rgba(254,0,120,1) 100%);
+    background: linear-gradient(122deg, rgba(162,51,152,1) 0%, rgba(236,64,38,1) 0%, rgba(249,104,84,1) 100%, rgba(254,0,120,1) 100%);
     color: #ffffff;
     font-family: sans-serif;
     font-size: 1rem;
