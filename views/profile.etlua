@@ -10,9 +10,9 @@
         <p><%= user_data[1].userBio %></p>
 
         <% if following == true then %>
-          <button type="button" onclick="followButton('<%= user_data[1].userHandle %>')">Unfollow</button>
+          <button type="button" onclick="followButton('<%= user_data[1].userHandle %>', false)">Unfollow</button>
         <% else %>
-          <button type="button" onclick="followButton('<%= user_data[1].userHandle %>')">Follow</button>
+          <button type="button" onclick="followButton('<%= user_data[1].userHandle %>', true)">Follow</button>
         <% end %>
       </div>
     </div>

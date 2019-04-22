@@ -1,6 +1,14 @@
-function followButton(userHandle) {
+function followButton(userHandle, toggle) {
 
-  const Url='http://yukku.org:8080/API/follow/' + userHandle;
+  var button = document.querySelector(".follow-btn");
+
+  var toggleURL = """;
+
+  if toggle == false {
+    toggleURL = "/remove"
+  }
+
+  const Url='http://yukku.org:8080/API/follow/' + userHandle + toggleURL;
 
   fetch(Url)
   .then(data=>{return data.json()})
