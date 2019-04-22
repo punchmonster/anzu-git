@@ -22,6 +22,7 @@
 <div class="header-display flex">
   <div class="header-stats flex">
     <div class="header-stats-content flex">
+      <a href="#">Following<br />5</a>
       <% if following == true then %>
         <button type="button" class="follow-btn" onclick="followButton('<%= user_data[1].userHandle %>')">Unfollow</button>
       <% else %>

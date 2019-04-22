@@ -523,6 +523,14 @@ nav {
   justify-content: space-between;
 }
 
+.header-stats-content a {
+  color: #222;
+  font-weight: bold;
+  display: block;
+  padding: 4px;
+  text-align: center;
+}
+
 .header-stats-content button {
     display: inline-block;
     border: none;
