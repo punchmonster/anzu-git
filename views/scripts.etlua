@@ -6,6 +6,9 @@ function followButton(userHandle, toggle) {
 
   if (toggle == false) {
     toggleURL = "/remove"
+    button.innerHTML = "Follow"
+  } else {
+    button.innerHTML = "Unfollow"
   }
 
   const Url='http://yukku.org:8080/API/follow/' + userHandle + toggleURL;
