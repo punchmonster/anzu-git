@@ -53,7 +53,7 @@
           </div>
           <div class="post-body">
           <h4><%= v['userName'] %></h4>
-          <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
+          <a href="<%- submit_url .. v['userHandle'] %>">@<%- v['userHandle'] %></a>
           <p><%- v['postBody'] %></p>
           </div>
         </div>
