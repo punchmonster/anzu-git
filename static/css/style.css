@@ -496,11 +496,11 @@ nav {
   background: rgb(162,51,152);
   background: linear-gradient(122deg, rgba(162,51,152,1) 0%, rgba(237,47,74,1) 57%, rgba(249,104,84,1) 77%, rgba(254,59,0,1) 100%);
   background-repeat: no-repeat;
+  justify-content: center;
 }
 
 .profile-blurb {
   width: 1200px;
-  margin: 0 auto;
 }
 
 .profile-blurb img {
@@ -520,7 +520,7 @@ nav {
   color: #fff;
   background: rgba(0,0,0,0.6);
   padding: 8px 20px;
-  margin-bottom: 3px;
+  margin-bottom: 12px;
 }
 
 .user-info a {
