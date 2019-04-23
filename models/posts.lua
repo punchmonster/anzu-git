@@ -47,12 +47,19 @@ function Posts:submit(arg1)
       end
     end
 
+    -- if no reply ID is supplied post is made first post in thread
+    if arg1.threadID == nil then
+      arg1.threadID = postID
+    end
+
     -- insert new thread data into database
     db.insert( 'posts' , {
       postID      = postID,
+      replyID     = replyID,
+      threadID    = arg.threadID,
       postTime    = ngx.time(),
-      userID  = arg1.userID,
-      sessionID  = arg1.sessionID,
+      userID      = arg1.userID,
+      sessionID   = arg1.sessionID,
       postBody    = arg1.postBody, --LESSEN CPU LOAD: Text:post_sanitize(arg1.postBody, "http://anzu.bmrf.me:8080/feed/" .. feed_data[1]['feedName']),
       postImage   = imageLocation
     })
@@ -174,6 +181,14 @@ function Posts:get_profile(userHandle)
     profile_data = self:merge_user_data(user_data, profile_data)
     return true, profile_data, user_data
   end
+end
+
+function Posts:get_thread(postID)
+  local posts_data = db.select("* from `posts` WHERE postID = ?", postID)
+
+  posts_data = db.select("* from `posts` WHERE threadID = ?", user_data[1].threadID)
+
+  return posts_data
 end
 
 -- FUNCTION: merges user data like handles with post data

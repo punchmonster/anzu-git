@@ -46,7 +46,7 @@
 <div class="thread-overlay flex">
   <div class="profile-main">
     <% if profile_data ~= 0 then %>
-      <% for k, v in pairs( profile_data ) do %>
+      <% for k, v in pairs( posts_data ) do %>
         <div class="profile-item flex">
           <div class="post-side">
             <img src="http://yukku.org:8080/static/img/default-person.jpg" alt="user avatar">

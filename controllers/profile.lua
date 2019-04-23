@@ -37,6 +37,10 @@ return {
     end
 
     self.following_count = #util.from_json(self.user_data[1].userFollowing) - 1
+
+    if self.params.postID ~= nil then
+      self.posts_data = Posts:get_thread(self.params.postID)
+    end
     return { render = "profile" }
   end,
 
