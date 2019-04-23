@@ -32,11 +32,13 @@
       <% end %>
     </div>
   </div>
-  <div class="profile-blurb flex">
-    <img src="http://placekitten.com/g/300/300" alt="user avatar">
-    <div class="user-info">
-      <h4><%= user_data[1].userName %></h4>
-      <a href="<%- submit_url .. user_data[1].userHandle %>">@<%= user_data[1].userHandle %></a>
+  <div class="profile-blurb-wrapper flex">
+    <div class="profile-blurb flex">
+      <img src="http://placekitten.com/g/300/300" alt="user avatar">
+      <div class="user-info">
+        <h4><%= user_data[1].userName %></h4>
+        <a href="<%- submit_url .. user_data[1].userHandle %>">@<%= user_data[1].userHandle %></a>
+      </div>
     </div>
   </div>
 </div>

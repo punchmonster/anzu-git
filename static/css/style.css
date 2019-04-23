@@ -496,9 +496,12 @@ nav {
   background: rgb(162,51,152);
   background: linear-gradient(122deg, rgba(162,51,152,1) 0%, rgba(237,47,74,1) 57%, rgba(249,104,84,1) 77%, rgba(254,59,0,1) 100%);
   background-repeat: no-repeat;
-  justify-content: center;
 }
 
+.profile-blurb-wrapper {
+  width: 100%;
+  justify-content: center;
+}
 .profile-blurb {
   width: 1200px;
 }
