@@ -190,7 +190,7 @@ function Posts:get_thread(postID)
 
   -- turn poster ID's into a string for query
   local processedFollowing = "0"
-  for k, v in pairs(post_data) do
+  for k, v in pairs(posts_data) do
     processedFollowing = processedFollowing .. "," .. v.userID
   end
 
