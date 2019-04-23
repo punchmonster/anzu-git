@@ -188,6 +188,17 @@ function Posts:get_thread(postID)
 
   posts_data = db.select("* from `posts` WHERE threadID = ?", posts_data[1].threadID)
 
+  -- turn poster ID's into a string for query
+  local processedFollowing = "0"
+  for k, v in pairs(post_data) do
+    processedFollowing = processedFollowing .. "," .. v.userID
+  end
+
+  -- retrieve thread headers from database
+  local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
+
+  posts_data = self:merge_user_data(users_data, posts_data)
+
   return posts_data
 end
 
