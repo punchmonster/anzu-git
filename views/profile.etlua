@@ -43,7 +43,7 @@
 
 </div>
 
-<% if params.postID == nil then %>
+<% if params.postID ~= nil then %>
   <div class="thread-overlay flex">
     <div class="profile-main">
       <% if profile_data ~= 0 then %>
