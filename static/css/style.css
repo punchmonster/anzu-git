@@ -514,16 +514,17 @@ nav {
 }
 
 .user-info h4 {
-  font-size: 24px;
+  font-size: 50px;
+  font-weight: bold;
   color: #fff;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.6);
   padding: 10px;
 }
 
 .user-info a {
-  font-size: 18px;
+  font-size: 35px;
   color: #F96854;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.6);
   padding: 10px;
 }
 
