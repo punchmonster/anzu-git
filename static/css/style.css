@@ -683,5 +683,14 @@ nav {
 .profile-tools form input,
 .profile-tools form textarea {
   width: 100%;
+}
 
+.thread-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
 }
