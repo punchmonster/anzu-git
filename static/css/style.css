@@ -501,6 +501,7 @@ nav {
 .profile-blurb-wrapper {
   width: 100%;
   justify-content: center;
+  margin-bottom: 40px;
 }
 .profile-blurb {
   width: 1200px;
