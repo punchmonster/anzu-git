@@ -22,7 +22,7 @@
 <div class="header-display flex">
   <div class="header-stats flex">
     <div class="header-stats-content flex">
-      <a href="#">Following<br />5</a>
+      <a href="#">Following<br /><%= following_count %></a>
       <a href="#">Followers<br />5</a>
       <a href="#">Likes<br />5</a>
       <% if following == true then %>

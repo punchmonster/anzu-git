@@ -36,6 +36,7 @@ return {
       end
     end
 
+    self.following_count = #util.from_json(self.user_data[1].userFollowing) - 1
     return { render = "profile" }
   end,
 
