@@ -186,7 +186,7 @@ end
 function Posts:get_thread(postID)
   local posts_data = db.select("* from `posts` WHERE postID = ?", postID)
 
-  posts_data = db.select("* from `posts` WHERE threadID = ?", user_data[1].threadID)
+  posts_data = db.select("* from `posts` WHERE threadID = ?", posts[1].threadID)
 
   return posts_data
 end
