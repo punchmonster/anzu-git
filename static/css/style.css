@@ -511,18 +511,20 @@ nav {
 }
 
 .user-info {
-  background: rgba(0,0,0,0.8);
-  padding: 10px;
 }
 
 .user-info h4 {
   font-size: 24px;
   color: #fff;
+  background: rgba(0,0,0,0.8);
+  padding: 10px;
 }
 
 .user-info a {
   font-size: 18px;
   color: #F96854;
+  background: rgba(0,0,0,0.8);
+  padding: 10px;
 }
 
 .header-stats {
