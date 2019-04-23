@@ -189,9 +189,9 @@ function Posts:get_thread(postID)
   posts_data = db.select("* from `posts` WHERE threadID = ?", posts_data[1].threadID)
 
   -- turn poster ID's into a string for query
-  local processedFollowing = "0"
+  local processedUsers = "0"
   for k, v in pairs(posts_data) do
-    processedFollowing = processedFollowing .. "," .. v.userID
+    processedUsers = processedUsers .. "," .. v.userID
   end
 
   -- retrieve thread headers from database
