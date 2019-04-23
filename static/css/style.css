@@ -499,8 +499,8 @@ nav {
 }
 
 .profile-blurb {
-  box-sizing: border-box;
-  margin-right: 20px;
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .profile-blurb img {
