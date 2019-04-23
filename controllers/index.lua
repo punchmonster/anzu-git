@@ -24,7 +24,9 @@ return {
       self.csrf_token = csrf.generate_token(self)
 
       -- retrieve timeline table
-      self.timeline_data = Posts:get_timeline(util.from_json(self.loggedUser[1]['userFollowing']))
+      self.timeline_data = Posts:get_timeline(util.from_json(self.loggedUser[1].userFollowing))
+
+      self.user_data = self.loggedUser
 
       return { render = "index" }
     else
