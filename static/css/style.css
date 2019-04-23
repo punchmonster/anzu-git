@@ -510,6 +510,21 @@ nav {
   border: 6px solid #fff;
 }
 
+.user-info {
+  background: rgba(0,0,0,0.8);
+  padding: 10px;
+}
+
+.user-info h4 {
+  font-size: 24px;
+  color: #fff;
+}
+
+.user-info a {
+  font-size: 18px;
+  color: #F96854;
+}
+
 .header-stats {
   width: 100%;
   background: #fff;
