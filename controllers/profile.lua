@@ -38,11 +38,12 @@ return {
 
     self.following_count = #util.from_json(self.user_data[1].userFollowing) - 1
 
+    -- if linked to a thread retrieve thread data and push to view
     if self.params.postID ~= nil then
       self.posts_data = Posts:get_thread(self.params.postID, self.user_data[1].userID)
 
       if self.posts_data == false then
-        self.threadview = false
+        self.params.postID = nil
         return { render = "profile" }
       end
 
