@@ -184,9 +184,12 @@ function Posts:get_profile(userHandle)
 end
 
 -- FUNCTION: retrieves a conversational thread
+-- postID: the post number to build thread for
+-- userID: userID of the person who the post should belong to
 function Posts:get_thread(postID, userID)
   local posts_data = db.select("* from `posts` WHERE postID = ?", postID)
 
+  -- check if the post belongs to the supplied user
   if userID == posts_data[1].userID then
 
     posts_data = db.select("* from `posts` WHERE threadID = ?", posts_data[1].threadID)
