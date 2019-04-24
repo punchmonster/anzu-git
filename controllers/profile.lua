@@ -39,7 +39,7 @@ return {
     self.following_count = #util.from_json(self.user_data[1].userFollowing) - 1
 
     if self.params.postID ~= nil then
-      self.posts_data = Posts:get_thread(self.params.postID)
+      self.posts_data = Posts:get_thread(self.params.postID, self.user_data[1].userID)
       self.threadview = true
       if self.posts_data == false then
         return { redirect_to = self:url_for("error", { errorCode = "err_not_allowed" }) }
