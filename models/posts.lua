@@ -56,7 +56,7 @@ function Posts:submit(arg1)
     db.insert( 'posts' , {
       postID      = postID,
       replyID     = replyID,
-      threadID    = arg.threadID,
+      threadID    = arg1.threadID,
       postTime    = ngx.time(),
       userID      = arg1.userID,
       sessionID   = arg1.sessionID,
