@@ -40,10 +40,13 @@ return {
 
     if self.params.postID ~= nil then
       self.posts_data = Posts:get_thread(self.params.postID, self.user_data[1].userID)
-      self.threadview = true
+
       if self.posts_data == false then
+        self.threadview = false
         return { render = "profile" }
       end
+
+      self.threadview = true
     end
     return { render = "profile" }
   end,
