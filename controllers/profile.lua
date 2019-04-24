@@ -41,9 +41,9 @@ return {
     if self.params.postID ~= nil then
       self.posts_data = Posts:get_thread(self.params.postID, self.user_data[1].userID)
       self.threadview = true
-      if self.posts_data == false then
+      --[[if self.posts_data == false then
         return { redirect_to = self:url_for("error", { errorCode = "err_not_allowed" }) }
-      end
+      end]]
     end
     return { render = "profile" }
   end,
