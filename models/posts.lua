@@ -183,23 +183,29 @@ function Posts:get_profile(userHandle)
   end
 end
 
-function Posts:get_thread(postID)
+-- FUNCTION: retrieves a conversational thread
+function Posts:get_thread(postID, userID)
   local posts_data = db.select("* from `posts` WHERE postID = ?", postID)
 
-  posts_data = db.select("* from `posts` WHERE threadID = ?", posts_data[1].threadID)
+  if userID == posts_data[1].userID then
 
-  -- turn poster ID's into a string for query
-  local processedUsers = "0"
-  for k, v in pairs(posts_data) do
-    processedUsers = processedUsers .. "," .. v.userID
+    posts_data = db.select("* from `posts` WHERE threadID = ?", posts_data[1].threadID)
+
+    -- turn poster ID's into a string for query
+    local processedUsers = "0"
+    for k, v in pairs(posts_data) do
+      processedUsers = processedUsers .. "," .. v.userID
+    end
+
+    -- retrieve thread headers from database
+    local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
+
+    posts_data = self:merge_user_data(users_data, posts_data)
+
+    return posts_data
+  else
+    return false
   end
-
-  -- retrieve thread headers from database
-  local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
-
-  posts_data = self:merge_user_data(users_data, posts_data)
-
-  return posts_data
 end
 
 -- FUNCTION: merges user data like handles with post data
