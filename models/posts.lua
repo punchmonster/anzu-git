@@ -187,7 +187,7 @@ end
 function Posts:get_thread(postID, userID)
   local posts_data = db.select("* from `posts` WHERE postID = ?", postID)
 
-  if userID == posts_data[1].userID then
+  if true then
 
     posts_data = db.select("* from `posts` WHERE threadID = ?", posts_data[1].threadID)
 
