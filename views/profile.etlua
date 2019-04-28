@@ -36,6 +36,7 @@
         <input type="hidden" name="replyID" value="<%- replyID %>">
         <input type="text" name="email" class="form-email" style="">
 
+        <div class="flex wrap">
         <textarea name="postBody" placeholder="type your reply" value="<%- params.userHandle %>" required></textarea>
         <input class="file-btn" type="file" name="postImage" accept="image/*,video/*" style=";">
         <input class="follow-btn" type="submit" value="Submit" style="">
