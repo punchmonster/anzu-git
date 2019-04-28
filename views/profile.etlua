@@ -3,8 +3,6 @@
   <div class="flex wrap profile-view col-30">
     <div class="flex wrap profile-sidebar">
       <div class="profile-sidebar-content">
-        <h4><%= user_data[1].userName %></h4>
-        <a href="<%- submit_url .. user_data[1].userHandle %>">@<%= user_data[1].userHandle %></a>
         <p><%= user_data[1].userBio %></p>
       </div>
     </div>

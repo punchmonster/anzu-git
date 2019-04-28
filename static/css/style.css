@@ -161,7 +161,7 @@ textarea {
   font-family: sans-serif;
   border-radius: 10px;
   display: block;
-  border: 1px solid #F96854;
+  border: 1px solid #bbb;
   width: 100%;
   box-sizing: border-box;
 }
@@ -377,6 +377,7 @@ nav {
 .profile-sidebar {
   width: 300px;
   justify-content: center;
+  color: #111;
 }
 
 .profile-main {
