@@ -155,13 +155,13 @@ a {
 textarea {
  flex-grow: 1;
   border: none;
-  padding: 0px 10px;
+  padding: 15px 15px;
   margin: 2px;
   text-decoration: none;
   font-family: sans-serif;
   border-radius: 10px;
   display: block;
-  border: none;
+  border: 1px solid #F96854;
   width: 100%;
   box-sizing: border-box;
 }
@@ -386,7 +386,7 @@ nav {
 }
 
 .profile-tools {
-  flex-grow: 1;
+  width: 400px;
 }
 
 .profile-main,
@@ -441,7 +441,7 @@ nav {
 }
 
 
-.profile-tools type=['submit'] {
+.profile-tools .follow-btn {
   height: 30px;
 }
 
