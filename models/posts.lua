@@ -8,7 +8,7 @@ local Posts    = Model:extend("posts")
 -- FUNCTION: submits new posts to database
 -- arg1: table which holds key/value pairs with the following structure:
 -- { feedName = <string>, threadTitle = <string>, postBody = <string>, IP = <string>, thread = <int>, postImage = { filename = <string>, contents = <binary> } }
--- RETURN: always returns true because I'm shit
+-- RETURN: boolean, status message
 function Posts:submit(arg1)
 
   -- check if posting cooldown is complete

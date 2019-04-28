@@ -408,8 +408,7 @@ a {
 }
 
 [type="submit"],
-textarea,
-input {
+textarea {
   display: block;
   border-radius: 4px;
   border: none;
@@ -431,6 +430,22 @@ input {
   border-top: 1px solid #2b3b4a;
   padding: 10px 0px;
   margin-bottom: -7px;
+}
+
+[type="file"] {
+  display: inline-block;
+  flex-grow: 1;
+  height: 50px;
+  border: none;
+  padding: 0px 25px;
+  margin: 2px;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: center;
 }
 
 /* ######### header styles ########## */
@@ -556,7 +571,7 @@ nav {
   text-align: center;
 }
 
-.header-stats-content button {
+.follow-btn {
     display: inline-block;
     height: 50px;
     border: none;
@@ -579,12 +594,12 @@ nav {
     -moz-appearance: none;
 }
 
-.header-stats-content button:hover {
+.follow-btn:hover {
     background: #fff;
     color: #F96854;
 }
 
-.header-stats-content button:active {
+.follow-btn:active {
     transform: scale(0.99);
 }
 
