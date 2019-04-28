@@ -178,7 +178,7 @@ textarea {
 
 [type="file"] {
   display: inline-block;
-  flex-grow: 1;
+  flex-grow: 2;
   height: 50px;
   border: none;
   padding: 0px 25px;
@@ -190,6 +190,10 @@ textarea {
   border-radius: 25px;
   cursor: pointer;
   text-align: center;
+}
+
+[type="submit"] {
+  flex-grow: 1;
 }
 
 /* ######### header styles ########## */
