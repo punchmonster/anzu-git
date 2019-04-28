@@ -153,14 +153,17 @@ a {
 }
 
 textarea {
-  display: block;
-  border-radius: 4px;
+ flex-grow: 1;
   border: none;
+  padding: 0px 10px;
   margin: 2px;
-  padding: 10px 7px;
+  text-decoration: none;
+  font-family: sans-serif;
+  border-radius: 10px;
+  display: block;
+  border: none;
   width: 100%;
   box-sizing: border-box;
-  -moz-box-sizing: border-box;
 }
 
 [type="submit"] {
@@ -190,10 +193,6 @@ textarea {
   border-radius: 25px;
   cursor: pointer;
   text-align: center;
-}
-
-[type="submit"] {
-  flex-grow: 1;
 }
 
 /* ######### header styles ########## */
@@ -363,6 +362,7 @@ nav {
 
 .profile-wrapper {
   margin-top: 30px;
+  justify-content: center;
 }
 
 .profile-wrapper h4 {
@@ -375,7 +375,7 @@ nav {
 }
 
 .profile-sidebar {
-  min-width: 250px;
+  width: 300px;
   justify-content: center;
 }
 
@@ -389,7 +389,6 @@ nav {
   flex-grow: 1;
 }
 
-.profile-sidebar,
 .profile-main,
 .profile-tools {
   justify-content: center;
@@ -401,8 +400,6 @@ nav {
   padding: 20px;
   border-radius: 10px;
   margin: 0 10px;
-  background: #fff;
-  color: #333;
 }
 
 .profile-item {
@@ -443,8 +440,9 @@ nav {
   max-width: 450px;
 }
 
-.profile-tools form input,
-.profile-tools form textarea {
+
+.profile-tools type=['submit'] {
+  height: 30px;
 }
 
 .thread-overlay {
