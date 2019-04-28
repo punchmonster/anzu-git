@@ -342,7 +342,7 @@ nav {
 }
 
 .follow-btn:hover {
-    background: #fff;
+    background: rgba(0,0,0,0);
     color: #F96854;
 }
 
@@ -442,7 +442,7 @@ nav {
 
 
 .profile-tools .follow-btn {
-  height: 30px;
+  height: 40px;
 }
 
 .thread-overlay {
