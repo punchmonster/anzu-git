@@ -19,16 +19,8 @@ function Text:post_sanitize(arg1, arg2)
 
   arg1 = arg1:gsub('[&<>"\n]', replacements)
 
-  -- match all "@<postnumber>" and store them in a table
-  local post_links = {}
-  for k in arg1:gmatch("@(%d+)") do
-    table.insert(post_links, k)
-  end
-
- -- replace all postnumber references with links
-  for k, v in pairs(post_links) do
-    arg1 = arg1:gsub("@" .. v, "<a href='" .. arg2 .. "/" .. v .. "'>&#64;" .. v  .. "</a>")
-  end
+  -- replace all postnumber references with links
+  arg1 = arg1:gsub("@([%w_]+)", "<a href='" .. arg2 .. "/%1'>@%1</a>")
 
   return arg1
 end

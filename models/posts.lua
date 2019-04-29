@@ -60,7 +60,7 @@ function Posts:submit(arg1)
       postTime    = ngx.time(),
       userID      = arg1.userID,
       sessionID   = arg1.sessionID,
-      postBody    = arg1.postBody, --LESSEN CPU LOAD: Text:post_sanitize(arg1.postBody, "http://anzu.bmrf.me:8080/feed/" .. feed_data[1]['feedName']),
+      postBody    = Text:post_sanitize(arg1.postBody, "http://yukku.org:8080"),
       postImage   = imageLocation
     })
 
@@ -82,9 +82,9 @@ function Posts:submit(arg1)
 end
 
 -- FUNCTION: internal checks last post time
--- feedName: name of feed / postIP
+-- feedName: name of feed / userID
 -- RETURN: boolean
-function Posts:post_timer(feedName, postIP)
+function Posts:post_timer(feedName, userID)
 
   local post_data = db.select("* from `posts` where postIP = \"" .. postIP .. "\" order by postTime DESC limit 1")
 

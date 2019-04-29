@@ -15,7 +15,7 @@ function User:create(userHandle, userPassword)
 
     -- retrieve last user from database
     local user_data = db.select("* from `users` order by userID DESC limit 1")
-    local userID = user_data[1]['userID'] + 1
+    local userID = user_data[1].userID + 1
 
     -- encrypt userPassword
     userSalt = math.random()
@@ -54,9 +54,9 @@ function User:login(userHandle, userPassword)
   end
 
   -- check if password matches
-  local userPasswordStored = user_data[1]['userPassword']
+  local userPasswordStored = user_data[1].userPassword
   print(userPasswordStored)
-  local userPasswordEncoded = encoding.hmac_sha1(user_data[1]['userSalt'], userPassword)
+  local userPasswordEncoded = encoding.hmac_sha1(user_data[1].userSalt, userPassword)
 
   if userPasswordStored == userPasswordEncoded then
 
@@ -66,10 +66,10 @@ function User:login(userHandle, userPassword)
     db.update("users", {
       sessionID = sessionIDTime
     },{
-      userID = user_data[1]['userID']
+      userID = user_data[1].userID
     })
 
-    return true, "login success", user_data[1]['userID'], sessionIDTime
+    return true, "login success", user_data[1].userID, sessionIDTime
   end
 
   return false, "wrong password"
