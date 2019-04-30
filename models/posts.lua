@@ -52,10 +52,14 @@ function Posts:submit(arg1)
       arg1.threadID = postID
     end
 
+    if arg1.replyID == nil then
+      arg1.replyID = postID
+    end
+
     -- insert new thread data into database
     db.insert( 'posts' , {
       postID      = postID,
-      replyID     = replyID,
+      replyID     = arg1.replyID,
       threadID    = arg1.threadID,
       postTime    = ngx.time(),
       userID      = arg1.userID,
