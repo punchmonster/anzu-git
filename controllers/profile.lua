@@ -41,6 +41,7 @@ return {
     -- if linked to a thread retrieve thread data and push to view
     if self.params.postID ~= nil then
       self.posts_data = Posts:get_thread(self.params.postID, self.user_data[1].userID)
+      self.threadID = self.posts_data[1].threadID
 
       if self.posts_data == false then
         self.params.postID = nil
@@ -80,7 +81,8 @@ return {
     -- pass thread to model
     if completed == true then
       -- go back to feed view
-      return { redirect_to = self:url_for("profile", { userHandle = self.params.userHandle }) }
+      return { redirect_to = self:url_for("index") }
+      --return { redirect_to = self:url_for("profile", { userHandle = self.params.userHandle, postID = self.params.postID }) }
     else
       return { redirect_to = self:url_for("error", { errorCode = error }) }
     end
