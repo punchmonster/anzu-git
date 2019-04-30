@@ -74,7 +74,8 @@ return {
       postBody = self.req.params_post['postBody'],
       postImage = self.params.postImage,
       sessionID = self.loggedUser[1]['sessionID'],
-      replyID = self.params.replyID
+      replyID = self.params.replyID,
+      threadID = self.params.threadID
     }
 
     -- return post status
