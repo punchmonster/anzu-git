@@ -80,7 +80,7 @@ return {
     -- pass thread to model
     if completed == true then
       -- go back to feed view
-      return { redirect_to = self:url_for("index") }
+      return { redirect_to = self:url_for("index", { userHandle = self.params.userHandle }) }
     else
       return { redirect_to = self:url_for("error", { errorCode = error }) }
     end
