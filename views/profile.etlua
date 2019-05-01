@@ -60,6 +60,7 @@
             <div class="post-body">
             <h4><%= v['userName'] %></h4>
             <a href="<%- submit_url .. v['userID'] %>">@<%= v['userHandle'] %></a>
+            <span>&#9895;</span>
             <p><%- v['postBody'] %></p>
             </div>
           </div>
@@ -68,18 +69,20 @@
     </div>
 
     <% if loggedIn == true then %>
-      <form action="<%- submit_url .. params.userHandle .. '/' .. params.postID %>" method="POST" enctype="multipart/form-data" class="">
-        <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
-        <input type="hidden" name="sessionID" value="<%- session.sessionID %>">
-        <input type="hidden" name="threadID" value="<%- threadID %>">
-        <input type="hidden" name="replyID" value="<%- params.postID %>">
-        <input type="text" name="email" class="form-email" style="">
+      <div class="reply-tools">
+        <form action="<%- submit_url .. params.userHandle .. '/' .. params.postID %>" method="POST" enctype="multipart/form-data" class="">
+          <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
+          <input type="hidden" name="sessionID" value="<%- session.sessionID %>">
+          <input type="hidden" name="threadID" value="<%- threadID %>">
+          <input type="hidden" name="replyID" value="<%- params.postID %>">
+          <input type="text" name="email" class="form-email" style="">
 
-        <textarea name="postBody" placeholder="type your reply" value="<%- params.userHandle %>" required></textarea>
-        <div class="flex wrap" style="flex-direction: row-reverse;">
-          <input class="follow-btn" type="submit" value="Submit" style="">
-        </div>
-      </form>
+          <textarea name="postBody" placeholder="type your reply" value="<%- params.userHandle %>" required></textarea>
+          <div class="flex wrap" style="flex-direction: row-reverse;">
+            <input class="follow-btn" type="submit" value="Submit" style="">
+          </div>
+        </form>
+      </div>
     <% end %>
   </div>
 <% end %>
