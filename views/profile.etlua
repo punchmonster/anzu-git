@@ -18,7 +18,7 @@
           <div class="post-body">
           <h4><%= v['userName'] %></h4>
           <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
-          <span><%= v['userGender'] %></span>
+          <span><%- v['userGender'] %></span>
           <p><%- v['postBody'] %></p>
           </div>
         </div>
@@ -61,7 +61,7 @@
             <div class="post-body">
             <h4><%= v['userName'] %></h4>
             <a href="<%- submit_url .. v['userID'] %>">@<%= v['userHandle'] %></a>
-            <span><%= v['userGender'] %></span> 
+            <span><% v['userGender'] %></span> 
             <p><%- v['postBody'] %></p>
             </div>
           </div>
