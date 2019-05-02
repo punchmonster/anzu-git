@@ -20,5 +20,6 @@ function followButton(userHandle) {
 }
 
 function postRedirect(URL, userHandle, postID) {
+  print(URL + userHandle + postID)
   location.replace(URL + userHandle + postID)
 }
