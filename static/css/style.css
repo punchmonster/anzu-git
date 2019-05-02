@@ -435,6 +435,10 @@ nav {
   display: inline;
 }
 
+.post-body span {
+	opacity:0.5;
+}
+
 .profile-tools form {
   box-sizing: border-box;
   width: 100%;
@@ -454,4 +458,11 @@ nav {
   width: 100vw;
   height: 100vh;
   background: rgba(0,0,0,0.4);
+}
+
+.reply-tools {
+	background: #23262E;
+	margin-left: 20px;
+	width: 400px;
+	padding: 15px;
 }
