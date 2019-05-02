@@ -459,7 +459,13 @@ nav {
 }
 
 .post-tools {
-	font-size: 26px;
+	font-size: 22px;
+	opacity: 0.5;
+}
+
+.post-tools:hover {
+	opacity: 1;
+	transition: opacity 100ms linear;
 }
 
 .profile-tools form {
