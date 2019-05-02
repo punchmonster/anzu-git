@@ -20,7 +20,7 @@ function Posts:submit(arg1)
   local postID = post_data[1]['postID'] + 1
 
   -- make sure post body length is within spec
-  if #arg1.postBody < 350 then
+  if #arg1.postBody < 300 then
 
     -- write out a postImage to disk if it exists
     local imageLocation
@@ -225,7 +225,7 @@ function Posts:merge_user_data(userData, postData)
       if v['userID'] == b['userID'] then
        v['userHandle'] = b['userHandle']
        v['userName'] = b['userName']
-       v['userGender'] = b['userGender']       
+       v['userGender'] = b['userGender']
       end
     end
   end

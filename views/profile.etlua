@@ -39,7 +39,7 @@
         <input type="hidden" name="replyID" value="<%- replyID %>">
         <input type="text" name="email" class="form-email" style="">
 
-        <textarea name="postBody" placeholder="type your reply" required><%- "@" .. params.userHandle .. " " %></textarea>
+        <textarea name="postBody" placeholder="type your reply" maxlength="300" and minlength="1" required><%- "@" .. params.userHandle .. " " %></textarea>
         <div class="flex wrap" style="flex-direction: row-reverse;">
           <input class="follow-btn" type="submit" value="Submit" style="">
         </div>
@@ -78,7 +78,7 @@
           <input type="hidden" name="replyID" value="<%- params.postID %>">
           <input type="text" name="email" class="form-email" style="">
 
-          <textarea name="postBody" placeholder="type your reply" required><%- "@" .. params.userHandle .. " " %></textarea>
+          <textarea name="postBody" placeholder="type your reply" maxlength="300" and minlength="1" required><%- "@" .. params.userHandle .. " " %></textarea>
           <div class="flex wrap" style="flex-direction: row-reverse;">
             <input class="follow-btn" type="submit" value="Submit" style="height: 35px;">
           </div>

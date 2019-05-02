@@ -2,6 +2,7 @@ return function(self)
 
   -- Page title
   self.page_title = "error"
+  self.header_vis = false
 
   -- storing error types and pushing them to view
   local t = {
