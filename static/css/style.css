@@ -409,7 +409,11 @@ nav {
   width: 100%;
   margin-top: 5px;
   border-bottom: 1px solid #2F4D5A;
-	cursor :default;
+	cursor : pointer;
+}
+
+.profile-item:hover {
+	background: #2B414A;
 }
 
 .profile-item a {
