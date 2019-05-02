@@ -27,4 +27,4 @@ function postRedirect(URL, userHandle, postID) {
   location.replace(URL + userHandle + "/" + postID)
 }
 
-console.log();("scripts initialized")
+console.log("scripts initialized");
