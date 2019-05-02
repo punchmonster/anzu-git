@@ -405,9 +405,8 @@ nav {
 
 .profile-item {
   box-sizing: border-box;
-  padding: 12px 12px 3px 12px;
+  padding: 17px 12px 3px 12px;
   width: 100%;
-  margin-top: 5px;
   border-bottom: 1px solid #2F4D5A;
 	cursor : pointer;
 }
