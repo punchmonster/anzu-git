@@ -405,7 +405,7 @@ nav {
 
 .profile-item {
   box-sizing: border-box;
-  padding: 12px;
+  padding: 12px 12px 3px 12px;
   width: 100%;
   margin-top: 5px;
   border-bottom: 1px solid #2F4D5A;
@@ -459,7 +459,7 @@ nav {
 }
 
 .post-tools {
-	font-size: 18px;
+	font-size: 26px;
 }
 
 .profile-tools form {
