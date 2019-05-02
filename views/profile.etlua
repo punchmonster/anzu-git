@@ -59,10 +59,11 @@
               <img src="http://yukku.org:8080/static/img/default-person.jpg" alt="user avatar">
             </div>
             <div class="post-body">
-            <h4><%= v['userName'] %></h4>
-            <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
-            <span><%- v['userGender'] %></span>
-            <p><%- v['postBody'] %></p>
+              <h4><%= v['userName'] %></h4>
+              <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
+              <span><%- v['userGender'] %></span>
+              <p><%- v['postBody'] %></p>
+              <span class="typcn typcn-arrow-left"></span>
             </div>
           </div>
         <% end %>
