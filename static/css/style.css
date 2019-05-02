@@ -461,7 +461,7 @@ nav {
 .post-tools i {
 	font-size: 22px;
 	opacity: 0.5;
-	margin: 0 10px;
+	margin-right: 20px;
 }
 
 .post-tools i:hover {

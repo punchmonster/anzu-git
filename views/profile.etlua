@@ -65,7 +65,7 @@
               <p><%- v['postBody'] %></p>
               <div class="post-tools">
                 <i class="typcn typcn-message"></i>
-                <i class="typcn typcn-arrow-loop"></i>
+                <i class="typcn typcn-arrow-repeat"></i>
                 <i class="typcn typcn-heart-outline"></i>
               </div>
             </div>
