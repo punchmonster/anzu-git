@@ -443,6 +443,11 @@ nav {
 	border-radius: 5px;
 	background: #F96854;
 	margin-bottom: 2px;
+	opacity: 0.5;
+}
+
+.post-body span:hover {
+	opacity: 1;
 }
 
 .profile-tools form {
