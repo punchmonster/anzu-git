@@ -382,7 +382,7 @@ nav {
 
 .profile-main {
   flex-direction: column;
-  width: 700px;
+  width: 650px;
   background: #1B2D35;
 }
 
@@ -437,6 +437,10 @@ nav {
   padding: 0px 20px 5px 10px;
 }
 
+.post-body p {
+  margin-top: 5px;
+}
+
 .post-body h4 {
   display: inline;
 }
@@ -460,7 +464,7 @@ nav {
 
 .post-tools i {
 	font-size: 22px;
-	opacity: 0.5;
+	opacity: 0.4;
 	margin-right: 20px;
 }
 
