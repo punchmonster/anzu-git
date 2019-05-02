@@ -444,6 +444,7 @@ nav {
 	background: #F96854;
 	margin-bottom: 2px;
 	opacity: 0.5;
+	cursor :default;
 }
 
 .post-body span:hover {
