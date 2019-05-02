@@ -414,6 +414,7 @@ nav {
 
 .profile-item:hover {
 	background: #2B414A;
+	transition: background-color 100ms linear;
 }
 
 .profile-item a {
