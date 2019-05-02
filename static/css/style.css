@@ -458,6 +458,10 @@ nav {
 	transition: opacity 100ms linear;
 }
 
+.post-tools {
+	font-size: 18px;
+}
+
 .profile-tools form {
   box-sizing: border-box;
   width: 100%;

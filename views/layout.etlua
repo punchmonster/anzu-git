@@ -7,6 +7,7 @@
     <!-- style sheets -->
     <link rel="stylesheet" type="text/css" href="<%- build_url() %>/static/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="<%- build_url() %>/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<%- build_url() %>/static/css/typicons.min.css">
 
     <!-- page title -->
     <title><%= page_title %></title>
