@@ -22,9 +22,8 @@ function followButton(userHandle) {
 }
 
 function postRedirect(URL, userHandle, postID) {
-  console.log("hi")
   console.log(URL + userHandle + "/" + postID)
-  location.replace(URL + userHandle + "/" + postID)
+  window.location.href = URL + userHandle + "/" + postID
 }
 
 console.log("scripts initialized");
