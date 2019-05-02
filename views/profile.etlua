@@ -80,7 +80,7 @@
 
           <textarea name="postBody" placeholder="type your reply" value="<%- params.userHandle %>" required></textarea>
           <div class="flex wrap" style="flex-direction: row-reverse;">
-            <input class="follow-btn" type="submit" value="Submit" style="height: 30px;">
+            <input class="follow-btn" type="submit" value="Submit" style="height: 35px;">
           </div>
         </form>
       </div>
