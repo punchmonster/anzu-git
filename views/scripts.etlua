@@ -21,9 +21,9 @@ function followButton(userHandle) {
 
 }
 
-function postRedirect() {
+function postRedirect(URL, userHandle, postID) {
   console.log("hi")
-  //print(URL + userHandle + postID)
+  console.log(URL + userHandle + postID)
   //location.replace(URL + userHandle + postID)
 }
 
