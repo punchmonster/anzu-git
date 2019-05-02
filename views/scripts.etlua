@@ -18,3 +18,7 @@ function followButton(userHandle) {
   .then(res=>{console.log(res)})
 
 }
+
+function postRedirect(URL, userHandle, postID) {
+  location.replace(URL + userHandle + postID)
+}
