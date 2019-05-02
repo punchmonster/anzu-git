@@ -434,7 +434,7 @@ nav {
 .post-body {
   box-sizing: border-box;
   flex-grow: 1;
-  padding: 0px 20px 10px 10px;
+  padding: 0px 20px 5px 10px;
 }
 
 .post-body h4 {
@@ -458,12 +458,13 @@ nav {
 	transition: opacity 100ms linear;
 }
 
-.post-tools {
+.post-tools i {
 	font-size: 22px;
 	opacity: 0.5;
+	margin: 0 10px;
 }
 
-.post-tools:hover {
+.post-tools i:hover {
 	opacity: 1;
 	transition: opacity 100ms linear;
 }
