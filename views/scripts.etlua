@@ -28,6 +28,7 @@ function postRedirect(URL, userHandle, postID) {
 
 
 function likeButton(userHandle, postID) {
+  event.stopPropagation();
 
   var button = document.querySelector("#post-" + postID + " .like-btn");
 
