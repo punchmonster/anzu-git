@@ -21,6 +21,6 @@ return function(self)
 
   return { json = {
     sucess = status,
-    message = msg
+    message = "LIKE: " .. msg
   } }
 end
