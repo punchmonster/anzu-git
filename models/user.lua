@@ -18,7 +18,14 @@ function User:create(userHandle, userPassword)
     local userID = user_data[1].userID + 1
 
     -- encrypt userPassword
-    userSalt = math.random()
+    local userSalt
+    math.randomseed(ngx.time())
+
+    for x = 1,5 do
+        -- random generating
+        userSalt = math.random(0,500000000)
+
+    end
     userPassword = encoding.hmac_sha1(userSalt, userPassword)
 
     -- set default following
@@ -32,6 +39,7 @@ function User:create(userHandle, userPassword)
       userPassword = userPassword,
       userSalt = userSalt,
       userGroup = 1,
+      userGender = "other",
       userFollowing = util.to_json(userFollowing)
     })
 
