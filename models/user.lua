@@ -44,10 +44,11 @@ function User:create(userHandle, userPassword)
       userFollowing = util.to_json(userFollowing)
     })
 
+    local empty_JSON = {}
     db.insert("userData", {
       userID = userID,
-      userLikes = util.to_json({}),
-      userNotif = util.to_json({})
+      userLikes = util.to_json(empty_JSON),
+      userNotif = util.to_json(empty_JSON)
     })
 
     return true, "account created"
