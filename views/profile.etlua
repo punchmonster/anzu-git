@@ -51,6 +51,11 @@
 
 <% if params.postID ~= nil then %>
   <div class="thread-overlay flex">
+
+    <div style="flex-grow: 1;">
+      &nbsp;
+    </div>
+
     <div class="profile-main">
       <% if profile_data ~= 0 then %>
         <% for k, v in pairs( posts_data ) do %>
@@ -90,5 +95,9 @@
         </form>
       </div>
     <% end %>
+
+    <div style="flex-grow: 1;">
+      &nbsp;
+    </div>
   </div>
 <% end %>
