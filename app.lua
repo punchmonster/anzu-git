@@ -20,6 +20,7 @@ local error_404   = require "controllers.error_404"
 
 -- API controllers
 local APIfollow   = require "API.follow"
+local APIlikes    = require "API.likes"
 
 -- before routes
 app:before_filter(check_auth)
@@ -32,10 +33,10 @@ app:match("index", "/",                                         respond_to(index
 app:match("error", "/error/:errorCode",                         error)
 app:match("404", "/404",                                        error_404)
 app:match("login", "/login",                                    respond_to(login))
-app:match("profile", "/:userHandle(/:postID)",                  respond_to(profile))
---app:match("thread", "/feed/:feedName[%a]/:threadID[%d]",        respond_to(thread))
+app:match("profile", "/:userHandle(/:postID[%d])",              respond_to(profile))
 
 -- API routes
-app:match("follow", "/API/follow/:followHandle(/:toggle)",             APIfollow)
+app:match("follow", "/API/follow/:followHandle(/:toggle)",      APIfollow)
+app:match("likes", "/API/likes/:option/:ID[%d]",                APIlikes)
 
 return app

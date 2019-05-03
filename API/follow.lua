@@ -2,9 +2,11 @@ local User  = require "models.user"
 
 return function(self)
 
+  -- check if user is logged in
   local status, msg
   if self.loggedIn == true then
 
+    -- check to add or remove the follow then execute action
     local follow = true
     if self.params.toggle == "remove" then
       follow = false

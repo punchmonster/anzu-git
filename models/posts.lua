@@ -257,4 +257,8 @@ function Posts:elapsed(current_time, post_time)
   end
 end
 
+function Posts:like_post(userID, postID)
+  return "API call received", "operation not implemented"  
+end
+
 return Posts
