@@ -275,7 +275,7 @@ function Posts:like_post(userID, postID)
       end
     end
   else
-    likes = { 5 }
+    likes = { postID }
   end
 
   db.update("userData", {

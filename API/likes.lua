@@ -11,7 +11,7 @@ return function(self)
 
       -- execute action with supplied userID and postID
       if self.params.ID ~= nil then
-        status, msg = Posts:like_post(self.loggedUser[1].userID, ID)
+        status, msg = Posts:like_post(self.loggedUser[1].userID, self.params.ID)
       end
     else
       status = false
