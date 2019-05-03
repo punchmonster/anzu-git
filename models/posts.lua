@@ -265,6 +265,7 @@ function Posts:like_post(userID, postID)
   -- retrieve userdata to
   local user_data = db.select("* from `userData` WHERE userID = ?", userID)
 
+  local msg = "added PostID: " .. postID .. " to your likes"
   local likes
   if user_data[1].userLikes ~= "none" then
     likes = util.from_json(user_data[1].userLikes)
@@ -273,6 +274,7 @@ function Posts:like_post(userID, postID)
       if tonumber(postID) == v then
         table.remove(likes, k)
         removed = true
+        msg = "removed PostID: " .. postID .. " from your likes"
       end
     end
 
@@ -294,7 +296,7 @@ function Posts:like_post(userID, postID)
   },{
     userID = userID
   })
-  return "API call received", likes
+  return true, msg
 end
 
 return Posts
