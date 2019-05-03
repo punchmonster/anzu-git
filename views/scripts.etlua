@@ -36,10 +36,11 @@ function likeButton(postID) {
 
   fetch(Url)
   .then(data=>{return data.json()})
-  .then(res=>{if (res.status == true) {
+  .then(res=>{console.log(res.status)})
+  .then(res=>{
     button.classList.remove("typcn-heart-outline");
     button.classList.add("typcn-heart-full-outline");
-  }})
+  })
 }
 
 console.log("scripts initialized");
