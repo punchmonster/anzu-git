@@ -96,7 +96,7 @@
       </div>
     <% end %>
 
-    <a href="<%- submit_url .. posts_data[1].userHandle %>
+    <a href="<%- submit_url .. posts_data[1].userHandle %>" style="flex-grow: 1;display: block;">
       &nbsp;
     </a>
   </div>
