@@ -257,8 +257,33 @@ function Posts:elapsed(current_time, post_time)
   end
 end
 
+-- FUNCTION: likes a post
+-- userID: database ID of the user who is liking the post
+-- postID: database ID of the post being liked
 function Posts:like_post(userID, postID)
-  return "API call received", "operation not implemented"  
+
+  -- retrieve userdata to
+  local user_data = db.select("* from `userData` WHERE userID = ?", userID)
+
+  local likes
+  if user_data[1].userLikes ~= "none" then
+    likes = util.from_json(user_data[1].userLikes)
+
+    for k, v in ipairs(likes) do
+      if postID == v then
+
+      end
+    end
+  else
+    likes = { postID }
+  end
+  
+  db.update("userData", {
+    userLikes = util.to_json(likes)
+  },{
+    userID = userID
+  })
+  return "API call received", likes
 end
 
 return Posts
