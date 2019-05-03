@@ -44,6 +44,12 @@ function User:create(userHandle, userPassword)
       userFollowing = util.to_json(userFollowing)
     })
 
+    db.insert("userData", {
+      userID = userID,
+      userLikes = util.to_json({}),
+      userNotif = itil.to_json({})
+    })
+
     return true, "account created"
   end
   return false,  "account with that username already exists"
