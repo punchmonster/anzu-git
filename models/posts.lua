@@ -286,7 +286,7 @@ function Posts:like_post(userID, postID)
   if likes[1] == nil then
     likes = "none"
   end
-  
+
   db.update("userData", {
     userLikes = util.to_json(likes)
   },{
