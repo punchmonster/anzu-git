@@ -29,11 +29,10 @@ function postRedirect(URL, userHandle, postID) {
 
 function likeButton(userHandle, postID) {
 
-  console.log(userHandle, postID)
-
   var button = document.querySelector("#post-" + postID + " .like-btn");
 
   const Url='http://yukku.org:8080/API/likes/' + userHandle + "/" + postID;
+  console.log(Url);
 
   fetch(Url)
   .then(data=>{return data.json()})
