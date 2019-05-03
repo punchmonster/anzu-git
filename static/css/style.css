@@ -467,6 +467,11 @@ nav {
 	margin-right: 50px;
 }
 
+.typcn-heart-full-outline {
+	opacity: 0.8;
+	color: #D01E33;
+}
+
 .post-tools i:hover {
 	opacity: 1;
 	transition: opacity 100ms linear;
