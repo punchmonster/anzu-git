@@ -71,7 +71,7 @@
               <div class="post-tools">
                 <i class="typcn typcn-message"></i>
                 <i class="typcn typcn-arrow-repeat"></i>
-                <i class="typcn typcn-heart-outline like-btn" onclick="likeButton('<%- v['userHandle'] %>', '<%- v['postID'] %>')"></i>
+                <i class="typcn typcn-heart-outline like-btn" onclick="likeButton('<%- v['postID'] %>')"></i>
               </div>
             </div>
           </div>
