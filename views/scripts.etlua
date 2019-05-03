@@ -31,7 +31,7 @@ function likeButton(userHandle, postID) {
 
   console.log(userHandle, postID)
 
-  var button = document.querySelector("div#" + postID + ".like-btn");
+  var button = document.querySelector("div#" + postID + " .like-btn");
 
   const Url='http://yukku.org:8080/API/likes/' + userHandle + "/" + postID;
 
