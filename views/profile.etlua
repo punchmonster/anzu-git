@@ -52,7 +52,7 @@
 <% if params.postID ~= nil then %>
   <div class="thread-overlay flex">
 
-    <a href="<%- submit_url .. post_data[1].userHandle %>" style="flex-grow: 1;display: block;">
+    <a href="<%- submit_url .. posts_data[1].userHandle %>" style="flex-grow: 1;display: block;">
       &nbsp;
     </a>
 
@@ -96,7 +96,7 @@
       </div>
     <% end %>
 
-    <a href="<%- submit_url .. post_data[1].userHandle %>
+    <a href="<%- submit_url .. posts_data[1].userHandle %>
       &nbsp;
     </a>
   </div>
