@@ -47,7 +47,7 @@ function User:create(userHandle, userPassword)
     db.insert("userData", {
       userID = userID,
       userLikes = util.to_json({}),
-      userNotif = itil.to_json({})
+      userNotif = util.to_json({})
     })
 
     return true, "account created"
