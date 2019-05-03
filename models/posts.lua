@@ -268,13 +268,17 @@ function Posts:like_post(userID, postID)
   local likes
   if user_data[1].userLikes ~= "none" then
     likes = util.from_json(user_data[1].userLikes)
-
+    local removed
     for k, v in ipairs(likes) do
       if postID == v then
         table.remove(likes, k)
+        removed = true
       end
     end
-    table.insert(likes, tonumber(postID))
+
+    if removed ~= true then
+      table.insert(likes, tonumber(postID))
+    end
   else
     likes = { tonumber(postID) }
   end
