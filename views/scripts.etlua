@@ -37,7 +37,7 @@ function likeButton(postID) {
   fetch(Url)
   .then(data=>{return data.json()})
   .then(res=>{console.log(res.status)})
-  .then(res=>{
+  .then(
     if button.classList.contains("typcn-heart-outline") {
       button.classList.remove("typcn-heart-outline");
       button.classList.add("typcn-heart-full-outline");
@@ -45,8 +45,7 @@ function likeButton(postID) {
       button.classList.remove("typcn-heart-full-outline");
       button.classList.add("typcn-heart-outline");
     }
-
-  })
+  )
 }
 
 console.log("scripts initialized");
