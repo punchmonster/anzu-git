@@ -265,7 +265,10 @@ function Posts:like_post(userID, postID)
   -- retrieve userdata to
   local user_data = db.select("* from `userData` WHERE userID = ?", userID)
 
+  -- set default JSON response
   local msg = "added PostID: " .. postID .. " to your likes"
+
+  -- check if user has likes, and if the post is liked or not. Then add or remove like.
   local likes
   if user_data[1].userLikes ~= "none" then
     likes = util.from_json(user_data[1].userLikes)
@@ -285,12 +288,14 @@ function Posts:like_post(userID, postID)
     likes = { tonumber(postID) }
   end
 
+  -- if last like was removed set user likes to default again, if not, encode likes table
   if likes[1] == nil then
     likes = "none"
   else
     likes = util.to_json(likes)
   end
 
+  -- push updated likes to the database
   db.update("userData", {
     userLikes = likes
   },{
