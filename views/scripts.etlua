@@ -27,12 +27,12 @@ function postRedirect(URL, userHandle, postID) {
 }
 
 
-function likeButton(userHandle, postID) {
+function likeButton(postID) {
   event.stopPropagation();
 
   var button = document.querySelector("#post-" + postID + " .like-btn");
 
-  const Url='http://yukku.org:8080/API/likes/' + userHandle + "/" + postID;
+  const Url='http://yukku.org:8080/API/likes/modify/' + postID;
   console.log(Url);
 
   fetch(Url)
