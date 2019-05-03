@@ -270,7 +270,7 @@ function Posts:like_post(userID, postID)
     likes = util.from_json(user_data[1].userLikes)
     local removed
     for k, v in ipairs(likes) do
-      if postID == v then
+      if tonumber(postID) == v then
         table.remove(likes, k)
         removed = true
       end
