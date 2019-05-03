@@ -38,8 +38,14 @@ function likeButton(postID) {
   .then(data=>{return data.json()})
   .then(res=>{console.log(res.status)})
   .then(res=>{
-    button.classList.remove("typcn-heart-outline");
-    button.classList.add("typcn-heart-full-outline");
+    if button.classList.contains("typcn-heart-outline") {
+      button.classList.remove("typcn-heart-outline");
+      button.classList.add("typcn-heart-full-outline");
+    } else {
+      button.classList.remove("typcn-heart-full-outline");
+      button.classList.add("typcn-heart-outline");
+    }
+
   })
 }
 
