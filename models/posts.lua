@@ -271,9 +271,10 @@ function Posts:like_post(userID, postID)
 
     for k, v in ipairs(likes) do
       if postID == v then
-
+        table.remove(likes, k)
       end
     end
+    table.insert(likes, tonumber(postID))
   else
     likes = { tonumber(postID) }
   end
