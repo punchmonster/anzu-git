@@ -36,10 +36,11 @@ function User:create(userHandle, userPassword)
       userID = userID,
       userHandle = userHandle,
       userName = userHandle,
+      userGender = "other",
+      userBio = " ",
       userPassword = userPassword,
       userSalt = userSalt,
       userGroup = 1,
-      userGender = "other",
       userFollowing = util.to_json(userFollowing)
     })
 
