@@ -33,11 +33,13 @@ function likeButton(postID) {
   var button = document.querySelector("#post-" + postID + " .like-btn");
 
   const Url='http://yukku.org:8080/API/likes/modify/' + postID;
-  console.log(Url);
 
   fetch(Url)
   .then(data=>{return data.json()})
-  .then(res=>{console.log(res)})
+  .then(res=>{if (res.status == true) {
+    button.classList.remove("typcn-heart-outline");
+    button.classList.add("typcn-heart-full-outline");
+  }})
 }
 
 console.log("scripts initialized");
