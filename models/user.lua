@@ -44,7 +44,7 @@ function User:create(userHandle, userPassword)
       userFollowing = util.to_json(userFollowing)
     })
 
-    local empty_JSON = {}
+    local empty_JSON = "none"
     db.insert("userData", {
       userID = userID,
       userLikes = util.to_json(empty_JSON),
