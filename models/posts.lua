@@ -266,7 +266,7 @@ function Posts:like_post(userID, postID)
   local user_data = db.select("* from `userData` WHERE userID = ?", userID)
 
   local likes
-  if user_data[1].userLikes ~= 0 then
+  if user_data[1].userLikes ~= "none" then
     likes = util.from_json(user_data[1].userLikes)
     local removed
     for k, v in ipairs(likes) do
@@ -284,11 +284,13 @@ function Posts:like_post(userID, postID)
   end
 
   if likes[1] == nil then
-    likes = 0
+    likes = "none"
+  else
+    likes = util.to_json(likes)
   end
 
   db.update("userData", {
-    userLikes = util.to_json(likes)
+    userLikes = likes
   },{
     userID = userID
   })
