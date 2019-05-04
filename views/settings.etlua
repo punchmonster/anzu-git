@@ -7,7 +7,6 @@
 
       <input type="text" name="userName" value="<%- loggedUser[1].userName %>" placeholder="Change your display name" required>
       <input type="text" name="userHandle" value="<%- loggedUser[1].userHandle %>" placeholder="Change your @" required pattern="^[A-Za-z0-9_-]{3,15}$">
-      <input type="text" name="userName" value="<%- loggedUser[1].userName %>" placeholder="Change your display name" required>
       <select name="userGender">
         <option value="default">select pronouns</option>
         <option value="none">none</option>
