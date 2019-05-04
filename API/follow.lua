@@ -19,7 +19,7 @@ return function(self)
   end
 
   return { json = {
-    sucess = status,
+    success = status,
     message = "FLW: " .. msg
   } }
   --tostring(status) .. ": " .. msg
