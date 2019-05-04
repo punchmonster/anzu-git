@@ -1,0 +1,18 @@
+
+  <h1>log in</h1>
+
+  <form action="<%- submit_url %>" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
+    <input type="hidden" name="login" value="<%- true %>">
+    <input type="text" name="email" class="form-email">
+
+      <input type="text" name="userHandle" value="<%- loggedUser[1].userName %>" placeholder="Change your display name" required>
+      <input type="text" name="userHandle" value="<%- loggedUser[1].userHandle %>" placeholder="Change your @" required pattern="^[A-Za-z0-9_-]{3,15}$">
+      <input type="password" name="userPassword" placeholder="Old password" required pattern="^{3,64}$">
+      <input type="password" name="userNewPassword" placeholder="New password" required pattern="^{3,64}$">
+
+      <input class="follow-btn" type="submit" value="Save settings" style="">
+
+  </form>
+
+</div>

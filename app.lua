@@ -17,6 +17,7 @@ local error       = require "controllers.error"
 local login       = require "controllers.login"
 local profile     = require "controllers.profile"
 local error_404   = require "controllers.error_404"
+local settings    = require "controllers.settings"
 
 -- API controllers
 local APIfollow   = require "API.follow"
@@ -34,6 +35,7 @@ app:match("error", "/error/:errorCode",                         error)
 app:match("404", "/404",                                        error_404)
 app:match("login", "/login",                                    respond_to(login))
 app:match("profile", "/:userHandle(/:postID[%d])",              respond_to(profile))
+app:match("settings", "/settings",                              respond_to(settings))
 
 -- API routes
 app:match("follow", "/API/follow/:followHandle(/:toggle)",      APIfollow)
