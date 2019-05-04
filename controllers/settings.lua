@@ -29,7 +29,7 @@ return {
   POST = function(self)
 
     -- login
-    if self.loggedIn == "true" then
+    if self.loggedIn == true then
 
       -- spam detection
       if #self.params.email > 1 then
@@ -58,9 +58,9 @@ return {
         self.session.userHandle = self.params.userHandle
       end
 
-      return "user settings saved "  .. status
+      return "user settings saved: "  .. status
     else
-
+      return "you are not logged in"
     end
   end
 }
