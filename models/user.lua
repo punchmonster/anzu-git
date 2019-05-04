@@ -91,6 +91,20 @@ function User:login(userHandle, userPassword)
   return false, "wrong password"
 end
 
+function User:update(x)
+
+  db.update("users", {
+    userName = x.userName,
+    userHandle = x.userHandle,
+    userGender = x.userGender,
+    userBio = x.userBio
+  },{
+    userID = x.userID
+  })
+
+  return true
+end
+
 -- FUNCTION: gets user data
 -- ARGUMENTS: users ID
 -- RETURNS: table with all user data

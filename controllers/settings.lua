@@ -1,5 +1,6 @@
 local csrf        = require "lapis.csrf"
 local User        = require "models.user"
+local Text        = require "models.text"
 
 
 return {
@@ -8,6 +9,8 @@ return {
     self.header_vis = false
     -- Page title
     self.page_title = "User settings"
+    -- generate URL
+    self.submit_url = self:url_for("settings")
   end,
 
   GET = function(self)
@@ -16,7 +19,6 @@ return {
 
       -- generate token for page verification
       self.csrf_token = csrf.generate_token(self)
-      self.submit_url = self:url_for("settings")
 
       return { render = "settings" }
     else
@@ -29,6 +31,8 @@ return {
     -- login
     if self.loggedIn == "true" then
 
+
+
       -- spam detection
       if #self.params.email > 1 then
         return { redirect_to = self:url_for("error", { errorCode = "err_not_allowed" }) }
@@ -37,14 +41,26 @@ return {
       -- check csrf protection
       csrf.assert_token(self)
 
-      local status, msg, userID, sessionID = User:login(self.params.userHandle, self.params.userPassword)
+      if self.params.userGender == "default" then
+        self.params.userGender = self.loggedUser[1].userGender
+      end
+
+      local x = {
+        userID = self.loggedUser[1].userID,
+        userName = self.params.userName,
+        userHandle = self.params.userHandle,
+        userGender = self.params.userGender,
+        --userBio = Text:post_sanitize(self.params.userBio, "http://yukku.org:8080")
+      }
+
+      local status = User:update(x)
 
       -- create cookie
       if status == true then
         self.session.userHandle = self.params.userHandle
       end
 
-      return msg
+      return status msg
     else
 
     end
