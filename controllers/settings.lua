@@ -31,8 +31,6 @@ return {
     -- login
     if self.loggedIn == "true" then
 
-
-
       -- spam detection
       if #self.params.email > 1 then
         return { redirect_to = self:url_for("error", { errorCode = "err_not_allowed" }) }
