@@ -58,7 +58,7 @@ return {
         self.session.userHandle = self.params.userHandle
       end
 
-      return "user settings saved: "  .. status
+      return "user settings saved"
     else
       return "you are not logged in"
     end
