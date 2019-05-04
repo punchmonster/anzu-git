@@ -58,7 +58,7 @@ return {
         self.session.userHandle = self.params.userHandle
       end
 
-      return status msg
+      return status
     else
 
     end
