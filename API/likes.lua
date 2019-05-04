@@ -20,7 +20,7 @@ return function(self)
   end
 
   return { json = {
-    sucess = status,
+    success = status,
     message = "LIKE: " .. msg
   } }
 end
