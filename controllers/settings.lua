@@ -53,12 +53,12 @@ return {
 
       local status = User:update(x)
 
-      -- create cookie
+      -- set current user handle to new userhandle if needed
       if status == true then
         self.session.userHandle = self.params.userHandle
       end
 
-      return status
+      return "user settings saved "  .. status
     else
 
     end
