@@ -10,9 +10,9 @@
         <a href="#" class="flex border-left">
           <% if loggedIn == true then %>
             <% if loggedUser[1]['userAvatar'] == 0 then %>
-              <img src="http://yukku.org:8080/static/img/profiles/default-person.jpg" alt="user avatar">
+              <img src="<%- build_url() %>/static/img/profiles/default-person.jpg" alt="user avatar">
             <% else %>
-              <img src="http://yukku.org:8080/static/img/profiles/<%- loggedUser[1]['userID'] %>-avatar.jpg" alt="user avatar">
+              <img src="<%- build_url() %>/static/img/profiles/<%- loggedUser[1]['userID'] %>-avatar.jpg" alt="user avatar">
             <% end %>
             <%= loggedUser[1]['userName'] %>
           <% end %>
@@ -38,7 +38,11 @@
   </div>
   <div class="profile-blurb-wrapper flex">
     <div class="profile-blurb flex">
-      <img src="http://placekitten.com/g/300/300" alt="user avatar">
+      <% if user_data[1]['userAvatar'] == 0 then %>
+        <img src="<%- build_url() %>/static/img/profiles/default-person.jpg" alt="user avatar">
+      <% else %>
+        <img src="<%- build_url() %>/static/img/profiles/<%- user_data[1]['userID'] %>-avatar.jpg" alt="user avatar">
+      <% end %>
       <div class="user-info">
         <h4><%= user_data[1].userName %></h4>
         <a href="<%- submit_url .. user_data[1].userHandle %>">@<%= user_data[1].userHandle %></a>
