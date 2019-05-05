@@ -22,12 +22,10 @@ return {
       self.csrf_token = csrf.generate_token(self)
     end
 
-    -- retrieve timeline table
-    local status
-    status, self.profile_data, self.user_data = Posts:get_profile(self.params.userHandle)
-
-    -- check if you're following the profile
+    -- check if you're logged in and if so pass current user ID and check following
+    local currentID = nil
     if self.loggedIn then
+      currentID = self.user_data[1].userID
       local following = util.from_json(self.loggedUser[1].userFollowing)
       for k, v in pairs(following) do
         if v == self.user_data[1].userID then
@@ -36,11 +34,15 @@ return {
       end
     end
 
+    -- retrieve timeline table
+    local status
+    status, self.profile_data, self.user_data = Posts:get_profile(self.params.userHandle, currentID)
+
     self.following_count = #util.from_json(self.user_data[1].userFollowing) - 1
 
     -- if linked to a thread retrieve thread data and push to view
     if self.params.postID ~= nil then
-      self.posts_data = Posts:get_thread(self.params.postID, self.user_data[1].userID)
+      self.posts_data = Posts:get_thread(self.params.postID, self.user_data[1].userID, currentID)
       self.threadID = self.posts_data[1].threadID
 
       if self.posts_data == false then

@@ -80,11 +80,11 @@
               <h4><%= v['userName'] %></h4>
               <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
               <span><%- v['userGender'] %></span>
-              <p><%- v['postBody'] %></p>
+              <p><%- v['postBody'] %> <%- v['liked'] %></p>
               <div class="post-tools">
                 <i class="typcn typcn-message"></i>
                 <i class="typcn typcn-arrow-repeat"></i>
-                <i class="typcn typcn-heart-outline like-btn" onclick="likeButton('<%- v['postID'] %>')"></i>
+                <i class="typcn typcn-heart-outline like-btn" onclick="likeButton('<%- tostring(v['postID']) %>')"></i>
               </div>
             </div>
           </div>

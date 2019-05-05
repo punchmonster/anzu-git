@@ -167,7 +167,7 @@ function Posts:get_timeline(following)
   return processed_data
 end
 
-function Posts:get_profile(userHandle)
+function Posts:get_profile(userHandle, currentID)
 
   -- check if user exists and retrieve userID
   local user_data = db.select("* from `users` WHERE userHandle = ?", userHandle)
@@ -182,7 +182,7 @@ function Posts:get_profile(userHandle)
   else
 
     --merge user data into post data
-    profile_data = self:merge_user_data(user_data, profile_data)
+    profile_data = self:merge_user_data(user_data, profile_data, currentID)
     return true, profile_data, user_data
   end
 end
@@ -190,7 +190,7 @@ end
 -- FUNCTION: retrieves a conversational thread
 -- postID: the post number to build thread for
 -- userID: userID of the person who the post should belong to
-function Posts:get_thread(postID, userID)
+function Posts:get_thread(postID, userID, currentID)
   local posts_data = db.select("* from `posts` WHERE postID = ?", postID)
 
   -- check if the post belongs to the supplied user
@@ -207,7 +207,7 @@ function Posts:get_thread(postID, userID)
     -- retrieve thread headers from database
     local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
 
-    posts_data = self:merge_user_data(users_data, posts_data)
+    posts_data = self:merge_user_data(users_data, posts_data, currentID)
 
     return posts_data
   else
@@ -218,7 +218,18 @@ end
 -- FUNCTION: merges user data like handles with post data
 -- userData: Array with the users you want to merge data from
 -- postData: Array with posts you want to add user data to
-function Posts:merge_user_data(userData, postData)
+function Posts:merge_user_data(userData, postData, userID)
+
+  local likes_data = nil
+  if userID ~= nil then
+    likes_data = db.select("* from `userData` WHERE userID = ? order by postTime DESC LIMIT 20", userID)
+
+    for a, b in ipairs(likes_data) then
+      if v['postID'] == b then
+        v['liked'] = true
+      end
+    end
+  end
 
   for k, v in pairs(postData) do
     for a, b in pairs(userData) do
