@@ -17,19 +17,19 @@ return {
 
   GET = function(self)
 
-    if self.params.postID ~= nil then
-      -- generate token for page verification
-      self.csrf_token = csrf.generate_token(self)
-    end
+    -- generate token for page verification
+    self.csrf_token = csrf.generate_token(self)
 
+    local currentID = nil
+    if self.loggedIn then
+      currentID = self.loggedUser[1].userID
+    end
     -- retrieve timeline table
     local status
     status, self.profile_data, self.user_data = Posts:get_profile(self.params.userHandle, currentID)
 
-    -- check if you're logged in and if so pass current user ID and check following
-    local currentID = nil
+    -- check if you're logged in and if so check following
     if self.loggedIn then
-      currentID = self.loggedUser[1].userID
       local following = util.from_json(self.loggedUser[1].userFollowing)
       for k, v in pairs(following) do
         if v == self.user_data[1].userID then
