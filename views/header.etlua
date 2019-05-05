@@ -9,7 +9,11 @@
         <a href="#" class="flex">settings</a>
         <a href="#" class="flex border-left">
           <% if loggedIn == true then %>
-            <img src="<%- build_url() %>/static/img/default-person.jpg" alt="user avatar" />
+            <% if loggedUser[1]['userAvatar'] == 0 then %>
+              <img src="http://yukku.org:8080/static/img/profiles/default-person.jpg" alt="user avatar">
+            <% else %>
+              <img src="http://yukku.org:8080/static/img/<%- loggedUser[1]['userID'] %>-avatar.jpg" alt="user avatar">
+            <% end %>
             <%= loggedUser[1]['userName'] %>
           <% end %>
         </a>

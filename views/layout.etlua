@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="<%- build_url() %>/static/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="<%- build_url() %>/static/css/style.css">
     <link rel="stylesheet" type="text/css" href="<%- build_url() %>/static/css/typicons.min.css">
-    <link rel="stylesheet" type="text/css" href="<%- build_url() %>/static/css/filepond.min.css">
 
     <!-- page title -->
     <title><%= page_title %></title>
@@ -30,7 +29,5 @@
       <% render("views.scripts") %>
     </script>
 
-    <!-- add before </body> -->
-    <script src="<%- build_url() %>/static/js/filepond.min.js"></script>
   </body>
 </html>

@@ -48,7 +48,8 @@ return {
         userName = self.params.userName,
         userHandle = self.params.userHandle,
         userGender = self.params.userGender,
-        postImage = self.params.postImage
+        postImage = self.params.postImage,
+        userAvatar = self.loggedUser[1].userAvatar
         --userBio = Text:post_sanitize(self.params.userBio, "http://yukku.org:8080")
       }
 

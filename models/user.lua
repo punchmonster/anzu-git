@@ -94,17 +94,10 @@ end
 
 function User:update(x)
 
-  db.update("users", {
-    userName = x.userName,
-    userHandle = x.userHandle,
-    userGender = x.userGender,
-    userBio = x.userBio
-  },{
-    userID = x.userID
-  })
-
-  -- write out a postImage to disk if it exists
+  -- initiate variables for file uploads
   local imageLocation
+  local userAvatar = x.userAvatar
+
   if x.postImage and x.postImage.filename ~= "" then
 
     --split file extension off
@@ -126,15 +119,26 @@ function User:update(x)
     end
 
     -- set file path and write postImage to disk
-    local imageLocation = 'static/img/profiles/' .. x.userID .. "-avatar.jpg"
-    local imageFile = io.open(imageLocation, 'w+')
+    imageLocation = 'static/img/profiles/' .. x.userID .. "-avatar.jpg"
+    local imageFile = io.open(imageLocation, 'w')
     if imageFile then
       imageFile:write(image:get_blob())
       imageFile:close()
+      userAvatar = 1
     else
       imageLocation = nil
     end
   end
+
+  -- push new user info to database
+  db.update("users", {
+    userName = x.userName,
+    userHandle = x.userHandle,
+    userGender = x.userGender,
+    userAvatar = userAvatar
+  },{
+    userID = x.userID
+  })
 
   return true
 end
