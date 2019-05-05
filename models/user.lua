@@ -119,7 +119,11 @@ function User:update(x)
 
     -- resize image
     image:resize_and_crop(300,300)
-    image:set_format("jpg")
+
+    -- if image isn't a jpg convert it
+    if image:get_format() ~= "jpg" then
+      image:set_format("jpg")
+    end
 
     -- set file path and write postImage to disk
     local imageLocation = 'static/img/profiles/' .. x.userID .. "-avatar.jpg"
