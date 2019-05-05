@@ -10,7 +10,7 @@
 
   <div class="profile-main">
     <% if profile_data ~= 0 then %>
-      <% for k, v in pairs( posts_data ) do %>
+      <% for k, v in pairs( profile_data ) do %>
         <div class="profile-item flex" onclick="postRedirect('<%- submit_url %>', '<%- v['userHandle'] %>', '<%- v['postID'] %>')" id="post-<%- v['postID'] %>">
           <div class="post-side">
             <% if v['userAvatar'] == 0 then %>
