@@ -111,7 +111,7 @@ function User:update(x)
     local fileExt = x.postImage.filename:match("^.+(%..+)$")
 
     -- checks if the file is valid
-    local image = magick.load_image_from_blob(arg1.postImage.content)
+    local image = magick.load_image_from_blob(x.postImage.content)
 
     if not image  then
       return false, "err_invalid_file"
