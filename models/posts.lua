@@ -222,7 +222,7 @@ function Posts:merge_user_data(userData, postData, currentID)
 
   local likes_data = nil
   if currentID ~= nil then
-    likes_data = db.select("* from `userData` WHERE userID = ?", userID)
+    likes_data = db.select("* from `userData` WHERE userID = ?", currentID)
   end
 
   for k, v in pairs(postData) do
