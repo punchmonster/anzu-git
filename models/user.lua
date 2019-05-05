@@ -124,7 +124,7 @@ function User:update(x)
     local imageLocation = 'static/img/profiles/' .. x.userID .. "-avatar" .. fileExt
     local imageFile = io.open(imageLocation, 'w+')
     if imageFile then
-      imageFile:write(image)
+      imageFile:write(image:get_blob())
       imageFile:close()
     else
       imageLocation = nil
