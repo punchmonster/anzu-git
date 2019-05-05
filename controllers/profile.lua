@@ -22,6 +22,10 @@ return {
       self.csrf_token = csrf.generate_token(self)
     end
 
+    -- retrieve timeline table
+    local status
+    status, self.profile_data, self.user_data = Posts:get_profile(self.params.userHandle, currentID)
+
     -- check if you're logged in and if so pass current user ID and check following
     local currentID = nil
     if self.loggedIn then
@@ -33,10 +37,6 @@ return {
         end
       end
     end
-
-    -- retrieve timeline table
-    local status
-    status, self.profile_data, self.user_data = Posts:get_profile(self.params.userHandle, currentID)
 
     self.following_count = #util.from_json(self.user_data[1].userFollowing) - 1
 
