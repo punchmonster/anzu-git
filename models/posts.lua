@@ -222,7 +222,7 @@ function Posts:merge_user_data(userData, postData, userID)
 
   local likes_data = nil
   if userID ~= nil then
-    likes_data = db.select("* from `userData` WHERE userID = ? order by postTime DESC LIMIT 20", userID)
+    likes_data = db.select("* from `userData` WHERE userID = ?", userID)
 
     for a, b in ipairs(likes_data) do
       if v['postID'] == b then
