@@ -117,8 +117,8 @@ function User:update(x)
     end]]
 
     -- set file path and write postImage to disk
-    imageLocation = 'static/img/profiles/' .. x.userID .. "-avatar" fileExt
-    imageFile = io.open(imageLocation, 'w')
+    local imageLocation = 'static/img/profiles/' .. x.userID .. "-avatar" .. fileExt
+    local imageFile = io.open(imageLocation, 'w')
     if imageFile then
       imageFile:write(x.postImage.content)
       imageFile:close()
