@@ -37,7 +37,7 @@ function Posts:submit(arg1)
       end
 
       -- set file path and write postImage to disk
-      local imageLocation = 'static/media/' .. arg1.feedName .. '/' .. postID .. fileExt
+      imageLocation = 'static/media/' .. arg1.feedName .. '/' .. postID .. fileExt
       local imageFile = io.open(imageLocation, 'w')
       if imageFile then
         imageFile:write(arg1.postImage.content)

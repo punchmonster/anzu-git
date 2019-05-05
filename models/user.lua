@@ -1,4 +1,5 @@
 local db       = require "lapis.db"
+local magick   = require "magick"
 local Model    = require ("lapis.db.model").Model
 local config   = require("lapis.config").get()
 local util     = require("lapis.util")
@@ -110,17 +111,20 @@ function User:update(x)
     local fileExt = x.postImage.filename:match("^.+(%..+)$")
 
     -- checks if the file is valid
-    --[[local image = magick.load_image_from_blob(arg1.postImage.content)
+    local image = magick.load_image_from_blob(arg1.postImage.content)
 
-    if not image and (fileExt ~= ".mp4" and fileExt ~= ".webm") then
+    if not image  then
       return false, "err_invalid_file"
-    end]]
+    end
+
+    -- resize image
+    image:resize_and_crop(300,300)
 
     -- set file path and write postImage to disk
     local imageLocation = 'static/img/profiles/' .. x.userID .. "-avatar" .. fileExt
     local imageFile = io.open(imageLocation, 'w+')
     if imageFile then
-      imageFile:write(x.postImage.content)
+      imageFile:write(image)
       imageFile:close()
     else
       imageLocation = nil
