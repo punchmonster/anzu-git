@@ -119,9 +119,10 @@ function User:update(x)
 
     -- resize image
     image:resize_and_crop(300,300)
+    image:set_format("jpg")
 
     -- set file path and write postImage to disk
-    local imageLocation = 'static/img/profiles/' .. x.userID .. "-avatar" .. fileExt
+    local imageLocation = 'static/img/profiles/' .. x.userID .. "-avatar.jpg"
     local imageFile = io.open(imageLocation, 'w+')
     if imageFile then
       imageFile:write(image:get_blob())
