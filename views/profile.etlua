@@ -68,7 +68,7 @@
               <% if v['userAvatar'] == 0 then %>
                 <img src="http://yukku.org:8080/static/img/profiles/default-person.jpg" alt="user avatar">
               <% else %>
-                <img src="http://yukku.org:8080/static/img/default-person.jpg" alt="user avatar">
+                <img src="http://yukku.org:8080/static/img/<%- v['userID'] %>-avatar.jpg" alt="user avatar">
               <% end %>
             </div>
             <div class="post-body">
