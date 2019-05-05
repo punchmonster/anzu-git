@@ -102,6 +102,31 @@ function User:update(x)
     userID = x.userID
   })
 
+  -- write out a postImage to disk if it exists
+  local imageLocation
+  if x.postImage and x.postImage.filename ~= "" then
+
+    --split file extension off
+    local fileExt = x.postImage.filename:match("^.+(%..+)$")
+
+    -- checks if the file is valid
+    --[[local image = magick.load_image_from_blob(arg1.postImage.content)
+
+    if not image and (fileExt ~= ".mp4" and fileExt ~= ".webm") then
+      return false, "err_invalid_file"
+    end]]
+
+    -- set file path and write postImage to disk
+    imageLocation = 'static/img/profiles/' .. x.userID .. "-avatar" fileExt
+    imageFile = io.open(imageLocation, 'w')
+    if imageFile then
+      imageFile:write(x.postImage.content)
+      imageFile:close()
+    else
+      imageLocation = nil
+    end
+  end
+
   return true
 end
 

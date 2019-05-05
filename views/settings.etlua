@@ -1,5 +1,5 @@
 
-  <h1>Change settings</h1>
+  <h1>Change your settings</h1>
 
   <form action="<%- submit_url %>" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
