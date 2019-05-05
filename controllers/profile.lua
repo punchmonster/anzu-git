@@ -29,7 +29,7 @@ return {
     -- check if you're logged in and if so pass current user ID and check following
     local currentID = nil
     if self.loggedIn then
-      currentID = self.user_data[1].userID
+      currentID = self.loggedUser[1].userID
       local following = util.from_json(self.loggedUser[1].userFollowing)
       for k, v in pairs(following) do
         if v == self.user_data[1].userID then
