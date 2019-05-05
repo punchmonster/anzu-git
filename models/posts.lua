@@ -226,6 +226,7 @@ function Posts:merge_user_data(userData, postData)
        v['userHandle'] = b['userHandle']
        v['userName'] = b['userName']
        v['userGender'] = b['userGender']
+       v['userAvatar'] = b['userAvatar']
       end
     end
   end
