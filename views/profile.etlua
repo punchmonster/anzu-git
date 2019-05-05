@@ -10,8 +10,8 @@
 
   <div class="profile-main">
     <% if profile_data ~= 0 then %>
-      <% for k, v in pairs( profile_data ) do %>
-        <div class="profile-item flex" onclick="postRedirect('<%- submit_url %>', '<%- v['userHandle'] %>', '<%- v['postID'] %>')">
+      <% for k, v in pairs( posts_data ) do %>
+        <div class="profile-item flex" onclick="postRedirect('<%- submit_url %>', '<%- v['userHandle'] %>', '<%- v['postID'] %>')" id="post-<%- v['postID'] %>">
           <div class="post-side">
             <% if v['userAvatar'] == 0 then %>
               <img src="http://yukku.org:8080/static/img/profiles/default-person.jpg" alt="user avatar">
@@ -20,10 +20,15 @@
             <% end %>
           </div>
           <div class="post-body">
-          <h4><%= v['userName'] %></h4>
-          <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
-          <span><%- v['userGender'] %></span>
-          <p><%- v['postBody'] %></p>
+            <h4><%= v['userName'] %></h4>
+            <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
+            <span><%- v['userGender'] %></span>
+            <p><%- v['postBody'] %></p>
+            <div class="post-tools">
+              <i class="typcn typcn-message"></i>
+              <i class="typcn typcn-arrow-repeat"></i>
+              <i class="typcn typcn-heart-outline like-btn" onclick="likeButton('<%- v['postID'] %>')"></i>
+            </div>
           </div>
         </div>
       <% end %>
