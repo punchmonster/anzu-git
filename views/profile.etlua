@@ -11,7 +11,7 @@
   <div class="profile-main">
     <% if profile_data ~= 0 then %>
       <% for k, v in pairs( profile_data ) do %>
-        <div class="profile-item flex" onclick="postRedirect('<%- submit_url %>', '<%- v['userHandle'] %>', '<%- v['postID'] %>')" id="post-<%- v['postID'] %>">
+        <div class="profile-item flex post-<%- v['postID'] %>" onclick="postRedirect('<%- submit_url %>', '<%- v['userHandle'] %>', '<%- v['postID'] %>')">
           <div class="post-side">
             <% if v['userAvatar'] == 0 then %>
               <img src="http://yukku.org:8080/static/img/profiles/default-person.jpg" alt="user avatar">
@@ -27,7 +27,11 @@
             <div class="post-tools">
               <i class="typcn typcn-message"></i>
               <i class="typcn typcn-arrow-repeat"></i>
-              <i class="typcn typcn-heart-outline like-btn" onclick="likeButton('<%- v['postID'] %>')"></i>
+              <% if v['liked'] then %>
+                <i class="typcn typcn-heart-outline like-btn" onclick="likeButton('<%- tostring(v['postID']) %>')"></i>
+              <% else %>
+                <i class="typcn typcn-heart-full-outline like-btn" onclick="likeButton('<%- tostring(v['postID']) %>')"></i>
+              <% end %>
             </div>
           </div>
         </div>
@@ -68,7 +72,7 @@
     <div class="profile-main">
       <% if profile_data ~= 0 then %>
         <% for k, v in pairs( posts_data ) do %>
-          <div class="profile-item flex" onclick="postRedirect('<%- submit_url %>', '<%- v['userHandle'] %>', '<%- v['postID'] %>')" id="post-<%- v['postID'] %>">
+          <div class="profile-item flex post-<%- v['postID'] %>" onclick="postRedirect('<%- submit_url %>', '<%- v['userHandle'] %>', '<%- v['postID'] %>')">
             <div class="post-side">
               <% if v['userAvatar'] == 0 then %>
                 <img src="http://yukku.org:8080/static/img/profiles/default-person.jpg" alt="user avatar">
@@ -84,7 +88,11 @@
               <div class="post-tools">
                 <i class="typcn typcn-message"></i>
                 <i class="typcn typcn-arrow-repeat"></i>
-                <i class="typcn typcn-heart-outline like-btn" onclick="likeButton('<%- tostring(v['postID']) %>')"></i>
+                <% if v['liked'] then %>
+                  <i class="typcn typcn-heart-outline like-btn" onclick="likeButton('<%- tostring(v['postID']) %>')"></i>
+                <% else %>
+                  <i class="typcn typcn-heart-full-outline like-btn" onclick="likeButton('<%- tostring(v['postID']) %>')"></i>
+                <% end %>
               </div>
             </div>
           </div>
