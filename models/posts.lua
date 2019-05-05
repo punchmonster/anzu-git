@@ -218,17 +218,11 @@ end
 -- FUNCTION: merges user data like handles with post data
 -- userData: Array with the users you want to merge data from
 -- postData: Array with posts you want to add user data to
-function Posts:merge_user_data(userData, postData, userID)
+function Posts:merge_user_data(userData, postData, currentID)
 
   local likes_data = nil
-  if userID ~= nil then
+  if currentID ~= nil then
     likes_data = db.select("* from `userData` WHERE userID = ?", userID)
-
-    for a, b in ipairs(likes_data) do
-      if v['postID'] == b then
-        v['liked'] = true
-      end
-    end
   end
 
   for k, v in pairs(postData) do
@@ -238,6 +232,14 @@ function Posts:merge_user_data(userData, postData, userID)
        v['userName'] = b['userName']
        v['userGender'] = b['userGender']
        v['userAvatar'] = b['userAvatar']
+      end
+    end
+
+    if currentID ~= nil then
+      for a, b in ipairs(likes_data) do
+        if v['postID'] == b then
+          v['liked'] = true
+        end
       end
     end
   end
