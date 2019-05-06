@@ -46,7 +46,7 @@ function likeButton(postID) {
         buttonItem.classList.remove("typcn-heart-full-outline");
         buttonItem.classList.add("typcn-heart-outline");
       }
-    }
+    })
   })
 }
 
