@@ -89,7 +89,7 @@
                 <i class="typcn typcn-message"></i>
 
                 <!-- tag button setting -->
-                <% if v['liked'] then %>
+                <% if v['tagged'] then %>
                   <i class="typcn typcn-arrow-repeat" style="color: #1BC76D;"></i>
                 <% else %>
                   <i class="typcn typcn-arrow-repeat"></i>
