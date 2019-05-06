@@ -348,7 +348,6 @@ function Posts:tag_post(userID, postID)
       userID      = userID
     })
 
-    local tags
     if user_data[1].userTags ~= "none" then
       tags = util.from_json(user_data[1].userTags)
       table.insert(tags, tonumber(postID))
