@@ -323,6 +323,10 @@ end
 -- postID: database ID of the post being tagged
 function Posts:tag_post(userID, postID)
 
+  -- retrieve userdata to
+  local user_data = db.select("* from `userData` WHERE userID = ?", userID)
+  tags = util.from_json(user_data[1].userTags)
+
   -- set default JSON response
   local msg = "tagged PostID: " .. postID .. " onto your timeline"
 
@@ -343,14 +347,42 @@ function Posts:tag_post(userID, postID)
       postRef     = postID,
       userID      = userID
     })
+
+    local tags
+    if user_data[1].userTags ~= "none" then
+      table.insert(tags, tonumber(postID))
+    else
+      tags = { tonumber(postID) }
+    end
+
   else
     db.delete('posts', {
       postRef = tonumber(postID),
       userID  = userID
     })
 
+    for k, v in ipairs(tags) do
+      if tonumber(postID) == v then
+        table.remove(tags, k)
+      end
+    end
+
     msg = "untagged PostID: " .. postID .. " from your timeline"
   end
+
+  -- if last tag was removed set user likes to default again, if not, encode likes table
+  if tags[1] == nil then
+    tags = "none"
+  else
+    tags = util.to_json(tags)
+  end
+
+  -- push updated tags to the database
+  db.update("userData", {
+    userTags = tags
+  },{
+    userID = userID
+  })
 
   return true, msg
 end
