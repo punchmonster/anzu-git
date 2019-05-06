@@ -224,8 +224,16 @@ function Posts:merge_user_data(userData, postData, currentID)
   local tags_data = nil
   if currentID ~= nil then
     action_data = db.select("* from `userData` WHERE userID = ?", currentID)
-    likes_data = util.from_json(action_data[1].userLikes)
-    tags_data = util.from_json(action_data[1].userTags)
+    if action_data[1].userLikes ~= "none" then
+      likes_data = util.from_json(action_data[1].userLikes)
+    else
+      likes_data = {}
+    end
+    if action_data[1].userTags ~= "none" then
+      tags_data = util.from_json(action_data[1].userTags)
+    else
+      tags_data = {} 
+    end
   end
 
   for k, v in pairs(postData) do
