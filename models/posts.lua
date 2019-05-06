@@ -343,7 +343,7 @@ function Posts:tag_post(userID, postID)
       postRef     = postID
 
     })
-
+    return true, msg
   end
 end
 
