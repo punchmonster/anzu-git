@@ -318,9 +318,9 @@ function Posts:like_post(userID, postID)
   return true, msg
 end
 
--- FUNCTION: likes a post
+-- FUNCTION: tags a post
 -- userID: database ID of the user who is retweeting the post
--- postID: database ID of the post being liked
+-- postID: database ID of the post being tagged
 function Posts:tag_post(userID, postID)
 
   -- set default JSON response
@@ -349,7 +349,7 @@ function Posts:tag_post(userID, postID)
       userID  = userID
     })
 
-    msg = "untagged PostID: " .. postID .. " onto your timeline"
+    msg = "untagged PostID: " .. postID .. " from your timeline"
   end
 
   return true, msg
