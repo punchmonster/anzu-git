@@ -18,21 +18,22 @@ function User:create(userHandle, userPassword)
     local user_data = db.select("* from `users` order by userID DESC limit 1")
     local userID = user_data[1].userID + 1
 
-    -- encrypt userPassword
+    -- warm up RNG and generate usersalt
     local userSalt
     math.randomseed(ngx.time())
-
     for x = 1,5 do
         -- random generating
         userSalt = math.random(0,500000000)
-
     end
+
+    -- encrypt userPassword
     userPassword = encoding.hmac_sha1(userSalt, userPassword)
 
     -- set default following
     local userFollowing = { 1 }
     table.insert(userFollowing, userID)
 
+    -- pushing userdata to database
     db.insert("users", {
       userID = userID,
       userHandle = userHandle,
@@ -45,11 +46,13 @@ function User:create(userHandle, userPassword)
       userFollowing = util.to_json(userFollowing)
     })
 
+    -- setting large user datasets to defaults
     local empty_JSON = "none"
     db.insert("userData", {
       userID = userID,
       userLikes = util.to_json(empty_JSON),
-      userNotif = util.to_json(empty_JSON)
+      userNotif = util.to_json(empty_JSON),
+      userTags  = util.to_json(empty_JSON)
     })
 
     return true, "account created"

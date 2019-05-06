@@ -24,7 +24,7 @@ return {
       self.csrf_token = csrf.generate_token(self)
 
       -- retrieve timeline table
-      self.timeline_data = Posts:get_timeline(util.from_json(self.loggedUser[1].userFollowing))
+      self.timeline_data = Posts:get_timeline(util.from_json(self.loggedUser[1].userFollowing), self.loggedUser[1].userID)
 
       self.user_data = self.loggedUser
       self.following_count = #util.from_json(self.user_data[1].userFollowing) - 1
