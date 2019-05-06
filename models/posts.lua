@@ -361,6 +361,7 @@ function Posts:tag_post(userID, postID)
       userID  = userID
     })
 
+    tags = util.from_json(user_data[1].userTags)
     for k, v in ipairs(tags) do
       if tonumber(postID) == v then
         table.remove(tags, k)
