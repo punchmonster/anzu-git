@@ -26,3 +26,75 @@
   <% end %>
 
 </div>
+
+<div class="flex wrap profile-wrapper">
+
+  <div class="flex wrap profile-view col-30">
+    <div class="flex wrap profile-sidebar">
+      <div class="profile-sidebar-content">
+        <p><%= user_data[1].userBio %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-main">
+    <% if timeline_data ~= 0 then %>
+      <% for k, v in pairs( timeline_data ) do %>
+        <div class="profile-item flex post-<%- v['postID'] %>" onclick="postRedirect('<%- submit_url %>', '<%- v['userHandle'] %>', '<%- v['postID'] %>')">
+          <div class="post-side">
+            <% if v['userAvatar'] == 0 then %>
+              <img src="http://yukku.org:8080/static/img/profiles/default-person.jpg" alt="user avatar">
+            <% else %>
+              <img src="http://yukku.org:8080/static/img/profiles/<%- v['userID'] %>-avatar.jpg" alt="user avatar">
+            <% end %>
+          </div>
+          <div class="post-body">
+            <h4><%= v['userName'] %></h4>
+            <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
+            <span><%- v['userGender'] %></span>
+            <p><%- v['postBody'] %></p>
+            <div class="post-tools">
+              <i class="typcn typcn-message"></i>
+
+              <!-- tag button setting -->
+              <% if v['tagged'] then %>
+                <i class="typcn typcn-arrow-repeat tag-btn green-tag" onclick="tagButton('<%- tostring(v['postID']) %>')"></i>
+              <% else %>
+                <i class="typcn typcn-arrow-repeat tag-btn" onclick="tagButton('<%- tostring(v['postID']) %>')"></i>
+              <% end %>
+
+              <!-- tag button setting -->
+              <% if v['liked'] then %>
+                <i class="typcn typcn-heart-full-outline like-btn" onclick="likeButton('<%- tostring(v['postID']) %>')"></i>
+              <% else %>
+                <i class="typcn typcn-heart-outline like-btn" onclick="likeButton('<%- tostring(v['postID']) %>')"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div style="width: 20px;">
+    &nbsp;
+  </div>
+
+  <div class="flex nowrap profile-tools">
+    <% if loggedIn == true then %>
+      <form action="<%- submit_url %>" method="POST" enctype="multipart/form-data" class="">
+        <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
+        <input type="hidden" name="sessionID" value="<%- session.sessionID %>">
+        <input type="hidden" name="threadID" value="">
+        <input type="hidden" name="replyID" value="">
+        <input type="text" name="email" class="form-email" style="">
+
+        <textarea name="postBody" placeholder="type your reply" maxlength="300" and minlength="1" required></textarea>
+        <div class="flex wrap" style="flex-direction: row-reverse;">
+          <input class="follow-btn" type="submit" value="Submit" style="">
+        </div>
+      </form>
+    <% end %>
+  </div>
+
+</div>
