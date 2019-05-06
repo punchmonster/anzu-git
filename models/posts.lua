@@ -318,4 +318,34 @@ function Posts:like_post(userID, postID)
   return true, msg
 end
 
+-- FUNCTION: likes a post
+-- userID: database ID of the user who is retweeting the post
+-- postID: database ID of the post being liked
+function Posts:tag_post(userID, postID)
+
+  -- set default JSON response
+  local msg = "tagged PostID: " .. postID .. " onto your timeline"
+
+  local post_data = db.select("* from `posts` WHERE postRef = ? AND userID = ?", postID, userID)
+
+  -- check if user already tagged the post
+  if #post_data < 1 then
+
+    -- get last post
+    local new_data = db.select("* from `posts` order by postID DESC limit 1")
+    local new_postID = post_data[1]['postID'] + 1
+
+    -- insert new thread data into database
+    db.insert( 'posts' , {
+      postID      = new_postID,
+      replyID     = arg1.replyID,
+      threadID    = new_postID,
+      postTime    = ngx.time(),
+      postRef     = postID
+
+    })
+
+  end
+end
+
 return Posts

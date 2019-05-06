@@ -22,6 +22,7 @@ local settings    = require "controllers.settings"
 -- API controllers
 local APIfollow   = require "API.follow"
 local APIlikes    = require "API.likes"
+local APItags     = require "API.tags"
 
 -- before routes
 app:before_filter(check_auth)
@@ -40,5 +41,6 @@ app:match("settings", "/settings",                              respond_to(setti
 -- API routes
 app:match("follow", "/API/follow/:followHandle(/:toggle)",      APIfollow)
 app:match("likes", "/API/likes/:option/:ID[%d]",                APIlikes)
+app:match("tags", "/API/tags/:option/:ID[%d]",                  APItags)
 
 return app
