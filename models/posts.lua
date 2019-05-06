@@ -333,11 +333,11 @@ function Posts:tag_post(userID, postID)
 
     -- get last post
     local new_data = db.select("* from `posts` order by postID DESC limit 1")
-    local new_postID = post_data[1]['postID'] + 1
+    new_data = new_data[1]['postID'] + 1
 
     -- insert new thread data into database
     db.insert( 'posts' , {
-      postID      = new_postID,
+      postID      = new_data,
       replyID     = arg1.replyID,
       threadID    = new_postID,
       postTime    = ngx.time(),
