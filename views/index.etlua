@@ -1,3 +1,42 @@
+<div class="home-content">
+
+  <% if session ~= nil then %>
+    <form action="<%- submit_url %>" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
+      <input type="hidden" name="sessionID" value="<%- session.sessionID %>">
+      <input type="text" name="email" class="form-email" style="display:hidden;">
+
+      <div>
+        <textarea name="postBody" placeholder="type your reply" required></textarea>
+      </div>
+      <div class="col-100 margin-bottom">
+        <div class="col-70">
+          <input type="file" name="postImage" accept="image/*,video/*" style="background:#1b2838;">
+        </div>
+        <div class="col-30">
+          <input type="submit" value="Submit" style="padding:15px 7px;height:48px;">
+        </div>
+      </div>
+
+      <% for k, v in pairs( timeline_data ) do %>
+        <p><%- v['userHandle'] %><br /><%- v['postBody'] %></p>
+      <% end %>
+
+    </form>
+  <% end %>
+
+</div>
+
+<div class="flex wrap profile-wrapper">
+
+  <div class="flex wrap profile-view col-30">
+    <div class="flex wrap profile-sidebar">
+      <div class="profile-sidebar-content">
+        <p><%= user_data[1].userBio %></p>
+      </div>
+    </div>
+  </div>
+
   <div class="profile-main">
     <% if timeline_data ~= 0 then %>
       <% for k, v in pairs( timeline_data ) do %>
