@@ -232,7 +232,7 @@ function Posts:merge_user_data(userData, postData, currentID)
     if action_data[1].userTags ~= "none" then
       tags_data = util.from_json(action_data[1].userTags)
     else
-      tags_data = {} 
+      tags_data = {}
     end
   end
 
@@ -245,6 +245,7 @@ function Posts:merge_user_data(userData, postData, currentID)
        v['userAvatar'] = b['userAvatar']
       end
     end
+    -- if called from a logged in session merge tag and like data in
     if currentID ~= nil then
       for a, b in ipairs(likes_data) do
         if v['postID'] == b then
