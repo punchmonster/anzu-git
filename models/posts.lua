@@ -221,9 +221,11 @@ end
 function Posts:merge_user_data(userData, postData, currentID)
 
   local likes_data = nil
+  local tags_data = nil
   if currentID ~= nil then
-    likes_data = db.select("* from `userData` WHERE userID = ?", currentID)
-    likes_data = util.from_json(likes_data[1].userLikes)
+    action_data = db.select("* from `userData` WHERE userID = ?", currentID)
+    likes_data = util.from_json(action_data[1].userLikes)
+    tags_data = util.from_json(action_data[1].userTags)
   end
 
   for k, v in pairs(postData) do
@@ -239,6 +241,11 @@ function Posts:merge_user_data(userData, postData, currentID)
       for a, b in ipairs(likes_data) do
         if v['postID'] == b then
           v['liked'] = true
+        end
+      end
+      for a, b in ipairs(tags_data) do
+        if v['postID'] == b then
+          v['tagged'] = true
         end
       end
     end
