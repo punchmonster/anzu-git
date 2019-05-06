@@ -338,7 +338,6 @@ function Posts:tag_post(userID, postID)
     -- insert new thread data into database
     db.insert( 'posts' , {
       postID      = new_data,
-      replyID     = new_data,
       threadID    = new_data,
       postTime    = ngx.time(),
       postRef     = postID
