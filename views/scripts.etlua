@@ -50,4 +50,25 @@ function likeButton(postID) {
   })
 }
 
+function tagButton(postID) {
+  event.stopPropagation();
+
+  var button = document.querySelectorAll(".post-" + postID + " .tag-btn");
+
+  const Url='http://yukku.org:8080/API/tags/modify/' + postID;
+
+  fetch(Url)
+  .then(data=>{return data.json()})
+  .then(res=>{console.log(res)})
+  .then(function(res) {
+    button.forEach(function(buttonItem) {
+      if (buttonItem.classList.contains("green-tag")) {
+        buttonItem.classList.remove("green-tag");
+      } else {
+        buttonItem.classList.add("green-tag");
+      }
+    })
+  })
+}
+
 console.log("scripts initialized");
