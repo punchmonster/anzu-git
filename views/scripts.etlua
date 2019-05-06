@@ -30,7 +30,7 @@ function postRedirect(URL, userHandle, postID) {
 function likeButton(postID) {
   event.stopPropagation();
 
-  var button = document.querySelector(".post-" + postID + " .like-btn");
+  var button = document.querySelectorAll(".post-" + postID + " .like-btn");
 
   const Url='http://yukku.org:8080/API/likes/modify/' + postID;
 
@@ -38,12 +38,14 @@ function likeButton(postID) {
   .then(data=>{return data.json()})
   .then(res=>{console.log(res)})
   .then(function(res) {
-    if (button.classList.contains("typcn-heart-outline")) {
-      button.classList.remove("typcn-heart-outline");
-      button.classList.add("typcn-heart-full-outline");
-    } else {
-      button.classList.remove("typcn-heart-full-outline");
-      button.classList.add("typcn-heart-outline");
+    button.forEach(function(buttonItem) {
+      if (buttonItem.classList.contains("typcn-heart-outline")) {
+        buttonItem.classList.remove("typcn-heart-outline");
+        buttonItem.classList.add("typcn-heart-full-outline");
+      } else {
+        buttonItem.classList.remove("typcn-heart-full-outline");
+        buttonItem.classList.add("typcn-heart-outline");
+      }
     }
   })
 }
