@@ -342,10 +342,17 @@ function Posts:tag_post(userID, postID)
       postTime    = ngx.time(),
       postRef     = postID,
       userID      = userID
-
     })
-    return true, msg
+  else
+    db.delete('posts', {
+      postRef = tonumber(postID),
+      userID  = userID
+    })
+
+    msg = "untagged PostID: " .. postID .. " onto your timeline"
   end
+
+  return true, msg
 end
 
 return Posts
