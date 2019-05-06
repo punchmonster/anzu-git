@@ -87,7 +87,15 @@
               <p><%- v['postBody'] %><%- v['tagged'] %></p>
               <div class="post-tools">
                 <i class="typcn typcn-message"></i>
-                <i class="typcn typcn-arrow-repeat"></i>
+
+                <!-- tag button setting -->
+                <% if v['liked'] then %>
+                  <i class="typcn typcn-arrow-repeat" style="color: #1BC76D;"></i>
+                <% else %>
+                  <i class="typcn typcn-arrow-repeat"></i>
+                <% end %>
+
+                <!-- like button setting -->
                 <% if v['liked'] then %>
                   <i class="typcn typcn-heart-full-outline like-btn" onclick="likeButton('<%- tostring(v['postID']) %>')"></i>
                 <% else %>
