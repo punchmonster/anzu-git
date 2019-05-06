@@ -340,7 +340,8 @@ function Posts:tag_post(userID, postID)
       postID      = new_data,
       threadID    = new_data,
       postTime    = ngx.time(),
-      postRef     = postID
+      postRef     = postID,
+      userID      = userID
 
     })
     return true, msg
