@@ -325,7 +325,7 @@ function Posts:tag_post(userID, postID)
 
   -- retrieve userdata to
   local user_data = db.select("* from `userData` WHERE userID = ?", userID)
-  tags = util.from_json(user_data[1].userTags)
+  local tags
 
   -- set default JSON response
   local msg = "tagged PostID: " .. postID .. " onto your timeline"
@@ -350,6 +350,7 @@ function Posts:tag_post(userID, postID)
 
     local tags
     if user_data[1].userTags ~= "none" then
+      tags = util.from_json(user_data[1].userTags)
       table.insert(tags, tonumber(postID))
     else
       tags = { tonumber(postID) }
