@@ -326,7 +326,7 @@ function Posts:tag_post(userID, postID)
   -- set default JSON response
   local msg = "tagged PostID: " .. postID .. " onto your timeline"
 
-  local post_data = db.select("* from `posts` WHERE postRef = ? AND userID = ?", postID, userID)
+  local post_data = db.select("* from `posts` WHERE postRef = ? AND userID = ?", tonumber(postID), userID)
 
   -- check if user already tagged the post
   if #post_data < 1 then
