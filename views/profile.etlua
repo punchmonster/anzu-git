@@ -29,9 +29,9 @@
 
               <!-- tag button setting -->
               <% if v['tagged'] then %>
-                <i class="typcn typcn-arrow-repeat tag-btn green-tag" onclick="tagButton('<%- tostring(v['postID']) %>')></i>
+                <i class="typcn typcn-arrow-repeat tag-btn green-tag" onclick="tagButton('<%- tostring(v['postID']) %>')"></i>
               <% else %>
-                <i class="typcn typcn-arrow-repeat tag-btn" onclick="tagButton('<%- tostring(v['postID']) %>')></i>
+                <i class="typcn typcn-arrow-repeat tag-btn" onclick="tagButton('<%- tostring(v['postID']) %>')"></i>
               <% end %>
 
               <!-- tag button setting -->
@@ -98,9 +98,9 @@
 
                 <!-- tag button setting -->
                 <% if v['tagged'] then %>
-                  <i class="typcn typcn-arrow-repeat tag-btn green-tag" onclick="tagButton('<%- tostring(v['postID']) %>')></i>
+                  <i class="typcn typcn-arrow-repeat tag-btn green-tag" onclick="tagButton('<%- tostring(v['postID']) %>')"></i>
                 <% else %>
-                  <i class="typcn typcn-arrow-repeat tag-btn" onclick="tagButton('<%- tostring(v['postID']) %>')></i>
+                  <i class="typcn typcn-arrow-repeat tag-btn" onclick="tagButton('<%- tostring(v['postID']) %>')"></i>
                 <% end %>
 
                 <!-- like button setting -->
