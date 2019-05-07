@@ -157,17 +157,18 @@ function Posts:get_timeline(following, currentID)
 
   -- make a list of tagged tweets on timeline to retrieve
   local processedTags = "0"
+  local processedUsers = "0"
   for k, v in ipairs(timeline_data) then
     if v.postRef ~= 0 then
-      processedTags = processedTags .. "," .. v.postRef
+      processedTags  = processedTags .. "," .. v.postRef
+      processedUsers = processedUsers .. "," .. v.userID
     end
   end
 
   local tags_data = db.select("* from `posts` WHERE postRef IN ( " .. processedTags .. " )")
 
   -- make a list of users to request data for in the database
-  local processedUsers = "0"
-  for k, v in pairs(timeline_data) do
+  for k, v in pairs(tags_data) do
      processedUsers = processedUsers .. "," .. v.userID
   end
 
