@@ -58,8 +58,6 @@
       <form action="<%- submit_url %>" method="POST" enctype="multipart/form-data" class="">
         <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
         <input type="hidden" name="sessionID" value="<%- session.sessionID %>">
-        <input type="hidden" name="threadID" value="">
-        <input type="hidden" name="replyID" value="">
         <input type="text" name="email" class="form-email" style="">
 
         <textarea name="postBody" placeholder="type your reply" maxlength="300" and minlength="1" required></textarea>
