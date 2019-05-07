@@ -81,6 +81,7 @@
 
 </div>
 
+<!-- thread overlay setting -->
 <% if params.postID ~= nil then %>
   <div class="thread-overlay flex">
 
@@ -90,7 +91,7 @@
 
     <div class="profile-main">
       <% if profile_data ~= 0 then %>
-        <% for k, v in pairs( posts_data ) do %>
+        <% for k, v in ipairs( posts_data ) do %>
           <div class="profile-item flex post-<%- v['postID'] %>" onclick="postRedirect('<%- submit_url %>', '<%- v['userHandle'] %>', '<%- v['postID'] %>')">
 
             <div class="post-side">
