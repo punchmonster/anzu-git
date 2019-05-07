@@ -488,7 +488,7 @@ function Posts:sort_thread(a)
 
   construct_tree(nodes[1])
 
-  return sorted_convo
+  return nodes
 end
 
 return Posts
