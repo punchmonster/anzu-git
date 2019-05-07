@@ -438,4 +438,73 @@ function Posts:tag_post(userID, postID)
   return true, msg
 end
 
+-- FUNCTION: sorts a thread into a logical pattern
+-- x: table with thread content
+function Posts:sort_thread(a)
+
+  local Node = {}
+
+  function Node:create (x)
+    local o = {}
+    o.postID     = x.postID,
+    o.reply      = x.replyID,
+    o.threadID   = x.threadID,
+    o.sessionID  = x.sessionID,
+    o.postTime   = x.postTime,
+    o.postBody   = x.postBody,
+    o.userID     = x.userID,
+    o.postRef    = x.postRef,
+    o.userHandle = x.userHandle,
+    o.userName   = x.userName,
+    o.userGender = x.userGender,
+    o.userAvatar = x.userAvatar,
+    o.tagged     = x.tagged,
+    o.liked      = x.liked
+    o.children = {}
+    return o
+  end
+
+  local nodes = {}
+  for k, v in ipairs(a) do
+    nodes[v.postID] = Node:create({
+      postID     = v.postID,
+      reply      = v.replyID,
+      threadID   = v.threadID,
+      sessionID  = v.sessionID,
+      postTime   = v.postTime,
+      postBody   = v.postBody,
+      userID     = v.userID,
+      postRef    = v.postRef,
+      userHandle = v.userHandle,
+      userName   = v.userName,
+      userGender = v.userGender,
+      userAvatar = v.userAvatar,
+      tagged     = v.tagged,
+      liked      = v.liked
+    })
+  end
+
+  for ID, node in ipairs(nodes) do
+    if node.replyID ~= node.postID then
+      table.insert(nodes[node.reply].children, node)
+    end
+  end
+
+  local sorted_convo = {}
+  function construct_tree(root_node)
+    --print(root_node.ID, root_node.time, root_node.reply)
+    table.insert(sorted_convo, root_node)
+    for k, child in ipairs(root_node.children) do
+      construct_tree(child)
+    end
+  end
+
+  construct_tree(nodes[1])
+
+  --[[for k, v in ipairs(sorted_convo) do
+    print(v.ID, v.time, v.reply)
+  end]]
+  return sorted_convo
+end
+
 return Posts
