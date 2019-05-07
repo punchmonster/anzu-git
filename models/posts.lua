@@ -180,7 +180,7 @@ function Posts:get_timeline(following, currentID)
       if v.postRef == b.postID then
         v.postBody = b.postBody
     end
-  ennd
+  end
 
   local processed_data = self:merge_user_data(users_data, timeline_data, currentID)
 
