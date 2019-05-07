@@ -179,6 +179,7 @@ function Posts:get_timeline(following, currentID)
     for a, b in ipairs(tags_data) do
       if v.postRef == b.postID then
         v.postBody = b.postBody
+      end
     end
   end
 
