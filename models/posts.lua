@@ -65,7 +65,8 @@ function Posts:submit(arg1)
       userID      = arg1.userID,
       sessionID   = arg1.sessionID,
       postBody    = Text:post_sanitize(arg1.postBody, "http://yukku.org:8080"),
-      postImage   = imageLocation
+      postImage   = imageLocation,
+      postRef     = 0
     })
 
     --[[ update thread time or cull old threads
