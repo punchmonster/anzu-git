@@ -53,9 +53,11 @@ return {
     -- posting configuration
     local x = {
       userID = self.session.current_user,
-      postBody = self.req.params_post['postBody'],
+      replyID = self.params.replyID,
+      threadID = self.params.threadID,
+      postBody = self.req.params_post.postBody,
       postImage = self.params.postImage,
-      sessionID = self.loggedUser[1]['sessionID']
+      sessionID = self.loggedUser[1].sessionID
     }
 
     -- return post status
