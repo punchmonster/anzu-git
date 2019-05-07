@@ -134,8 +134,8 @@ end
 -- FUNCTION: check thread length
 -- threadID: thread ID / feedName: name of feed
 -- RETURN: thread length as int
-function Posts:thread_length(threadID, feedName)
-  local thread_length = db.select("COUNT(*) from `" .. feedName .. "` where threadID = ?", threadID)
+function Posts:thread_length(threadID)
+  local thread_length = db.select("COUNT(*) from `posts` where threadID = ?", threadID)
 
   return thread_length[1]['COUNT(*)']
 end
@@ -155,10 +155,20 @@ function Posts:get_timeline(following, currentID)
   -- retrieve thread headers from database
   local timeline_data = db.select("* from `posts` WHERE userID IN ( " .. processedFollowing .. " ) order by postTime DESC")
 
-  -- sort through user data
+  -- make a list of tagged tweets on timeline to retrieve
+  local processedTags = "0"
+  for k, v in ipairs(timeline_data) then
+    if v.postRef ~= 0 then
+      processedTags = processedTags .. "," .. v.postRef
+    end
+  end
+
+  local tags_data = db.select("* from `posts` WHERE postRef IN ( " .. processedTags .. " )")
+
+  -- make a list of users to request data for in the database
   local processedUsers = "0"
   for k, v in pairs(timeline_data) do
-     processedUsers = processedUsers .. "," .. v['userID']
+     processedUsers = processedUsers .. "," .. v.userID
   end
 
   local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
