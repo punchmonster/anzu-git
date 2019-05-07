@@ -439,27 +439,14 @@ function Posts:tag_post(userID, postID)
 end
 
 -- FUNCTION: sorts a thread into a logical pattern
--- x: table with thread content
+-- a: table with thread content
 function Posts:sort_thread(a)
 
   local Node = {}
 
   function Node:create (x)
     local o = {}
-    o.postID     = x.postID
-    o.reply      = x.replyID
-    o.threadID   = x.threadID
-    o.sessionID  = x.sessionID
-    o.postTime   = x.postTime
-    o.postBody   = x.postBody
-    o.userID     = x.userID
-    o.postRef    = x.postRef
-    o.userHandle = x.userHandle
-    o.userName   = x.userName
-    o.userGender = x.userGender
-    o.userAvatar = x.userAvatar
-    o.tagged     = x.tagged
-    o.liked      = x.liked
+    o = x
     o.children = {}
     return o
   end
@@ -486,7 +473,7 @@ function Posts:sort_thread(a)
 
   for ID, node in ipairs(nodes) do
     if node.replyID ~= node.postID then
-      table.insert(nodes[node.reply].children, node)
+      table.insert(nodes[node.replyID].children, node)
     end
   end
 
