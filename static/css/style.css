@@ -461,6 +461,14 @@ nav {
 	transition: opacity 100ms linear;
 }
 
+.post-header {
+	justify-content: space-between;
+}
+
+.post-header p {
+	margin: 0;
+}
+
 .post-tools i {
 	font-size: 22px;
 	opacity: 0.4;

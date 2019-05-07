@@ -287,6 +287,8 @@ function Posts:merge_user_data(userData, postData, currentID)
         end
       end
     end
+
+    v['postTime'] = self_elapsed(ngx.time(), v['postTime'])
   end
 
   return postData
