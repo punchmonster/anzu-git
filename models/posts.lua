@@ -142,8 +142,9 @@ end
 
 -- FUNCTION: retrieves timeline
 -- following: JSON with userID's
+-- currentID: ID of logged in user
 -- RETURN: table with posts
-function Posts:get_timeline(following)
+function Posts:get_timeline(following, currentID)
 
   -- turn follower ID's into a string for query
   local processedFollowing = "0"
@@ -162,7 +163,7 @@ function Posts:get_timeline(following)
 
   local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
 
-  local processed_data = self:merge_user_data(users_data, timeline_data)
+  local processed_data = self:merge_user_data(users_data, timeline_data, currentID)
 
   return processed_data
 end
