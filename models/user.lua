@@ -95,6 +95,7 @@ function User:login(userHandle, userPassword)
   return false, "wrong password"
 end
 
+-- FUNCTION: updates user settings
 function User:update(x)
 
   -- initiate variables for file uploads
