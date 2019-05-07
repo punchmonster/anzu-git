@@ -158,7 +158,7 @@ function Posts:get_timeline(following, currentID)
   -- make a list of tagged tweets on timeline to retrieve
   local processedTags = "0"
   local processedUsers = "0"
-  for k, v in ipairs(timeline_data) then
+  for k, v in ipairs(timeline_data) do
     if v.postRef ~= 0 then
       processedTags  = processedTags .. "," .. v.postRef
       processedUsers = processedUsers .. "," .. v.userID
