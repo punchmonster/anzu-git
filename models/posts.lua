@@ -486,7 +486,7 @@ function Posts:sort_thread(a)
     end
   end
 
-  construct_tree(nodes[1])
+  --construct_tree(nodes[1])
 
   return nodes
 end
