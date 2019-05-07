@@ -440,7 +440,8 @@ end
 
 -- FUNCTION: sorts a thread into a logical pattern
 -- a: table with thread content
-function Posts:sort_thread(a)
+-- currentThreadID: self explanatory
+function Posts:sort_thread(a, currentThreadID)
 
   local Node = {}
 
@@ -486,7 +487,7 @@ function Posts:sort_thread(a)
     end
   end
 
-  construct_tree(nodes[5])
+  construct_tree(nodes[currentThreadID])
 
   return sorted_convo
 end

@@ -44,7 +44,7 @@ return {
     if self.params.postID ~= nil then
       self.posts_data = Posts:get_thread(self.params.postID, self.user_data[1].userID, currentID)
       self.threadID = self.posts_data[1].threadID
-      self.posts_data = Posts:sort_thread(self.posts_data)
+      self.posts_data = Posts:sort_thread(self.posts_data, self.threadID)
 
       if self.posts_data == false then
         self.params.postID = nil
