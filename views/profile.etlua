@@ -23,14 +23,14 @@
 
           <div class="post-body">
             <div class="post-header flex">
-              <div class="post_user">
+              <div class="post-user">
                 <h4><%= v['userName'] %></h4>
                 <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
                 <span><%- v['userGender'] %></span>
               </div>
-              <span>
+              <p>
                 <%= v['postTime'] %>
-              </span>
+              </p>
             </div>
 
 
@@ -92,6 +92,7 @@
       <% if profile_data ~= 0 then %>
         <% for k, v in pairs( posts_data ) do %>
           <div class="profile-item flex post-<%- v['postID'] %>" onclick="postRedirect('<%- submit_url %>', '<%- v['userHandle'] %>', '<%- v['postID'] %>')">
+
             <div class="post-side">
               <% if v['userAvatar'] == 0 then %>
                 <img src="http://yukku.org:8080/static/img/profiles/default-person.jpg" alt="user avatar">
@@ -99,11 +100,14 @@
                 <img src="http://yukku.org:8080/static/img/profiles/<%- v['userID'] %>-avatar.jpg" alt="user avatar">
               <% end %>
             </div>
+
             <div class="post-body">
               <h4><%= v['userName'] %></h4>
               <a href="<%- submit_url .. v['userHandle'] %>">@<%= v['userHandle'] %></a>
               <span><%- v['userGender'] %></span>
+
               <p><%- v['postBody'] %></p>
+
               <div class="post-tools">
                 <i class="typcn typcn-message"></i>
 

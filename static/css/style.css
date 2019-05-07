@@ -444,7 +444,7 @@ nav {
   display: inline;
 }
 
-.post-body span {
+.post-user span {
 	display: inline-block;
 	padding: 2px 4px;
 	color: #fff;
@@ -456,7 +456,7 @@ nav {
 	cursor :default;
 }
 
-.post-body span:hover {
+.post-user span:hover {
 	opacity: 1;
 	transition: opacity 100ms linear;
 }
