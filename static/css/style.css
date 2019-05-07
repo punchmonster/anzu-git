@@ -444,6 +444,15 @@ nav {
   display: inline;
 }
 
+.post-header {
+	justify-content: space-between;
+}
+
+.post-header p {
+	margin: 0;
+	opacity: 0.5;
+}
+
 .post-user span {
 	display: inline-block;
 	padding: 2px 4px;
@@ -459,14 +468,6 @@ nav {
 .post-user span:hover {
 	opacity: 1;
 	transition: opacity 100ms linear;
-}
-
-.post-header {
-	justify-content: space-between;
-}
-
-.post-header p {
-	margin: 0;
 }
 
 .post-tools i {
