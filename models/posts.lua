@@ -265,6 +265,8 @@ function Posts:merge_user_data(userData, postData, currentID)
     end
   end
 
+  -- merge the posts and their respective userdata
+  local currenTime = ngx.time()
   for k, v in pairs(postData) do
     for a, b in pairs(userData) do
       if v['userID'] == b['userID'] then
@@ -288,7 +290,8 @@ function Posts:merge_user_data(userData, postData, currentID)
       end
     end
 
-    v['postTime'] = self:elapsed(ngx.time(), v['postTime'])
+    -- make timestamps readable
+    v['postTime'] = self:elapsed(currenTime, v['postTime'])
   end
 
   return postData
