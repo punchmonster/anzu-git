@@ -178,7 +178,14 @@ function Posts:get_timeline(following, currentID)
   for k, v in ipairs(timeline_data) do
     for a, b in ipairs(tags_data) do
       if v.postRef == b.postID then
-        v.postBody = b.postBody
+        v.postID      = b.postID
+        v.userName    = b.userName
+        v.userID      = b.userID
+        v.userHandle  = b.userHandle
+        v.postTime    = b.postTime
+        v.threadID    = b.threadID
+        v.ReplyID     = b.replyID
+        v.postBody    = b.postBody
       end
     end
   end
