@@ -488,9 +488,6 @@ function Posts:sort_thread(a)
 
   construct_tree(nodes[1])
 
-  --[[for k, v in ipairs(sorted_convo) do
-    print(v.ID, v.time, v.reply)
-  end]]
   return sorted_convo
 end
 
