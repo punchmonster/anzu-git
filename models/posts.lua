@@ -456,7 +456,7 @@ function Posts:sort_thread(a, currentThreadID)
   for k, v in ipairs(a) do
     nodes[v.postID] = Node:create({
       postID     = v.postID,
-      reply      = v.replyID,
+      replyID    = v.replyID,
       threadID   = v.threadID,
       sessionID  = v.sessionID,
       postTime   = v.postTime,
