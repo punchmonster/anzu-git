@@ -446,19 +446,19 @@ function Posts:sort_thread(a)
 
   function Node:create (x)
     local o = {}
-    o.postID     = x.postID,
-    o.reply      = x.replyID,
-    o.threadID   = x.threadID,
-    o.sessionID  = x.sessionID,
-    o.postTime   = x.postTime,
-    o.postBody   = x.postBody,
-    o.userID     = x.userID,
-    o.postRef    = x.postRef,
-    o.userHandle = x.userHandle,
-    o.userName   = x.userName,
-    o.userGender = x.userGender,
-    o.userAvatar = x.userAvatar,
-    o.tagged     = x.tagged,
+    o.postID     = x.postID
+    o.reply      = x.replyID
+    o.threadID   = x.threadID
+    o.sessionID  = x.sessionID
+    o.postTime   = x.postTime
+    o.postBody   = x.postBody
+    o.userID     = x.userID
+    o.postRef    = x.postRef
+    o.userHandle = x.userHandle
+    o.userName   = x.userName
+    o.userGender = x.userGender
+    o.userAvatar = x.userAvatar
+    o.tagged     = x.tagged
     o.liked      = x.liked
     o.children = {}
     return o
