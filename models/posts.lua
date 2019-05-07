@@ -177,7 +177,7 @@ function Posts:get_timeline(following, currentID)
   -- merge tagged posts into rest of timeline
   for k, v in ipairs(timeline_data) do
     for a, b in ipairs(tags_data) do
-      if v.postRef = b.postID then
+      if v.postRef == b.postID then
         v.postBody = b.postBody
     end
   ennd
