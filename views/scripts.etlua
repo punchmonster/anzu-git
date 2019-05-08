@@ -26,51 +26,6 @@ function postRedirect(URL, userHandle, postID) {
   window.location.href = URL + userHandle + "/" + postID
 }
 
-
-function likeButton(postID) {
-  event.stopPropagation();
-
-  var button = document.querySelectorAll(".post-" + postID + " .like-btn");
-
-  const Url='http://yukku.org:8080/API/likes/modify/' + postID;
-
-  fetch(Url)
-  .then(data=>{return data.json()})
-  .then(res=>{console.log(res)})
-  .then(function(res) {
-    button.forEach(function(buttonItem) {
-      if (buttonItem.classList.contains("typcn-heart-outline")) {
-        buttonItem.classList.remove("typcn-heart-outline");
-        buttonItem.classList.add("typcn-heart-full-outline");
-      } else {
-        buttonItem.classList.remove("typcn-heart-full-outline");
-        buttonItem.classList.add("typcn-heart-outline");
-      }
-    })
-  })
-}
-
-function tagButton(postID) {
-  event.stopPropagation();
-
-  var button = document.querySelectorAll(".post-" + postID + " .tag-btn");
-
-  const Url='http://yukku.org:8080/API/tags/modify/' + postID;
-
-  fetch(Url)
-  .then(data=>{return data.json()})
-  .then(res=>{console.log(res)})
-  .then(function(res) {
-    button.forEach(function(buttonItem) {
-      if (buttonItem.classList.contains("green-tag")) {
-        buttonItem.classList.remove("green-tag");
-      } else {
-        buttonItem.classList.add("green-tag");
-      }
-    })
-  });
-}
-
 // searches for a parent element of certain name
 var getParent = function (elem, selector) {
 
@@ -170,68 +125,6 @@ const postClick = e => {
 [...document.getElementsByClassName("profile-item")].forEach(el => {
   el.addEventListener("click", postClick)
 });
-
-/*document.addEventListener('click', function (event) {
-  event.stopPropagation();
-
-	// If the clicked item is an `.reply-btn` get the parent `.accordion`
-	if ( event.target.classList.contains('reply-btn') ) {
-    event.stopPropagation();
-
-		// Get the parent with the `.post-body` class
-		var parent = getParent(event.target, '.post-body');
-
-    console.log("post to reply to: " + parent.getAttribute("data-post-id"));
-
-	}
-
-  // if like button is clicked send the like through
-  if ( event.target.classList.contains('like-btn') ) {
-    event.stopPropagation();
-
-		// Get the parent with the `.post-body` class
-		var parent = getParent(event.target, '.post-body');
-
-    const Url='http://yukku.org:8080/API/likes/modify/' + parent.getAttribute("data-post-id");
-
-    fetch(Url)
-    .then(data=>{return data.json()})
-    .then(res=>{console.log(res)})
-    .then(function(res) {
-      if (event.target.classList.contains("typcn-heart-outline")) {
-        event.target.classList.remove("typcn-heart-outline");
-        event.target.classList.add("typcn-heart-full-outline");
-      } else {
-        event.target.classList.remove("typcn-heart-full-outline");
-        event.target.classList.add("typcn-heart-outline");
-      }
-    })
-
-    console.log("like post with ID: " + parent.getAttribute("data-post-id"));
-
-	}
-
-  // click on a tweet to redirect to that tweet
-  if (event.target.classList.contains("profile-item") ) {
-    event.stopPropagation();
-
-    postRedirect('/', event.target.getAttribute("data-post-handle"), event.target.getAttribute("data-post-id"))
-  }
-
-}, false); */
-
-/*const replyBtn = document.querySelectorAll('.reply-btn')
-
-replyBtn.forEach(replyBtn => {
-
-   replyBtn.addEventListener('click', event => {
-     // Get the parent with the `.post-body` class
-     var parent = getParent(event.target, '.post-body');
-
-     console.log("post to reply to: " + parent.getAttribute("data-post-id"));
-   });
-
-});*/
 
 
 console.log("scripts initialized");
