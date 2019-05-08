@@ -91,26 +91,26 @@ var getParent = function (elem, selector) {
 const ReplyClick = e => {
   var parent = getParent(e.target, '.post-body');
   console.log("post to reply to: " + parent.getAttribute("data-post-id"));
-}
+};
 
 // converting HTMLCollection to a normal Array
 // look up the ES6 spread operator if you are unfamiliar with this
 [...document.getElementsByClassName("reply-btn")].forEach(el => {
   el.addEventListener("click", ReplyClick)
-})
+});
 
 
 // post redirection
-const postRedirect = e => {
+const postClick = e => {
   console.log("redirect to: " + e.getAttribute("data-post-id"));
   postRedirect('/', e.target.getAttribute("data-post-handle"), e.target.getAttribute("data-post-id"))
-}
+};
 
 // converting HTMLCollection to a normal Array
 // look up the ES6 spread operator if you are unfamiliar with this
 [...document.getElementsByClassName("profile-item")].forEach(el => {
-  el.addEventListener("click", postRedirect)
-})
+  el.addEventListener("click", postClick)
+});
 
 /*document.addEventListener('click', function (event) {
   event.stopPropagation();
