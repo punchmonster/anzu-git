@@ -87,17 +87,30 @@ var getParent = function (elem, selector) {
 
 };
 
-// reply button function
-const ReplyClick = e => {
+// tag button function
+const tagClick = e => {
   event.stopPropagation();
   var parent = getParent(e.target, '.post-body');
-  console.log("post to reply to: " + parent.getAttribute("data-post-id"));
+
+  const Url='http://yukku.org:8080/API/likes/modify/' + parent.getAttribute("data-post-id");
+
+  fetch(Url)
+  .then(data=>{return data.json()})
+  .then(data=>{
+    console.log(data.success)
+      if (e.target.classList.contains("green-tag")) {
+        e.target.classList.remove("green-tag");
+      } else {
+        e.target.classList.add("green-tag");
+      }
+    })
+  });
+
+  console.log("tag post with ID: " + parent.getAttribute("data-post-id"));
 };
 
-// converting HTMLCollection to a normal Array
-// look up the ES6 spread operator if you are unfamiliar with this
-[...document.getElementsByClassName("reply-btn")].forEach(el => {
-  el.addEventListener("click", ReplyClick)
+[...document.getElementsByClassName("tag-btn")].forEach(el => {
+  el.addEventListener("click", tagClick)
 });
 
 // like button function
@@ -127,6 +140,18 @@ const likeClick = e => {
   el.addEventListener("click", likeClick)
 });
 
+// reply button function
+const ReplyClick = e => {
+  event.stopPropagation();
+  var parent = getParent(e.target, '.post-body');
+  console.log("post to reply to: " + parent.getAttribute("data-post-id"));
+};
+
+// converting HTMLCollection to a normal Array
+// look up the ES6 spread operator if you are unfamiliar with this
+[...document.getElementsByClassName("reply-btn")].forEach(el => {
+  el.addEventListener("click", ReplyClick)
+});
 
 // post redirection
 const postClick = e => {
