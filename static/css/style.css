@@ -492,8 +492,12 @@ nav {
 }
 
 .post-selected {
-	font-size: 26px;
+	font-size: 25px;
 	background: #25363E;
+}
+
+.post-selected {
+	font-size: 14px;
 }
 
 .post-selected .post-user {
@@ -501,7 +505,7 @@ nav {
 }
 .post-selected h4 {
 	display: block;
-	font-size: 17px;
+	font-size: 18px;
 	background: #25363E;
 }
 
