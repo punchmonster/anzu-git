@@ -71,7 +71,7 @@ function tagButton(postID) {
   });
 }
 
-var getClosest = function (elem, selector) {
+var getParent = function (elem, selector) {
 
 	// Element.matches() polyfill
   if (!Element.prototype.matches) {
@@ -88,13 +88,13 @@ var getClosest = function (elem, selector) {
 };
 
 document.addEventListener('click', function (event) {
-  event.stopPropagation();
 
 	// If the clicked item is an `.reply-btn` get the parent `.accordion`
 	if ( event.target.classList.contains('reply-btn') ) {
+    event.stopPropagation();
 
 		// Get the parent with the `.post-body` class
-		var parent = getClosest(event.target, '.post-body');
+		var parent = getParent(event.target, '.post-body');
 
     console.log("post to reply to: " + parent.getAttribute("data-post-id"));
 
