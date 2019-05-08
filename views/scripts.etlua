@@ -87,6 +87,17 @@ var getParent = function (elem, selector) {
 
 };
 
+const ReplyClick = e => {
+  var parent = getParent(e.target, '.post-body');
+  console.log("post to reply to: " + parent.getAttribute("data-post-id"));
+}
+
+// converting HTMLCollection to a normal Array
+// look up the ES6 spread operator if you are unfamiliar with this
+[...document.getElementsByClassName("reply-btn")].forEach(el => {
+  el.addEventListener("click", ReplyClick)
+})
+
 /*document.addEventListener('click', function (event) {
   event.stopPropagation();
 
@@ -148,18 +159,6 @@ replyBtn.forEach(replyBtn => {
    });
 
 });*/
-
-const posts = document.querySelectorAll('.profile-item')
-
-posts.forEach(posts => {
-
-   posts.addEventListener('click', event => {
-
-     console.log('/' + event.target.getAttribute("data-post-handle") + event.target.getAttribute("data-post-id"));
-     postRedirect('/', event.target.getAttribute("data-post-handle"), event.target.getAttribute("data-post-id"))
-   });
-
-});
 
 
 console.log("scripts initialized");
