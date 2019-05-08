@@ -496,7 +496,7 @@ nav {
 	background: #25363E;
 }
 
-.post-selected {
+.post-selected a {
 	font-size: 14px;
 }
 
