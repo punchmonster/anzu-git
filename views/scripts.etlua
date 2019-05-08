@@ -99,7 +99,7 @@ document.addEventListener('click', function (event) {
 
     console.log("post to reply to: " + parent.getAttribute("data-post-id"));
 
-	}*/
+	}
 
   // if like button is clicked send the like through
   if ( event.target.classList.contains('like-btn') ) {
@@ -127,16 +127,16 @@ document.addEventListener('click', function (event) {
 
 	}
 
-  /* click on a tweet to redirect to that tweet
+  // click on a tweet to redirect to that tweet
   if (event.target.classList.contains("profile-item") ) {
     event.stopPropagation();
 
     postRedirect('/', event.target.getAttribute("data-post-handle"), event.target.getAttribute("data-post-id"))
-  }*/
+  }
 
-}, false);
+}, false); */
 
-const replyBtn = document.querySelectorAll('.reply-btn')
+/*const replyBtn = document.querySelectorAll('.reply-btn')
 
 replyBtn.forEach(replyBtn => {
 
@@ -147,7 +147,7 @@ replyBtn.forEach(replyBtn => {
      console.log("post to reply to: " + parent.getAttribute("data-post-id"));
    });
 
-});
+});*/
 
 const posts = document.querySelectorAll('.profile-item')
 
