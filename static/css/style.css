@@ -491,6 +491,16 @@ nav {
 	transition: opacity 100ms linear;
 }
 
+.post-selected {
+	font: 26px;
+	background: #25363E;
+}
+.post-selected h4 {
+	width: 100%;
+	font: 17px;
+	background: #25363E;
+}
+
 .profile-tools form {
   box-sizing: border-box;
   width: 100%;
