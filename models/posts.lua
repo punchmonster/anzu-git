@@ -490,7 +490,7 @@ function Posts:sort_thread(a, currentThreadID)
   construct_tree(nodes[currentThreadID])
 
   -- post_data only ending up with 1 post?
-  return sorted_convo
+  return nodes
 end
 
 return Posts
