@@ -98,12 +98,11 @@ const tagClick = e => {
   .then(data=>{return data.json()})
   .then(data=>{
     console.log(data.success)
-      if (e.target.classList.contains("green-tag")) {
-        e.target.classList.remove("green-tag");
-      } else {
-        e.target.classList.add("green-tag");
-      }
-    })
+    if (e.target.classList.contains("green-tag")) {
+      e.target.classList.remove("green-tag");
+    } else {
+      e.target.classList.add("green-tag");
+    }
   });
 
   console.log("tag post with ID: " + parent.getAttribute("data-post-id"));
