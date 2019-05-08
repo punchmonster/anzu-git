@@ -92,7 +92,7 @@ const tagClick = e => {
   event.stopPropagation();
   var parent = getParent(e.target, '.post-body');
 
-  const Url='http://yukku.org:8080/API/likes/modify/' + parent.getAttribute("data-post-id");
+  const Url='http://yukku.org:8080/API/tags/modify/' + parent.getAttribute("data-post-id");
 
   fetch(Url)
   .then(data=>{return data.json()})
