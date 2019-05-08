@@ -87,10 +87,10 @@ var getParent = function (elem, selector) {
 
 };
 
-document.addEventListener('click', function (event) {
+/*document.addEventListener('click', function (event) {
   event.stopPropagation();
 
-	/* If the clicked item is an `.reply-btn` get the parent `.accordion`
+	// If the clicked item is an `.reply-btn` get the parent `.accordion`
 	if ( event.target.classList.contains('reply-btn') ) {
     event.stopPropagation();
 
