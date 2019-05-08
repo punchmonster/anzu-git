@@ -103,7 +103,15 @@ const ReplyClick = e => {
 // post redirection
 const postClick = e => {
   console.log("redirect to: " + e.target.getAttribute("data-post-id"));
-  postRedirect('/', e.target.getAttribute("data-post-handle"), e.target.getAttribute("data-post-id"))
+  if (!e.target.classList.contains('profile-item')) {
+
+    // Get the parent with the `.post-body` class
+		var parent = getParent(event.target, '.profile-item');
+
+    postRedirect('/', parent.getAttribute("data-post-handle"), parent.getAttribute("data-post-id"))
+  } else {
+    postRedirect('/', e.target.getAttribute("data-post-handle"), e.target.getAttribute("data-post-id"))
+  }
 };
 
 // converting HTMLCollection to a normal Array
