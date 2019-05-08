@@ -156,40 +156,7 @@ function Posts:get_timeline(following, currentID)
   -- retrieve thread headers from database
   local timeline_data = db.select("* from `posts` WHERE userID IN ( " .. processedFollowing .. " ) order by postTime DESC")
 
-  -- make a list of tagged tweets on timeline to retrieve
-  local processedTags = "0"
-  local processedUsers = "0"
-  for k, v in ipairs(timeline_data) do
-    if v.postRef ~= 0 then
-      processedTags  = processedTags .. "," .. v.postRef
-      processedUsers = processedUsers .. "," .. v.userID
-    end
-  end
-
-  local tags_data = db.select("* from `posts` WHERE postRef IN ( " .. processedTags .. " )")
-
-  -- make a list of users to request data for in the database
-  for k, v in pairs(tags_data) do
-     processedUsers = processedUsers .. "," .. v.userID
-  end
-
-  local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
-
-  -- merge tagged posts into rest of timeline
-  for k, v in ipairs(timeline_data) do
-    for a, b in ipairs(tags_data) do
-      if v.postRef == b.postID then
-        v.postID      = b.postID
-        v.userName    = b.userName
-        v.userID      = b.userID
-        v.userHandle  = b.userHandle
-        v.postTime    = b.postTime
-        v.threadID    = b.threadID
-        v.ReplyID     = b.replyID
-        v.postBody    = b.postBody
-      end
-    end
-  end
+  timeline_data, users_data = Posts:merge_tags(timeline_data)
 
   local processed_data = self:merge_user_data(users_data, timeline_data, currentID)
 
