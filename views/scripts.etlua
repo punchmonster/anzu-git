@@ -127,14 +127,24 @@ document.addEventListener('click', function (event) {
 
 	}
 
-  // click on a tweet to redirect to that tweet
+  /* click on a tweet to redirect to that tweet
   if (event.target.classList.contains("profile-item") ) {
     event.stopPropagation();
 
     postRedirect('/', event.target.getAttribute("data-post-handle"), event.target.getAttribute("data-post-id"))
-  }
+  }*/
 
 }, false);
+
+const posts = document.querySelectorAll('.profile-item')
+
+posts.forEach(posts => {
+
+   posts.addEventListener('click', event => {
+        postRedirect('/', event.target.getAttribute("data-post-handle"), event.target.getAttribute("data-post-id"))
+   });
+
+});
 
 
 console.log("scripts initialized");
