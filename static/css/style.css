@@ -491,6 +491,7 @@ nav {
 	transition: opacity 100ms linear;
 }
 
+/* ####### highlighted post in thread styling ###### */
 .post-selected {
 	font-size: 25px;
 	background: #25363E;
