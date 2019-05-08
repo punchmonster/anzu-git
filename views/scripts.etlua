@@ -90,7 +90,7 @@ var getParent = function (elem, selector) {
 document.addEventListener('click', function (event) {
   event.stopPropagation();
 
-	// If the clicked item is an `.reply-btn` get the parent `.accordion`
+	/* If the clicked item is an `.reply-btn` get the parent `.accordion`
 	if ( event.target.classList.contains('reply-btn') ) {
     event.stopPropagation();
 
@@ -99,7 +99,7 @@ document.addEventListener('click', function (event) {
 
     console.log("post to reply to: " + parent.getAttribute("data-post-id"));
 
-	}
+	}*/
 
   // if like button is clicked send the like through
   if ( event.target.classList.contains('like-btn') ) {
@@ -142,6 +142,19 @@ posts.forEach(posts => {
 
    posts.addEventListener('click', event => {
         postRedirect('/', event.target.getAttribute("data-post-handle"), event.target.getAttribute("data-post-id"))
+   });
+
+});
+
+const replyBtn = document.querySelectorAll('.profile-item')
+
+replyBtn.forEach(replyBtn => {
+
+   replyBtn.addEventListener('click', event => {
+     // Get the parent with the `.post-body` class
+     var parent = getParent(event.target, '.post-body');
+
+     console.log("post to reply to: " + parent.getAttribute("data-post-id"));
    });
 
 });
