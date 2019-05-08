@@ -472,7 +472,7 @@ function Posts:sort_thread(a, currentThreadID)
     })
   end
 
-  for ID, node in ipairs(nodes) do
+  for ID, node in pairs(nodes) do
     if node.replyID ~= node.postID then
       table.insert(nodes[node.replyID].children, node)
     end
@@ -490,7 +490,7 @@ function Posts:sort_thread(a, currentThreadID)
   construct_tree(nodes[currentThreadID])
 
   -- post_data only ending up with 1 post?
-  return nodes
+  return sorted_convo
 end
 
 return Posts
