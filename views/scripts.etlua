@@ -88,6 +88,7 @@ var getParent = function (elem, selector) {
 };
 
 document.addEventListener('click', function (event) {
+  event.stopPropagation();
 
 	// If the clicked item is an `.reply-btn` get the parent `.accordion`
 	if ( event.target.classList.contains('reply-btn') ) {
@@ -97,6 +98,35 @@ document.addEventListener('click', function (event) {
 		var parent = getParent(event.target, '.post-body');
 
     console.log("post to reply to: " + parent.getAttribute("data-post-id"));
+
+	}
+
+  // if like button is clicked send the like through
+  if ( event.target.classList.contains('like-btn') ) {
+    event.stopPropagation();
+
+    window.location.href = URL + userHandle + "/" + postID
+		// Get the parent with the `.post-body` class
+		var parent = getParent(event.target, '.post-body');
+
+    event.stopPropagation();
+
+    const Url='http://yukku.org:8080/API/likes/modify/' + parent.getAttribute("data-post-id");
+
+    fetch(Url)
+    .then(data=>{return data.json()})
+    .then(res=>{console.log(res)})
+    .then(function(res) {
+      if (event.target.classList.contains("typcn-heart-outline")) {
+        event.target.classList.remove("typcn-heart-outline");
+        event.target.classList.add("typcn-heart-full-outline");
+      } else {
+        event.target.classList.remove("typcn-heart-full-outline");
+        event.target.classList.add("typcn-heart-outline");
+      }
+    })
+
+    console.log("like post with ID: " + parent.getAttribute("data-post-id"));
 
 	}
 
