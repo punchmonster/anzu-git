@@ -156,13 +156,17 @@ function Posts:get_timeline(following, currentID)
   -- retrieve thread headers from database
   local timeline_data = db.select("* from `posts` WHERE userID IN ( " .. processedFollowing .. " ) order by postTime DESC")
 
-  timeline_data, users_data = Posts:merge_tags(timeline_data)
+  timeline_data, users_data = self:merge_tags(timeline_data)
 
   local processed_data = self:merge_user_data(users_data, timeline_data, currentID)
 
   return processed_data
 end
 
+-- FUNCTION: retrieves timeline
+-- userHandle: userHandle of the profile to retrieve
+-- currentID: ID of logged in user
+-- RETURN: table with posts: {{postID = 1, ... },{postID = 1, ... }}
 function Posts:get_profile(userHandle, currentID)
 
   -- check if user exists and retrieve userID
@@ -177,7 +181,7 @@ function Posts:get_profile(userHandle, currentID)
     return true, 0, user_data
   else
 
-    profile_data, users_data = Posts:merge_tags(profile_data)
+    profile_data, users_data = self:merge_tags(profile_data)
 
     --merge user data into post data
     profile_data = self:merge_user_data(users_data, profile_data, currentID)
@@ -185,6 +189,9 @@ function Posts:get_profile(userHandle, currentID)
   end
 end
 
+-- FUNCTION: extracts userIDs and tag refs to retrieve and merge into post data
+-- post_data: table with post data: {{postID = 1, ... },{postID = 1, ... }}
+-- RETURN: table with post data: {{postID = 1, ... },{postID = 1, ... }}
 function Posts:merge_tags(posts_data)
 
   -- make a list of tagged tweets on timeline to retrieve
