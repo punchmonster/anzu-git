@@ -163,7 +163,7 @@ function Posts:get_timeline(following, currentID)
   return processed_data
 end
 
--- FUNCTION: retrieves timeline
+-- FUNCTION: retrieves a profile
 -- userHandle: userHandle of the profile to retrieve
 -- currentID: ID of logged in user
 -- RETURN: table with posts: {{postID = 1, ... },{postID = 1, ... }}
