@@ -510,6 +510,10 @@ nav {
 	background: #25363E;
 }
 
+.post-selected p {
+	margin-top: 15px;
+}
+
 .profile-tools form {
   box-sizing: border-box;
   width: 100%;
