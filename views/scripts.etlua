@@ -109,8 +109,8 @@ const likeClick = e => {
 
   fetch(Url)
   .then(data=>{return data.json()})
-  .then(data=>{console.log(data.success)})
-  .then(function(res) {
+  .then(data =>{
+    console.log(data.success)});
     if (e.target.classList.contains("typcn-heart-outline")) {
       e.target.classList.remove("typcn-heart-outline");
       e.target.classList.add("typcn-heart-full-outline");
@@ -123,8 +123,6 @@ const likeClick = e => {
   console.log("like post with ID: " + parent.getAttribute("data-post-id"));
 };
 
-// converting HTMLCollection to a normal Array
-// look up the ES6 spread operator if you are unfamiliar with this
 [...document.getElementsByClassName("like-btn")].forEach(el => {
   el.addEventListener("click", likeClick)
 });
@@ -144,8 +142,6 @@ const postClick = e => {
   }
 };
 
-// converting HTMLCollection to a normal Array
-// look up the ES6 spread operator if you are unfamiliar with this
 [...document.getElementsByClassName("profile-item")].forEach(el => {
   el.addEventListener("click", postClick)
 });
