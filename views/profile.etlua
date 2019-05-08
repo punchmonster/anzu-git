@@ -21,7 +21,7 @@
             <% end %>
           </div>
 
-          <div class="post-body">
+          <div class="post-body" data-post-id="<%- v['postID'] %>">
             <% if v['postRef'] ~= 0 then %>
               <span>_person_ tagged</span>
             <% end %>
