@@ -89,6 +89,7 @@ var getParent = function (elem, selector) {
 
 // reply button function
 const ReplyClick = e => {
+  event.stopPropagation();
   var parent = getParent(e.target, '.post-body');
   console.log("post to reply to: " + parent.getAttribute("data-post-id"));
 };
@@ -108,9 +109,9 @@ const postClick = e => {
     // Get the parent with the `.post-body` class
 		var parent = getParent(event.target, '.profile-item');
 
-    postRedirect('/', parent.getAttribute("data-post-handle"), parent.getAttribute("data-post-id"))
+    postRedirect('/', parent.getAttribute("data-post-handle"), parent.getAttribute("data-post-id"));
   } else {
-    postRedirect('/', e.target.getAttribute("data-post-handle"), e.target.getAttribute("data-post-id"))
+    postRedirect('/', e.target.getAttribute("data-post-handle"), e.target.getAttribute("data-post-id"));
   }
 };
 
