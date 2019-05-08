@@ -108,8 +108,6 @@ document.addEventListener('click', function (event) {
 		// Get the parent with the `.post-body` class
 		var parent = getParent(event.target, '.post-body');
 
-    event.stopPropagation();
-
     const Url='http://yukku.org:8080/API/likes/modify/' + parent.getAttribute("data-post-id");
 
     fetch(Url)
@@ -128,6 +126,12 @@ document.addEventListener('click', function (event) {
     console.log("like post with ID: " + parent.getAttribute("data-post-id"));
 
 	}
+
+  if (event.target.classList.contains("profile-item") ) {
+    event.stopPropagation();
+
+    postRedirect('/', event.target.getAttribute("data-post-handle"), event.target.getAttribute("data-post-id"))
+  }
 
 }, false);
 

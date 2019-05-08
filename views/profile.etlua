@@ -96,9 +96,9 @@
       <% if profile_data ~= 0 then %>
         <% for k, v in pairs( posts_data ) do %>
           <% if tonumber(params.postID) == v['postID'] then %>
-            <div class="profile-item flex post-<%- v['postID'] %> post-selected" onclick="postRedirect('<%- submit_url %>', '<%- v['userHandle'] %>', '<%- v['postID'] %>')">
+            <div class="profile-item flex post-<%- v['postID'] %> post-selected" data-post-id="<%- v['postID'] %>" data-post-handle="<%- v['userHandle'] %>">
           <% else %>
-            <div class="profile-item flex post-<%- v['postID'] %>" onclick="postRedirect('<%- submit_url %>', '<%- v['userHandle'] %>', '<%- v['postID'] %>')">
+            <div class="profile-item flex post-<%- v['postID'] %>" data-post-id="<%- v['postID'] %>" data-post-handle="<%- v['userHandle'] %>">
           <% end %>
 
             <div class="post-side">
