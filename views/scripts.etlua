@@ -109,8 +109,8 @@ const likeClick = e => {
 
   fetch(Url)
   .then(data=>{return data.json()})
-  .then(data =>{
-    console.log(data.success)});
+  .then(data=>{
+    console.log(data.success)
     if (e.target.classList.contains("typcn-heart-outline")) {
       e.target.classList.remove("typcn-heart-outline");
       e.target.classList.add("typcn-heart-full-outline");
