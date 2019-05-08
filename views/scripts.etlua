@@ -87,7 +87,7 @@ var getParent = function (elem, selector) {
 
 };
 
-replyBtn = document.getElementById("reply-btn");
+replyBtn = document.getElementById(".reply-btn");
 replyBtn.addEventListener('click', function (event) {
   event.stopPropagation();
 
