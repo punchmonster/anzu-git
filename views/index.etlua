@@ -23,7 +23,7 @@
             <% end %>
           </div>
 
-          <div class="post-body">
+          <div class="post-body" data-post-id="<%- v['postID'] %>">
             <div class="post-header flex">
               <div class="post-user">
                 <h4><%= v['userName'] %></h4>
