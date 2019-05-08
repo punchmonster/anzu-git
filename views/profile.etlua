@@ -135,9 +135,9 @@
 
                 <!-- like button setting -->
                 <% if v['liked'] then %>
-                  <i class="typcn typcn-heart-full-outline like-btn" ></i>
+                  <i class="typcn typcn-heart-full-outline like-btn" onclick="likeButton('<%- tostring(v['postID']) %>')"></i>
                 <% else %>
-                  <i class="typcn typcn-heart-outline like-btn" ></i>
+                  <i class="typcn typcn-heart-outline like-btn" onclick="likeButton('<%- tostring(v['postID']) %>')"></i>
                 <% end %>
               </div>
             </div>

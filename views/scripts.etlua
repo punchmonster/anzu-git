@@ -87,20 +87,19 @@ var getParent = function (elem, selector) {
 
 };
 
-document.addEventListener('click', function (event) {
+replyBtn = document.getElementById("reply-btn");
+replyBtn.addEventListener('click', function (event) {
   event.stopPropagation();
 
-	// If the clicked item is an `.reply-btn` get the parent `.accordion`
-	if ( event.target.classList.contains('reply-btn') ) {
-    event.stopPropagation();
+	// Get the parent with the `.post-body` class
+	var parent = getParent(event.target, '.post-body');
 
-		// Get the parent with the `.post-body` class
-		var parent = getParent(event.target, '.post-body');
+  console.log("post to reply to: " + parent.getAttribute("data-post-id"));
 
-    console.log("post to reply to: " + parent.getAttribute("data-post-id"));
+}, false);
 
-	}
-
+/*
+document.addEventListener('click', function (event) {
   // if like button is clicked send the like through
   if ( event.target.classList.contains('like-btn') ) {
     event.stopPropagation();
@@ -129,7 +128,7 @@ document.addEventListener('click', function (event) {
 
 	}
 
-}, false);
+}, false);*/
 
 
 console.log("scripts initialized");
