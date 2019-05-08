@@ -102,7 +102,7 @@ const ReplyClick = e => {
 
 // post redirection
 const postClick = e => {
-  console.log("redirect to: " + e.getAttribute("data-post-id"));
+  console.log("redirect to: " + e.target.getAttribute("data-post-id"));
   postRedirect('/', e.target.getAttribute("data-post-handle"), e.target.getAttribute("data-post-id"))
 };
 
