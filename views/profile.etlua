@@ -22,6 +22,9 @@
           </div>
 
           <div class="post-body">
+            <% if v['postRef'] ~= 0 then %>
+              <span>_person_ tagged</span>
+            <% end %>
             <div class="post-header flex">
               <div class="post-user">
                 <h4><%= v['userName'] %></h4>
@@ -103,9 +106,6 @@
             </div>
 
             <div class="post-body">
-              <% if v['postRef'] ~= 0 then %>
-                <span>_person_ tagged</span>
-              <% end %>
               <div class="post-header flex">
                 <div class="post-user">
                   <h4><%= v['userName'] %></h4>
