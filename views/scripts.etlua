@@ -136,16 +136,6 @@ document.addEventListener('click', function (event) {
 
 }, false);
 
-const posts = document.querySelectorAll('.profile-item')
-
-posts.forEach(posts => {
-
-   posts.addEventListener('click', event => {
-        postRedirect('/', event.target.getAttribute("data-post-handle"), event.target.getAttribute("data-post-id"))
-   });
-
-});
-
 const replyBtn = document.querySelectorAll('.profile-item')
 
 replyBtn.forEach(replyBtn => {
@@ -155,6 +145,18 @@ replyBtn.forEach(replyBtn => {
      var parent = getParent(event.target, '.post-body');
 
      console.log("post to reply to: " + parent.getAttribute("data-post-id"));
+   });
+
+});
+
+const posts = document.querySelectorAll('.profile-item')
+
+posts.forEach(posts => {
+
+   posts.addEventListener('click', event => {
+
+     console.log('/' + event.target.getAttribute("data-post-handle") + event.target.getAttribute("data-post-id"));
+     postRedirect('/', event.target.getAttribute("data-post-handle"), event.target.getAttribute("data-post-id"))
    });
 
 });
