@@ -96,7 +96,7 @@ document.addEventListener('click', function (event) {
 		// Get the parent with the `.post-body` class
 		var parent = getClosest(event.target, '.post-body');
 
-    console.log(parent.getAttribute("data-post-id"));
+    console.log("post to reply to: " + parent.getAttribute("data-post-id"));
 
 	}
 
