@@ -68,7 +68,39 @@ function tagButton(postID) {
         buttonItem.classList.add("green-tag");
       }
     })
-  })
+  });
 }
+
+var getClosest = function (elem, selector) {
+
+	// Element.matches() polyfill
+  if (!Element.prototype.matches) {
+  Element.prototype.matches = Element.prototype.msMatchesSelector ||
+                              Element.prototype.webkitMatchesSelector;
+  }
+
+	// Get the closest matching element
+	for ( ; elem && elem !== document; elem = elem.parentNode ) {
+		if ( elem.matches( selector ) ) return elem;
+	}
+	return null;
+
+};
+
+document.addEventListener('click', function (event) {
+  event.stopPropagation();
+
+	// If the clicked item is an `.reply-btn` get the parent `.accordion`
+	if ( event.target.classList.contains('reply-btn') ) {
+
+		// Get the parent with the `.post-body` class
+		var parent = getClosest(event.target, '.post-body');
+
+    console.log(parent.getAttribute("data-post-id"));
+
+	}
+
+}, false);
+
 
 console.log("scripts initialized");
