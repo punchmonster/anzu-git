@@ -136,7 +136,7 @@ document.addEventListener('click', function (event) {
 
 }, false);
 
-const replyBtn = document.querySelectorAll('.profile-item')
+const replyBtn = document.querySelectorAll('.reply-btn')
 
 replyBtn.forEach(replyBtn => {
 
