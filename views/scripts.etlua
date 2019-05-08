@@ -127,6 +127,7 @@ document.addEventListener('click', function (event) {
 
 	}
 
+  // click on a tweet to redirect to that tweet
   if (event.target.classList.contains("profile-item") ) {
     event.stopPropagation();
 

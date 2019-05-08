@@ -11,7 +11,7 @@
   <div class="profile-main">
     <% if profile_data ~= 0 then %>
       <% for k, v in pairs( profile_data ) do %>
-        <div class="profile-item flex post-<%- v['postID'] %>" onclick="postRedirect('<%- submit_url %>', '<%- v['userHandle'] %>', '<%- v['postID'] %>')">
+        <div class="profile-item flex post-<%- v['postID'] %>" data-post-id="<%- v['postID'] %>" data-post-handle="<%- v['userHandle'] %>">
 
           <div class="post-side">
             <% if v['userAvatar'] == 0 then %>
