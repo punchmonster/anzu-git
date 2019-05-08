@@ -71,6 +71,7 @@ function tagButton(postID) {
   });
 }
 
+// searches for a parent element of certain name
 var getParent = function (elem, selector) {
 
 	// Element.matches() polyfill

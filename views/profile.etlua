@@ -40,20 +40,20 @@
             <p><%- v['postBody'] %></p>
 
             <div class="post-tools">
-              <i class="typcn typcn-message"></i>
+              <i class="typcn typcn-message reply-btn"></i>
 
               <!-- tag button setting -->
               <% if v['tagged'] then %>
-                <i class="typcn typcn-arrow-repeat tag-btn green-tag" onclick="tagButton('<%- tostring(v['postID']) %>')"></i>
+                <i class="typcn typcn-arrow-repeat tag-btn green-tag" ></i>
               <% else %>
-                <i class="typcn typcn-arrow-repeat tag-btn" onclick="tagButton('<%- tostring(v['postID']) %>')"></i>
+                <i class="typcn typcn-arrow-repeat tag-btn" ></i>
               <% end %>
 
               <!-- tag button setting -->
               <% if v['liked'] then %>
-                <i class="typcn typcn-heart-full-outline like-btn" onclick="likeButton('<%- tostring(v['postID']) %>')"></i>
+                <i class="typcn typcn-heart-full-outline like-btn" ></i>
               <% else %>
-                <i class="typcn typcn-heart-outline like-btn" onclick="likeButton('<%- tostring(v['postID']) %>')"></i>
+                <i class="typcn typcn-heart-outline like-btn" ></i>
               <% end %>
             </div>
           </div>
