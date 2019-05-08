@@ -50,9 +50,9 @@ function User:create(userHandle, userPassword)
     local empty_JSON = "none"
     db.insert("userData", {
       userID = userID,
-      userLikes = util.to_json(empty_JSON),
-      userNotif = util.to_json(empty_JSON),
-      userTags  = util.to_json(empty_JSON)
+      userLikes = empty_JSON,
+      userNotif = empty_JSON,
+      userTags  = empty_JSON
     })
 
     return true, "account created"
