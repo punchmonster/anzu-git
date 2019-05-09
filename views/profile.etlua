@@ -9,7 +9,7 @@
   </div>
 
   <div class="profile-main">
-    <% if profile_data ~= 0 then %>
+    <% if profile_data ~= 0 and params.postID ~= nil then %>
       <% for k, v in pairs( profile_data ) do %>
         <div class="profile-item flex post-<%- v['postID'] %>" data-post-id="<%- v['postID'] %>" data-post-handle="<%- v['userHandle'] %>">
 

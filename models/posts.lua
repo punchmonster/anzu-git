@@ -176,7 +176,7 @@ function Posts:get_profile(userHandle, currentID)
   end
 
   -- check if posts exist and if so return them
-  local profile_data = db.select("* from `posts` WHERE userID = ? order by postTime DESC LIMIT 20", user_data[1].userID)
+  local profile_data = db.select("* from `posts` WHERE userID = ? order by postTime DESC LIMIT 10", user_data[1].userID)
   if #profile_data < 1 then
     return true, 0, user_data
   else
