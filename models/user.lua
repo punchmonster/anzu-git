@@ -147,6 +147,52 @@ function User:update(x)
   return true
 end
 
+-- FUNCTION: adds notification changes
+-- x: { notifType = "like", postID = 0, targetID = 0, userID = 0, notifTime = 0 }
+function User:notifications(x)
+
+  if x.notifType = "like" then
+
+    -- retrieve post info to grab target data
+    local post_data = db.select("* from `posts` WHERE postID = ?", x.postID)
+    x.targetID = post_data[1].userID
+    local user_data = db.select("* from `userData` WHERE userID = ?", x.targetID)
+
+    -- set default JSON response
+    local msg = "added a like to " .. x.targetID .. "'s notifications"
+
+    -- check if user has likes, and if the post is liked or not. Then add or remove like.
+    local notifs
+    if user_data[1].userNotif ~= "none" then
+      notifs = util.from_json(user_data[1].userNotif)
+      local existing
+      for k, v in ipairs(notifs) do
+        if x.postID == v.postID and x.userID == v.userID then
+          existing = true
+          msg = "notification already exists"
+        end
+      end
+
+      if existing ~= true then
+        table.insert(notifs, x)
+      end
+    else
+      notifs = {}
+      table.insert(notifs, x)
+    end
+
+    -- push updated likes to the database
+    notifs = util.to_json(notifs)
+    db.update("userData", {
+      userNotifs = notifs
+    },{
+      userID = x.targetID
+    })
+
+    return true, msg
+  end
+end
+
 -- FUNCTION: gets user data
 -- ARGUMENTS: users ID
 -- RETURNS: table with all user data

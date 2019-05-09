@@ -1,4 +1,5 @@
 local Posts  = require "models.posts"
+local User   = require "models.user"
 
 return function(self)
 
@@ -18,6 +19,16 @@ return function(self)
       msg = "you're not logged in"
     end
   end
+
+  x {
+    notifType = "like",
+    postID = 0,
+    targetID = 0,
+    userID = self.loggedUser[1].userID,
+    notifTime = ngx.time()
+  }
+
+  User:notifications(x)
 
   return { json = {
     success = status,
