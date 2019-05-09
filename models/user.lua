@@ -151,7 +151,7 @@ end
 -- x: { notifType = "like", postID = 0, targetID = 0, userID = 0, notifTime = 0 }
 function User:notifications(x)
 
-  if x.notifType = "like" then
+  if x.notifType == "like" then
 
     -- retrieve post info to grab target data
     local post_data = db.select("* from `posts` WHERE postID = ?", x.postID)
