@@ -3,6 +3,6 @@ local User  = require "models.user"
 return function(self)
 
 
-  return "EC62558EA8FB4F315B9DB1FFA43663C05E0B86063EE64AFFCFFF9B9550A56392\ncomodoca.com\n555p3t55TUP5DU557bF5"
+  return { redirect_to = self:url_for("login") }
   --tostring(status) .. ": " .. msg
 end
