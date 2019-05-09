@@ -15,6 +15,5 @@ return function(self)
     end
   end
 
-  return { json = {
-    timeline }
+  return { json = timeline }
 end
