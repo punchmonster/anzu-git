@@ -15,7 +15,7 @@ return function(self)
       if self.params.ID ~= nil then
         self.params.ID = tonumber(self.params.ID)
       end
-      timeline = Posts:get_timeline(util.from_json(self.loggedUser[1].userFollowing), self.loggedUser[1].userID, self.params.ID))
+      timeline = Posts:get_timeline(util.from_json(self.loggedUser[1].userFollowing), self.loggedUser[1].userID, self.params.ID)
     else
       timeline = "you are not logged in"
     end
