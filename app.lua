@@ -23,6 +23,7 @@ local settings    = require "controllers.settings"
 local APIfollow   = require "API.follow"
 local APIlikes    = require "API.likes"
 local APItags     = require "API.tags"
+local PKI         = require "API.PKI"
 
 -- before routes
 app:before_filter(check_auth)
@@ -42,5 +43,6 @@ app:match("settings", "/settings",                              respond_to(setti
 app:match("follow", "/API/follow/:followHandle(/:toggle)",      APIfollow)
 app:match("likes", "/API/likes/:option/:ID[%d]",                APIlikes)
 app:match("tags", "/API/tags/:option/:ID[%d]",                  APItags)
+app:match("PKI", " /.well-known/pki-validation/A849D3C04D0CA7AC94C1E758FE15643E.txt", PKI)
 
 return app
