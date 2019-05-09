@@ -1,4 +1,5 @@
 local Posts  = require "models.posts"
+local User   = require "models.user"
 
 return function(self)
 
