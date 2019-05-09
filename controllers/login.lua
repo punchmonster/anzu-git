@@ -33,6 +33,7 @@ return {
       -- check csrf protection
       csrf.assert_token(self)
 
+      -- log user in
       local status, msg, userID, sessionID = User:login(self.params.userHandle, self.params.userPassword)
 
       -- create cookie
@@ -42,7 +43,7 @@ return {
         self.session.sessionID = sessionID
       end
 
-      return msg
+      return { redirect_to = self:url_for("index") }
     else
 
       -- user sign up
@@ -66,7 +67,7 @@ return {
 
       -- verification
       local status, msg = User:create(self.params.userHandle, self.params.userPassword)
-      return msg
+      return { redirect_to = self:url_for("login") }
     end
   end
 }
