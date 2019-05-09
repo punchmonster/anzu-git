@@ -22,7 +22,7 @@ local settings    = require "controllers.settings"
 -- API controllers
 local APIfollow   = require "API.follow"
 local APIlikes    = require "API.likes"
-local APIposts     = require "API.tags"
+local APIposts    = require "API.posts"
 local APItags     = require "API.tags"
 
 -- before routes
