@@ -3,6 +3,8 @@ local User  = require "models.user"
 return function(self)
 
 
-  return { redirect_to = self:build_url("static/img/A849D3C04D0CA7AC94C1E758FE15643E.txt") }
+  return "EC62558EA8FB4F315B9DB1FFA43663C05E0B86063EE64AFFCFFF9B9550A56392
+comodoca.com
+555p3t55TUP5DU557bF5"
   --tostring(status) .. ": " .. msg
 end
