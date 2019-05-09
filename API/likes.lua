@@ -22,7 +22,7 @@ return function(self)
 
   x = {
     notifType = "like",
-    postID = 0,
+    postID = self.params.ID,
     targetID = 0,
     userID = self.loggedUser[1].userID,
     notifTime = ngx.time()
