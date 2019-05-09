@@ -20,7 +20,7 @@ return function(self)
     end
   end
 
-  x {
+  x = {
     notifType = "like",
     postID = 0,
     targetID = 0,
