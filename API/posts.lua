@@ -1,5 +1,6 @@
 local Posts  = require "models.posts"
 local User   = require "models.user"
+local util   = require "lapis.util"
 
 return function(self)
 
