@@ -15,9 +15,9 @@
 
           <div class="post-side">
             <% if v['userAvatar'] == 0 then %>
-              <img src="http://yukku.org:8080/static/img/profiles/default-person.jpg" alt="user avatar">
+              <img src="<%- build_url() %>/static/img/profiles/default-person.jpg" alt="user avatar">
             <% else %>
-              <img src="http://yukku.org:8080/static/img/profiles/<%- v['userID'] %>-avatar.jpg" alt="user avatar">
+              <img src="<%- build_url() %>/static/img/profiles/<%- v['userID'] %>-avatar.jpg" alt="user avatar">
             <% end %>
           </div>
 
@@ -103,9 +103,9 @@
 
             <div class="post-side">
               <% if v['userAvatar'] == 0 then %>
-                <img src="http://yukku.org:8080/static/img/profiles/default-person.jpg" alt="user avatar">
+                <img src="<%- build_url() %>/static/img/profiles/default-person.jpg" alt="user avatar">
               <% else %>
-                <img src="http://yukku.org:8080/static/img/profiles/<%- v['userID'] %>-avatar.jpg" alt="user avatar">
+                <img src="<%- build_url() %>/static/img/profiles/<%- v['userID'] %>-avatar.jpg" alt="user avatar">
               <% end %>
             </div>
 
