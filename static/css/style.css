@@ -388,6 +388,16 @@ nav {
   scrollbar-width: thin;
 }
 
+/* scroll styling for chrome */
+.profile-main::-webkit-scrollbar {
+	background-color: rgba(0,0,0,0);
+	width: 7px;
+}
+
+.profile-main::-webkit-scrollbar-thumb {
+	background-color: rgba(255,255,255,0.05);
+}
+
 .profile-tools {
   width: 400px;
 }
