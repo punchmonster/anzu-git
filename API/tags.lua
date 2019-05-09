@@ -19,6 +19,16 @@ return function(self)
     end
   end
 
+  x = {
+    notifType = "tag",
+    postID = self.params.ID,
+    targetID = 0,
+    userID = self.loggedUser[1].userID,
+    notifTime = ngx.time()
+  }
+
+  User:notifications(x)
+
   return { json = {
     success = status,
     message = "TAG: " .. msg

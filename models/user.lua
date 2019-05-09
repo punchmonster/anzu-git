@@ -151,7 +151,8 @@ end
 -- x: { notifType = "like", postID = 0, targetID = 0, userID = 0, notifTime = 0 }
 function User:notifications(x)
 
-  if x.notifType == "like" then
+  -- what to do when it's a like notification
+  if x.notifType == "like" or x.notifType == "tag" then
 
     -- retrieve post info to grab target data
     local post_data = db.select("* from `posts` WHERE postID = ?", x.postID)
