@@ -9,8 +9,13 @@ return function(self)
 
   -- check what API options are requested
   if self.params.option == "get_timeline" then
+
+    -- check if user is logged in and if so retrieve personal timeline data
     if self.loggedIn == true then
-      timeline = Posts:get_timeline(util.from_json(self.loggedUser[1].userFollowing), self.loggedUser[1].userID, tonumber(self.params.ID))
+      if self.params.ID ~= nil then
+        self.params.ID = tonumber(self.params.ID)
+      end
+      timeline = Posts:get_timeline(util.from_json(self.loggedUser[1].userFollowing), self.loggedUser[1].userID, self.params.ID))
     else
       timeline = "you are not logged in"
     end
