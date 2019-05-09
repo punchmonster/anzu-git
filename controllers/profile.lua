@@ -26,7 +26,9 @@ return {
     end
     -- retrieve timeline table
     local status
-    status, self.profile_data, self.user_data = Posts:get_profile(self.params.userHandle, currentID)
+    if self.params.postID == nil then
+      status, self.profile_data, self.user_data = Posts:get_profile(self.params.userHandle, currentID)
+    end
 
     -- check if you're logged in and if so check following
     if self.loggedIn then
