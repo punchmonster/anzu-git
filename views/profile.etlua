@@ -92,7 +92,7 @@
       &nbsp;
     </a>
 
-    <div class="profile-main" style="overflow: scroll;">
+    <div class="profile-main" style="overflow-y: scroll;">
       <% if profile_data ~= 0 then %>
         <% for k, v in pairs( posts_data ) do %>
           <% if tonumber(params.postID) == v['postID'] then %>
