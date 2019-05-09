@@ -507,7 +507,7 @@ nav {
 .post-selected h4 {
 	display: block;
 	font-size: 20px;
-	background: #25363E;
+	/*background: #25363E;*/
 }
 
 .post-selected p {
