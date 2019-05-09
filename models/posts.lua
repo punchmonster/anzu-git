@@ -154,7 +154,7 @@ function Posts:get_timeline(following, currentID)
   end
 
   -- retrieve thread headers from database
-  local timeline_data = db.select("* from `posts` WHERE userID IN ( " .. processedFollowing .. " ) order by postTime DESC")
+  local timeline_data = db.select("* from `posts` WHERE userID IN ( " .. processedFollowing .. " ) order by postTime DESC LIMIT 10")
 
   timeline_data, users_data = self:merge_tags(timeline_data)
 
