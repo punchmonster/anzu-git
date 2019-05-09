@@ -184,7 +184,7 @@ function User:notifications(x)
     -- push updated likes to the database
     notifs = util.to_json(notifs)
     db.update("userData", {
-      userNotifs = notifs
+      userNotif = notifs
     },{
       userID = x.targetID
     })
