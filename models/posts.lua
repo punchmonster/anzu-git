@@ -145,7 +145,7 @@ end
 -- following: JSON with userID's
 -- currentID: ID of logged in user
 -- RETURN: table with posts
-function Posts:get_timeline(following, currentID)
+function Posts:get_timeline(following, currentID, page)
 
   -- turn follower ID's into a string for query
   local processedFollowing = "0"
@@ -154,7 +154,11 @@ function Posts:get_timeline(following, currentID)
   end
 
   -- retrieve thread headers from database
-  local timeline_data = db.select("* from `posts` WHERE userID IN ( " .. processedFollowing .. " ) order by postTime DESC LIMIT 10")
+  if page == nil then
+    local timeline_data = db.select("* from `posts` WHERE userID IN ( " .. processedFollowing .. " ) order by postTime DESC LIMIT 10")
+  else
+    local timeline_data = db.select("* from `posts` WHERE userID IN ( " .. processedFollowing .. " ) order by postTime DESC LIMIT 10 OFFSET ?", page * 10 + 2)
+  end
 
   timeline_data, users_data = self:merge_tags(timeline_data)
 
