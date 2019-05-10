@@ -176,12 +176,12 @@ const LoadClick = e => {
 
       //<h4>username</h4>
       var userName = document.createElement('h4');
-      userNameInner = document.createTextNode(element.userName + "&nbsp;");
+      userNameInner = document.createTextNode(element.userName + " ");
 
       //<a href="/pepipopa">@pepipopa</a>
       var userHandle = document.createElement('a');
       userHandle.href = "/" + element.userHandle;
-      userHandleInner = document.createTextNode("@" + element.userHandle);
+      userHandleInner = document.createTextNode("@" + element.userHandle + " ");
 
       var userGender = document.createElement('span');
       userGenderInner = document.createTextNode(element.userGender);
@@ -190,7 +190,7 @@ const LoadClick = e => {
       postTimeInner = document.createTextNode(element.postTime);
 
       var postContent = document.createElement('p');
-      postContentInner = document.createTextNode(element.postBody);
+      postContent.innerHTML = element.postBody;
 
       postSide.appendChild(img);
       profileItem.appendChild(postSide);
@@ -208,8 +208,6 @@ const LoadClick = e => {
 
       postHeader.appendChild(postUser);
       postHeader.appendChild(postTime);
-
-      postContent.appendChild(postContentInner);
 
       postBody.appendChild(postHeader);
       postBody.appendChild(postContent);
