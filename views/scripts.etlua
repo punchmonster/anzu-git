@@ -150,7 +150,11 @@ const LoadClick = e => {
 
       //<img src="url/default-person.jpg" alt="user avatar">
       var img = document.createElement('img');
-      img.src = "http://www.google.com/image.png";
+      if (element.userAvatar == 0) {
+        img.src = "<%- build_url() %>/static/img/profiles/default-person.jpg";
+      } else {
+        img.src = "<%- build_url() %>/static/img/profiles/" + element.userID + "-avatar.jpg";
+      }
       img.alt = "user avatar";
 
       postSide.appendChild(img);
