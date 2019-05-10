@@ -146,7 +146,7 @@ const LoadClick = e => {
 
       // create profile-item
       var postSide = document.createElement('div');
-      div.classList.add("post-side");
+      postSide.classList.add("post-side");
 
       //<img src="url/default-person.jpg" alt="user avatar">
       var img = document.createElement('img');
