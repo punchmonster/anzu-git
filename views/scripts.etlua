@@ -140,7 +140,7 @@ const LoadClick = e => {
     data.forEach(function(element) {
       // create profile-item
       var profileItem = document.createElement('div');
-      profileItem.classList.add("profile-item" "flex" "post-" + element.postID, );
+      profileItem.classList.add("profile-item", "flex", "post-" + element.postID );
       profileItem.setAttribute("data-post-id", element.postID);
       profileItem.setAttribute("data-post-handle", element.userHandle);
 
