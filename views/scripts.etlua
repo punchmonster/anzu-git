@@ -129,7 +129,7 @@ function init() {
   // load more of the timeline
   const LoadClick = e => {
     event.stopPropagation();
-    var page = e.target.getAttribute("data-post-page")
+    var page = document.querySelector(".load-btn").getAttribute("data-post-page");
     var parent = getParent(e.target, '.profile-main');
 
     const Url='http://yukku.org:8080/API/posts/get_timeline/' + page;
