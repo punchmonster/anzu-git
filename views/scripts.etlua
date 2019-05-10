@@ -154,7 +154,10 @@ const LoadClick = e => {
       profileItem.getElementsByClassName('post-body')[0].setAttribute("data-post-id", element.postID);
 
       profileItem.getElementsByTagName('h4')[0].innerHTML = element.userName;
-      profileItem.getElementsByTagName('a')[0].innerHTML = element.Handle;
+      profileItem.getElementsByTagName('a')[0].innerHTML = "@" + element.userHandle;
+      profileItem.getElementsByTagName('span')[0].innerHTML = element.userGender;
+      profileItem.getElementsByTagName('p')[0].innerHTML = element.postTime;
+      profileItem.getElementsByTagName('p')[1].innerHTML = element.postBody;
 
       frag.appendChild(profileItem)
       console.log("post: " + element.userHandle + " " + element.postID);
