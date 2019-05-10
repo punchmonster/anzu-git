@@ -5,7 +5,7 @@ local util   = require "lapis.util"
 return function(self)
 
   -- declare default response values
-  local status, msg
+  local output, msg
 
   -- check what API options are requested
   if self.params.option == "get_timeline" then
@@ -15,11 +15,12 @@ return function(self)
       if self.params.ID ~= nil then
         self.params.ID = tonumber(self.params.ID)
       end
-      timeline = Posts:get_timeline(util.from_json(self.loggedUser[1].userFollowing), self.loggedUser[1].userID, self.params.ID)
+      output = Posts:get_timeline(util.from_json(self.loggedUser[1].userFollowing), self.loggedUser[1].userID, self.params.ID)
     else
-      timeline = "you are not logged in"
+      output = "you are not logged in"
     end
+  elseif self.params.option == "get_profile" then
   end
 
-  return { json = timeline }
+  return { json = output }
 end
