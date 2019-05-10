@@ -175,8 +175,9 @@ function init() {
         }
 
         frag.appendChild(profileItem);
-        frag.appendChild(document.querySelector(".load-btn"));
-        
+        var loadBtn = document.querySelector(".load-btn")
+        frag.appendChild(loadBtn);
+
         console.log("post: " + element.userHandle + " " + element.postID);
 
       });
