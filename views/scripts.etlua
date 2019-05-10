@@ -159,6 +159,20 @@ const LoadClick = e => {
       profileItem.getElementsByTagName('p')[0].innerHTML = element.postTime;
       profileItem.getElementsByTagName('p')[1].innerHTML = element.postBody;
 
+      if (element.tagged == true) {
+        profileItem.getElementsByTagName('i')[1].classList.add("green-tag");
+      } else {
+        profileItem.getElementsByTagName('i')[1].classList.remove("green-tag");
+      }
+
+      if (element.liked == true) {
+        profileItem.getElementsByTagName('i')[2].classList.add("typcn-heart-full-outline");
+        profileItem.getElementsByTagName('i')[2].classList.remove("typcn-heart-outline");
+      } else {
+        profileItem.getElementsByTagName('i')[2].classList.remove("typcn-heart-full-outline");
+        profileItem.getElementsByTagName('i')[2].classList.add("typcn-heart-outline");
+      }
+
       frag.appendChild(profileItem)
       console.log("post: " + element.userHandle + " " + element.postID);
 
@@ -173,76 +187,3 @@ document.querySelector(".load-btn").addEventListener("click", LoadClick);
 
 
 console.log("scripts initialized");
-
-/*
-// create profile-item
-var profileItem = document.createElement('div');
-profileItem.classList.add("profile-item", "flex", "post-" + element.postID );
-profileItem.setAttribute("data-post-id", element.postID);
-profileItem.setAttribute("data-post-handle", element.userHandle);
-
-// create profile-item
-var postSide = document.createElement('div');
-postSide.classList.add("post-side");
-
-//<img src="url/default-person.jpg" alt="user avatar">
-var img = document.createElement('img');
-if (element.userAvatar == 0) {
-  img.src = "<%- build_url() %>/static/img/profiles/default-person.jpg";
-} else {
-  img.src = "<%- build_url() %>/static/img/profiles/" + element.userID + "-avatar.jpg";
-}
-img.alt = "user avatar";
-
-//<div class="post-body" data-post-id="29">
-var postBody = document.createElement('div');
-postBody.classList.add("post-body");
-postBody.setAttribute("data-post-id", element.postID);
-
-//<div class="post-header flex">
-var postHeader = document.createElement('div');
-postHeader.classList.add("post-header", "flex");
-
-//<div class="post-user">
-var postUser = document.createElement('div');
-postUser.classList.add("post-user");
-
-//<h4>username</h4>
-var userName = document.createElement('h4');
-userNameInner = document.createTextNode(element.userName + " ");
-
-//<a href="/pepipopa">@pepipopa</a>
-var userHandle = document.createElement('a');
-userHandle.href = "/" + element.userHandle;
-userHandleInner = document.createTextNode("@" + element.userHandle + " ");
-
-var userGender = document.createElement('span');
-userGenderInner = document.createTextNode(element.userGender);
-
-var postTime = document.createElement('p');
-postTimeInner = document.createTextNode(element.postTime);
-
-var postContent = document.createElement('p');
-postContent.innerHTML = element.postBody;
-
-postSide.appendChild(img);
-profileItem.appendChild(postSide);
-
-userName.appendChild(userNameInner);
-postUser.appendChild(userName);
-
-userHandle.appendChild(userHandleInner);
-postUser.appendChild(userHandle);
-
-userGender.appendChild(userGenderInner);
-postUser.appendChild(userGender);
-
-postTime.appendChild(postTimeInner);
-
-postHeader.appendChild(postUser);
-postHeader.appendChild(postTime);
-
-postBody.appendChild(postHeader);
-postBody.appendChild(postContent);
-profileItem.appendChild(postBody);
-*/
