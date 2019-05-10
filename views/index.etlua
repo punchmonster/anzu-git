@@ -57,6 +57,10 @@
           </div>
         </div>
       <% end %>
+
+      <div class="load-btn">
+        <span>show more</span>
+      </div>
     <% end %>
   </div>
 

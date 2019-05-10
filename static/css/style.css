@@ -499,6 +499,18 @@ nav {
 	color: #D01E33;
 }
 
+.load-btn {
+
+}
+
+.load-btn span {
+	height: 50px;
+	display: block;
+	height: 50px;
+	width: 100%;
+	text-align: center;
+}
+
 .post-tools i:hover {
 	opacity: 1;
 	transition: opacity 100ms linear;
