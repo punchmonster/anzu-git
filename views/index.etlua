@@ -58,7 +58,7 @@
         </div>
       <% end %>
 
-      <div id="load-btn">
+      <div class="load-btn">
         <p>show more</p>
       </div>
     <% end %>
