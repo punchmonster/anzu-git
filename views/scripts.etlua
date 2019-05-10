@@ -1,189 +1,193 @@
 
+function init() {
+  function followButton(userHandle) {
 
-function followButton(userHandle) {
+    var button = document.querySelector(".follow-btn");
 
-  var button = document.querySelector(".follow-btn");
+    var toggleURL = "";
 
-  var toggleURL = "";
-
-  if (button.innerHTML == "Unfollow") {
-    toggleURL = "/remove"
-    button.innerHTML = "Follow"
-  } else {
-    button.innerHTML = "Unfollow"
-  }
-
-  const Url='http://yukku.org:8080/API/follow/' + userHandle + toggleURL;
-
-  fetch(Url)
-  .then(data=>{return data.json()})
-  .then(res=>{console.log(res)})
-
-}
-
-function postRedirect(URL, userHandle, postID) {
-  console.log(URL + userHandle + "/" + postID)
-  window.location.href = URL + userHandle + "/" + postID
-}
-
-// searches for a parent element of certain name
-var getParent = function (elem, selector) {
-
-	// Element.matches() polyfill
-  if (!Element.prototype.matches) {
-  Element.prototype.matches = Element.prototype.msMatchesSelector ||
-                              Element.prototype.webkitMatchesSelector;
-  }
-
-	// Get the closest matching element
-	for ( ; elem && elem !== document; elem = elem.parentNode ) {
-		if ( elem.matches( selector ) ) return elem;
-	}
-	return null;
-
-};
-
-// tag button function
-const tagClick = e => {
-  event.stopPropagation();
-  var parent = getParent(e.target, '.post-body');
-
-  const Url='http://yukku.org:8080/API/tags/modify/' + parent.getAttribute("data-post-id");
-
-  fetch(Url)
-  .then(data=>{return data.json()})
-  .then(data=>{
-    console.log(data.success)
-    if (e.target.classList.contains("green-tag")) {
-      e.target.classList.remove("green-tag");
+    if (button.innerHTML == "Unfollow") {
+      toggleURL = "/remove"
+      button.innerHTML = "Follow"
     } else {
-      e.target.classList.add("green-tag");
+      button.innerHTML = "Unfollow"
     }
+
+    const Url='http://yukku.org:8080/API/follow/' + userHandle + toggleURL;
+
+    fetch(Url)
+    .then(data=>{return data.json()})
+    .then(res=>{console.log(res)})
+
+  }
+
+  function postRedirect(URL, userHandle, postID) {
+    console.log(URL + userHandle + "/" + postID)
+    window.location.href = URL + userHandle + "/" + postID
+  }
+
+  // searches for a parent element of certain name
+  var getParent = function (elem, selector) {
+
+  	// Element.matches() polyfill
+    if (!Element.prototype.matches) {
+    Element.prototype.matches = Element.prototype.msMatchesSelector ||
+                                Element.prototype.webkitMatchesSelector;
+    }
+
+  	// Get the closest matching element
+  	for ( ; elem && elem !== document; elem = elem.parentNode ) {
+  		if ( elem.matches( selector ) ) return elem;
+  	}
+  	return null;
+
+  };
+
+  // tag button function
+  const tagClick = e => {
+    event.stopPropagation();
+    var parent = getParent(e.target, '.post-body');
+
+    const Url='http://yukku.org:8080/API/tags/modify/' + parent.getAttribute("data-post-id");
+
+    fetch(Url)
+    .then(data=>{return data.json()})
+    .then(data=>{
+      console.log(data.success)
+      if (e.target.classList.contains("green-tag")) {
+        e.target.classList.remove("green-tag");
+      } else {
+        e.target.classList.add("green-tag");
+      }
+    });
+
+    console.log("tag post with ID: " + parent.getAttribute("data-post-id"));
+  };
+
+  [...document.getElementsByClassName("tag-btn")].forEach(el => {
+    el.addEventListener("click", tagClick)
   });
 
-  console.log("tag post with ID: " + parent.getAttribute("data-post-id"));
-};
+  // like button function
+  const likeClick = e => {
+    event.stopPropagation();
+    var parent = getParent(e.target, '.post-body');
 
-[...document.getElementsByClassName("tag-btn")].forEach(el => {
-  el.addEventListener("click", tagClick)
-});
+    const Url='http://yukku.org:8080/API/likes/modify/' + parent.getAttribute("data-post-id");
 
-// like button function
-const likeClick = e => {
-  event.stopPropagation();
-  var parent = getParent(e.target, '.post-body');
+    fetch(Url)
+    .then(data=>{return data.json()})
+    .then(data=>{
+      console.log(data.success)
+      if (e.target.classList.contains("typcn-heart-outline")) {
+        e.target.classList.remove("typcn-heart-outline");
+        e.target.classList.add("typcn-heart-full-outline");
+      } else {
+        e.target.classList.remove("typcn-heart-full-outline");
+        e.target.classList.add("typcn-heart-outline");
+      }
+    })
 
-  const Url='http://yukku.org:8080/API/likes/modify/' + parent.getAttribute("data-post-id");
+    console.log("like post with ID: " + parent.getAttribute("data-post-id"));
+  };
 
-  fetch(Url)
-  .then(data=>{return data.json()})
-  .then(data=>{
-    console.log(data.success)
-    if (e.target.classList.contains("typcn-heart-outline")) {
-      e.target.classList.remove("typcn-heart-outline");
-      e.target.classList.add("typcn-heart-full-outline");
+  [...document.getElementsByClassName("like-btn")].forEach(el => {
+    el.addEventListener("click", likeClick)
+  });
+
+  // reply button function
+  const ReplyClick = e => {
+    event.stopPropagation();
+    var parent = getParent(e.target, '.post-body');
+    console.log("post to reply to: " + parent.getAttribute("data-post-id"));
+  };
+
+  // converting HTMLCollection to a normal Array
+  // look up the ES6 spread operator if you are unfamiliar with this
+  [...document.getElementsByClassName("reply-btn")].forEach(el => {
+    el.addEventListener("click", ReplyClick)
+  });
+
+  // post redirection
+  const postClick = e => {
+    console.log("redirect to: " + e.target.getAttribute("data-post-id"));
+    if (!e.target.classList.contains('profile-item')) {
+
+      // Get the parent with the `.post-body` class
+  		var parent = getParent(event.target, '.profile-item');
+
+      postRedirect('/', parent.getAttribute("data-post-handle"), parent.getAttribute("data-post-id"));
     } else {
-      e.target.classList.remove("typcn-heart-full-outline");
-      e.target.classList.add("typcn-heart-outline");
+      postRedirect('/', e.target.getAttribute("data-post-handle"), e.target.getAttribute("data-post-id"));
     }
-  })
+  };
 
-  console.log("like post with ID: " + parent.getAttribute("data-post-id"));
-};
+  [...document.getElementsByClassName("profile-item")].forEach(el => {
+    el.addEventListener("click", postClick)
+  });
 
-[...document.getElementsByClassName("like-btn")].forEach(el => {
-  el.addEventListener("click", likeClick)
-});
+  // load more of the timeline
+  const LoadClick = e => {
+    event.stopPropagation();
+    var parent = getParent(e.target, '.profile-main');
 
-// reply button function
-const ReplyClick = e => {
-  event.stopPropagation();
-  var parent = getParent(e.target, '.post-body');
-  console.log("post to reply to: " + parent.getAttribute("data-post-id"));
-};
+    const Url='http://yukku.org:8080/API/posts/get_timeline/' + '1';
 
-// converting HTMLCollection to a normal Array
-// look up the ES6 spread operator if you are unfamiliar with this
-[...document.getElementsByClassName("reply-btn")].forEach(el => {
-  el.addEventListener("click", ReplyClick)
-});
+    fetch(Url)
+    .then(data=>{return data.json()})
+    .then(data=>{
+      frag = document.createDocumentFragment();
+      data.forEach(function(element) {
 
-// post redirection
-const postClick = e => {
-  console.log("redirect to: " + e.target.getAttribute("data-post-id"));
-  if (!e.target.classList.contains('profile-item')) {
+        var el = document.querySelector(".profile-item")
+        var profileItem = el.cloneNode(true);
 
-    // Get the parent with the `.post-body` class
-		var parent = getParent(event.target, '.profile-item');
+        profileItem.setAttribute("data-post-id", element.postID);
+        profileItem.setAttribute("data-post-handle", element.userHandle);
 
-    postRedirect('/', parent.getAttribute("data-post-handle"), parent.getAttribute("data-post-id"));
-  } else {
-    postRedirect('/', e.target.getAttribute("data-post-handle"), e.target.getAttribute("data-post-id"));
-  }
-};
+        if (element.userAvatar == 0) {
+          profileItem.getElementsByTagName('img')[0].src = "<%- build_url() %>/static/img/profiles/default-person.jpg";
+        } else {
+          profileItem.getElementsByTagName('img')[0].src = "<%- build_url() %>/static/img/profiles/" + element.userID + "-avatar.jpg";
+        }
 
-[...document.getElementsByClassName("profile-item")].forEach(el => {
-  el.addEventListener("click", postClick)
-});
+        profileItem.getElementsByClassName('post-body')[0].setAttribute("data-post-id", element.postID);
 
-// load more of the timeline
-const LoadClick = e => {
-  event.stopPropagation();
-  var parent = getParent(e.target, '.profile-main');
+        profileItem.getElementsByTagName('h4')[0].innerHTML = element.userName;
+        profileItem.getElementsByTagName('a')[0].innerHTML = "@" + element.userHandle;
+        profileItem.getElementsByTagName('span')[0].innerHTML = element.userGender;
+        profileItem.getElementsByTagName('p')[0].innerHTML = element.postTime;
+        profileItem.getElementsByTagName('p')[1].innerHTML = element.postBody;
 
-  const Url='http://yukku.org:8080/API/posts/get_timeline/' + '1';
+        if (element.tagged == true) {
+          profileItem.getElementsByTagName('i')[1].classList.add("green-tag");
+        } else {
+          profileItem.getElementsByTagName('i')[1].classList.remove("green-tag");
+        }
 
-  fetch(Url)
-  .then(data=>{return data.json()})
-  .then(data=>{
-    frag = document.createDocumentFragment();
-    data.forEach(function(element) {
+        if (element.liked == true) {
+          profileItem.getElementsByTagName('i')[2].classList.add("typcn-heart-full-outline");
+          profileItem.getElementsByTagName('i')[2].classList.remove("typcn-heart-outline");
+        } else {
+          profileItem.getElementsByTagName('i')[2].classList.remove("typcn-heart-full-outline");
+          profileItem.getElementsByTagName('i')[2].classList.add("typcn-heart-outline");
+        }
 
-      var el = document.querySelector(".profile-item")
-      var profileItem = el.cloneNode(true);
+        frag.appendChild(profileItem)
+        console.log("post: " + element.userHandle + " " + element.postID);
 
-      profileItem.setAttribute("data-post-id", element.postID);
-      profileItem.setAttribute("data-post-handle", element.userHandle);
+      });
+      parent.appendChild(frag)
+      init();
+    })
 
-      if (element.userAvatar == 0) {
-        profileItem.getElementsByTagName('img')[0].src = "<%- build_url() %>/static/img/profiles/default-person.jpg";
-      } else {
-        profileItem.getElementsByTagName('img')[0].src = "<%- build_url() %>/static/img/profiles/" + element.userID + "-avatar.jpg";
-      }
+  };
 
-      profileItem.getElementsByClassName('post-body')[0].setAttribute("data-post-id", element.postID);
-
-      profileItem.getElementsByTagName('h4')[0].innerHTML = element.userName;
-      profileItem.getElementsByTagName('a')[0].innerHTML = "@" + element.userHandle;
-      profileItem.getElementsByTagName('span')[0].innerHTML = element.userGender;
-      profileItem.getElementsByTagName('p')[0].innerHTML = element.postTime;
-      profileItem.getElementsByTagName('p')[1].innerHTML = element.postBody;
-
-      if (element.tagged == true) {
-        profileItem.getElementsByTagName('i')[1].classList.add("green-tag");
-      } else {
-        profileItem.getElementsByTagName('i')[1].classList.remove("green-tag");
-      }
-
-      if (element.liked == true) {
-        profileItem.getElementsByTagName('i')[2].classList.add("typcn-heart-full-outline");
-        profileItem.getElementsByTagName('i')[2].classList.remove("typcn-heart-outline");
-      } else {
-        profileItem.getElementsByTagName('i')[2].classList.remove("typcn-heart-full-outline");
-        profileItem.getElementsByTagName('i')[2].classList.add("typcn-heart-outline");
-      }
-
-      frag.appendChild(profileItem)
-      console.log("post: " + element.userHandle + " " + element.postID);
-
-    });
-    parent.appendChild(frag)
-  })
-
-};
-
-// add event listener
-document.querySelector(".load-btn").addEventListener("click", LoadClick);
+  // add event listener
+  document.querySelector(".load-btn").addEventListener("click", LoadClick);
 
 
-console.log("scripts initialized");
+  console.log("scripts initialized");
+}
+
+init();
