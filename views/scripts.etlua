@@ -189,6 +189,9 @@ const LoadClick = e => {
       var postTime = document.createElement('p');
       postTimeInner = document.createTextNode(element.postTime);
 
+      var postContent = document.createElement('p');
+      postContentInner = document.createTextNode(element.postBody);
+
       postSide.appendChild(img);
       profileItem.appendChild(postSide);
 
@@ -201,11 +204,14 @@ const LoadClick = e => {
       userGender.appendChild(userGenderInner);
       postUser.appendChild(userGender);
 
-      postTime.appendChild(postTimeInner)
+      postTime.appendChild(postTimeInner);
 
-      postHeader.append(postUser);
+      postHeader.appendChild(postUser);
       postHeader.appendChild(postTime);
 
+      postContent.appendChild(postContentInner)
+
+      postBody.appendCHild(postContent)
       postBody.appendChild(postHeader);
       profileItem.appendChild(postBody);
 
