@@ -209,9 +209,9 @@ const LoadClick = e => {
       postHeader.appendChild(postUser);
       postHeader.appendChild(postTime);
 
-      postContent.appendChild(postContentInner)
+      postContent.appendChild(postContentInner);
 
-      postBody.appendCHild(postContent)
+      postBody.appendChild(postContent);
       postBody.appendChild(postHeader);
       profileItem.appendChild(postBody);
 
