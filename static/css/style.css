@@ -503,10 +503,9 @@ nav {
 
 }
 
-.load-btn span {
-	height: 50px;
+.load-btn p {
 	display: block;
-	height: 50px;
+	padding: 15px 0;
 	width: 100%;
 	text-align: center;
 }

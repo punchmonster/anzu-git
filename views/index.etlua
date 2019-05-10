@@ -59,7 +59,7 @@
       <% end %>
 
       <div class="load-btn">
-        <span>show more</span>
+        <p>show more</p>
       </div>
     <% end %>
   </div>
