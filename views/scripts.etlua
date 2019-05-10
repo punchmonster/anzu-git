@@ -168,7 +168,7 @@ const LoadClick = e => {
 
       //<div class="post-header flex">
       var postHeader = document.createElement('div');
-      postHeader.classList.add("post-body", "flex");
+      postHeader.classList.add("post-header", "flex");
 
       //<div class="post-user">
       var postUser = document.createElement('div');
