@@ -142,6 +142,15 @@ const LoadClick = e => {
       var el = document.querySelector(".profile-item")
       var profileItem = el.cloneNode(true);
 
+      profileItem.setAttribute("data-post-id", element.postID);
+      profileItem.setAttribute("data-post-handle", element.userHandle);
+
+      if (element.userAvatar == 0) {
+        profileItem.getElementsByTagName('img')[0].id.src = "<%- build_url() %>/static/img/profiles/default-person.jpg";
+      } else {
+        profileItem.getElementsByTagName('img')[0].id.src = "<%- build_url() %>/static/img/profiles/" + element.userID + "-avatar.jpg";
+      }
+
       frag.appendChild(profileItem)
       console.log("post: " + element.userHandle + " " + element.postID);
 
