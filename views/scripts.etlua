@@ -195,7 +195,7 @@ const LoadClick = e => {
       postHeader.appendChild(userName);
       postHeader.appendChild(userHandle);
 
-      postBody.appendCHild(postHeader);
+      postBody.appendChild(postHeader);
       profileItem.appendChild(postBody);
 
       frag.appendChild(profileItem)
