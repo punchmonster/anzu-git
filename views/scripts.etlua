@@ -149,7 +149,7 @@ const LoadClick = e => {
 };
 
 // add event listener
-document.getElementByID("load-btn").addEventListener("click", LoadClick);
+document.querySelector(".load-btn").addEventListener("click", LoadClick);
 
 
 console.log("scripts initialized");
