@@ -129,9 +129,10 @@ function init() {
   // load more of the timeline
   const LoadClick = e => {
     event.stopPropagation();
+    var page = e.target.getAttribute("data-post-page")
     var parent = getParent(e.target, '.profile-main');
 
-    const Url='http://yukku.org:8080/API/posts/get_timeline/' + '1';
+    const Url='http://yukku.org:8080/API/posts/get_timeline/' + page;
 
     fetch(Url)
     .then(data=>{return data.json()})
@@ -181,6 +182,7 @@ function init() {
       });
       parent.appendChild(frag)
       var d =  document.querySelector(".load-btn");
+      d.setAttribute("data-post-page", page);
       d.parentNode.appendChild(d);
       init();
     })
