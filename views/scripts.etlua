@@ -138,9 +138,25 @@ const LoadClick = e => {
   .then(data=>{
     frag = document.createDocumentFragment();
     data.forEach(function(element) {
-      var div = document.createElement("div");
-      div.innerHTML = "post: " + element.userHandle + " " + element.postID + " " + element.postBody;
-      frag.appendChild(div)
+      // create profile-item
+      var profileItem = document.createElement('div');
+      profileItem.classList.add("profile-item" "flex" "post-" + element.postID, );
+      profileItem.setAttribute("data-post-id", element.postID);
+      profileItem.setAttribute("data-post-handle", element.userHandle);
+
+      // create profile-item
+      var postSide = document.createElement('div');
+      div.classList.add("post-side");
+
+      //<img src="url/default-person.jpg" alt="user avatar">
+      var img = document.createElement('img');
+      img.src = "http://www.google.com/image.png";
+      img.alt = "user avatar";
+
+      postSide.appendChild(img);
+      profileItem.appendChild(postSide);
+
+      frag.appendChild(profileItem)
       console.log("post: " + element.userHandle + " " + element.postID);
     });
     parent.appendChild(frag)
