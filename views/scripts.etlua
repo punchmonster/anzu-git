@@ -136,20 +136,20 @@ const LoadClick = e => {
   fetch(Url)
   .then(data=>{return data.json()})
   .then(data=>{
+    frag = document.createDocumentFragment();
     data.forEach(function(element) {
-      childElement = DocumentFragment.createElement('div');
-      appendChildElement = parent.appendChild(childElement)
-      appendChildElement.innerHTML = "post: " + element.userHandle + " " + element.postID + " " + element.postBody;
+      var div = document.createElement("div");
+      div.innerHTML = "post: " + element.userHandle + " " + element.postID + " " + element.postBody;
+      frag.appendChild(div)
       console.log("post: " + element.userHandle + " " + element.postID);
     });
+    parent.appendChild(frag)
   })
 
 };
 
 // add event listener
-[...document.getElementsByClassName("load-btn")].forEach(el => {
-  el.addEventListener("click", LoadClick)
-});
+document.getElementByID("load-btn").addEventListener("click", LoadClick);
 
 
 console.log("scripts initialized");
