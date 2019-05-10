@@ -126,5 +126,25 @@ const postClick = e => {
   el.addEventListener("click", postClick)
 });
 
+// load more of the timeline
+const LoadClick = e => {
+  event.stopPropagation();
+  var parent = getParent(e.target, '.profile-main');
+
+  const Url='http://yukku.org:8080/API/posts/get_timeline/' + '1';
+
+  fetch(Url)
+  .then(data=>{return data.json()})
+  .then(data=>{
+    console.log("post: " + data[1].userHandle + " " + data[1].postID);
+  })
+
+};
+
+// add event listener
+[...document.getElementsByClassName("load-btn")].forEach(el => {
+  el.addEventListener("click", LoadClick)
+});
+
 
 console.log("scripts initialized");
