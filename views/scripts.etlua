@@ -137,6 +137,9 @@ const LoadClick = e => {
   .then(data=>{return data.json()})
   .then(data=>{
     data.forEach(function(element) {
+      childElement = documentFragment.createElement('div');
+      appendChildElement = parent.appendChild(childElement)
+      appendChildElement.innerHTML = "post: " + element.userHandle + " " + element.postID + " " + element.postBody;
       console.log("post: " + element.userHandle + " " + element.postID);
     });
   })
