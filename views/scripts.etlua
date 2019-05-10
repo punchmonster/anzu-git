@@ -176,7 +176,7 @@ const LoadClick = e => {
 
       //<h4>username</h4>
       var userName = document.createElement('h4');
-      userNameInner = document.createTextNode(element.userName);
+      userNameInner = document.createTextNode(element.userName + "&nbsp;");
 
       //<a href="/pepipopa">@pepipopa</a>
       var userHandle = document.createElement('a');
