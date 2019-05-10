@@ -174,14 +174,13 @@ function init() {
           profileItem.getElementsByTagName('i')[2].classList.add("typcn-heart-outline");
         }
 
-        frag.appendChild(profileItem);
-        var loadBtn = document.querySelector(".load-btn")
-        frag.appendChild(loadBtn);
+        frag.appendChild(profileItem)
 
         console.log("post: " + element.userHandle + " " + element.postID);
 
       });
       parent.appendChild(frag)
+      document.getElementsByClassName('profile-main')[0].appendChild(document.getElementByClassName('load-btn'));
       init();
     })
 
