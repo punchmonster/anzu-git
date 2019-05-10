@@ -144,6 +144,8 @@ const LoadClick = e => {
       profileItem.setAttribute("data-post-id", element.postID);
       profileItem.setAttribute("data-post-handle", element.userHandle);
 
+
+      /* left side post block */
       // create profile-item
       var postSide = document.createElement('div');
       postSide.classList.add("post-side");
@@ -156,9 +158,42 @@ const LoadClick = e => {
         img.src = "<%- build_url() %>/static/img/profiles/" + element.userID + "-avatar.jpg";
       }
       img.alt = "user avatar";
+      /* left side of post block end */
+
+      /* right side of post block */
+      //<div class="post-body" data-post-id="29">
+      var postBody = document.createElement('div');
+      postBody.classList.add("post-body");
+      prostBody.setAttribute("data-post-id", element.postID);
+
+      //<div class="post-header flex">
+      var postHeader = document.createElement('div');
+      postHeader.classList.add("post-body", "flex");
+
+      //<div class="post-user">
+      var postUser = document.createElement('div');
+      postUser.classList.add("post-user");
+
+      //<h4>username</h4>
+      var userName = document.createElement('h4');
+      userNameInner = document.createTextNode(element.userName);
+
+      //<a href="/pepipopa">@pepipopa</a>
+      var userHandle = document.createElement('a');
+      userHandle.href = "/" + element.userHandle;
+      userHandleInner = document.createTextNode("@" + element.userHandle);
 
       postSide.appendChild(img);
       profileItem.appendChild(postSide);
+
+      userName.appendChild(userNameInner);
+      postUser.appendChild(userName);
+
+      userHandle.appendChild(userHandleInner);
+      postUser.appendChild(userHandle);
+
+      postHeader.appendChild(userName);
+      postHeader.appendChild(userHandle);
 
       frag.appendChild(profileItem)
       console.log("post: " + element.userHandle + " " + element.postID);
