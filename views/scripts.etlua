@@ -164,7 +164,7 @@ const LoadClick = e => {
       //<div class="post-body" data-post-id="29">
       var postBody = document.createElement('div');
       postBody.classList.add("post-body");
-      prostBody.setAttribute("data-post-id", element.postID);
+      postBody.setAttribute("data-post-id", element.postID);
 
       //<div class="post-header flex">
       var postHeader = document.createElement('div');
