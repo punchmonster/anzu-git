@@ -146,10 +146,12 @@ const LoadClick = e => {
       profileItem.setAttribute("data-post-handle", element.userHandle);
 
       if (element.userAvatar == 0) {
-        profileItem.getElementsByTagName('img')[0].id.src = "<%- build_url() %>/static/img/profiles/default-person.jpg";
+        profileItem.getElementsByTagName('img')[0].src = "<%- build_url() %>/static/img/profiles/default-person.jpg";
       } else {
-        profileItem.getElementsByTagName('img')[0].id.src = "<%- build_url() %>/static/img/profiles/" + element.userID + "-avatar.jpg";
+        profileItem.getElementsByTagName('img')[0].src = "<%- build_url() %>/static/img/profiles/" + element.userID + "-avatar.jpg";
       }
+
+      profileItem.getElementsByClassName('post-body')[0].setAttribute("data-post-id", element.postID);
 
       frag.appendChild(profileItem)
       console.log("post: " + element.userHandle + " " + element.postID);
