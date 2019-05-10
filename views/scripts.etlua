@@ -174,7 +174,9 @@ function init() {
           profileItem.getElementsByTagName('i')[2].classList.add("typcn-heart-outline");
         }
 
-        frag.appendChild(profileItem)
+        frag.appendChild(profileItem);
+        frag.appendChild(document.querySelector(".load-btn"));
+        
         console.log("post: " + element.userHandle + " " + element.postID);
 
       });
