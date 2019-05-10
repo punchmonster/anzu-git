@@ -182,7 +182,7 @@ function init() {
       });
       parent.appendChild(frag)
       var d =  document.querySelector(".load-btn");
-      d.setAttribute("data-post-page", page);
+      d.setAttribute("data-post-page", page + 1);
       d.parentNode.appendChild(d);
       init();
     })
