@@ -180,7 +180,7 @@ function init() {
 
       });
       parent.appendChild(frag)
-      document.getElementsByClassName('profile-main')[0].appendChild(document.getElementByClassName('load-btn'));
+      document.getElementsByClassName('profile-main')[0].appendChild(document.getElementsByClassName('load-btn'));
       init();
     })
 
