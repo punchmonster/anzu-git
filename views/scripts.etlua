@@ -183,6 +183,12 @@ const LoadClick = e => {
       userHandle.href = "/" + element.userHandle;
       userHandleInner = document.createTextNode("@" + element.userHandle);
 
+      var userGender = document.createElement('span');
+      userGenderInner = document.createTextNode(element.userGender);
+
+      var postTime = document.createElement('p');
+      postTimeInner = document.createTextNode(element.postTime);
+
       postSide.appendChild(img);
       profileItem.appendChild(postSide);
 
@@ -192,8 +198,13 @@ const LoadClick = e => {
       userHandle.appendChild(userHandleInner);
       postUser.appendChild(userHandle);
 
-      postHeader.appendChild(userName);
-      postHeader.appendChild(userHandle);
+      userGender.appendChild(userGenderInner);
+      postUser.appendChild(userGender);
+
+      postTime.appendChild(postTimeInner)
+
+      postHeader.append(postUser);
+      postHeader.appendChild(postTime);
 
       postBody.appendChild(postHeader);
       profileItem.appendChild(postBody);
