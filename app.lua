@@ -42,7 +42,7 @@ app:match("settings", "/settings",                              respond_to(setti
 -- API routes
 app:match("follow", "/API/follow/:followHandle(/:toggle)",      APIfollow)
 app:match("likes", "/API/likes/:option/:ID[%d]",                APIlikes)
-app:match("posts", "/API/posts/:option(/:ID[%d])",              APIposts)
+app:match("posts", "/API/posts/:option(/:ID(/:ID2))",           APIposts)
 app:match("tags", "/API/tags/:option/:ID[%d]",                  APItags)
 
 return app

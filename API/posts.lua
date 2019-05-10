@@ -20,6 +20,13 @@ return function(self)
       output = "you are not logged in"
     end
   elseif self.params.option == "get_profile" then
+
+    local currentID = nil
+    if self.loggedIn == true then
+      currentID = self.loggedUser[1].userID
+    end
+
+    Posts:get_profile(self.params.ID, currentID, page)
   end
 
   return { json = output }

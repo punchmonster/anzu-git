@@ -60,6 +60,9 @@
 
         </div>
       <% end %>
+      <div class="load-btn" data-post-type="profile" data-post-page="1">
+        <p>show more</p>
+      </div>
     <% end %>
   </div>
 
