@@ -136,7 +136,9 @@ const LoadClick = e => {
   fetch(Url)
   .then(data=>{return data.json()})
   .then(data=>{
-    console.log("post: " + data[1].userHandle + " " + data[1].postID);
+    data.forEach(function(element) {
+      console.log("post: " + element.userHandle + " " + element.postID);
+    });
   })
 
 };
