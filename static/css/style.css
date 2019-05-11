@@ -387,6 +387,7 @@ nav {
 	scrollbar-color: rgba(255,255,255,0.05) rgba(0,0,0,0);
   scrollbar-width: thin;
 	margin-bottom: 50px;
+	border-radius: 10px;
 }
 
 /* scroll styling for chrome */
