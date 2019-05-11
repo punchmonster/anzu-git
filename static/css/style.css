@@ -469,6 +469,11 @@ nav {
 	font-size: 13px;
 }
 
+.post-user a {
+	color: #fff;
+	opacity: 0.4;
+}
+
 .post-user span {
 	display: inline-block;
 	padding: 2px 4px;
