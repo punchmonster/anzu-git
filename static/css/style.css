@@ -343,8 +343,6 @@ nav {
 
 .follow-btn:hover {
     background: rgba(0,0,0,0);
-    color: #fff;
-		border: 3px solid #fff;
 }
 
 .follow-btn:active {
