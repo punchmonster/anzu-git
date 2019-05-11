@@ -95,7 +95,7 @@
       &nbsp;
     </a>
 
-    <div class="profile-main" style="overflow-y:scroll;margin-bottom:0;border-radius:10px;">
+    <div class="profile-main" style="overflow-y:scroll;margin-bottom:0;margin-top:40px;border-radius:10px;">
       <% if profile_data ~= 0 then %>
         <% for k, v in pairs( posts_data ) do %>
           <% if tonumber(params.postID) == v['postID'] then %>
