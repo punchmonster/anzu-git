@@ -471,10 +471,12 @@ nav {
 	max-height: 400px;
 	transition: height 0.3s ease;
 	overflow: hidden;
+	border-radius: 10px;
 }
 
 .post-body-image:hover {
 	max-height: 1200px;
+	transition: height 0.3s ease;
 }
 
 .post-body img {
