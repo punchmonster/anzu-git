@@ -368,18 +368,20 @@ nav {
 
 .inputfile-label,
 .inputfile {
-    font-size: 1.25em;
-    font-weight: 700;
-    color: white;
-    background-color: black;
-    display: inline-block;
+    font-size: 25px;
+    color: fff;
+    background-color: #72A5E2;
+		padding: 3px;
+		border-radius: 10px;
+    display: block;
 		cursor: pointer;
 }
 .inputfile-label:focus,
 .inputfile:focus,
 .inputfile-label:hover,
 .inputfile:hover {
-    background-color: red;
+    background-color: #fff;
+		color: #72A5E2;
 }
 /* ########### home page ########## */
 
