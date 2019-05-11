@@ -56,7 +56,7 @@ function Posts:submit(arg1)
       end
 
       -- set file path and write postImage to disk
-      imageLocation = 'static/img/post_media/' .. arg1.postID .. ".jpg"
+      imageLocation = 'static/img/post_media/' .. postID .. ".jpg"
       local imageFile = io.open(imageLocation, 'w')
       if imageFile then
         imageFile:write(image:get_blob())
