@@ -366,7 +366,8 @@ nav {
 	z-index: -1;
 }
 
-.inputfile + label {
+.inputfile-label,
+.inputfile {
     font-size: 1.25em;
     font-weight: 700;
     color: white;
@@ -374,9 +375,10 @@ nav {
     display: inline-block;
 		cursor: pointer;
 }
-
-.inputfile:focus + label,
-.inputfile + label:hover {
+.inputfile-label:focus,
+.inputfile:focus,
+.inputfile-label:hover,
+.inputfile:hover {
     background-color: red;
 }
 /* ########### home page ########## */
