@@ -459,6 +459,10 @@ nav {
   display: inline;
 }
 
+.post-body a {
+	color: #72A5E2;
+}
+
 .post-header {
 	justify-content: space-between;
 }
