@@ -199,6 +199,7 @@ textarea {
 
 nav {
   height: 40px;
+	width: 100%;
   font-family: America, sans-serif;
   font-weight: 400;
   border-bottom: 1px solid #dddddd;
