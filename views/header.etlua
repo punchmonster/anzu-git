@@ -6,8 +6,7 @@
     </div>
     <div class="nav-content-right flex">
       <div class="inline-flex nav-links">
-        <a href="<%- build_url() %>/settings" class="flex"><i class="typcn typcn-cog" ></i></a>
-        <a href="<%- build_url() %>/<%- loggedUser[1]['userHandle'] %>" class="flex border-left">
+        <a href="<%- build_url() %>/settings" class="flex border-left">
           <% if loggedIn == true then %>
             <% if loggedUser[1]['userAvatar'] == 0 then %>
               <img src="<%- build_url() %>/static/img/profiles/default-person.jpg" alt="user avatar">
