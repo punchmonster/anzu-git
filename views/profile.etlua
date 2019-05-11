@@ -60,7 +60,7 @@
 
         </div>
       <% end %>
-      <div class="load-btn" data-post-type="profile" data-post-page="1">
+      <div class="load-btn" data-post-type="profile" data-post-page="1" data-post-name="<%- user_data[1].userHandle %>">
         <p>show more</p>
       </div>
     <% end %>
