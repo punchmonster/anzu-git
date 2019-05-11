@@ -53,7 +53,7 @@ return {
         --userBio = Text:post_sanitize(self.params.userBio, "http://yukku.org:8080")
       }
 
-      local status. msg = User:update(x)
+      local status, msg = User:update(x)
 
       -- set current user handle to new userhandle if needed
       if status == true then
