@@ -10,7 +10,7 @@ return function(self)
     ["err_thread_max_length"] = { "Thread reply limit reached" , "bar" },
     ["err_invalid_file"]      = { "File isn\'t valid" , "bar" },
     ["err_character_limit"]   = { "Your post body or title is too long" , "bar" },
-    ["err_not_allowed"]       = { "Not allowed" , "bar" }
+    ["err_not_allowed"]       = { "Not allowed" , "bar" },
     ["err_user_exists"]       = { "User with that handle already exists" }
   }
 
