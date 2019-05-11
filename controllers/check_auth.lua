@@ -21,4 +21,8 @@ return function(self)
     self.loggedIn = false
   end
 
+  if self.params.errorCode then
+    self.header_vis = false
+  end
+
 end

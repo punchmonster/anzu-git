@@ -58,6 +58,8 @@ return {
       -- set current user handle to new userhandle if needed
       if status == true then
         self.session.userHandle = self.params.userHandle
+      else
+        return { redirect_to = self:url_for("error", { errorCode = status }) }
       end
 
       return "user settings saved"

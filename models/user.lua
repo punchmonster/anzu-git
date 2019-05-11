@@ -102,6 +102,11 @@ function User:update(x)
   local imageLocation
   local userAvatar = x.userAvatar
 
+  local user_check = db.select("* from `users` where userHandle = ?", x.userHandle)
+  if #user_check >= 1 then
+    return false, "err_user_exists"
+  end
+
   if x.postImage and x.postImage.filename ~= "" then
 
     --split file extension off
