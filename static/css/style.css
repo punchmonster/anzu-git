@@ -466,6 +466,21 @@ nav {
 	color: #72A5E2;
 }
 
+.post-body-image {
+	width: 100%;
+	max-height: 400px;
+	transition: height 0.3s ease;
+}
+
+.post-body-image:hover {
+	max-height: 1200;
+}
+
+.post-body img {
+	max-width: 100%;
+
+}
+
 .post-header {
 	justify-content: space-between;
 }
