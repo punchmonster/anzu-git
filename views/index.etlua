@@ -81,7 +81,7 @@
         <input type="text" name="email" class="form-email" style="">
 
         <textarea name="postBody" placeholder="type your reply" maxlength="300" and minlength="1" required></textarea>
-        <div class="flex wrap" style="flex-direction: row-reverse;">
+        <div class="flex wrap" style="flex-direction:row-reverse;justify-content:space-between;margin-top:7px;">
           <input class="follow-btn" type="submit" value="Submit">
           <label class="inputfile-label" for="postImage"><i class="typcn typcn-image" ></i></label>
           <input type="file"

@@ -366,8 +366,7 @@ nav {
 	z-index: -1;
 }
 
-.inputfile-label,
-.inputfile {
+.inputfile-label {
     font-size: 25px;
     color: fff;
     background-color: #72A5E2;
@@ -375,6 +374,7 @@ nav {
 		border-radius: 10px;
     display: block;
 		cursor: pointer;
+		height: 35px;
 }
 .inputfile-label:focus,
 .inputfile:focus,
@@ -612,6 +612,7 @@ nav {
 
 
 .profile-tools .follow-btn {
+	margin-top: 5px;
   height: 35px;
 }
 
