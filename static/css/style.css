@@ -204,7 +204,7 @@ nav {
   font-weight: 400;
   border-bottom: 1px solid #dddddd;
   background: #1E333C;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	z-index: 99;
 }
