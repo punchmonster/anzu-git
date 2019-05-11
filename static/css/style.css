@@ -367,24 +367,26 @@ nav {
 }
 
 .inputfile-label {
-    font-size: 25px;
-    color: fff;
-    background-color: #72A5E2;
-		padding: 3px 5px 0px 5px;
-		border-radius: 25px;
-    display: block;
-		cursor: pointer;
-		height: 35px;
+	box-sizing: border-box;
+  font-size: 25px;
+  color: fff;
+  background-color: #72A5E2;
+	padding: 3px 5px 0px 5px;
+	border-radius: 25px;
+  display: block;
+	cursor: pointer;
+	height: 35px;
 }
 
 .inputfile-label i {
 }
+
 .inputfile-label:focus,
 .inputfile:focus,
 .inputfile-label:hover,
 .inputfile:hover {
-    background-color: #fff;
-		color: #72A5E2;
+  background-color: #fff;
+	color: #72A5E2;
 }
 /* ########### home page ########## */
 
