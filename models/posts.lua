@@ -172,7 +172,7 @@ end
 -- userHandle: userHandle of the profile to retrieve
 -- currentID: ID of logged in user
 -- RETURN: table with posts: {{postID = 1, ... },{postID = 1, ... }}
-function Posts:get_profile(userHandle, currentID)
+function Posts:get_profile(userHandle, currentID, page)
 
   -- check if user exists and retrieve userID
   local user_data = db.select("* from `users` WHERE userHandle = ?", userHandle)
@@ -181,7 +181,13 @@ function Posts:get_profile(userHandle, currentID)
   end
 
   -- check if posts exist and if so return them
-  local profile_data = db.select("* from `posts` WHERE userID = ? order by postTime DESC LIMIT 10", user_data[1].userID)
+  local profile_data
+  if page == nil then
+    profile_data = db.select("* from `posts` WHERE userID = ? order by postTime DESC LIMIT 10", user_data[1].userID)
+  else
+    profile_data = db.select("* from `posts` WHERE userID = ? order by postTime DESC LIMIT 10 OFFSET ?", user_data[1].userID, page * 10)
+  end
+  local
   if #profile_data < 1 then
     return true, 0, user_data
   else
