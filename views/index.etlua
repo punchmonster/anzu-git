@@ -36,6 +36,9 @@
             </div>
 
             <p><%- v['postBody'] %></p>
+            <% if v['postImage'] == 1 then %>
+              <img src="<%- build_url() %>/static/img/post_media/<%- v['postID'] %>.jpg" alt="post media">
+            <% end %>
 
             <div class="post-tools">
               <i class="typcn typcn-message"></i>
@@ -78,6 +81,9 @@
         <textarea name="postBody" placeholder="type your reply" maxlength="300" and minlength="1" required></textarea>
         <div class="flex wrap" style="flex-direction: row-reverse;">
           <input class="follow-btn" type="submit" value="Submit" style="">
+          <input type="file"
+           class="settings-avatar" name="postImage"
+           accept="image/png, image/jpeg" style="flex-grow: 1;">
         </div>
       </form>
     <% end %>

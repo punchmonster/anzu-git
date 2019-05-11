@@ -22,6 +22,15 @@ function Posts:submit(arg1)
   -- make sure post body length is within spec
   if #arg1.postBody < 300 then
 
+    -- if no reply ID is supplied post is made first post in thread
+    if arg1.threadID == nil then
+      arg1.threadID = postID
+    end
+
+    if arg1.replyID == nil then
+      arg1.replyID = postID
+    end
+
     -- write out a postImage to disk if it exists
     local imageLocation
     if arg1.postImage and arg1.postImage.filename ~= "" then
@@ -32,28 +41,28 @@ function Posts:submit(arg1)
       -- checks if the file is valid
       local image = magick.load_image_from_blob(arg1.postImage.content)
 
-      if not image and (fileExt ~= ".mp4" and fileExt ~= ".webm") then
+      if not image  then
         return false, "err_invalid_file"
       end
 
+      -- resize the image
+      image:resize(1200, 1200)
+
+      -- if image isn't a jpg convert it
+      if image:get_format() ~= "jpg" then
+        image:set_format("jpg")
+      end
+
       -- set file path and write postImage to disk
-      imageLocation = 'static/media/' .. arg1.feedName .. '/' .. postID .. fileExt
+      imageLocation = 'static/img/post_media/' .. arg1.postID .. ".jpg"
       local imageFile = io.open(imageLocation, 'w')
       if imageFile then
-        imageFile:write(arg1.postImage.content)
+        imageFile:write(image:get_blob())
         imageFile:close()
+        imageLocation = 1
       else
         imageLocation = nil
       end
-    end
-
-    -- if no reply ID is supplied post is made first post in thread
-    if arg1.threadID == nil then
-      arg1.threadID = postID
-    end
-
-    if arg1.replyID == nil then
-      arg1.replyID = postID
     end
 
     -- insert new thread data into database
