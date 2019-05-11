@@ -343,10 +343,11 @@ nav {
 .follow-btn:hover {
     background: rgba(0,0,0,0);
     color: #fff;
+		transition: background-color 0.5s ease;
 }
 
 .follow-btn:active {
-    transform: scale(0.99);
+
 }
 
 .form-email {
