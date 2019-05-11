@@ -370,11 +370,14 @@ nav {
     font-size: 25px;
     color: fff;
     background-color: #72A5E2;
-		padding: 0px;
-		border-radius: 20px;
+		padding: 2px 5px -2px 5px;
+		border-radius: 25px;
     display: block;
 		cursor: pointer;
 		height: 35px;
+}
+
+.inputfile-label i {
 }
 .inputfile-label:focus,
 .inputfile:focus,
