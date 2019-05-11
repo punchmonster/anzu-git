@@ -130,9 +130,16 @@ function init() {
   const LoadClick = e => {
     event.stopPropagation();
     var page = document.querySelector(".load-btn").getAttribute("data-post-page");
+    var type = document.querySelector(".load-btn").getAttribute("data-post-type");
     var parent = getParent(e.target, '.profile-main');
 
-    const Url='http://yukku.org:8080/API/posts/get_timeline/' + page;
+    var Url
+    if (type == "timeline") {
+      Url='http://yukku.org:8080/API/posts/get_' + type + '/' + page;
+    } else {
+      var name = document.querySelector(".load-btn").getAttribute("data-post-name");
+      Url='http://yukku.org:8080/API/posts/get_' + type + '/' + name + '/' + page;
+    }
 
     fetch(Url)
     .then(data=>{return data.json()})
