@@ -44,9 +44,9 @@
 
               <!-- tag button setting -->
               <% if v['tagged'] then %>
-                <i class="typcn typcn-arrow-repeat tag-btn green-tag" ></i>
+                <i class="typcn typcn-tag tag-btn green-tag" ></i>
               <% else %>
-                <i class="typcn typcn-arrow-repeat tag-btn" ></i>
+                <i class="typcn typcn-tag tag-btn" ></i>
               <% end %>
 
               <!-- tag button setting -->
@@ -131,9 +131,9 @@
 
                 <!-- tag button setting -->
                 <% if v['tagged'] then %>
-                  <i class="typcn typcn-arrow-repeat tag-btn green-tag" ></i>
+                  <i class="typcn typcn-tag tag-btn green-tag" ></i>
                 <% else %>
-                  <i class="typcn typcn-arrow-repeat tag-btn" ></i>
+                  <i class="typcn typcn-tag tag-btn" ></i>
                 <% end %>
 
                 <!-- like button setting -->
