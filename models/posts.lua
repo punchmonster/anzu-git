@@ -46,7 +46,9 @@ function Posts:submit(arg1)
       end
 
       -- resize the image
-      image:resize(1200, 1200)
+      if image:get_width() > 1200 or image:get_height() > 1200 then
+        image:resize(1200, 1200)
+      end
 
       -- if image isn't a jpg convert it
       if image:get_format() ~= "jpg" then
