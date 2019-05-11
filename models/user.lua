@@ -102,9 +102,12 @@ function User:update(x)
   local imageLocation
   local userAvatar = x.userAvatar
 
+  -- check if user with that handle exists
   local user_check = db.select("* from `users` where userHandle = ?", x.userHandle)
   if #user_check >= 1 then
-    return false, "err_user_exists"
+    if user_check[1].userID ~= x.userID then
+      return false, "err_user_exists"
+    end
   end
 
   if x.postImage and x.postImage.filename ~= "" then
