@@ -187,7 +187,6 @@ function Posts:get_profile(userHandle, currentID, page)
   else
     profile_data = db.select("* from `posts` WHERE userID = ? order by postTime DESC LIMIT 10 OFFSET ?", user_data[1].userID, page * 10)
   end
-  local
   if #profile_data < 1 then
     return true, 0, user_data
   else
