@@ -366,7 +366,7 @@ nav {
 	z-index: -1;
 }
 
-.inputfile-label {
+[type="file"] + label {
 	box-sizing: border-box;
   font-size: 25px;
   color: fff;
@@ -381,10 +381,8 @@ nav {
 .inputfile-label i {
 }
 
-.inputfile-label:focus,
-.inputfile:focus,
-.inputfile-label:hover,
-.inputfile:hover {
+[type="file"]:focus + label,
+[type="file"] + label:hover {
   background-color: #fff;
 	color: #72A5E2;
 }
