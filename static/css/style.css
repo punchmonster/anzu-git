@@ -335,12 +335,14 @@ nav {
     border-radius: 25px;
     cursor: pointer;
     text-align: center;
+    transition: background-color 0.5s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 .follow-btn:hover {
     background: rgba(0,0,0,0);
     color: #fff;
-		transition: background-color 500ms linear;
 }
 
 .follow-btn:active {
