@@ -26,7 +26,7 @@ return function(self)
       currentID = self.loggedUser[1].userID
     end
 
-    Posts:get_profile(self.params.ID, currentID, page)
+    output = Posts:get_profile(self.params.ID, currentID, page)
   end
 
   return { json = output }
