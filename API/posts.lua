@@ -5,7 +5,7 @@ local util   = require "lapis.util"
 return function(self)
 
   -- declare default response values
-  local output, msg
+  local output, msg, status
 
   -- check what API options are requested
   if self.params.option == "get_timeline" then
@@ -26,7 +26,7 @@ return function(self)
       currentID = self.loggedUser[1].userID
     end
 
-    output = Posts:get_profile(self.params.ID, currentID, page)
+    status, output = Posts:get_profile(self.params.ID, currentID, page)
   end
 
   return { json = output }
