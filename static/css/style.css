@@ -500,7 +500,7 @@ nav {
 }
 
 .load-btn {
-
+	cursor: pointer;
 }
 
 .load-btn p {
@@ -509,6 +509,10 @@ nav {
 	padding: 10px 0;
 	width: 100%;
 	text-align: center;
+}
+
+.load-btn:hover {
+	color: #4C74A3;
 }
 
 .post-tools i:hover {
