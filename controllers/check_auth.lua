@@ -23,7 +23,6 @@ return function(self)
 
   if self.params.errorCode then
     self.header_vis = false
-    self.user_data = self.loggedUser
   end
 
 end

@@ -53,13 +53,13 @@ return {
         --userBio = Text:post_sanitize(self.params.userBio, "http://yukku.org:8080")
       }
 
-      local status = User:update(x)
+      local status. msg = User:update(x)
 
       -- set current user handle to new userhandle if needed
       if status == true then
         self.session.userHandle = self.params.userHandle
       else
-        return { redirect_to = self:url_for("error", { errorCode = status }) }
+        return { redirect_to = self:url_for("error", { errorCode = msg }) }
       end
 
       return "user settings saved"
