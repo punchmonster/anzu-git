@@ -82,9 +82,10 @@
 
         <textarea name="postBody" placeholder="type your reply" maxlength="300" and minlength="1" required></textarea>
         <div class="flex wrap" style="flex-direction: row-reverse;">
-          <input class="follow-btn" type="submit" value="Submit" style="">
+          <input class="follow-btn" type="submit" value="Submit">
+          <label for="file"><i class="typcn typcn-image" ></i></label>
           <input type="file"
-           class="settings-avatar" name="postImage"
+           class="settings-avatar inputfile" name="postImage"
            accept="image/png, image/jpeg" style="flex-grow: 1;">
         </div>
       </form>
