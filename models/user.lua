@@ -43,7 +43,7 @@ function User:create(userHandle, userPassword)
       userID = userID,
       userHandle = userHandle,
       userName = userHandle,
-      userGender = "other",
+      userGender = "none",
       userBio = " ",
       userPassword = userPassword,
       userSalt = userSalt,
