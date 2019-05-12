@@ -7,22 +7,22 @@ return {
 
   before = function(self)
 
-    if self.loggedIn then
-      self.user_data = self.loggedUser
-
-      -- Page title
-      self.page_title = self.loggedUser[1].userName .. " - notifications"
-    else
-      return { redirect_to = self:url_for("login") }
-    end
-
     -- build url
     self.submit_url = self:url_for("notifications")
   end,
 
   GET = function(self)
 
-    return { render = "notifications" }
+    if self.loggedIn then
+      self.user_data = self.loggedUser
+
+      -- Page title
+      self.page_title = self.loggedUser[1].userName .. " - notifications"
+
+      return { render = "notifications" }
+    else
+      return { redirect_to = self:url_for("login") }
+    end
   end,
 
   POST = function(self)
