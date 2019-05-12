@@ -8,7 +8,7 @@ return {
   before = function(self)
 
     -- build url
-    self.submit_url = self:url_for("notifications")
+    self.submit_url = self:url_for("index")
   end,
 
   GET = function(self)
