@@ -2,12 +2,13 @@
 <div class="flex wrap profile-wrapper">
 
   <div class="profile-main">
-  <h1>log in</h1>
 
     <form class="default-form" action="<%- submit_url %>" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
       <input type="hidden" name="login" value="<%- true %>">
       <input type="text" name="email" class="form-email">
+
+      <h1>log in</h1>
 
       <label for="userHandle">Enter your handle</label>
       <input id="userHandle" type="text" name="userHandle" required pattern="^[A-Za-z0-9_-]{3,15}$">
