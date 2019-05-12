@@ -235,7 +235,7 @@ function User:notifications(x)
         print("\n notif postID: " .. v.postID)
         for k2, v2 in pairs(notifs_data) do
           print("\n notif data postID: " .. v2.postID .. " post body: " .. v2.postBody )
-          if v.postID == v2.postID then
+          if tonumber(v.postID) == v2.postID then
             v.postBody = v2.postBody
           end
         end
