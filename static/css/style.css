@@ -362,10 +362,6 @@ nav {
 	height: 35px;
 }
 
-.inputfile-label i {
-}
-
-[type="file"]:focus + label,
 [type="file"] + label:hover {
   background-color: #fff;
 	color: #72A5E2;
