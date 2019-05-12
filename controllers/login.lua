@@ -67,7 +67,7 @@ return {
 
       -- verification
       local status, msg = User:create(self.params.userHandle, self.params.userPassword)
-      return { redirect_to = self:url_for("login") }
+      return status, msg
     end
   end
 }
