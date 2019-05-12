@@ -15,6 +15,7 @@
     <label for="userHandle">Change your handle</label>
     <input id="userHandle" type="text" name="userHandle" value="<%- loggedUser[1].userHandle %>" maxlength="15" placeholder="Change your @" required pattern="^[A-Za-z0-9_-]{3,15}$">
 
+    <span>Choose your pronouns</span>
     <select name="userGender">
       <option value="default">select pronouns</option>
       <option value="none">none</option>

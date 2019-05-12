@@ -311,6 +311,7 @@ nav {
 	margin: 20px;
 }
 
+.default-form span,
 .default-form label {
 	font-size: 20px;
 	font-weight: bold;
