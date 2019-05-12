@@ -78,8 +78,10 @@
         <input type="text" name="email" class="form-email" style="">
 
         <textarea name="postBody" placeholder="type your reply" maxlength="300" and minlength="1" required><%- "@" .. params.userHandle .. " " %></textarea>
-        <div class="flex wrap" style="flex-direction: row-reverse;">
-          <input class="follow-btn" type="submit" value="Submit" style="">
+        <div class="flex wrap" style="flex-direction:row-reverse;justify-content:space-between;margin-top:7px;">
+          <input class="follow-btn" type="submit" value="Submit">
+          <input id="postImage" type="file" class="settings-avatar inputfile" accept="image/png, image/jpeg">
+          <label for="postImage" class="inputfile-label"><i class="typcn typcn-image" ></i></label>
         </div>
       </form>
     <% end %>
@@ -159,8 +161,10 @@
           <input type="text" name="email" class="form-email" style="">
 
           <textarea name="postBody" placeholder="type your reply" maxlength="300" and minlength="1" required><%- "@" .. params.userHandle .. " " %></textarea>
-          <div class="flex wrap" style="flex-direction: row-reverse;">
-            <input class="follow-btn" type="submit" value="Submit" style="height: 35px;">
+          <div class="flex wrap" style="flex-direction:row-reverse;justify-content:space-between;margin-top:7px;">
+            <input class="follow-btn" type="submit" value="Submit">
+            <input id="postImage" type="file" class="settings-avatar inputfile" accept="image/png, image/jpeg">
+            <label for="postImage" class="inputfile-label"><i class="typcn typcn-image" ></i></label>
           </div>
         </form>
       </div>
