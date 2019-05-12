@@ -239,6 +239,10 @@ function User:notifications(x)
         end
       end
 
+      for k,v in ipairs(notifs) do
+        v.postBody = "test post content"
+      end
+
       return true, notifs
     end
     return true, "No notifications"
