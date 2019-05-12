@@ -27,7 +27,7 @@
       </select>
 
       <span>Select display picture</span>
-      <input id="postImage" type="file" class="settings-avatar inputfile" accept="image/png, image/jpeg">
+      <input id="postImage" type="file" name="postImage" class="settings-avatar inputfile" accept="image/png, image/jpeg">
       <label for="postImage" class="inputfile-label"><i class="typcn typcn-image" ></i></label>
 
       <!--
