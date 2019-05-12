@@ -48,6 +48,7 @@ function User:create(userHandle, userPassword)
       userPassword = userPassword,
       userSalt = userSalt,
       userGroup = 1,
+      userCreationDate = ngx.time(),
       userFollowing = util.to_json(userFollowing)
     })
 
