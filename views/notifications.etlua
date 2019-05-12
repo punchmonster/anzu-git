@@ -25,7 +25,7 @@
             'd</p>
           </div>
 
-          <div class="notif-header">
+          <div class="notif-body">
             <p><%- v['postBody'] %></p>
           </div>
 
