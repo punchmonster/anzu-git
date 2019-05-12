@@ -38,6 +38,11 @@
 
 
             <p><%- v['postBody'] %></p>
+            <% if v['postImage'] == 1 then %>
+              <div class="post-body-image">
+                <img src="<%- build_url() %>/static/img/post_media/<%- v['postID'] %>.jpg" alt="post media">
+              </div>
+            <% end %>
 
             <div class="post-tools">
               <i class="typcn typcn-message reply-btn"></i>
@@ -129,6 +134,11 @@
               </div>
 
               <p><%- v['postBody'] %></p>
+              <% if v['postImage'] == 1 then %>
+                <div class="post-body-image">
+                  <img src="<%- build_url() %>/static/img/post_media/<%- v['postID'] %>.jpg" alt="post media">
+                </div>
+              <% end %>
 
               <div class="post-tools">
                 <i class="typcn typcn-message reply-btn"></i>
