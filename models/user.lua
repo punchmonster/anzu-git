@@ -240,7 +240,7 @@ function User:notifications(x)
       end
 
       for k,v in ipairs(notifs) do
-        -- v.postBody = notifs_data[1].postID
+        v.postBody = v.postID
       end
 
       return true, notifs
