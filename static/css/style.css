@@ -305,6 +305,7 @@ nav {
   text-align: center;
 }
 .default-form {
+	display: flex;
 	width: 80%;
 	margin: 20px;
 }
@@ -315,7 +316,7 @@ nav {
   text-decoration: none;
   font-family: sans-serif;
   border-radius: 10px;
-  display: block;
+  flex-grow: 1;
   border: 1px solid #bbb;
 }
 
