@@ -154,7 +154,6 @@ a {
 
 textarea {
  flex-grow: 1;
-  border: none;
   padding: 15px 15px;
   margin: 2px;
   text-decoration: none;
@@ -304,6 +303,23 @@ nav {
   display: block;
   padding: 4px;
   text-align: center;
+}
+.default-form {
+	box-sizing: border-box;
+	width: 100%;
+	margin: 20px;
+}
+
+.default-form input {
+	padding: 15px 15px;
+  margin: 0;
+  text-decoration: none;
+  font-family: sans-serif;
+  border-radius: 10px;
+  display: block;
+  border: 1px solid #bbb;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .follow-btn {
