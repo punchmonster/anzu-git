@@ -86,7 +86,7 @@ return {
     -- pass thread to model
     if completed == true then
       -- go back to feed view
-      return { redirect_to = self:url_for("profile", { userHandle = self.user_data[1].handleID, postID = msg }) }
+      return { redirect_to = self:url_for("profile", { userHandle = self.user_data[1].handleID }) }
       --return { redirect_to = self:url_for("profile", { userHandle = self.params.userHandle, postID = self.params.postID }) }
     else
       return { redirect_to = self:url_for("error", { errorCode = msg }) }
