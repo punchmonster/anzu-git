@@ -243,7 +243,7 @@ function User:notifications(x)
         --v.postBody = v.postID
       end
 
-      return true, notifs
+      return true, notifs_data
     end
     return true, "No notifications"
   end
