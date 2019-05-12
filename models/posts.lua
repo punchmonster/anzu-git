@@ -501,6 +501,7 @@ function Posts:sort_thread(a, currentThreadID)
       postRef    = v.postRef,
       userHandle = v.userHandle,
       userName   = v.userName,
+      postImage  = v.postImage,
       userGender = v.userGender,
       userAvatar = v.userAvatar,
       tagged     = v.tagged,
