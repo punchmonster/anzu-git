@@ -19,7 +19,7 @@ return {
       -- Page title
       self.page_title = self.loggedUser[1].userName .. " - notifications"
 
-      x = {
+      local x = {
         x.notifType = "get_notif",
         x.userID    = self.loggedUser[1].postID
       }
