@@ -4,8 +4,8 @@
   <div class="profile-main">
   <% if posts_data ~= 0 then %>
     <% for k, v in pairs( posts_data ) do %>
-      <div class="profile-item flex">
-        <p>post ID: <%- v['postID'] %> notif type: <%- v['notifType'] %></p>
+      <div class="profile-item flex notif-item">
+        <p><%- v['userName'] %> <%- v['notifType'] %>:</p>
         <p><%- v['postBody'] %></p>
       </div>
     <% end %>

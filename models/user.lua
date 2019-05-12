@@ -232,11 +232,15 @@ function User:notifications(x)
       local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
 
       for k, v in pairs(notifs) do
-        print("\n notif postID: " .. v.postID)
         for k2, v2 in pairs(notifs_data) do
-          print("\n notif data postID: " .. v2.postID .. " post body: " .. v2.postBody )
           if tonumber(v.postID) == v2.postID then
             v.postBody = v2.postBody
+          end
+        end
+
+        for k2, v2 in pairs(users_data) do
+          if tonumber(v.userID) == v2.userID then
+            v.userName = v2.userName
           end
         end
       end
