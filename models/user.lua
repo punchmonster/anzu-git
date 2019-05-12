@@ -238,7 +238,7 @@ function User:notifications(x)
           end
 
           if b[x].postID == ID then
-            v.postID = b[x].postID
+            v.postBody = b[x].postBody
           end
 
           return find(x + 1, ID, b)
