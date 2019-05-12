@@ -6,18 +6,21 @@
     <% for k, v in pairs( posts_data ) do %>
       <div class="profile-item notif-item">
         <div class="notif-header">
-          <p>
+
           <% if v['userAvatar'] == 0 then %>
             <img src="<%- build_url() %>/static/img/profiles/default-person.jpg" alt="user avatar">
           <% else %>
             <img src="<%- build_url() %>/static/img/profiles/<%- v['userID'] %>-avatar.jpg" alt="user avatar">
           <% end %>
-          <%- v['userName'] %>
+
+          <p><%- v['userName'] %>
+
           <% if v['notifType'] == "like" then %>
             <i class="typcn typcn-heart-full-outline" ></i>
           <% else %>
             <i class="typcn typcn-tag green-tag" ></i>
           <% end %>
+
           'd</p>
         </div>
         <p><%- v['postBody'] %></p>
