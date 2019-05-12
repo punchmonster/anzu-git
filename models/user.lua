@@ -10,6 +10,11 @@ local User     = Model:extend("user")
 -- arg1: IP of remote address
 function User:create(userHandle, userPassword)
 
+  -- make sure userHandle is legal
+  if userHandle = nil then
+   return false, "err_invalid_handle"
+  end
+
   -- check if user exists
   local user_check = db.select("* from `users` where userHandle = ?", userHandle)
   if #user_check < 1 then
@@ -98,6 +103,7 @@ end
 -- FUNCTION: updates user settings
 function User:update(x)
 
+  -- make sure userHandle is legal
   if x.userHandle = nil then
    return false, "err_invalid_handle"
   end
