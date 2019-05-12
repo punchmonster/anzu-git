@@ -16,7 +16,7 @@ function init() {
   			fileName = e.target.value.split( '\\' ).pop();
 
   		if( fileName )
-  			label.querySelector( 'span' ).innerHTML = labelVal + fileName;
+  			label.innerHTML = labelVal + fileName;
   		else
   			label.innerHTML = labelVal;
   	});
