@@ -404,7 +404,7 @@ nav {
   background-color: #72A5E2;
 	padding: 3px 5px 0px 5px;
 	border-radius: 25px;
-  display: block;
+  display: inline-block;
 	cursor: pointer;
 	height: 35px;
 }
