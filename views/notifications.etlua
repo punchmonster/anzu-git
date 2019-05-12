@@ -5,7 +5,7 @@
   <% if posts_data ~= 0 then %>
     <% for k, v in pairs( posts_data ) do %>
       <div class="profile-item notif-item">
-        <div class="notif-header">
+        <div class="notif-header flex">
 
           <% if v['userAvatar'] == 0 then %>
             <img src="<%- build_url() %>/static/img/profiles/default-person.jpg" alt="user avatar">
