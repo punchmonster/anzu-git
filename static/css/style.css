@@ -654,8 +654,9 @@ nav {
 font-weight: bold;
 }
 
-.notif-item .notif-header img {
+.notif-item .notif-header p img {
 	display: inline;
+	border-radius: 25px;
 	width: 25px;
 	height: 25px;
 
