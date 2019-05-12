@@ -6,6 +6,7 @@
     <% for k, v in pairs( posts_data ) do %>
       <div class="profile-item flex">
         <%- v['userID'] %><%- v['notifType'] %>
+        <p><%- v['postBody'] %></p>
       </div>
     <% end %>
   <% end %>
