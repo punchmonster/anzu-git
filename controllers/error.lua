@@ -12,7 +12,8 @@ return function(self)
     ["err_character_limit"]   = { "Your post body or title is too long" , "bar" },
     ["err_not_allowed"]       = { "Not allowed" , "bar" },
     ["err_user_exists"]       = { "User with that handle already exists" },
-    ["err_not_logged_in"]     = { "You're not logged in to see this page" }
+    ["err_not_logged_in"]     = { "You're not logged in to see this page" },
+    ["err_invalid_handle"]    = { "Invalid user handle"}
   }
 
   self.error_result = t[self.params.errorCode]

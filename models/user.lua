@@ -98,6 +98,10 @@ end
 -- FUNCTION: updates user settings
 function User:update(x)
 
+  if x.userHandle = nil then
+   return false, "err_invalid_handle"
+  end
+
   -- initiate variables for file uploads
   local imageLocation
   local userAvatar = x.userAvatar
