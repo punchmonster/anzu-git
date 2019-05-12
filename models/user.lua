@@ -217,7 +217,7 @@ function User:notifications(x)
   elseif x.notifType == "get_notif" then
     local user_data = db.select("* from `userData` WHERE userID = ?", x.userID)
 
-    if user_data[1].userNotif ~= "none then" then
+    if user_data[1].userNotif ~= "none" then
       local notifs
       notifs = util.from_json(user_data[1].userNotif)
 
