@@ -66,7 +66,7 @@ return {
       print(csrf.assert_token(self))
 
       -- verification
-      local status, msg = User:create(self.params.userHandle, self.params.userPassword)
+      local status, msg = User:create(string.match(self.params.userHandle, '^[A-Za-z0-9_-]+'), self.params.userPassword)
       return msg
     end
   end

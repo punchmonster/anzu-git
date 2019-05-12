@@ -46,7 +46,7 @@ return {
       local x = {
         userID = self.loggedUser[1].userID,
         userName = self.params.userName,
-        userHandle = self.params.userHandle,
+        userHandle = string.match(self.params.userHandle, '^[A-Za-z0-9_-]+'),
         userGender = self.params.userGender,
         postImage = self.params.postImage,
         userAvatar = self.loggedUser[1].userAvatar
