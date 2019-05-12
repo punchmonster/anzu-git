@@ -4,31 +4,36 @@
   <div class="profile-main">
   <% if posts_data ~= 0 then %>
     <% for k, v in pairs( posts_data ) do %>
-      <div class="profile-item notif-item">
-        <div class="notif-header flex">
+      <% if v['userID'] ~= loggedUser[1].userID then %>
+        <div class="profile-item notif-item" data-post-id="<%- v['postID'] %>" data-post-handle="<%- v['userHandle'] %>">
+          <div class="notif-header flex">
 
-          <% if v['userAvatar'] == 0 then %>
-            <img src="<%- build_url() %>/static/img/profiles/default-person.jpg" alt="user avatar">
-          <% else %>
-            <img src="<%- build_url() %>/static/img/profiles/<%- v['userID'] %>-avatar.jpg" alt="user avatar">
-          <% end %>
+            <% if v['userAvatar'] == 0 then %>
+              <img src="<%- build_url() %>/static/img/profiles/default-person.jpg" alt="user avatar">
+            <% else %>
+              <img src="<%- build_url() %>/static/img/profiles/<%- v['userID'] %>-avatar.jpg" alt="user avatar">
+            <% end %>
 
-          <p><%- v['userName'] %>
+            <p><%- v['userName'] %>
 
-          <% if v['notifType'] == "like" then %>
-            <i class="typcn typcn-heart-full-outline" ></i>
-          <% else %>
-            <i class="typcn typcn-tag green-tag" ></i>
-          <% end %>
+            <% if v['notifType'] == "like" then %>
+              <i class="typcn typcn-heart-full-outline" ></i>
+            <% else %>
+              <i class="typcn typcn-tag green-tag" ></i>
+            <% end %>
 
-          'd</p>
+            'd</p>
+          </div>
+
+          <div class="notif-header">
+            <p><%- v['postBody'] %></p>
+          </div>
+
+
         </div>
-        <p><%- v['postBody'] %></p>
-      </div>
+      <% end %>
     <% end %>
   <% end %>
-
-      poopy butthole
   </div>
 
 </div>

@@ -240,8 +240,9 @@ function User:notifications(x)
 
         for k2, v2 in pairs(users_data) do
           if tonumber(v.userID) == v2.userID then
-            v.userName = v2.userName
+            v.userName   = v2.userName
             v.userAvatar = v2.userAvatar
+            v.userHandle = v2.userHandle
           end
         end
       end
