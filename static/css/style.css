@@ -319,11 +319,22 @@ nav {
 
 .default-form input {
 	padding: 7px 12px;
-  margin: 0;
+  margin-bottom: 10px;
+	font-size: 18px;
   text-decoration: none;
   font-family: sans-serif;
   border-radius: 10px;
   border: 1px solid #bbb;
+}
+
+.default-form select {
+	padding: 7px 12px;
+	background: #fff;
+	height: 29px;
+	font-size: 18px;
+	overflow: hidden;
+	border-radius: 10px;
+	width: 240px;
 }
 
 .follow-btn {
