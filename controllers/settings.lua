@@ -62,9 +62,9 @@ return {
         return { redirect_to = self:url_for("error", { errorCode = msg }) }
       end
 
-      return "user settings saved"
+      return { redirect_to = self:url_for("index") }
     else
-      return "you are not logged in"
+      return { redirect_to = self:url_for("error", { errorCode = "err_not_logged_in" }) }
     end
   end
 }
