@@ -311,13 +311,18 @@ nav {
 	margin: 20px;
 }
 
+.default-form label {
+	font-size: 20px;
+	font-weight: bold;
+	margin: 8px 0px;
+}
+
 .default-form input {
 	padding: 7px 12px;
   margin: 0;
   text-decoration: none;
   font-family: sans-serif;
   border-radius: 10px;
-  width: 100%;
   border: 1px solid #bbb;
 }
 

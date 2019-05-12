@@ -220,7 +220,8 @@ function init() {
   };
 
   // add event listener
-  document.querySelector(".load-btn").addEventListener("click", LoadClick);
+  var el = document.querySelector('.load-btn');
+  if (el) { el.addEventListener("click", LoadClick); }
 
 
   console.log("scripts initialized");
