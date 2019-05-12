@@ -231,15 +231,19 @@ function User:notifications(x)
       local notifs_data = db.select("* from `posts` WHERE postID IN ( " .. processedPosts .. " )")
       local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
 
-      for k, v in ipairs(notifs) do
-
+      for k, v in pairs(notifs) do
+        for k2, v2 in pairs(notifs_data) do
+          if v.postID == v2.postID then
+            v.postBody = v2.postBody
+          end
+        end
       end
 
       for k,v in ipairs(notifs) do
         --v.postBody = v.postID
       end
 
-      return true, notifs_data
+      return true, notifs
     end
     return true, "No notifications"
   end
