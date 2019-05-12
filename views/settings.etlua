@@ -16,9 +16,8 @@
         <option value="other">other</option>
       </select>
 
-      <input type="file"
-       class="settings-avatar" name="postImage"
-       accept="image/png, image/jpeg">
+      <input id="postImage" type="file" class="settings-avatar inputfile" accept="image/png, image/jpeg">
+      <label for="postImage" class="inputfile-label"><i class="typcn typcn-image" ></i></label>
 
       <!--
       <input type="password" name="userPassword" placeholder="Old password" required pattern="^{3,64}$">
