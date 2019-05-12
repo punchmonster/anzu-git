@@ -217,10 +217,23 @@ function User:notifications(x)
   elseif x.notifType == "get_notif" then
     local user_data = db.select("* from `userData` WHERE userID = ?", x.userID)
 
-    local notifs
-    notifs = util.from_json(user_data[1].userNotif)
+    if user_data[1].userNotif ~= "none then"
+      local notifs
+      notifs = util.from_json(user_data[1].userNotif)
 
-    return true, notifs
+      local processedPosts = "0"
+      local processedUsers = "0"
+      for k, v in ipairs(notifs) do
+        processedPosts = processedPosts .. "," .. v.postID
+        processedUsers = processedUsers .. "," .. v.userID
+      end
+
+      local notifs_data = db.select("* from `posts` WHERE postRef IN ( " .. processedPosts .. " )")
+      local users_data = db.select("* from `users` WHERE postRef IN ( " .. processedUsers .. " )")
+
+      return true, notifs
+    end
+    return true, "No notifications"
   end
 end
 
