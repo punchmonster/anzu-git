@@ -67,7 +67,7 @@ return {
 
       -- verification
       local status, msg = User:create(self.params.userHandle, self.params.userPassword)
-      return status, msg
+      return msg
     end
   end
 }
