@@ -20,8 +20,8 @@ return {
       self.page_title = self.loggedUser[1].userName .. " - notifications"
 
       local x = {
-        x.notifType = "get_notif",
-        x.userID    = self.loggedUser[1].postID
+        notifType = "get_notif",
+        userID    = self.loggedUser[1].postID
       }
       self.notif_status, self.posts_data = User:notifications(x)
 
