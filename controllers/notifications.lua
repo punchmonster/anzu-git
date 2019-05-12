@@ -21,7 +21,7 @@ return {
 
       local x = {
         notifType = "get_notif",
-        userID    = self.loggedUser[1].postID
+        userID    = self.loggedUser[1].userID
       }
       self.notif_status, self.posts_data = User:notifications(x)
 
