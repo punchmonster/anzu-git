@@ -232,19 +232,6 @@ function User:notifications(x)
       local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
 
       for k, v in ipairs(notifs) do
-        function find(x, ID, b)
-          if x == #b + 1 then
-            return
-          end
-
-          if b[x].postID == ID then
-            v.postBody = b[x].postBody
-          end
-
-          return find(x + 1, ID, b)
-        end
-
-        find(1, v.postID, notifs_data)
 
       end
 
@@ -252,7 +239,7 @@ function User:notifications(x)
         --v.postBody = v.postID
       end
 
-      return true, notifs
+      return true, notifs_data
     end
     return true, "No notifications"
   end
