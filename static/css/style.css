@@ -305,21 +305,18 @@ nav {
   text-align: center;
 }
 .default-form {
-	box-sizing: border-box;
-	width: 100%;
+	width: 80%;
 	margin: 20px;
 }
 
 .default-form input {
-	padding: 15px 15px;
+	padding: 7px 12px;
   margin: 0;
   text-decoration: none;
   font-family: sans-serif;
   border-radius: 10px;
   display: block;
   border: 1px solid #bbb;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .follow-btn {
