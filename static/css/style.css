@@ -316,7 +316,7 @@ nav {
   text-decoration: none;
   font-family: sans-serif;
   border-radius: 10px;
-  flex-grow: 1;
+  width: 100%;
   border: 1px solid #bbb;
 }
 
