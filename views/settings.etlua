@@ -3,40 +3,41 @@
 <div class="flex wrap profile-wrapper">
 
   <div class="profile-main">
-  <h1>Change your settings</h1>
 
-  <form class="default-form" action="<%- submit_url %>" method="POST" enctype="multipart/form-data">
-    <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
-    <input type="text" name="email" class="form-email">
+    <form class="default-form" action="<%- submit_url %>" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
+      <input type="text" name="email" class="form-email">
 
-    <label for="userName">Change your display name</label>
-    <input id="userName" type="text" name="userName" value="<%- loggedUser[1].userName %>" placeholder="Change your display name" required>
+      <h1>Change your settings</h1>
 
-    <label for="userHandle">Change your handle</label>
-    <input id="userHandle" type="text" name="userHandle" value="<%- loggedUser[1].userHandle %>" maxlength="15" placeholder="Change your @" required pattern="^[A-Za-z0-9_-]{3,15}$">
+      <label for="userName">Change your display name</label>
+      <input id="userName" type="text" name="userName" value="<%- loggedUser[1].userName %>" placeholder="Change your display name" required>
 
-    <span>Choose your pronouns</span>
-    <select name="userGender">
-      <option value="default">select pronouns</option>
-      <option value="none">none</option>
-      <option value="she">she/her</option>
-      <option value="he">he/him</option>
-      <option value="they">they/them</option>
-      <option value="other">other</option>
-    </select>
+      <label for="userHandle">Change your handle</label>
+      <input id="userHandle" type="text" name="userHandle" value="<%- loggedUser[1].userHandle %>" maxlength="15" placeholder="Change your @" required pattern="^[A-Za-z0-9_-]{3,15}$">
 
-    <span>Select display picture</span>
-    <input id="postImage" type="file" class="settings-avatar inputfile" accept="image/png, image/jpeg">
-    <label for="postImage" class="inputfile-label"><i class="typcn typcn-image" ></i></label>
+      <span>Choose your pronouns</span>
+      <select name="userGender">
+        <option value="default">select pronouns</option>
+        <option value="none">none</option>
+        <option value="she">she/her</option>
+        <option value="he">he/him</option>
+        <option value="they">they/them</option>
+        <option value="other">other</option>
+      </select>
 
-    <!--
-    <input type="password" name="userPassword" placeholder="Old password" required pattern="^{3,64}$">
-    <input type="password" name="userNewPassword" placeholder="New password" required pattern="^{3,64}$">
-    -->
+      <span>Select display picture</span>
+      <input id="postImage" type="file" class="settings-avatar inputfile" accept="image/png, image/jpeg">
+      <label for="postImage" class="inputfile-label"><i class="typcn typcn-image" ></i></label>
 
-    <input class="follow-btn" type="submit" value="Save settings" style="">
+      <!--
+      <input type="password" name="userPassword" placeholder="Old password" required pattern="^{3,64}$">
+      <input type="password" name="userNewPassword" placeholder="New password" required pattern="^{3,64}$">
+      -->
 
-  </form>
+      <input class="follow-btn" type="submit" value="Save settings" style="">
+
+    </form>
 
   </div>
 </div>
