@@ -245,9 +245,20 @@ function User:notifications(x)
         end
       end
 
-      for k,v in ipairs(notifs) do
-        --v.postBody = v.postID
+      function reversePosts(arr)
+      	local i, j = 1, #arr
+
+      	while i < j do
+      		arr[i], arr[j] = arr[j], arr[i]
+
+      		i = i + 1
+      		j = j - 1
+      	end
+
+        return arr
       end
+
+      notifs = reversePosts(notifs)
 
       return true, notifs
     end
