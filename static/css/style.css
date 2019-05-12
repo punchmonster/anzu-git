@@ -328,9 +328,8 @@ nav {
 }
 
 .default-form select {
-	padding: 7px 12px;
+	padding: 3px 8px;
 	background: #fff;
-	height: 29px;
 	font-size: 18px;
 	overflow: hidden;
 	border-radius: 10px;
