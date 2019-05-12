@@ -646,13 +646,18 @@ nav {
 
 .notif-item {
 	box-sizing: border-box;
-	padding: 15px;
+	padding: 15px 25px;
 }
 
 .notif-item .notif-header p {
 	margin: 0px;
 	padding: 2px 5px;
   font-weight: bold;
+}
+
+.notif-item .notif-header i {
+	font-size: 22px;
+	margin-right: -4px;
 }
 
 .notif-item .notif-header img {
