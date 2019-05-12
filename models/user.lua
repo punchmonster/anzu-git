@@ -233,8 +233,8 @@ function User:notifications(x)
 
       for k, v in ipairs(notifs) do
         for a, b in ipairs(notifs_data) do
-          if v.postID == notifs_data[b].postID then
-            v.postBody = notifs_data[b].postBody
+          if v.postID == notifs_data[a].postID then
+            v.postBody = notifs_data[a].postBody
           end
         end
       end
