@@ -152,6 +152,10 @@ function User:update(x)
     end
   end
 
+  if x.userGender ~= "he" and x.userGender ~= "she" and x.userGender ~= "they" and x.userGender ~= "none" and x.userGender ~= "other" and x.userGender ~= "bot" then
+    x.userGender = "none"
+  end
+
   -- push new user info to database
   db.update("users", {
     userName = x.userName,
