@@ -228,8 +228,8 @@ function User:notifications(x)
         processedUsers = processedUsers .. "," .. v.userID
       end
 
-      local notifs_data = db.select("* from `posts` WHERE postRef IN ( " .. processedPosts .. " )")
-      local users_data = db.select("* from `users` WHERE postRef IN ( " .. processedUsers .. " )")
+      local notifs_data = db.select("* from `posts` WHERE postID IN ( " .. processedPosts .. " )")
+      local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
 
       return true, notifs
     end
