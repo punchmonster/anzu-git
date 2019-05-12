@@ -644,6 +644,23 @@ nav {
   height: 35px;
 }
 
+.notif-item {
+	box-sizing: border-box;
+	padding: 15px;
+}
+
+.notif-item .notif-header {
+
+font-weight: bold;
+}
+
+.notif-item .notif-header img {
+	display: inline;
+	width: 25px;
+	height: 25px;
+
+}
+
 .thread-overlay {
   position: absolute;
   top: 0;
