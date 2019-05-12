@@ -11,7 +11,7 @@ local User     = Model:extend("user")
 function User:create(userHandle, userPassword)
 
   -- make sure userHandle is legal
-  if userHandle = nil then
+  if userHandle == nil then
    return false, "err_invalid_handle"
   end
 
@@ -104,7 +104,7 @@ end
 function User:update(x)
 
   -- make sure userHandle is legal
-  if x.userHandle = nil then
+  if x.userHandle == nil then
    return false, "err_invalid_handle"
   end
 
