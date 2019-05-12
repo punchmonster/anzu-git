@@ -91,7 +91,7 @@ function Posts:submit(arg1)
       })
     end]]
 
-    return true
+    return true, postID
   else
     return false, "err_character_limit"
   end

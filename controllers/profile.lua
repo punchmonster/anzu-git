@@ -82,14 +82,14 @@ return {
     }
 
     -- return post status
-    local completed, error = Posts:submit(x)
+    local completed, msg = Posts:submit(x)
     -- pass thread to model
     if completed == true then
       -- go back to feed view
-      return { redirect_to = self:url_for("index") }
+      return { redirect_to = self:url_for("profile", { userHandle = self.user_data[1].userID, postID = msg }) }
       --return { redirect_to = self:url_for("profile", { userHandle = self.params.userHandle, postID = self.params.postID }) }
     else
-      return { redirect_to = self:url_for("error", { errorCode = error }) }
+      return { redirect_to = self:url_for("error", { errorCode = msg }) }
     end
 
   end
