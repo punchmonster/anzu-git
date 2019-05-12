@@ -1,4 +1,8 @@
 
+
+<div class="flex wrap profile-wrapper">
+
+  <div class="profile-main">
   <h1>Change your settings</h1>
 
   <form action="<%- submit_url %>" method="POST" enctype="multipart/form-data">
@@ -28,4 +32,5 @@
 
   </form>
 
+  </div>
 </div>
