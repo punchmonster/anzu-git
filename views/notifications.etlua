@@ -2,8 +2,15 @@
 <div class="flex wrap profile-wrapper">
 
   <div class="profile-main">
+  <% if posts_data ~= 0 then %>
+    <% for k, v in pairs( posts_data ) do %>
+      <div class="profile-item flex">
+        <%- v['userID'] %><%- v['notifType'] %>
+      </div>
+    <% end %>
+  <% end %>
 
- poopy butthole
+      poopy butthole
   </div>
 
 </div>

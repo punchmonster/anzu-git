@@ -19,6 +19,12 @@ return {
       -- Page title
       self.page_title = self.loggedUser[1].userName .. " - notifications"
 
+      x = {
+        x.notifType = "get_notif",
+        x.userID    = self.loggedUser[1].postID
+      }
+      self.notif_status, self.posts_data = User:notifications(x)
+
       return { render = "notifications" }
     else
       return { redirect_to = self:url_for("login") }

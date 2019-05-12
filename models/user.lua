@@ -214,6 +214,13 @@ function User:notifications(x)
     })
 
     return true, msg
+  elseif x.notifType == "get_notif" then
+    local user_data = db.select("* from `userData` WHERE userID = ?", x.userID)
+
+    local notifs
+    notifs = util.from_json(user_data[1].userNotif)
+
+    return true, notifs
   end
 end
 
