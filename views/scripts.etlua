@@ -67,7 +67,7 @@ function init() {
 
   // tag button function
   const TagClick = e => {
-    event.stopPropagation();
+    e.stopPropagation();
     var parent = getParent(e.target, '.post-body');
 
     const Url='http://yukku.org:8080/API/tags/modify/' + parent.getAttribute("data-post-id");
@@ -92,7 +92,7 @@ function init() {
 
   // like button function
   const LikeClick = e => {
-    event.stopPropagation();
+    e.stopPropagation();
     var parent = getParent(e.target, '.post-body');
 
     const Url='http://yukku.org:8080/API/likes/modify/' + parent.getAttribute("data-post-id");
@@ -119,7 +119,7 @@ function init() {
 
   // reply button function
   const ReplyClick = e => {
-    event.stopPropagation();
+    e.stopPropagation();
     var parent = getParent(e.target, '.post-body');
     console.log("post to reply to: " + parent.getAttribute("data-post-id"));
   };
@@ -136,7 +136,7 @@ function init() {
     if (!e.target.classList.contains('profile-item')) {
 
       // Get the parent with the `.post-body` class
-  		var parent = getParent(event.target, '.profile-item');
+  		var parent = getParent(e.target, '.profile-item');
 
       postRedirect('/', parent.getAttribute("data-post-handle"), parent.getAttribute("data-post-id"));
     } else {
@@ -150,7 +150,7 @@ function init() {
 
   // load more of the timeline
   const LoadClick = e => {
-    event.stopPropagation();
+    e.stopPropagation();
     var page = document.querySelector(".load-btn").getAttribute("data-post-page");
     var type = document.querySelector(".load-btn").getAttribute("data-post-type");
     var parent = getParent(e.target, '.profile-main');
@@ -168,9 +168,25 @@ function init() {
     .then(data=>{
       frag = document.createDocumentFragment();
       data.forEach(function(element) {
-
         var el = document.querySelector(".profile-item")
         var profileItem = el.cloneNode(true);
+
+        if (profileItem.getElementsByClassName('post-body-image')[0]) {
+          var pbimg = profileItem.getElementsByClassName('post-body-image')[0];
+          pbimg.parentNode.removeChild(pbimg);
+        } 
+
+        if (element.postImage == 1) {
+          var newclass = document.createElement("div");
+          newclass.setAttribute("class", "post-body-image")
+
+          var newimg = document.createElement("img");
+          newimg.setAttribute("src", "<%- build_url() %>/static/img/post_media/" + element.postID + ".jpg");
+
+          newclass.appendChild(newimg);
+
+          profileItem.getElementsByClassName('post-body')[0].appendChild(newimg);
+        }
 
         profileItem.setAttribute("data-post-id", element.postID);
         profileItem.setAttribute("data-post-handle", element.userHandle);
