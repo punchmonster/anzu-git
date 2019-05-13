@@ -14,7 +14,7 @@
               <img src="<%- build_url() %>/static/img/profiles/<%- v['userID'] %>-avatar.jpg" alt="user avatar">
             <% end %>
 
-            <a><%- v['userName'] %>&nbsp;
+            <a href="<%- build_url() %>/<%- v['userHandle'] %>"><%- v['userName'] %>&nbsp;
 
             <% if v['notifType'] == "like" then %>
               <span>liked</span> <i class="typcn typcn-heart-full-outline" ></i>
