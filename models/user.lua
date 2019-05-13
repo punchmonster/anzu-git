@@ -191,7 +191,7 @@ function User:notifications(x)
       notifs = util.from_json(user_data[1].userNotif)
       local existing
       for k, v in ipairs(notifs) do
-        if x.postID == v.postID and x.userID == v.userID and x.notifType = v.notifType then
+        if x.postID == v.postID and x.userID == v.userID and x.notifType == v.notifType then
           existing = true
           msg = "notification already exists"
         end
