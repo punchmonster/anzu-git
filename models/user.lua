@@ -214,6 +214,8 @@ function User:notifications(x)
     })
 
     return true, msg
+
+  -- compiles notifications page for logged in user
   elseif x.notifType == "get_notif" then
     local user_data = db.select("* from `userData` WHERE userID = ?", x.userID)
 
@@ -276,7 +278,7 @@ function User:notifications(x)
 
       return true, notifs
     end
-    return true, "No notifications"
+    return true, 0
   end
 end
 
