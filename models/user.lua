@@ -229,20 +229,32 @@ function User:notifications(x)
       end
 
       local notifs_data = db.select("* from `posts` WHERE postID IN ( " .. processedPosts .. " )")
+
+      for k, v in ipairs(notifs_data) do
+        processedUsers = processedUsers .. "," .. v.userID
+      end
+
       local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
 
       for k, v in pairs(notifs) do
         for k2, v2 in pairs(notifs_data) do
           if tonumber(v.postID) == v2.postID then
             v.postBody = v2.postBody
+            v.newUserID = v2.newUserID
           end
         end
+      end
 
+      for k,v in pairs(notifs) do
         for k2, v2 in pairs(users_data) do
           if tonumber(v.userID) == v2.userID then
             v.userName   = v2.userName
             v.userAvatar = v2.userAvatar
             v.userHandle = v2.userHandle
+          end
+
+          if v.newUserID == v2.userID then
+            v.newUserHandle == v2.userHandle
           end
         end
       end
