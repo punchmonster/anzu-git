@@ -254,7 +254,7 @@ function User:notifications(x)
           end
 
           if v.newUserID == v2.userID then
-            v.newUserHandle == v2.userHandle
+            v.newUserHandle = v2.userHandle
           end
         end
       end
