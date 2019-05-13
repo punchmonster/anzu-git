@@ -206,6 +206,26 @@ nav {
   margin: 4px;
 }
 
+.nav-content-left a {
+	display:block;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 20px;
+	font-weight: bold;
+	font-size: 20px;
+	color: #fff;
+	align-text: center;
+}
+
+.nav-content-left a i {
+	font-size: 26px;
+}
+
+.nav-content-left a:hover {
+	background: rgba(255,255,255,0.1);
+	color: #72A5E2;
+}
+
 .nav-content-right {
   justify-content: flex-end;
 }

@@ -2,8 +2,10 @@
   <div class="header-content flex">
 
     <div class="nav-content-left flex">
-      <a href="<%- build_url() %>"><img src="<%- build_url() %>/static/img/logo.png" alt="logo" class="logo-header" /></a>
+      <a href="<%- build_url() %>"><i class="typcn typcn-home" ></i> Home</a>
+      <a href="<%- build_url() %>/notifications"><i class="typcn typcn-bell" ></i> Notifications</a>
     </div>
+
     <div class="nav-content-right flex">
       <div class="inline-flex nav-links">
         <a href="<%- build_url() %>/settings" class="flex border-left">
