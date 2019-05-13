@@ -215,10 +215,11 @@ nav {
 	font-size: 16px;
 	color: #fff;
 	align-text: center;
+	opacity: 0.9;
 }
 
 .nav-content-left a i {
-	font-size: 20px;
+	font-size: 21px;
 }
 
 .nav-content-left a:hover {
