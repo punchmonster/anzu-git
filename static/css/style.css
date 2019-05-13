@@ -215,7 +215,7 @@ nav {
 	font-size: 16px;
 	color: #fff;
 	align-text: center;
-	opacity: 0.9;
+	opacity: 0.8;
 }
 
 .nav-content-left a i {
@@ -224,6 +224,7 @@ nav {
 
 .nav-content-left a:hover {
 	color: #72A5E2;
+	opacity: 1;
 }
 
 .nav-content-right {
