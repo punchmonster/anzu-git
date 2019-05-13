@@ -12,7 +12,7 @@ function followButton(userHandle) {
     button.innerHTML = "Unfollow"
   }
 
-  const Url='http://localhost:8080/API/follow/' + userHandle + toggleURL;
+  const Url='http://yukku.org:8080/API/follow/' + userHandle + toggleURL;
 
   fetch(Url)
   .then(data=>{return data.json()})
@@ -70,7 +70,7 @@ function init() {
     e.stopPropagation();
     var parent = getParent(e.target, '.post-body');
 
-    const Url='http://localhost:8080/API/tags/modify/' + parent.getAttribute("data-post-id");
+    const Url='http://yukku.org:8080/API/tags/modify/' + parent.getAttribute("data-post-id");
 
     fetch(Url)
     .then(data=>{return data.json()})
@@ -95,7 +95,7 @@ function init() {
     e.stopPropagation();
     var parent = getParent(e.target, '.post-body');
 
-    const Url='http://localhost:8080/API/likes/modify/' + parent.getAttribute("data-post-id");
+    const Url='http://yukku.org:8080/API/likes/modify/' + parent.getAttribute("data-post-id");
 
     fetch(Url)
     .then(data=>{return data.json()})
@@ -157,10 +157,10 @@ function init() {
 
     var Url
     if (type == "timeline") {
-      Url='http://localhost:8080/API/posts/get_' + type + '/' + page;
+      Url='http://yukku.org:8080/API/posts/get_' + type + '/' + page;
     } else {
       var name = document.querySelector(".load-btn").getAttribute("data-post-name");
-      Url='http://localhost:8080/API/posts/get_' + type + '/' + name + '/' + page;
+      Url='http://yukku.org:8080/API/posts/get_' + type + '/' + name + '/' + page;
     }
 
     fetch(Url)
