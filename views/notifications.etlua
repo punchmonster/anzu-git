@@ -17,9 +17,9 @@
             <p><%- v['userName'] %>&nbsp;
 
             <% if v['notifType'] == "like" then %>
-              liked <i class="typcn typcn-heart-full-outline" ></i>
+              <span>liked</span> <i class="typcn typcn-heart-full-outline" ></i>
             <% else %>
-              tagged <i class="typcn typcn-tag green-tag" ></i>
+              <span>tagged</span> <i class="typcn typcn-tag green-tag" ></i>
             <% end %>
 
             </p>

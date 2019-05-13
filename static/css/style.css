@@ -651,8 +651,12 @@ nav {
 
 .notif-item .notif-header p {
 	margin: 0px;
-	padding: 2px 5px;
+	padding: 2px 10px;
   font-weight: bold;
+}
+
+.notif-item .notif-header p span {
+	font-weight: normal;
 }
 
 .notif-item .notif-header i {
