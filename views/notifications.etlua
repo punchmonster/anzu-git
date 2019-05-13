@@ -5,7 +5,7 @@
   <% if posts_data ~= 0 then %>
     <% for k, v in pairs( posts_data ) do %>
       <% if v['userID'] ~= loggedUser[1].userID then %>
-        <div class="profile-item notif-item" data-post-id="<%- v['postID'] %>" data-post-handle="<%- v['userHandle'] %>">
+        <div class="profile-item notif-item" data-post-id="<%- v['postID'] %>" data-post-handle="<%- v['newUserHandle'] %>">
           <div class="notif-header flex">
 
             <% if v['userAvatar'] == 0 then %>
