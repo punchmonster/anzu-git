@@ -23,7 +23,7 @@
 
           <div class="post-body" data-post-id="<%- v['postID'] %>">
             <% if v['postRef'] ~= 0 then %>
-              <span>_person_ tagged</span>
+              <span class="post-tagged"><i class="typcn typcn-tag green-tag" ></i> _person_ tagged</span>
             <% end %>
             <div class="post-header flex">
               <div class="post-user">
