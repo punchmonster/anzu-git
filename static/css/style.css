@@ -212,17 +212,16 @@ nav {
 	box-sizing: border-box;
 	padding: 0px 16px;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 16px;
 	color: #fff;
 	align-text: center;
 }
 
 .nav-content-left a i {
-	font-size: 22px;
+	font-size: 20px;
 }
 
 .nav-content-left a:hover {
-	background: rgba(255,255,255,0.1);
 	color: #72A5E2;
 }
 
