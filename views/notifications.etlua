@@ -14,7 +14,7 @@
               <img src="<%- build_url() %>/static/img/profiles/<%- v['userID'] %>-avatar.jpg" alt="user avatar">
             <% end %>
 
-            <p><%- v['userName'] %>&nbsp;
+            <a><%- v['userName'] %>&nbsp;
 
             <% if v['notifType'] == "like" then %>
               <span>liked</span> <i class="typcn typcn-heart-full-outline" ></i>
@@ -22,7 +22,7 @@
               <span>tagged</span> <i class="typcn typcn-tag green-tag" ></i>
             <% end %>
 
-            </p>
+            </a>
           </div>
 
           <div class="notif-body">
