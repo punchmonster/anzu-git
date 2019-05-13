@@ -240,7 +240,7 @@ function User:notifications(x)
         for k2, v2 in pairs(notifs_data) do
           if tonumber(v.postID) == v2.postID then
             v.postBody = v2.postBody
-            v.newUserID = v2.newUserID
+            v.newUserID = v2.userID
           end
         end
       end
