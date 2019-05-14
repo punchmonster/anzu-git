@@ -3,6 +3,7 @@ local Model    = require ("lapis.db.model").Model
 local util     = require "lapis.util"
 local magick   = require "magick"
 local Text     = require "models.text"
+local User     = require "models.user"
 local Posts    = Model:extend("posts")
 
 -- FUNCTION: submits new posts to database
