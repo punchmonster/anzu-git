@@ -257,7 +257,7 @@ function User:notifications(x)
           }
 
           table.insert(notifs, notifNew)
-          notif = util.to_json(notifs)
+          notifs = util.to_json(notifs)
 
           db.update("userData", {
             userNotif = notifs
