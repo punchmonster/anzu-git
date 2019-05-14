@@ -186,9 +186,6 @@ function init() {
           newclass.appendChild(newimg);
 
           profileItem.getElementsByClassName('post-body')[0].appendChild(newimg);
-
-          var postTools =  document.querySelector(".post-tools");
-          postTools.parentNode.appendChild(postTools);
         }
 
         profileItem.setAttribute("data-post-id", element.postID);
