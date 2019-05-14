@@ -220,10 +220,10 @@ function User:notifications(x)
 
     local processedMentions = "default_user"
     for k, v in ipairs(x.targetID) do
-      processedMentions = processedMentions .. "," .. v
+      processedMentions = processedMentions .. "','" .. v
     end
 
-    local notifs_data = db.select("* from `users` WHERE userHandle IN ( " .. processedMentions .. " )")
+    local notifs_data = db.select("* from `users` WHERE userHandle IN ( '" .. processedMentions .. "' )")
 
     return true, "check if users were called in DB"
 
