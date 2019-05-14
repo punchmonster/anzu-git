@@ -262,7 +262,7 @@ function User:notifications(x)
           db.update("userData", {
             userNotif = notifs
           },{
-            userID = x.userID
+            userID = v.userID
           })
         end
       end
