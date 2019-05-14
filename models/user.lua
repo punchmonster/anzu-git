@@ -223,7 +223,40 @@ function User:notifications(x)
       processedMentions = processedMentions .. "','" .. v
     end
 
-    local notifs_data = db.select("* from `users` WHERE userHandle IN ( '" .. processedMentions .. "' )")
+    local mentions_data = db.select("* from `users` WHERE userHandle IN ( '" .. processedMentions .. "' )")
+
+    -- check if the mentions actually exist
+    if #mentions_data < 1 then
+      return false, "no users found"
+    end
+
+    local processedUsers = "0"
+    for k, v in ipairs(mentions_data) do
+      processedUsers = processedUsers .. "," .. v.userID
+    end
+
+    local notif_data = db.select("* from `userData` WHERE userID IN ( " .. processedUsers .. " )")
+
+    for k, v in ipairs(mentions_data) do
+      for k2, v2 in ipairs(notif_data) do
+        if v.userID == v2.userID then
+
+          local notifs = util.from_json(v2.userNotif)
+          local notifsNew = {
+            notifType = "mentions",
+            postID = x.postID,
+            targetID = v.userID,
+            userID = x.userID,
+            notifTime = ngx.time()
+          }
+          db.update("userData", {
+            userNotif = notifs
+          },{
+            userID = x.userID
+          })
+        end
+      end
+    end
 
     return true, "check if users were called in DB"
 
