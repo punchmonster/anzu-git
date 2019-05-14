@@ -18,8 +18,10 @@
 
             <% if v['notifType'] == "like" then %>
               <span>liked</span> <i class="typcn typcn-heart-full-outline" ></i>
-            <% else %>
+            <% elseif v['notifType'] == "tag" then %>
               <span>tagged</span> <i class="typcn typcn-tag green-tag" ></i>
+            <% else %>
+              <span>mentioned you</span>
             <% end %>
 
             </a>
