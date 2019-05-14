@@ -215,6 +215,18 @@ function User:notifications(x)
 
     return true, msg
 
+  -- notifies users of a mention
+  elseif x.notifType == "mentions" then
+
+    local processedMentions = "default_user"
+    for k, v in ipairs(x.targetID) do
+      processedMentions = processedMentions .. "," .. v
+    end
+
+    local notifs_data = db.select("* from `users` WHERE userHandle IN ( " .. processedPosts .. " )")
+
+    return true, "check if users were called in DB"
+
   -- compiles notifications page for logged in user
   elseif x.notifType == "get_notif" then
     local user_data = db.select("* from `userData` WHERE userID = ?", x.userID)

@@ -80,6 +80,23 @@ function Posts:submit(arg1)
       postRef     = 0
     })
 
+    local mentionList = {}
+    for word in string.gmatch(arg1.postBody, "@([%w_]+)") do
+      table.insert(mentionList, word)
+    end
+
+    if #mentionList >= 1 then
+      local x = {
+        notifType = "mentions",
+        postID = postID,
+        targetID = mentionList,
+        userID = arg1.userID,
+        notifTime = ngx.time()
+      }
+      -- x: { notifType = "like", postID = 0, targetID = 0, userID = 0, notifTime = 0 }
+      User:notifications(x)
+    end
+
     --[[ update thread time or cull old threads
     if postID == threadNumber then
       self:cull_threads(feed_data[1]['feedName'])
