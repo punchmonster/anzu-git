@@ -241,14 +241,23 @@ function User:notifications(x)
       for k2, v2 in ipairs(notif_data) do
         if v.userID == v2.userID then
 
-          local notifs = util.from_json(v2.userNotif)
-          local notifsNew = {
+          local notifs
+          if v2.userNotif ~= "none" then
+            notifs = util.from_json(v2.userNotif)
+          else
+            notifs = {}
+          end
+
+          local notifNew = {
             notifType = "mentions",
             postID = x.postID,
             targetID = v.userID,
             userID = x.userID,
             notifTime = ngx.time()
           }
+
+          table.insert(notifs, notifNew)
+
           db.update("userData", {
             userNotif = notifs
           },{
