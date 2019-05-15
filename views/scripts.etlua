@@ -1,3 +1,12 @@
+function changeTheme() {
+  const Http = new XMLHttpRequest();
+  const url='/s/change_theme';
+  Http.open("GET", url);
+  Http.send();
+  Http.onreadystatechange=(e)=>{
+     location.reload(); 
+  }
+}
 
 function followButton(userHandle) {
 

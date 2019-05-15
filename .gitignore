@@ -45,3 +45,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+static/img/post_media/*
+!static/img/post_media/template.jpg
