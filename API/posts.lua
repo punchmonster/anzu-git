@@ -26,6 +26,10 @@ return function(self)
       currentID = self.loggedUser[1].userID
     end
 
+    if tonumber(self.params.ID2) == 0 then 
+      self.params.ID2 = nil
+    end
+
     status, output = Posts:get_profile(self.params.ID, currentID, self.params.ID2)
   end
 

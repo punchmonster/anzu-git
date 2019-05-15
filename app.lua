@@ -49,10 +49,10 @@ app:match("settings", "/settings",                              respond_to(setti
 app:match("change_theme", "/s/change_theme",                    change_theme)
 
 -- API routes
-app:match("follow", "/API/follow/:followHandle(/:toggle)",      APIfollow)
-app:match("likes", "/API/likes/:option/:ID[%d]",                APIlikes)
-app:match("posts", "/API/posts/:option(/:ID(/:ID2))",           APIposts)
-app:match("tags", "/API/tags/:option/:ID[%d]",                  APItags)
+app:match("follow", "/API/follow/:followHandle(/:toggle(/:APIKey))",  APIfollow)
+app:match("likes", "/API/likes/:option/:ID[%d](/:APIKey)",            APIlikes)
+app:match("posts", "/API/posts/:option(/:ID(/:ID2))",                 APIposts)
+app:match("tags", "/API/tags/:option/:ID[%d](/:APIKey)",              APItags)
 
 -- mobile routes
 app:match("mobile_login", "/m/mobile_login", respond_to(mobile_login))
