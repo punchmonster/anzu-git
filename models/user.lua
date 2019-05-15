@@ -56,7 +56,7 @@ function User:create(userHandle, userPassword)
       userGroup = 1,
       userCreationDate = ngx.time(),
       userFollowing = util.to_json(userFollowing),
-      APIKey = APIKey
+      APIKey = tostring(APIKey)
     })
 
     -- setting large user datasets to defaults
