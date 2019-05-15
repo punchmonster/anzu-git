@@ -25,10 +25,15 @@ function User:create(userHandle, userPassword)
 
     -- warm up RNG and generate usersalt
     local userSalt
+    local APIKey
     math.randomseed(ngx.time())
     for x = 1,5 do
         -- random generating
         userSalt = math.random(0,500000000)
+    end
+    for x = 1,5 do
+        -- random generating
+        APIKey = math.random(0,500000000)
     end
 
     -- encrypt userPassword
@@ -49,7 +54,8 @@ function User:create(userHandle, userPassword)
       userSalt = userSalt,
       userGroup = 1,
       userCreationDate = ngx.time(),
-      userFollowing = util.to_json(userFollowing)
+      userFollowing = util.to_json(userFollowing),
+      APIKey = encoding.hmac_sha1(APIKey, userName)
     })
 
     -- setting large user datasets to defaults
