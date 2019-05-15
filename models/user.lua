@@ -31,9 +31,6 @@ function User:create(userHandle, userPassword)
     for x = 1,5 do
         -- random generating
         userSalt = math.random(0,500000000)
-    end
-    for x = 1,5 do
-        -- random generating
         keySeed = math.random(0,500000000)
     end
 
