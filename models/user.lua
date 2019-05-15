@@ -4,6 +4,7 @@ local Model    = require ("lapis.db.model").Model
 local config   = require("lapis.config").get()
 local util     = require("lapis.util")
 local encoding = require("lapis.util.encoding")
+local Text     = require "models.text"
 local User     = Model:extend("user")
 
 -- FUNCTION: create new user
@@ -25,7 +26,7 @@ function User:create(userHandle, userPassword)
 
     -- warm up RNG and generate usersalt
     local userSalt
-    local APIKey
+    local keySeed
     math.randomseed(ngx.time())
     for x = 1,5 do
         -- random generating
@@ -33,7 +34,7 @@ function User:create(userHandle, userPassword)
     end
     for x = 1,5 do
         -- random generating
-        APIKey = math.random(0,500000000)
+        keySeed = math.random(0,500000000)
     end
 
     -- encrypt userPassword
@@ -56,7 +57,7 @@ function User:create(userHandle, userPassword)
       userGroup = 1,
       userCreationDate = ngx.time(),
       userFollowing = util.to_json(userFollowing),
-      APIKey = tostring(APIKey)
+      APIKey = Text:APIKey(keySeed)
     })
 
     -- setting large user datasets to defaults
