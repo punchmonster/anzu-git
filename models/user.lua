@@ -38,6 +38,7 @@ function User:create(userHandle, userPassword)
 
     -- encrypt userPassword
     userPassword = encoding.hmac_sha1(userSalt, userPassword)
+    APIKey = encoding.hmac_sha1(APIKey, userPassword)
 
     -- set default following
     local userFollowing = { 1 }
@@ -55,7 +56,7 @@ function User:create(userHandle, userPassword)
       userGroup = 1,
       userCreationDate = ngx.time(),
       userFollowing = util.to_json(userFollowing),
-      APIKey = encoding.hmac_sha1(APIKey, userName)
+      APIKey = APIKey
     })
 
     -- setting large user datasets to defaults
