@@ -10,6 +10,7 @@ app.layout = require "views.layout"
 
 -- before
 local check_auth = require "controllers.check_auth"
+local check_theme = require "controllers.check_theme"
 
 -- controllers
 local index         = require "controllers.index"
@@ -19,6 +20,10 @@ local notifications = require "controllers.notifications"
 local profile       = require "controllers.profile"
 local error_404     = require "controllers.error_404"
 local settings      = require "controllers.settings"
+local change_theme  = require "controllers.change_theme"
+
+-- mobile
+local mobile_login  = require "mobile.mobile_login"
 
 -- API controllers
 local APIfollow   = require "API.follow"
@@ -28,6 +33,7 @@ local APItags     = require "API.tags"
 
 -- before routes
 app:before_filter(check_auth)
+app:before_filter(check_theme)
 
 -- error handling
 app.handle_404 = error_404
@@ -40,11 +46,15 @@ app:match("login", "/login",                                    respond_to(login
 app:match("notifications", "/notifications",                    respond_to(notifications))
 app:match("profile", "/:userHandle(/:postID[%d])",              respond_to(profile))
 app:match("settings", "/settings",                              respond_to(settings))
+app:match("change_theme", "/s/change_theme",                    change_theme)
 
 -- API routes
 app:match("follow", "/API/follow/:followHandle(/:toggle)",      APIfollow)
 app:match("likes", "/API/likes/:option/:ID[%d]",                APIlikes)
 app:match("posts", "/API/posts/:option(/:ID(/:ID2))",           APIposts)
 app:match("tags", "/API/tags/:option/:ID[%d]",                  APItags)
+
+-- mobile routes
+app:match("mobile_login", "/m/mobile_login", respond_to(mobile_login))
 
 return app

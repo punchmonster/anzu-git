@@ -4,6 +4,11 @@
     <div class="nav-content-left flex">
       <a href="<%- build_url() %>"><i class="typcn typcn-home" ></i> main</a>
       <a href="<%- build_url() %>/notifications"><i class="typcn typcn-bell" ></i> notifications</a>
+      <% if theme == "dark" then %>
+      <a href="#" onclick="changeTheme()"><i class="typcn typcn-weather-sunny" ></i> change theme</a>
+      <% else %>
+      <a href="#" onclick="changeTheme()"><i class="typcn typcn-weather-night" ></i> change theme</a>
+      <% end %>
     </div>
 
     <div class="nav-content-right flex">

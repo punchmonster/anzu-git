@@ -105,6 +105,12 @@ function User:login(userHandle, userPassword)
   return false, "wrong password"
 end
 
+function User:key(userHandle)
+  local user_data = db.select("* from `users` where userHandle = ?", userHandle)
+
+  return user_data[1].APIKey
+end
+
 -- FUNCTION: updates user settings
 function User:update(x)
 
