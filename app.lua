@@ -19,6 +19,7 @@ local notifications = require "controllers.notifications"
 local profile       = require "controllers.profile"
 local error_404     = require "controllers.error_404"
 local settings      = require "controllers.settings"
+local search        = require "controllers.search"
 
 -- mobile
 local mobile_login  = require "mobile.mobile_login"
@@ -42,6 +43,7 @@ app:match("404", "/404",                                        error_404)
 app:match("login", "/login",                                    respond_to(login))
 app:match("notifications", "/notifications",                    respond_to(notifications))
 app:match("settings", "/settings",                              respond_to(settings))
+app:match("search", "/search(/:searchQuery)",                   respond_to(search))
 app:match("profile", "/:userHandle(/:postID[%d])",              respond_to(profile))
 
 -- API routes

@@ -25,6 +25,7 @@
 </nav>
 
 <div class="header-display flex">
+  <% if page_title ~= "search" then %>
   <div class="header-stats flex">
     <div class="header-stats-content flex">
       <a href="#">Following<br /><%= following_count %></a>
@@ -35,6 +36,7 @@
       <% end %>
     </div>
   </div>
+
   <div class="profile-blurb-wrapper flex">
     <div class="profile-blurb flex">
       <% if user_data[1]['userAvatar'] == 0 then %>
@@ -48,4 +50,5 @@
       </div>
     </div>
   </div>
+  <% end %>
 </div>
