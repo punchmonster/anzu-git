@@ -34,7 +34,6 @@ local APItheme     = require "API.theme"
 
 -- before routes
 app:before_filter(check_auth)
-app:before_filter(check_theme)
 
 -- error handling
 app.handle_404 = error_404
