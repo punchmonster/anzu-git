@@ -10,7 +10,6 @@ app.layout = require "views.layout"
 
 -- before
 local check_auth = require "controllers.check_auth"
-local check_theme = require "controllers.check_theme"
 
 -- controllers
 local index         = require "controllers.index"
