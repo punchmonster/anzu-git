@@ -19,13 +19,11 @@ return {
   end,
 
   POST = function(self)
-      -- check csrf protection
+
       -- check csrf protection
       csrf.assert_token(self)
 
-      { redirect_to = self:url_for("search", { searchQuery = self.params.searchQuery }) }
-
-      return msg
+      return { redirect_to = self:url_for("search", { searchQuery = self.params.searchQuery }) }
     end
   end
 }
