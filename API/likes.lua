@@ -11,7 +11,7 @@ return function(self)
     if self.loggedIn == true then
 
       -- execute action with supplied userID and postID
-      if self.params.ID ~= nil and tonumber(self.params.ID) ~= 0 then
+      if self.params.ID ~= nil and self.params.ID ~= 0 then
         status, msg = Posts:like_post(self.loggedUser[1].userID, self.params.ID)
       end
     else

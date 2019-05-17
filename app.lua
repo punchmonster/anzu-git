@@ -19,16 +19,23 @@ local notifications = require "controllers.notifications"
 local profile       = require "controllers.profile"
 local error_404     = require "controllers.error_404"
 local settings      = require "controllers.settings"
-
+local change_theme  = require "controllers.change_theme"
 
 -- mobile
 local mobile_login  = require "mobile.mobile_login"
 
 -- API controllers
+<<<<<<< HEAD
 local APIfollow    = require "API.follow"
 local APIlikes     = require "API.likes"
 local APIposts     = require "API.posts"
 local APItags      = require "API.tags"
+=======
+local APIfollow   = require "API.follow"
+local APIlikes    = require "API.likes"
+local APIposts    = require "API.posts"
+local APItags     = require "API.tags"
+>>>>>>> parent of d43515c... move themes into APIs
 
 -- before routes
 app:before_filter(check_auth)
@@ -44,8 +51,7 @@ app:match("login", "/login",                                    respond_to(login
 app:match("notifications", "/notifications",                    respond_to(notifications))
 app:match("profile", "/:userHandle(/:postID[%d])",              respond_to(profile))
 app:match("settings", "/settings",                              respond_to(settings))
-app:match("search", "/search(/:searchString)",                  respond_to(search))
-app:match("profile", "/:userHandle(/:postID[%d])",              respond_to(profile))
+app:match("change_theme", "/s/change_theme",                    change_theme)
 
 -- API routes
 app:match("follow", "/API/follow/:followHandle(/:toggle(/:APIKey))",  APIfollow)
