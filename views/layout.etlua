@@ -6,11 +6,7 @@
 
     <!-- style sheets -->
     <link rel="stylesheet" type="text/css" href="<%- build_url() %>/static/css/normalize.css">
-    <% if layout == "dark" then %>
     <link rel="stylesheet" type="text/css" href="<%- build_url() %>/static/css/style.css">
-    <% else %>
-    <link rel="stylesheet" type="text/css" href="<%- build_url() %>/static/css/style-light.css">
-    <% end %>
     <link rel="stylesheet" type="text/css" href="<%- build_url() %>/static/css/typicons.min.css">
 
     <!-- page title -->
