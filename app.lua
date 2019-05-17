@@ -29,7 +29,6 @@ local APIfollow    = require "API.follow"
 local APIlikes     = require "API.likes"
 local APIposts     = require "API.posts"
 local APItags      = require "API.tags"
-local APItheme     = require "API.theme"
 
 -- before routes
 app:before_filter(check_auth)
@@ -53,7 +52,6 @@ app:match("follow", "/API/follow/:followHandle(/:toggle(/:APIKey))",  APIfollow)
 app:match("likes", "/API/likes/:option/:ID[%d](/:APIKey)",            APIlikes)
 app:match("posts", "/API/posts/:option(/:ID(/:ID2))",                 APIposts)
 app:match("tags", "/API/tags/:option/:ID[%d](/:APIKey)",              APItags)
-app:match("theme", "/API/change_theme",                                 APItheme)
 
 -- mobile routes
 app:match("mobile_login", "/m/mobile_login", respond_to(mobile_login))
