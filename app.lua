@@ -25,17 +25,10 @@ local change_theme  = require "controllers.change_theme"
 local mobile_login  = require "mobile.mobile_login"
 
 -- API controllers
-<<<<<<< HEAD
 local APIfollow    = require "API.follow"
 local APIlikes     = require "API.likes"
 local APIposts     = require "API.posts"
 local APItags      = require "API.tags"
-=======
-local APIfollow   = require "API.follow"
-local APIlikes    = require "API.likes"
-local APIposts    = require "API.posts"
-local APItags     = require "API.tags"
->>>>>>> parent of d43515c... move themes into APIs
 
 -- before routes
 app:before_filter(check_auth)
