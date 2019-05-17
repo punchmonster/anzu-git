@@ -41,8 +41,8 @@ app:match("error", "/error/:errorCode",                         error)
 app:match("404", "/404",                                        error_404)
 app:match("login", "/login",                                    respond_to(login))
 app:match("notifications", "/notifications",                    respond_to(notifications))
-app:match("profile", "/:userHandle(/:postID[%d])",              respond_to(profile))
 app:match("settings", "/settings",                              respond_to(settings))
+app:match("profile", "/:userHandle(/:postID[%d])",              respond_to(profile))
 
 -- API routes
 app:match("follow", "/API/follow/:followHandle(/:toggle(/:APIKey))",  APIfollow)
