@@ -20,10 +20,6 @@ return {
 
   POST = function(self)
 
-      -- check csrf protection
-      csrf.assert_token(self)
-
-      return 0 --{ redirect_to = self:url_for("search", { searchQuery = self.params.searchQuery }) }
-    end
+    return 0
   end
 }
