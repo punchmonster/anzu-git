@@ -23,7 +23,7 @@ return {
       -- check csrf protection
       csrf.assert_token(self)
 
-      return { redirect_to = self:url_for("search", { searchQuery = self.params.searchQuery }) }
+      return 0 --{ redirect_to = self:url_for("search", { searchQuery = self.params.searchQuery }) }
     end
   end
 }
