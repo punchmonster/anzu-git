@@ -15,7 +15,7 @@ return {
     self.csrf_token = csrf.generate_token(self)
     self.submit_url = self:url_for("search")
 
-    User:search(self.params.searchQuery)
+    self.user_search = User:search(self.params.searchQuery)
 
     return { render = "search" }
   end,

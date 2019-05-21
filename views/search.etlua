@@ -2,6 +2,11 @@
 <div class="flex wrap profile-wrapper">
 
   <div class="profile-main">
+    <% if user_search ~= 0 then %>
+      <% for k, v in pairs( user_search ) do %>
+        <h4><%- v.userName %></h4>
+      <% end %>
+    <% end %>
 
   </div>
 
