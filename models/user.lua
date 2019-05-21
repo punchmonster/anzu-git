@@ -347,6 +347,14 @@ function User:notifications(x)
   end
 end
 
+-- FUNCTION: searches through users
+-- ARGUMENTS: users ID
+-- RETURNS: table with all user data
+function User:search(string)
+  local user_data = db.select("* FROM `users` WHERE CONCAT(userName, '', userHandle, '', 2) LIKE ?", "%" .. string .. "%")
+  return user_data
+end
+
 -- FUNCTION: gets user data
 -- ARGUMENTS: users ID
 -- RETURNS: table with all user data
