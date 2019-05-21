@@ -10,8 +10,12 @@
 
   </div>
 
+  <div style="width: 20px;">
+    &nbsp;
+  </div>
+
   <div class="profile-main">
-    <% if timeline_data ~= 0 then %>
+    <% if timeline_data ~= 0 and timeline_data ~= nil then %>
       <% for k, v in pairs( timeline_data ) do %>
         <div class="profile-item flex post-<%- v['postID'] %>" data-post-id="<%- v['postID'] %>" data-post-handle="<%- v['userHandle'] %>">
 
