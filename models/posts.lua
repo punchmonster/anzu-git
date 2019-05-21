@@ -548,4 +548,12 @@ function Posts:sort_thread(a, currentThreadID)
   return sorted_convo
 end
 
+-- FUNCTION: searches through posts
+-- ARGUMENTS: users ID
+-- RETURNS: table with all user data
+function Posts:search(string)
+  local posts_data = db.select("* FROM `posts` WHERE postBody LIKE ? LIMIT 10", "%" .. string .. "%")
+  return posts_data
+end
+
 return Posts
