@@ -553,6 +553,16 @@ end
 -- RETURNS: table with all user data
 function Posts:search(string)
   local posts_data = db.select("* FROM `posts` WHERE postBody LIKE ? LIMIT 10", "%" .. string .. "%")
+
+  -- make a list of users to grab data for
+  local processedUsers = "0"
+  for k, v in ipairs(posts_data) do
+    processedUsers = processedUsers .. "," .. v.userID
+  end
+
+  local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
+
+  posts_data = self:merge_user_data(user_data, posts_data)
   return posts_data
 end
 
