@@ -24,6 +24,6 @@ return {
 
   POST = function(self)
 
-    return 0
+    return { redirect_to = self:url_for("search", { searchQuery = self.params.searchQuery }) }
   end
 }
