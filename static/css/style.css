@@ -249,6 +249,7 @@ nav {
 .nav-content-left .search-form button {
 	text-decoration: none;
 	background: none;
+	height: 25px;
 	border:none;
 	position: absolute;
 	z-index: 3;
