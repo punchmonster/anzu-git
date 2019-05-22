@@ -4,6 +4,12 @@
     <div class="nav-content-left flex">
       <a href="<%- build_url() %>"><i class="typcn typcn-home" ></i> main</a>
       <a href="<%- build_url() %>/notifications"><i class="typcn typcn-bell" ></i> notifications</a>
+      <form action="<%- build_url() %>/search" method="POST" enctype="multipart/form-data" class="search-form">
+        <input type="hidden" name="csrf_token" value="<%- csrf_token %>">
+        <input type="text" name="email" class="form-email" style="">
+
+        <input type="text" name="searchQuery" class="form-email" placeholder="search...">
+      </form>
     </div>
 
     <div class="nav-content-right flex">

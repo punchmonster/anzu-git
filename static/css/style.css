@@ -227,6 +227,10 @@ nav {
 	opacity: 1;
 }
 
+.nav-content-left .search-form input {
+
+}
+
 .nav-content-right {
   justify-content: flex-end;
 }
