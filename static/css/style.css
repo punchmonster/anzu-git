@@ -229,6 +229,8 @@ nav {
 
 .nav-content-left .search-form input {
 	margin-left: 15px;
+	height: 35px;
+	border-sizing: border-box;
 	background: #122229;
 	padding: 6px 15px;
 	font-size: 14px;
@@ -249,7 +251,8 @@ nav {
 .nav-content-left .search-form button {
 	text-decoration: none;
 	background: none;
-	height: 25px;
+	height: 35px;
+	
 	border:none;
 	left: -20px;
 }
