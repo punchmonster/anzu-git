@@ -562,7 +562,7 @@ function Posts:search(string)
 
   local users_data = db.select("* from `users` WHERE userID IN ( " .. processedUsers .. " )")
 
-  posts_data = self:merge_user_data(user_data, posts_data)
+  posts_data = self:merge_user_data(users_data, posts_data)
   return posts_data
 end
 
