@@ -4,7 +4,13 @@
   <div class="profile-main">
     <% if user_search ~= 0 then %>
       <% for k, v in pairs( user_search ) do %>
+        <% if v.userAvatar == 0 then %>
+          <img src="<%- build_url() %>/static/img/profiles/default-person.jpg" alt="user avatar">
+        <% else %>
+          <img src="<%- build_url() %>/static/img/profiles/<%- v.userID %>-avatar.jpg" alt="user avatar">
+        <% end %>
         <h4><%- v.userName %></h4>
+        <span><%- v.userHandle %></span>
       <% end %>
     <% end %>
 
