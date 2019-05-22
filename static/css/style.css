@@ -230,8 +230,8 @@ nav {
 .nav-content-left .search-form input {
 	margin-left: 15px;
 	background: #122229;
-	padding: 5px 15px;
-	font-size: 16px;
+	padding: 6px 15px;
+	font-size: 14px;
 	text-decoration: none;
 	font-family: sans-serif;
 	border-radius: 15px;
@@ -244,6 +244,15 @@ nav {
 .nav-content-left .search-form input:focus {
 	border: 1px solid #72A5E2;
 	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+.nav-content-left .search-form button {
+	text-decoration: none;
+	background: none;
+	border:none;
+	position: absolute;
+	z-index: 3;
+	left: -20px;
 }
 
 .nav-content-right {
