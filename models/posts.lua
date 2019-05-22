@@ -552,6 +552,7 @@ end
 -- ARGUMENTS: users ID
 -- RETURNS: table with all user data
 function Posts:search(string)
+  string = util.unescape(string)
   local posts_data = db.select("* FROM `posts` WHERE postBody LIKE ? LIMIT 10", "%" .. string .. "%")
 
   -- make a list of users to grab data for
