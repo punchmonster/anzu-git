@@ -228,7 +228,12 @@ nav {
 }
 
 .nav-content-left .search-form input {
-
+	background: #122229;
+	padding: 7px 12px;
+	font-size: 18px;
+	text-decoration: none;
+	font-family: sans-serif;
+	border-radius: 10px;
 }
 
 .nav-content-right {
