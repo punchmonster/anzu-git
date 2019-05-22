@@ -15,7 +15,7 @@
   </div>
 
   <div class="profile-main">
-    <% if posts_search ~= 0 and posts_data ~= nil then %>
+    <% if posts_search ~= 0 and posts_search ~= nil then %>
       <% for k, v in pairs( posts_search ) do %>
         <% if v.postRef == 0 then %>
           <div class="profile-item flex post-<%- v['postID'] %>" data-post-id="<%- v['postID'] %>" data-post-handle="<%- v['userHandle'] %>">

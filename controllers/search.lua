@@ -17,7 +17,7 @@ return {
     self.submit_url = self:url_for("search")
 
     self.user_search = User:search(self.params.searchQuery)
-    --self.posts_search = Posts:search(self.params.searchQuery)
+    self.posts_search = Posts:search(self.params.searchQuery)
 
     return { render = "search" }
   end,
