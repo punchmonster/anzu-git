@@ -237,6 +237,12 @@ nav {
 	border-radius: 15px;
 	color: #fff;
 	border: none;
+	transition: all 0.30s ease-in-out;
+}
+
+.nav-content-left .search-form input:focus {
+	border: 1px solid rgba(81, 203, 238, 1);
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
 }
 
 .nav-content-right {
