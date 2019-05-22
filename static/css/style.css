@@ -251,13 +251,11 @@ nav {
 	background: none;
 	height: 25px;
 	border:none;
-	position: relative;
-	z-index: 3;
 	left: -20px;
 }
 
 .nav-content-left .search-form button img {
-
+	height: 25px;
 }
 
 .nav-content-right {
