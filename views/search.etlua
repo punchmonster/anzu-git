@@ -72,9 +72,9 @@
         <% end %>
       <% end %>
 
-      <div class="load-btn" data-post-type="timeline" data-post-page="1">
+      <!--<div class="load-btn" data-post-type="timeline" data-post-page="1">
         <p>show more</p>
-      </div>
+      </div>-->
     <% end %>
   </div>
 
