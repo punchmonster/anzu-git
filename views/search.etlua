@@ -1,7 +1,7 @@
 
 <div class="flex wrap profile-wrapper">
 
-  <div class="profile-main" style="width:auto;">
+  <div class="profile-main" style="width: auto;max-width:560px;">
     <% if user_search ~= 0 then %>
       <% for k, v in pairs( user_search ) do %>
         <a class="search-user" href="<%- build_url() %>/v.userHandle">
