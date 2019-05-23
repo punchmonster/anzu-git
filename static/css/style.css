@@ -760,6 +760,7 @@ nav {
 .search-user {
 	display: block;
 	width: 280px;
+	text-decoration: none;
 }
 
 .search-user img {

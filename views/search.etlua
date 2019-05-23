@@ -11,7 +11,7 @@
             <img src="<%- build_url() %>/static/img/profiles/<%- v.userID %>-avatar.jpg" alt="user avatar">
           <% end %>
           <h4><%- v.userName %></h4>
-          <span><%- v.userHandle %></span>
+          <span>@<%- v.userHandle %></span>
         </a>
       <% end %>
     <% end %>
