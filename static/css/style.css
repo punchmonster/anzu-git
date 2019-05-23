@@ -771,13 +771,23 @@ nav {
 .search-user img {
 	width: 75px;
 	height: 75px;
-	margin: 0 auto;
-	margin-top: 15px;
+	margin: 10px;
 	border-radius: 75px;
 	border: 3px solid #fff;
 }
 
 .search-user h4 {
-	font-size: 17px;
-	color: #fff;
+  font-size: 19px;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0,0,0,0.6);
+  padding: 4px 10px;
+  margin-bottom: 4px;
+}
+
+.search-user span {
+  font-size: 15px;
+  color: #F96854;
+  background: rgba(0,0,0,0.6);
+  padding: 4px 7px;
 }
