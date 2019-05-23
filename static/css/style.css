@@ -759,13 +759,12 @@ nav {
 
 .search-user {
 	display: block;
-	width: 280px;
 	box-sizing: border-box;
-	padding: 20px;
 	text-decoration: none;
 }
 
 .search-user-header {
+	width: 280px;
 	background: linear-gradient(122deg, rgba(162,51,152,1) 0%, rgba(237,47,74,1) 57%, rgba(249,104,84,1) 77%, rgba(254,59,0,1) 100%);
 }
 
