@@ -5,11 +5,13 @@
     <% if user_search ~= 0 then %>
       <% for k, v in pairs( user_search ) do %>
         <a class="search-user" href="<%- build_url() %>/v.userHandle">
-          <% if v.userAvatar == 0 then %>
-            <img src="<%- build_url() %>/static/img/profiles/default-person.jpg" alt="user avatar">
-          <% else %>
-            <img src="<%- build_url() %>/static/img/profiles/<%- v.userID %>-avatar.jpg" alt="user avatar">
-          <% end %>
+          <div class="search-user-header">
+            <% if v.userAvatar == 0 then %>
+              <img src="<%- build_url() %>/static/img/profiles/default-person.jpg" alt="user avatar">
+            <% else %>
+              <img src="<%- build_url() %>/static/img/profiles/<%- v.userID %>-avatar.jpg" alt="user avatar">
+            <% end %>
+          </div>
           <h4><%- v.userName %></h4>
           <span>@<%- v.userHandle %></span>
         </a>
