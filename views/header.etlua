@@ -6,7 +6,7 @@
       <a href="<%- build_url() %>/notifications"><i class="typcn typcn-bell" ></i> notifications</a>
       <form action="<%- build_url() %>/search" method="POST" enctype="multipart/form-data" class="search-form">
         <input type="text" name="searchQuery" class="search-box" placeholder="search...">
-        <button class="search-btn" type="submit" style=""><img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png" alt="search"></button>
+        <button class="search-btn" type="submit" style=""></button>
       </form>
     </div>
 

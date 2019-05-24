@@ -12,9 +12,13 @@
               <img src="<%- build_url() %>/static/img/profiles/<%- v.userID %>-avatar.jpg" alt="user avatar">
             <% end %>
             <div>
-            <h4><%- v.userName %></h4>
-            <span>@<%- v.userHandle %></span>
+              <h4><%- v.userName %></h4>
+              <span>@<%- v.userHandle %></span>
             </div>
+          </div>
+
+          <div class="search-user-content flex">
+            <p><%- v.userBio %></p>
           </div>
 
         </a>
